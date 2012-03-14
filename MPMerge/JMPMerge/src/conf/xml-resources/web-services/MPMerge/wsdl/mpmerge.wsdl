@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gdsmpws.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://gdsmpws.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://gdsmpws.org/">
+      <s:element name="MergeBureauReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inputExperian1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputEquifax1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputTU1" type="s:string" />
+
+            <s:element minOccurs="0" maxOccurs="1" name="inputExperian2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputEquifax2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputTU2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inmcfg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inccfg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stylesheet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="MergeBureauReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MergeBureauReportsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+
+  <wsdl:message name="MergeBureauReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:MergeBureauReports" />
+  </wsdl:message>
+  <wsdl:message name="MergeBureauReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:MergeBureauReportsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="MergeBureauReports">
+      <wsdl:input message="tns:MergeBureauReportsSoapIn" />
+
+      <wsdl:output message="tns:MergeBureauReportsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MergeBureauReports">
+      <soap:operation soapAction="http://gdsmpws.org/MergeBureauReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MergeBureauReports">
+
+      <soap12:operation soapAction="http://gdsmpws.org/MergeBureauReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:51233/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:51233/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

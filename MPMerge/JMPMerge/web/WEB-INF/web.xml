@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	 version="3.0">
+    <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Service1</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Service1</servlet-name>
+        <url-pattern>/mpmerge</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+    <context-param>
+        <description>The number of sequentially numbered DLL's available</description>
+        <param-name>dll_count</param-name>
+        <param-value>8</param-value>
+    </context-param>
+    <context-param>
+        <description>The timeout to wait for a thread with an available resource and run MPMerge (ms)</description>
+        <param-name>mpmerge_timeout</param-name>
+        <param-value>60000</param-value>
+    </context-param>
+</web-app>
