@@ -37,11 +37,18 @@ public class MPWrapData
         {
             File file = new File(strFilename);
             StringBuilder builder = new StringBuilder((int)file.length());
-            BufferedReader reader =  new BufferedReader(new FileReader(file));
 
-            String strLine;
-            while((strLine = reader.readLine()) != null)
-                builder.append(strLine);
+            BufferedReader reader =  new BufferedReader(new FileReader(file));
+            try
+            {
+                String strLine;
+                while((strLine = reader.readLine()) != null)
+                    builder.append(strLine);
+            }
+            finally
+            {
+                reader.close();
+            }
 
             return builder.toString();
         }
@@ -61,7 +68,14 @@ public class MPWrapData
             byte[] bytes = new byte[(int)file.length()];
 
             FileInputStream is = new FileInputStream(file);
-            is.read(bytes);
+            try
+            {
+                is.read(bytes);
+            }
+            finally
+            {
+                is.close();
+            }
 
             return bytes;
         }
