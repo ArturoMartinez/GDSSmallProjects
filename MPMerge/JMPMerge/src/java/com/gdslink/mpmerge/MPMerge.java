@@ -14,8 +14,6 @@ import javax.servlet.ServletContext;
 import javax.xml.ws.BindingType;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
@@ -24,7 +22,7 @@ import org.apache.log4j.xml.DOMConfigurator;
  * @author simon
  */
 @WebService(serviceName = "Service1", portName = "Service1Soap", endpointInterface = "org.gdsmpws.Service1Soap", targetNamespace = "http://gdsmpws.org/", wsdlLocation = "WEB-INF/wsdl/MPMerge/mpmerge.wsdl")
-@BindingType(value = "http://java.sun.com/xml/ns/jaxws/2003/05/soap/bindings/HTTP/") //SOAP 1.2
+//@BindingType(value = "http://java.sun.com/xml/ns/jaxws/2003/05/soap/bindings/HTTP/") //SOAP 1.2
 public class MPMerge
 {
     static final Logger log = Logger.getLogger(MPMerge.class);
