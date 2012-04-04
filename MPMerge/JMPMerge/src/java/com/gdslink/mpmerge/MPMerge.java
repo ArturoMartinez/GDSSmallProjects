@@ -100,6 +100,7 @@ public class MPMerge
             data.setLogLevel("YES");
             data.setVer("2.4");
             data.setLicenseData(getFullPath("MPWrap.lic"));
+            
 
             log.info("Submitting call to worker thread");
 
@@ -111,8 +112,18 @@ public class MPMerge
                 log.info("Waiting for merge result");
                 String strResult = futureResult.get(__iTimeout, TimeUnit.MILLISECONDS);
 
-                log.info("Got merge result, returning SOAP response");
-                return strResult;
+                if(strResult.startsWith("<"))
+                {
+                    log.info("Got merge result, returning SOAP response");
+                    log.debug(strResult);
+                    return strResult;
+                }
+                else
+                {
+                    log.error("Got non-xml merge result, returning SOAP fault");
+                    log.error(strResult);
+                    throw new Exception(strResult);
+                }
             }
             catch (InterruptedException e)
             {
