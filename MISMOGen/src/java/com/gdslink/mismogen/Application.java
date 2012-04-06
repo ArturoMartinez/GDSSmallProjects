@@ -4,6 +4,9 @@
  */
 package com.gdslink.mismogen;
 
+import com.gdslink.mpmerge.santander.soap.MTXSOVWSPortTypeHTTP;
+import com.gdslink.mpmerge.santander.soap.MTXSOVWSService;
+import javax.xml.ws.BindingProvider;
 import org.apache.log4j.xml.DOMConfigurator;
 
 /**
@@ -35,6 +38,8 @@ public class Application
     //getters/setters
 
     private String _filenameStylesheet = null;
+    private String _strBdmUrl = null;
+    private MTXSOVWSPortTypeHTTP _soapPort = null;
 
     protected Application()
     {
@@ -49,6 +54,30 @@ public class Application
     public void setStylesheetFilename(String string)
     {
         _filenameStylesheet = string;
+    }
+        
+    public String getBdmUrl()
+    {
+        return _strBdmUrl;
+    }
+
+    public void setBdmUrl(String string)
+    {
+        _strBdmUrl = string;
+
+        MTXSOVWSService service = new MTXSOVWSService();
+               
+        MTXSOVWSPortTypeHTTP port = service.getMTXSOVWSPortHTTP();
+
+        BindingProvider bp = (BindingProvider)port;
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, Application.instance().getBdmUrl());
+        
+        _soapPort = port;
+    }
+
+    public synchronized MTXSOVWSPortTypeHTTP getSOAPPort()
+    {
+        return _soapPort;
     }
 
 }
