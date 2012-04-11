@@ -6,15 +6,15 @@
       <param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
     </layout>
   </appender>
-  <appender name="file" class="org.apache.log4j.FileAppender">
-   <param name="File" value="/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/logs/server1/mismogen.log"/>
+  <!--<appender name="file" class="org.apache.log4j.FileAppender">
+   <param name="File" value="/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/logs/server1/mpmerge.log"/>
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
     </layout>
-  </appender>
+  </appender>-->
   <root>
     <level value="DEBUG" />
     <appender-ref ref="stdout" />
-    <appender-ref ref="file" />
+    <!--<appender-ref ref="file" />-->
   </root>
 </log4j:configuration>
