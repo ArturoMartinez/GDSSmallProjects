@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:TDCc="http://www.isban.es/webservices/TDCc" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:cbtypes="http://www.isban.es/webservices/GESTION/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTION/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v1">
+    <xs:import namespace="http://www.isban.es/webservices/TDCs" schemaLocation="./ws_TDCs.xsd"/>
+    <xs:import namespace="http://www.isban.es/webservices/TDCc" schemaLocation="./ws_TDCc.xsd"/>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_IN_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_IN</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="callType" type="TDCs:CODIGO_ALFANUM_2_Type"/>
+            <xs:element minOccurs="0" name="catalogueProductType" type="TDCc:TIPO_DE_PRODUCTO_Type"/>
+            <xs:element minOccurs="0" name="catalogueProductSubType" type="TDCc:SUBTIPO_DE_PRODUCTO_Type"/>
+            <xs:element minOccurs="0" name="bureauName" type="TDCs:CODIGO_ALFANUM_10_Type"/>
+            <xs:element minOccurs="0" name="vigencia" type="TDCs:CODIGO_ALFANUM_3_Type"/>
+            <xs:element minOccurs="0" name="BDP_Id" type="TDCc:NUM_PERSONA_CLIENTE_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_OUT_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="BDP_Id" type="TDCc:NUM_PERSONA_CLIENTE_Type"/>
+            <xs:element minOccurs="0" name="catalogueProductType" type="TDCc:TIPO_DE_PRODUCTO_Type"/>
+            <xs:element minOccurs="0" name="catalogueProductSubType" type="TDCc:SUBTIPO_DE_PRODUCTO_Type"/>
+            <xs:element minOccurs="0" name="BureauName" type="TDCs:CODIGO_ALFANUM_10_Type"/>
+            <xs:element minOccurs="0" name="ListaRaw" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBI_ListCurrentData_Type"/>
+            <xs:element minOccurs="0" name="mensaje" type="TDCs:DESCRIPCION_CORTA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBI_ListCurrentData_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="CurrentData" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_CurrentData_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_CurrentData_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="rawInfo" type="TDCs:DOCUMENTO_XML_Type"/>
+            <xs:element minOccurs="0" name="fechaDato" type="TDCs:FECHA_GENERICA_Type"/>
+            <xs:element minOccurs="0" name="bureauName" type="TDCs:CODIGO_ALFANUM_2_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_IN_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_IN</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="BureauId" type="TDCs:ENTERO_LARGO_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_OUT_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="callType" type="TDCs:CODIGO_ALFANUM_2_Type"/>
+            <xs:element minOccurs="0" name="ProductType" type="TDCc:TIPO_DE_PRODUCTO_Type"/>
+            <xs:element minOccurs="0" name="ProductSubtype" type="TDCc:SUBTIPO_DE_PRODUCTO_Type"/>
+            <xs:element minOccurs="0" name="CadenaBureauName" type="TDCs:CODIGO_ALFANUM_10_Type"/>
+            <xs:element minOccurs="0" name="Lista_Raw_Info" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBI_ListCurrentData_Type"/>
+            <xs:element minOccurs="0" name="mensaje" type="TDCs:DESCRIPCION_CORTA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_IN_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_IN</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="BureauId" type="TDCs:ENTERO_LARGO_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_OUT_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MISMO_ApplicantLevel" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBI_MISMO_Type"/>
+            <xs:element minOccurs="0" name="mensaje" type="TDCs:DESCRIPCION_CORTA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBI_MISMO_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="mismoInfo" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_MISMO_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxcor.gestion_m.f.cb.CBK_MISMO_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="mismo" type="TDCs:DOCUMENTO_XML_Type"/>
+            <xs:element minOccurs="0" name="BDP_Id" type="TDCc:NUM_PERSONA_CLIENTE_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
