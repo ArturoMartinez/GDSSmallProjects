@@ -29,6 +29,6 @@
           p:suffix=".jsp" />
 
     <bean name="mismoController"
-          class="com.gdslink.mismpgen.web.controllers.MISMOController"/>
+          class="com.gdslink.mismogen.web.controllers.MISMOController"/>
           
 </beans>

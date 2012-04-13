@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gdslink.mismpgen.web.controllers;
+package com.gdslink.mismogen.web.controllers;
 
 import com.gdslink.mismogen.web.service.MISMOService;
 import java.util.HashMap;
