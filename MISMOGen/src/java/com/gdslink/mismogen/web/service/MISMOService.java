@@ -5,17 +5,20 @@
 package com.gdslink.mismogen.web.service;
 
 import com.gdslink.mismogen.Application;
-import com.gdslink.mpmerge.santander.soap.*;
+import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType;
+import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicantsResponse;
+import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicants;
+import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKMISMOType;
+import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicantsFault;
+import com.gdslink.mpmerge.santander.soap.Faultreason;
+import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType;
 import com.sun.xml.bind.StringInputStream;
-import java.io.*;
-import java.lang.Exception;
-import java.net.URL;
-import javax.xml.namespace.QName;
+import java.io.InputStream;
+import java.io.StringWriter;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
 
 /**
@@ -26,7 +29,7 @@ public class MISMOService
 {
     private static final Logger log = Logger.getLogger(MISMOService.class);
 
-    public static String getMismo(String strId) throws java.lang.Exception  //throws Exception
+    public static String getMismo(String strId) throws Exception 
     {
         log.info("Fetching mismo");
 
@@ -104,21 +107,15 @@ public class MISMOService
 
             throw new Exception("An error occurred while retrieving the MISMO: " + e.getMessage());
         }
-
-        //URL url = MISMOService.class.getResource("/Test_Data.xml");
-        //if(url == null)
-        //   throw new Exception("File not found Test_Data.xml");
-
-        //return readWholeFile(url.getPath());
     }
 
-    private static Transformer getStyleSheet() throws Exception
+    private static Transformer getStyleSheet() throws java.lang.Exception
     {
         log.info("Reading Stylesheet");
 
         InputStream streamIn = MISMOService.class.getResourceAsStream(Application.instance().getStylesheetFilename());
         if(streamIn == null)
-            throw new Exception("Stylesheet not found");
+            throw new java.lang.Exception("Stylesheet not found");
 
         TransformerFactory factoryTransformer = TransformerFactory.newInstance();
         return factoryTransformer.newTransformer(new StreamSource(streamIn));
@@ -139,46 +136,8 @@ public class MISMOService
         return writerResult.toString();
     }
 
-    private static GetMISMOAllApplicantsResponse getMISMOAllApplicants(GetMISMOAllApplicants getMISMOAllApplicantsInputPart) throws GetMISMOAllApplicantsFault
+    private static GetMISMOAllApplicantsResponse getMISMOAllApplicants(GetMISMOAllApplicants getMISMOAllApplicantsInputPart) throws GetMISMOAllApplicantsFault, Exception
     {
-        MTXSOVWSService service = new MTXSOVWSService();
-               
-        MTXSOVWSPortTypeHTTP port = service.getMTXSOVWSPortHTTP();
-
-        BindingProvider bp = (BindingProvider)port;
-        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, Application.instance().getBdmUrl());
-
-        return port.getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
-
-        //return Application.instance().getSOAPPort().getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
+        return Application.instance().getSOAPPort().getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
     }
-
-/*    private static String readWholeFile(String strFilename) throws Exception
-    {
-        try
-        {
-            File file = new File(strFilename);
-            StringBuilder builder = new StringBuilder((int)file.length());
-
-            BufferedReader reader =  new BufferedReader(new FileReader(file));
-            try
-            {
-                String strLine;
-                while((strLine = reader.readLine()) != null)
-                    builder.append(strLine);
-            }
-            finally
-            {
-                reader.close();
-            }
-
-            return builder.toString();
-        }
-        catch(Exception e)
-        {
-            log.error("Failed to read input from file", e);
-            throw new Exception("Failed to read a necessary file", e);
-        }
-    }*/
-
 }

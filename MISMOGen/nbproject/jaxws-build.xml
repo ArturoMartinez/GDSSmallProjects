@@ -27,21 +27,21 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-MTXSOVWS_v1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/MTXSOVWS_v1"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXSOVWS_v1" destdir="${build.generated.dir}/jax-wsCache/MTXSOVWS_v1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXSOVWS_v1/wsdl/MTXSOVWS_v1.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="/WEB-INF/wsdl/MTXSOVWS_v1.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.mpmerge.santander.soap">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MTXSOVWS_v1/wsdl/MTXSOVWS_v1.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/MTXSOVWS_v1"/>
+    <target name="wsimport-client-MTXWS_v1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MTXWS_v1"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXWS_v1" destdir="${build.generated.dir}/jax-wsCache/MTXWS_v1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v1/wsdl/MTXWS_v1.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="/WEB-INF/wsdl/MTXWS_v1.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.mpmerge.santander.soap">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v1/wsdl/MTXWS_v1.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MTXWS_v1"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/MTXSOVWS_v1">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MTXWS_v1">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-MTXSOVWS_v1" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/gdslink/mpmerge/santander/soap"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/MTXSOVWS_v1"/>
+    <target name="wsimport-client-clean-MTXWS_v1" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/gdslink/mpmerge/soap"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MTXWS_v1"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-MTXSOVWS_v1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-MTXWS_v1"/>
 </project>

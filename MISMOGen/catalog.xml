@@ -5,4 +5,9 @@
     <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/MTXSOVWS_cb_types_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/MTXSOVWS_cb_types_v1.xsd"/>
     <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/ws_TDCs.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/ws_TDCs.xsd"/>
     <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/ws_TDCc.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/ws_TDCc.xsd"/>
+    <system systemId="file:/C:/Temp/New%20folder/wsdl/MTXWS_v1.wsdl" uri="src/conf/xml-resources/web-service-references/MTXWS_v1/wsdl/MTXWS_v1.wsdl"/>
+    <system systemId="file:/C:/Temp/New%20folder/wsdl/schemas/fault.xsd" uri="src/conf/xml-resources/web-service-references/MTXWS_v1/wsdl/schemas/fault.xsd"/>
+    <system systemId="file:/C:/Temp/New%20folder/wsdl/schemas/MTXWS_cb_types_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXWS_v1/wsdl/schemas/MTXWS_cb_types_v1.xsd"/>
+    <system systemId="file:/C:/Temp/New%20folder/wsdl/schemas/ws_TDCs.xsd" uri="src/conf/xml-resources/web-service-references/MTXWS_v1/wsdl/schemas/ws_TDCs.xsd"/>
+    <system systemId="file:/C:/Temp/New%20folder/wsdl/schemas/ws_TDCc.xsd" uri="src/conf/xml-resources/web-service-references/MTXWS_v1/wsdl/schemas/ws_TDCc.xsd"/>
 </catalog>

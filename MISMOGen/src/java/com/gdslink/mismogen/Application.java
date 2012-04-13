@@ -5,8 +5,8 @@
 package com.gdslink.mismogen;
 
 import com.gdslink.mismogen.web.service.MISMOService;
-import com.gdslink.mpmerge.santander.soap.MTXSOVWSPortTypeHTTP;
-import com.gdslink.mpmerge.santander.soap.MTXSOVWSService;
+import com.gdslink.mpmerge.santander.soap.MTXWSPortTypeHTTP;
+import com.gdslink.mpmerge.santander.soap.MTXWSService;
 import java.net.URL;
 import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
@@ -43,7 +43,7 @@ public class Application
 
     private String _filenameStylesheet = null;
     private String _strBdmUrl = null;
-    private MTXSOVWSPortTypeHTTP _soapPort = null;
+    private MTXWSPortTypeHTTP _soapPort = null;
 
     protected Application()
     {
@@ -72,7 +72,7 @@ public class Application
         _strBdmUrl = string;
     }
 
-    public synchronized MTXSOVWSPortTypeHTTP getSOAPPort() throws Exception
+    public synchronized MTXWSPortTypeHTTP getSOAPPort() throws Exception
     {
         if(_soapPort == null)
         {
@@ -80,9 +80,9 @@ public class Application
             {
                 log.debug("Initializing web service");
 
-                MTXSOVWSService service = new MTXSOVWSService();
+                MTXWSService service = new MTXWSService();
 
-                MTXSOVWSPortTypeHTTP port = service.getMTXSOVWSPortHTTP();
+                MTXWSPortTypeHTTP port = service.getMTXWSPortHTTP();
 
                 log.debug("Setting correct BDM Url");
                 BindingProvider bp = (BindingProvider)port;
@@ -99,5 +99,4 @@ public class Application
 
         return _soapPort;
     }
-
 }

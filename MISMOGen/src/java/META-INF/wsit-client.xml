@@ -6,4 +6,5 @@
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig"
  >
     <import location="MTXSOVWS_v1.xml" namespace="http://www.isban.es/webservices/GESTION/Gestion_m/F_mtxcor_gestion_m/intranet/MTXSOVWS/v1"/>
+    <import location="MTXWS_v1.xml" namespace="http://www.isban.es/webservices/GESTION/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1"/>
 </definitions>
