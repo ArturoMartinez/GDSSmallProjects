@@ -141,16 +141,16 @@ public class MISMOService
 
     private static GetMISMOAllApplicantsResponse getMISMOAllApplicants(GetMISMOAllApplicants getMISMOAllApplicantsInputPart) throws GetMISMOAllApplicantsFault
     {
-        /*MTXSOVWSService service = new MTXSOVWSService();
+        MTXSOVWSService service = new MTXSOVWSService();
                
         MTXSOVWSPortTypeHTTP port = service.getMTXSOVWSPortHTTP();
 
         BindingProvider bp = (BindingProvider)port;
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, Application.instance().getBdmUrl());
 
-        return port.getMISMOAllApplicants(getMISMOAllApplicantsInputPart);*/
+        return port.getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
 
-        return Application.instance().getSOAPPort().getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
+        //return Application.instance().getSOAPPort().getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
     }
 
 /*    private static String readWholeFile(String strFilename) throws Exception

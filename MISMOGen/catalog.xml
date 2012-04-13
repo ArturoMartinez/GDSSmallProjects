@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/MTXSOVWS_v1.wsdl" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/MTXSOVWS_v1.wsdl"/>
+    <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/fault.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/fault.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/MTXSOVWS_cb_types_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/MTXSOVWS_cb_types_v1.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/ws_TDCs.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/ws_TDCs.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/MISMOGen/src/schemas/ws_TDCc.xsd" uri="src/conf/xml-resources/web-service-references/MTXSOVWS_v1/wsdl/schemas/ws_TDCc.xsd"/>
+</catalog>

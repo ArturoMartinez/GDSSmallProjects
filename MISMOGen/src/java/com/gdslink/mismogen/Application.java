@@ -4,9 +4,12 @@
  */
 package com.gdslink.mismogen;
 
+import com.gdslink.mismogen.web.service.MISMOService;
 import com.gdslink.mpmerge.santander.soap.MTXSOVWSPortTypeHTTP;
 import com.gdslink.mpmerge.santander.soap.MTXSOVWSService;
+import java.net.URL;
 import javax.xml.ws.BindingProvider;
+import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
 /**
@@ -18,6 +21,7 @@ public class Application
     //singleton
 
     private static Application __instance = null;
+    private static final Logger log = Logger.getLogger(Application.class);
 
     public static Application instance()
     {
@@ -53,6 +57,7 @@ public class Application
 
     public void setStylesheetFilename(String string)
     {
+        log.debug("Set Stylesheet to: " + string);
         _filenameStylesheet = string;
     }
         
@@ -63,20 +68,35 @@ public class Application
 
     public void setBdmUrl(String string)
     {
+        log.debug("Set BDM Url to: " + string);
         _strBdmUrl = string;
-
-        MTXSOVWSService service = new MTXSOVWSService();
-               
-        MTXSOVWSPortTypeHTTP port = service.getMTXSOVWSPortHTTP();
-
-        BindingProvider bp = (BindingProvider)port;
-        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, Application.instance().getBdmUrl());
-        
-        _soapPort = port;
     }
 
-    public synchronized MTXSOVWSPortTypeHTTP getSOAPPort()
+    public synchronized MTXSOVWSPortTypeHTTP getSOAPPort() throws Exception
     {
+        if(_soapPort == null)
+        {
+            try
+            {
+                log.debug("Initializing web service");
+
+                MTXSOVWSService service = new MTXSOVWSService();
+
+                MTXSOVWSPortTypeHTTP port = service.getMTXSOVWSPortHTTP();
+
+                log.debug("Setting correct BDM Url");
+                BindingProvider bp = (BindingProvider)port;
+                bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, _strBdmUrl);
+
+                _soapPort = port;
+            }
+            catch(Exception e)
+            {
+                log.error("Exception caught:" + e.getMessage(), e);
+                throw new Exception("Error creating web service client", e);
+            }
+        }
+
         return _soapPort;
     }
 
