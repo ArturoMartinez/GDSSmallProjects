@@ -42,7 +42,7 @@ public class MISMOService
 
             GetMISMOAllApplicants input = new GetMISMOAllApplicants();
             input.setGetMismoIN(inputInner);
-
+            input.setFacade("MTXWS");
             response = getMISMOAllApplicants(input);
 
             if(response != null && response.getMethodResult() != null)
