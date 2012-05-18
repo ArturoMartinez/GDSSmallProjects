@@ -15,6 +15,8 @@ import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKGetMIS
 import com.sun.xml.bind.StringInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
@@ -29,8 +31,10 @@ public class MISMOService
 {
     private static final Logger log = Logger.getLogger(MISMOService.class);
 
-    public static String getMismo(String strId) throws Exception 
+    public static List<String> getMismo(String strId) throws Exception
     {
+        List<String> listMismos = new ArrayList<String>();
+
         log.info("Fetching mismo");
 
         GetMISMOAllApplicantsResponse response = null;
@@ -50,8 +54,6 @@ public class MISMOService
                 if(response.getMethodResult().getMISMOApplicantLevel() != null &&
                     response.getMethodResult().getMISMOApplicantLevel().getMismoInfo() != null)
                 {
-                    String strFirstMISMO = null;
-
                     log.debug("Number of mismos returned: " + response.getMethodResult().getMISMOApplicantLevel().getMismoInfo().size());
 
                     for(ComBanestoAlMtxcorGestionMFCbCBKMISMOType result : response.getMethodResult().getMISMOApplicantLevel().getMismoInfo())
@@ -64,14 +66,10 @@ public class MISMOService
 
                         log.debug("MISMO = " + result.getMismo());
 
-                        if(strFirstMISMO == null)
-                            strFirstMISMO = result.getMismo();
-                        else
-                            log.warn("additional MISMO in results, not returned to stylesheet processor");
+                        listMismos.add(result.getMismo());
                     }
 
-                    if(strFirstMISMO != null)
-                        return strFirstMISMO;
+                    return listMismos;
                 }
                 else if(response.getMethodResult().getMensaje() != null)
                 {
@@ -121,19 +119,26 @@ public class MISMOService
         return factoryTransformer.newTransformer(new StreamSource(streamIn));
     }
 
-    public static String getConvertedMISMO(String strId) throws Exception
+    public static List<String> getConvertedMISMO(String strId) throws Exception
     {
-        String strMismo = getMismo(strId);
+        List<String> listMismos = getMismo(strId);
 
-        StringWriter writerResult = new StringWriter();
+        List<String> listConverted = new ArrayList<String>();
 
-        log.info("Transforming mismo");
-        
-        getStyleSheet().transform(
-                new StreamSource(new StringInputStream(strMismo)),
-                new StreamResult(writerResult));
+        for(String strMismo : listMismos)
+        {
+            StringWriter writerResult = new StringWriter();
 
-        return writerResult.toString();
+            log.info("Transforming mismo");
+
+            getStyleSheet().transform(
+                    new StreamSource(new StringInputStream(strMismo)),
+                    new StreamResult(writerResult));
+
+            listConverted.add(writerResult.toString());
+        }
+
+        return listConverted;
     }
 
     private static GetMISMOAllApplicantsResponse getMISMOAllApplicants(GetMISMOAllApplicants getMISMOAllApplicantsInputPart) throws GetMISMOAllApplicantsFault, Exception

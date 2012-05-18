@@ -4,9 +4,13 @@
  */
 package com.gdslink.mismogen.web.controllers;
 
+import com.gdslink.mismogen.Mismo;
 import com.gdslink.mismogen.web.service.MISMOService;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -40,17 +44,23 @@ public class MISMOController extends AbstractController
     {
         log.info("Request received");
 
-        Map<String, String> mapModel = new HashMap<String, String>();
+        Map<String, Object> mapModel = new HashMap<String, Object>();
 
         try
         {
             String strId = getParameter(servletRequest, "id", true);
                         
-            String strMismo = MISMOService.getConvertedMISMO(strId);
+            List<String> listMismos = MISMOService.getConvertedMISMO(strId);            
+            List<Mismo> listBodies = new ArrayList<Mismo>();
 
-            log.debug("Mismo found is: " + strMismo);
+            for(int i = 0;i < listMismos.size();i++)
+            {
+                String strMismo = listMismos.get(i);
+                log.debug("Converted Mismo found is: " + strMismo);
+                listBodies.add(new Mismo(strMismo, i));
+            }
 
-            mapModel.put("mismo", strMismo);
+            mapModel.put("mismobodies", listBodies);
         }
         catch(Exception e)
         {

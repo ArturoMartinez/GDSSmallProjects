@@ -1,0 +1,55 @@
+.whole {
+	background: rgb(0, 153, 153); 
+	padding: 0;
+	margin: 0;
+}
+
+.tabnav {
+	padding: 4px;
+	background: rgb(164, 236, 220);
+	padding: 0;
+	margin: 0 0 10 0;
+	border: none;
+	border-radius: 0px; 
+}  
+
+.tabnav li {  
+	display: inline;  
+	list-style: none;  
+	padding-right: 3px;
+}  
+  
+.tabnav li a {  
+	text-decoration: none;  
+	color: #666;  
+	padding: 4px 6px;  
+	border-top-left-radius: 5px; 
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 0px; 
+	border-bottom-right-radius: 0px;
+}  
+  
+.tabnav li a.active {
+	background: rgb(0, 153, 153);  
+	color: #222;  
+	font-weight: bold;  
+}
+
+.tabnav li a:hover, .tabnav li.ui-tabs-selected a {  
+	background: rgb(0, 153, 153);  
+}  
+  
+.tabdiv {  
+	margin-top: 2px;  
+	background: #fff;  
+	border: 1px solid #dedbd1;  
+	padding: 5px;  
+}  
+  
+.tabdiv li {  
+	margin-left: 20px;  
+}  
+  
+.ui-tabs-hide {  
+	display: none;  
+}  

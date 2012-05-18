@@ -4,10 +4,8 @@
  */
 package com.gdslink.mismogen;
 
-import com.gdslink.mismogen.web.service.MISMOService;
 import com.gdslink.mpmerge.santander.soap.MTXWSPortTypeHTTP;
 import com.gdslink.mpmerge.santander.soap.MTXWSService;
-import java.net.URL;
 import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
