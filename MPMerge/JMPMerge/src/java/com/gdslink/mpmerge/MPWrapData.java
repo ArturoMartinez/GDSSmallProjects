@@ -31,7 +31,7 @@ public class MPWrapData
     private String _strXpnIn2;
     private String _strEfxIn2;
 
-    private String readWholeFile(String strFilename) throws Exception
+  /*  private String readWholeFile(String strFilename) throws Exception
     {
         try
         {
@@ -57,7 +57,7 @@ public class MPWrapData
             log.error("Failed to read input from file", e);
             throw new Exception("Failed to read a necessary file", e);
         }
-    }
+    }*/
 
     private byte[] readWholeBinaryFile(String strFilename) throws Exception
     {
@@ -92,7 +92,7 @@ public class MPWrapData
         if(strFilename != null)
         {
             log.debug("Reading mcfg from file: " + strFilename);
-            _strInmcfg = readWholeFile(strFilename);
+            _strInmcfg = new String(readWholeBinaryFile(strFilename));
         }
     }
 
@@ -101,7 +101,7 @@ public class MPWrapData
         if(strFilename != null)
         {
             log.debug("Reading ccfg from file: " + strFilename);
-            _strInccfg = readWholeFile(strFilename);
+            _strInccfg = new String(readWholeBinaryFile(strFilename));
         }
     }
 
@@ -110,7 +110,7 @@ public class MPWrapData
         if(strFilename != null)
         {
             log.debug("Reading stylesheet from file: " + strFilename);
-            _strStylesheet = readWholeFile(strFilename);
+            _strStylesheet = new String(readWholeBinaryFile(strFilename));
         }
     }
 
