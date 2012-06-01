@@ -4,6 +4,7 @@
  */
 package com.gdslink.mismogen.web.controllers;
 
+import com.gdslink.mismogen.Application;
 import com.gdslink.mismogen.Mismo;
 import com.gdslink.mismogen.web.service.MISMOService;
 import java.util.ArrayList;
@@ -53,11 +54,18 @@ public class MISMOController extends AbstractController
             List<String> listMismos = MISMOService.getConvertedMISMO(strId);            
             List<Mismo> listBodies = new ArrayList<Mismo>();
 
+            String[] aTitles = Application.instance().getTabTitlesArray();
+
             for(int i = 0;i < listMismos.size();i++)
             {
                 String strMismo = listMismos.get(i);
                 log.debug("Converted Mismo found is: " + strMismo);
-                listBodies.add(new Mismo(strMismo, i));
+
+                String strTitle = "Record " +  (i+1);
+                if(i < aTitles.length)
+                    strTitle = aTitles[i];
+
+                listBodies.add(new Mismo(strMismo, i, strTitle));
             }
 
             mapModel.put("mismobodies", listBodies);

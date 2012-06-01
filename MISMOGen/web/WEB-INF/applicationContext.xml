@@ -24,6 +24,7 @@
     <bean name="application" class="com.gdslink.mismogen.Application" factory-method="create">
         <property name="stylesheetFilename" value="/sample_ul_new.xsl"/>
         <property name="bdmUrl" value="http://192.168.2.82:8088/mockMTXWSSoapBindingHTTP"/>
+        <property name="tabTitles" value="MAIN APPLICANT;CO-APPLICANT;MERGED"/>
     </bean>
 
 </beans>

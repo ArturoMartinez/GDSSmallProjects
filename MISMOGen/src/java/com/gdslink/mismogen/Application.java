@@ -42,6 +42,7 @@ public class Application
     private String _filenameStylesheet = null;
     private String _strBdmUrl = null;
     private MTXWSPortTypeHTTP _soapPort = null;
+    private String _strTabTitles = null;
 
     protected Application()
     {
@@ -68,6 +69,22 @@ public class Application
     {
         log.debug("Set BDM Url to: " + string);
         _strBdmUrl = string;
+    }
+
+    public void setTabTitles(String strTitles)
+    {
+        log.debug("Set Tab Titles to: " + strTitles);
+        _strTabTitles = strTitles;
+    }
+
+    public String getTabTitles()
+    {
+        return _strTabTitles;
+    }
+
+    public String[] getTabTitlesArray()
+    {
+        return getTabTitles().split(";");
     }
 
     public synchronized MTXWSPortTypeHTTP getSOAPPort() throws Exception

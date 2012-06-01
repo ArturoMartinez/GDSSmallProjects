@@ -15,7 +15,7 @@ public class Mismo
     private String _strTitle;
     private String _strId;
 
-    public Mismo(String strMismoHTML, int iIndex)
+    public Mismo(String strMismoHTML, int iIndex, String strTitle)
     {
         _strId = "mismo_" + iIndex;
 
@@ -24,11 +24,7 @@ public class Mismo
         _strHeader = strMismoHTML.substring(strLowerMismo.indexOf("<head>")+6, strLowerMismo.indexOf("</head>"));
         _strBody = strMismoHTML.substring(strLowerMismo.indexOf("<body>")+6, strLowerMismo.indexOf("</body>"));
 
-        if(strLowerMismo.indexOf("<title>") != -1)
-            _strTitle = strMismoHTML.substring(strLowerMismo.indexOf("<title>")+7, strLowerMismo.indexOf("</title>"));
-
-        if(_strTitle == null || _strTitle.trim().length() == 0)
-            _strTitle = "Record " + (iIndex + 1);
+        _strTitle = strTitle;
     }
 
     public String getBody()
