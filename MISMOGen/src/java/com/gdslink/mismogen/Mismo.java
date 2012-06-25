@@ -15,11 +15,17 @@ public class Mismo
     private String _strTitle;
     private String _strId;
 
-    public Mismo(String strMismoHTML, int iIndex, String strTitle)
+    public Mismo(String strMismoHTML, int iIndex, String strTitle) throws Exception
     {
         _strId = "mismo_" + iIndex;
 
+        if(strMismoHTML == null || strMismoHTML.isEmpty())
+            throw new Exception("Page returned from stylesheet is blank");
+
         String strLowerMismo = strMismoHTML.toLowerCase();
+
+        if(strLowerMismo.indexOf("<head>") == -1 || strLowerMismo.indexOf("<body>") == -1)
+            throw new Exception("Page returned from stylesheet has no header or body section");
 
         _strHeader = strMismoHTML.substring(strLowerMismo.indexOf("<head>")+6, strLowerMismo.indexOf("</head>"));
         _strBody = strMismoHTML.substring(strLowerMismo.indexOf("<body>")+6, strLowerMismo.indexOf("</body>"));

@@ -12,7 +12,9 @@ import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKMISMOT
 import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicantsFault;
 import com.gdslink.mpmerge.santander.soap.Faultreason;
 import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType;
+import com.sun.corba.se.spi.activation._LocatorImplBase;
 import com.sun.xml.bind.StringInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -22,6 +24,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import org.apache.log4j.Logger;
+import javax.xml.bind.DatatypeConverter;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 
 /**
  *
@@ -64,9 +70,10 @@ public class MISMOService
                             log.debug("BPDId/TIPODEPERSONA = " + result.getBDPId().getTIPODEPERSONA());
                         }
 
-                        log.debug("MISMO = " + result.getMismo());
+                        String strMismo = result.getMismo();
+                        log.debug("MISMO = " + strMismo);
 
-                        listMismos.add(result.getMismo());
+                        listMismos.add(decodeBase64(strMismo));
                     }
 
                     return listMismos;
@@ -144,5 +151,41 @@ public class MISMOService
     private static GetMISMOAllApplicantsResponse getMISMOAllApplicants(GetMISMOAllApplicants getMISMOAllApplicantsInputPart) throws GetMISMOAllApplicantsFault, Exception
     {
         return Application.instance().getSOAPPort().getMISMOAllApplicants(getMISMOAllApplicantsInputPart);
+    }
+
+    private static String decodeBase64(String strData)
+    {
+        try
+        {
+            byte[] aBytes = DatatypeConverter.parseBase64Binary(strData);
+            String strDecoded = new String(aBytes);
+            log.debug("Decoded MISMO = " + strDecoded);
+            //Mismo should always be valid XML
+
+            tryLoadXML(new StringInputStream(strDecoded));
+
+            return strDecoded;
+        }
+        catch(Exception e)
+        {
+            log.debug("MISMO data was not convertible to valid xml from base 64, assuming not base64 encoded");
+            log.debug("Exception = " + e.getMessage());
+            return strData;
+        }
+    }
+
+    private static void tryLoadXML(java.io.InputStream is) throws Exception
+    {
+        try
+        {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            builder.parse(is);
+        }
+        finally
+        {
+            is.close();
+        }
     }
 }
