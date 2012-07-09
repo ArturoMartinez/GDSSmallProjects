@@ -4,12 +4,16 @@
  */
 package com.gdslink.mismogen;
 
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author simon
  */
 public class Mismo
 {
+    private static final Logger log = Logger.getLogger(Mismo.class);
+
     private String _strBody;
     private String _strHeader;
     private String _strTitle;
@@ -24,8 +28,18 @@ public class Mismo
 
         String strLowerMismo = strMismoHTML.toLowerCase();
 
-        if(strLowerMismo.indexOf("<head>") == -1 || strLowerMismo.indexOf("<body>") == -1)
+        log.debug("<head> = " + strLowerMismo.indexOf("<head>"));
+        log.debug("<body> = " + strLowerMismo.indexOf("<body>"));
+        log.debug("</head> = " + strLowerMismo.indexOf("</head>"));
+        log.debug("</body> = " + strLowerMismo.indexOf("</body>"));
+
+        if(strLowerMismo.indexOf("<head>") == -1 ||
+           strLowerMismo.indexOf("<body>") == -1 ||
+           strLowerMismo.indexOf("</head>") == -1||
+           strLowerMismo.indexOf("</body>") == -1)
+        {
             throw new Exception("Page returned from stylesheet has no header or body section");
+        }
 
         _strHeader = strMismoHTML.substring(strLowerMismo.indexOf("<head>")+6, strLowerMismo.indexOf("</head>"));
         _strBody = strMismoHTML.substring(strLowerMismo.indexOf("<body>")+6, strLowerMismo.indexOf("</body>"));
