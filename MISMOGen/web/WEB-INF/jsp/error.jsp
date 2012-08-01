@@ -4,7 +4,7 @@
     Author     : simon
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
     <head>
