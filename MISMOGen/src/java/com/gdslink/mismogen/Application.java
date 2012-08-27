@@ -9,6 +9,7 @@ import com.gdslink.mpmerge.santander.soap.MTXWSService;
 import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
+import java.lang.Package;
 
 /**
  *
@@ -48,6 +49,9 @@ public class Application
     protected Application()
     {
         DOMConfigurator.configure(Application.class.getResource("/log4j.xml"));
+
+        String strVersion = Application.class.getPackage().getImplementationVersion();
+        log.info("MISMOGen Implementation version: " + strVersion);
     }
 
     public String getStylesheetFilename()
