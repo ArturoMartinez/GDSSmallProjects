@@ -74,6 +74,7 @@
       </tstamp>
     </target>
     <target name="-pre-dist">
+      <copydir src="${conf.dir}/xml-resources/web-service-references/MTXWS_v1/wsdl" dest="${build.web.dir}/WEB-INF/wsdl"/>
       <manifest file="${conf.dir}/MANIFEST.MF">
         <attribute name="Implementation-Version" value="${NOW}"/>
       </manifest>

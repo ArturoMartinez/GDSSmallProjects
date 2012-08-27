@@ -9,7 +9,11 @@
             <xs:element name="prescreeningCall">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="CBK_prescreem" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_Prescr_IN_Type"/>
+                        <xs:element name="CBK_prescreem" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_Prescr_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parámetro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -17,14 +21,22 @@
             <xs:element name="prescreeningCallResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_Prescr_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_Prescr_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de prescreeningCall</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="bureauCall">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="CBk_bureau" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_IN_Type"/>
+                        <xs:element name="CBk_bureau" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parametro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -32,14 +44,22 @@
             <xs:element name="bureauCallResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de bureauCall</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="getInformationAggregated">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="Cbk_AggInfo_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_AggInfo_IN_Type"/>
+                        <xs:element name="Cbk_AggInfo_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_AggInfo_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parámetro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -47,14 +67,22 @@
             <xs:element name="getInformationAggregatedResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_AggInfo_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_AggInfo_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de getInformationAggregated</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="getCurrentBureauData">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="getCurrent_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_IN_Type"/>
+                        <xs:element name="getCurrent_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parámetro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -62,14 +90,22 @@
             <xs:element name="getCurrentBureauDataResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getCurrentData_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de getCurrentBureauData</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="getRawAllBureaus">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="Cbk_RawAllBureau_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_IN_Type"/>
+                        <xs:element name="Cbk_RawAllBureau_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parámetro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -77,14 +113,22 @@
             <xs:element name="getRawAllBureausResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getRawABu_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de getRawAllBureaus</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="getMISMOAllApplicants">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="getMismo_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_IN_Type"/>
+                        <xs:element name="getMismo_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parámetro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -92,14 +136,22 @@
             <xs:element name="getMISMOAllApplicantsResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_getMISMOAllApplicants_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de getMISMOAllApplicants</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="recalculateCall">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="Cbk_recalculate_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_Recalculate_IN_Type"/>
+                        <xs:element name="Cbk_recalculate_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_Recalculate_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parámetro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -107,14 +159,22 @@
             <xs:element name="recalculateCallResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de recalculateCall</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="cbCall">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="Cbk_cbCall_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_CBCall_IN_Type"/>
+                        <xs:element name="Cbk_cbCall_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_CBCall_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción del parametro de entrada</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                     <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
                 </xs:complexType>
@@ -122,7 +182,11 @@
             <xs:element name="cbCallResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_OUT_Type"/>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion_m.f.cb.CBK_BureauCall_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>descripción de salida de cbCall</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -253,6 +317,7 @@
     </message>
     <portType name="MTXWSPortTypeHTTP">
         <operation name="recalculateCall">
+            <documentation>descripción del método recalculateCall</documentation>
             <input message="tns:recalculateCall_Input" name="recalculateCall_Input"/>
             <output message="tns:recalculateCall_Output" name="recalculateCall_Output"/>
             <fault message="tns:recalculateCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault" name="recalculateCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault"/>
@@ -261,18 +326,21 @@
             <fault message="tns:recalculateCall_Fault" name="recalculateCall_Fault"/>
         </operation>
         <operation name="getMISMOAllApplicants">
+            <documentation>descripción del método getMISMOAllApplicants</documentation>
             <input message="tns:getMISMOAllApplicants_Input" name="getMISMOAllApplicants_Input"/>
             <output message="tns:getMISMOAllApplicants_Output" name="getMISMOAllApplicants_Output"/>
             <fault message="tns:getMISMOAllApplicants_com.banesto.al.mtxcor.gestion_m.f.exc.GENERAL_EXCEPTION_Fault" name="getMISMOAllApplicants_com.banesto.al.mtxcor.gestion_m.f.exc.GENERAL_EXCEPTION_Fault"/>
             <fault message="tns:getMISMOAllApplicants_Fault" name="getMISMOAllApplicants_Fault"/>
         </operation>
         <operation name="getCurrentBureauData">
+            <documentation>descripción del método getCurrentBureauData</documentation>
             <input message="tns:getCurrentBureauData_Input" name="getCurrentBureauData_Input"/>
             <output message="tns:getCurrentBureauData_Output" name="getCurrentBureauData_Output"/>
             <fault message="tns:getCurrentBureauData_com.banesto.al.mtxcor.gestion_m.f.exc.GENERAL_EXCEPTION_Fault" name="getCurrentBureauData_com.banesto.al.mtxcor.gestion_m.f.exc.GENERAL_EXCEPTION_Fault"/>
             <fault message="tns:getCurrentBureauData_Fault" name="getCurrentBureauData_Fault"/>
         </operation>
         <operation name="prescreeningCall">
+            <documentation>descripción del método prescreeningCall</documentation>
             <input message="tns:prescreeningCall_Input" name="prescreeningCall_Input"/>
             <output message="tns:prescreeningCall_Output" name="prescreeningCall_Output"/>
             <fault message="tns:prescreeningCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault" name="prescreeningCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault"/>
@@ -281,6 +349,7 @@
             <fault message="tns:prescreeningCall_Fault" name="prescreeningCall_Fault"/>
         </operation>
         <operation name="getInformationAggregated">
+            <documentation>descripción del método getInformationAggregated</documentation>
             <input message="tns:getInformationAggregated_Input" name="getInformationAggregated_Input"/>
             <output message="tns:getInformationAggregated_Output" name="getInformationAggregated_Output"/>
             <fault message="tns:getInformationAggregated_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault" name="getInformationAggregated_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault"/>
@@ -288,6 +357,7 @@
             <fault message="tns:getInformationAggregated_Fault" name="getInformationAggregated_Fault"/>
         </operation>
         <operation name="bureauCall">
+            <documentation>descripción del método bureauCall</documentation>
             <input message="tns:bureauCall_Input" name="bureauCall_Input"/>
             <output message="tns:bureauCall_Output" name="bureauCall_Output"/>
             <fault message="tns:bureauCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault" name="bureauCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault"/>
@@ -296,12 +366,14 @@
             <fault message="tns:bureauCall_Fault" name="bureauCall_Fault"/>
         </operation>
         <operation name="getRawAllBureaus">
+            <documentation>descripción del método getRawAllBureaus</documentation>
             <input message="tns:getRawAllBureaus_Input" name="getRawAllBureaus_Input"/>
             <output message="tns:getRawAllBureaus_Output" name="getRawAllBureaus_Output"/>
             <fault message="tns:getRawAllBureaus_com.banesto.al.mtxcor.gestion_m.f.exc.GENERAL_EXCEPTION_Fault" name="getRawAllBureaus_com.banesto.al.mtxcor.gestion_m.f.exc.GENERAL_EXCEPTION_Fault"/>
             <fault message="tns:getRawAllBureaus_Fault" name="getRawAllBureaus_Fault"/>
         </operation>
         <operation name="cbCall">
+            <documentation>descripción del método cbCall</documentation>
             <input message="tns:cbCall_Input" name="cbCall_Input"/>
             <output message="tns:cbCall_Output" name="cbCall_Output"/>
             <fault message="tns:cbCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault" name="cbCall_com.banesto.al.mtxcor.gestion_m.f.exc.NO_DATA_Fault"/>

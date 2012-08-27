@@ -30,21 +30,18 @@ public class MISMOService
 {
     private static final Logger log = Logger.getLogger(MISMOService.class);
 
-    public static List<String> getMismo(String strId, String strCompany) throws Exception
+    public static List<String> getMismo(String strId/*, String strCompany*/) throws Exception
     {
         List<String> listMismos = new ArrayList<String>();
 
-        log.info("Fetching mismo " + strCompany + ":" + strId);
+        log.info("Fetching mismo " + /*strCompany + ":" + */strId);
 
         GetMISMOAllApplicantsResponse response = null;
 
         try
         {
             ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType inputInner = new ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType();
-            BUREAUIDMTXType idBureau = new BUREAUIDMTXType();
-            idBureau.setEMPRESA(strCompany); 
-            idBureau.setNUMEXPEDIENTE(Long.parseLong(strId));
-            inputInner.setBureauIdMtx(idBureau);
+            inputInner.setBureauId(Long.parseLong(strId));
 
             GetMISMOAllApplicants input = new GetMISMOAllApplicants();
             input.setGetMismoIN(inputInner);
@@ -53,17 +50,17 @@ public class MISMOService
 
             if(response != null && response.getMethodResult() != null)
             {
-                if(response.getMethodResult().getMismoApplicantLevel() != null &&
-                    response.getMethodResult().getMismoApplicantLevel().getMismoInfo() != null)
+                if(response.getMethodResult().getMISMOApplicantLevel() != null &&
+                    response.getMethodResult().getMISMOApplicantLevel().getMismoInfo() != null)
                 {
-                    log.debug("Number of mismos returned: " + response.getMethodResult().getMismoApplicantLevel().getMismoInfo().size());
+                    log.debug("Number of mismos returned: " + response.getMethodResult().getMISMOApplicantLevel().getMismoInfo().size());
 
-                    for(ComBanestoAlMtxcorGestionMFCbCBKMISMOType result : response.getMethodResult().getMismoApplicantLevel().getMismoInfo())
+                    for(ComBanestoAlMtxcorGestionMFCbCBKMISMOType result : response.getMethodResult().getMISMOApplicantLevel().getMismoInfo())
                     {
-                        if(result.getBdpId() != null)
+                        if(result.getBDPId() != null)
                         {
-                            log.debug("BPDId/CODIGODEPERSONA = " + result.getBdpId().getCODIGODEPERSONA());
-                            log.debug("BPDId/TIPODEPERSONA = " + result.getBdpId().getTIPODEPERSONA());
+                            log.debug("BPDId/CODIGODEPERSONA = " + result.getBDPId().getCODIGODEPERSONA());
+                            log.debug("BPDId/TIPODEPERSONA = " + result.getBDPId().getTIPODEPERSONA());
                         }
 
                         String strMismo = result.getMismo();
@@ -121,9 +118,9 @@ public class MISMOService
         return factoryTransformer.newTransformer(new StreamSource(streamIn));
     }
 
-    public static List<String> getConvertedMISMO(String strId, String strCompany) throws Exception
+    public static List<String> getConvertedMISMO(String strId/*, String strCompany*/) throws Exception
     {
-        List<String> listMismos = getMismo(strId, strCompany);
+        List<String> listMismos = getMismo(strId/*, strCompany*/);
 
         List<String> listConverted = new ArrayList<String>();
 

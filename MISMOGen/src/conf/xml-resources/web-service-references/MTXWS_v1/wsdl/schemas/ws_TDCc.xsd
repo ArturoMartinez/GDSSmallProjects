@@ -31,12 +31,6 @@
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ACCION_GESTOR_PIPECO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ACTIVIDAD_ICED_Type">
           <xs:sequence>
                <xs:element name="LLAMADA_GLD" type="tns:LLAMADA_GLD_Type"/>
@@ -171,12 +165,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="ALERTA" type="TDC_Simple:CODIGO_ALFANUM_10_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ALIANZA_MEDIADOR_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_NUMERICO_7" type="TDC_Simple:CODIGO_NUMERICO_7_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ALIAS_CR_Type">
@@ -662,12 +650,6 @@
                <xs:element name="CODIGO_ALFANUM_18" type="TDC_Simple:CODIGO_ALFANUM_18_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="BUREAUID_MTX_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="NUM_EXPEDIENTE" type="TDC_Simple:CODIGO_NUMERICO_15_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="CALIDAD_DE_CRITERIO_LN_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -726,12 +708,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CATALOGO_COMERCIAL" type="TDC_Simple:COD_CATALOGO_COMERCIAL_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="CATALOGO_CONDICION_BNF_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_7_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="CATEGORIA_AHINBN_Type">
@@ -925,12 +901,6 @@
                <xs:element name="INDICADOR" type="TDC_Simple:INDICADOR_GENERICO_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="CHECK_IMAGE_REF_C_Type">
-          <xs:sequence>
-               <xs:element name="CHECK_IMAGE_REF_F" type="TDC_Simple:CHECK_IMAGE_REF_Type"/>
-               <xs:element name="CHECK_IMAGE_REF_R" type="TDC_Simple:CHECK_IMAGE_REF_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="CHEQUE_Type">
           <xs:sequence>
                <xs:element name="CONTRATO" type="tns:CONTRATO_Type"/>
@@ -980,12 +950,6 @@
           <xs:sequence>
                <xs:element name="TIPO_CHEQUE_LOCAL" type="TDC_Simple:TIPO_CHEQUE_LOCAL_Type"/>
                <xs:element name="CHEQUE_TRANSITO" type="TDC_Simple:CHEQUE_TRANSITO_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="CHEQUE_MICR_Type">
-          <xs:sequence>
-               <xs:element name="TIPO_MICR" type="TDC_Simple:TIPO_MICR_Type"/>
-               <xs:element name="CODIGO_MICR" type="TDC_Simple:STRING_80_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="CIRCUITO_DE_ADMISION_Type">
@@ -1074,12 +1038,6 @@
                <xs:element name="COD_INT_AVISO" type="TDC_Simple:CODIGO_NUMERICO_18_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="CLAVE_ENVIO_TEE_Type">
-          <xs:sequence>
-               <xs:element name="PSP_DECLARANTE" type="TDC_Simple:COD_ALFAJUSTI_6_Type"/>
-               <xs:element name="PERIODO_DECLARACION" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="CLAVE_GAU_Type">
           <xs:sequence>
                <xs:element name="TIPO_AUTORIZACION_GAU" type="tns:TIPO_AUTORIZACION_GAU_Type"/>
@@ -1094,12 +1052,6 @@
                <xs:element name="CDMOED_BR" type="TDC_Simple:MOEDA_BR_Type"/>
                <xs:element name="INDDIV_BR" type="TDC_Simple:INDICADOR_GENERICO_Type"/>
                <xs:element name="SEGMEN_BR" type="TDC_Simple:COD_SEG_BR_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="CLIENTE_PAGO_PRV_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM_6" type="TDC_Simple:CODIGO_ALFANUM_6_SIN_ESP_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="COBERTURA_SEG_FAB_Type">
@@ -1341,12 +1293,6 @@
                <xs:element name="COD_ALFANUM2" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="COMPART_TRASPASO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="COMPT_BASICOS_1_BR_Type">
           <xs:sequence>
                <xs:element name="PESUCADM" type="TDC_Simple:SUCURSAL_BR_Type"/>
@@ -1389,12 +1335,6 @@
                <xs:element name="PESUBSEG" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
                <xs:element name="PESUBSEG2" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
                <xs:element name="PEIDIOMA" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="COMUNICACION_PAGO_PRV_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM_15" type="TDC_Simple:CODIGO_ALFANUM_15_SIN_ESP_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="COMUNICACION_SCC_Type">
@@ -1556,12 +1496,6 @@
           <xs:sequence>
                <xs:element name="CENTRO" type="tns:CENTRO_Type"/>
                <xs:element name="NUMERO_CUENTA" type="TDC_Simple:NUMERO_CUENTA_EXTERNA_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="CONTRATO_GENERAL_Type">
-          <xs:sequence>
-               <xs:element name="TIPO_CONTRATO_GENERAL" type="TDC_Simple:TIPO_CONTRATO_GENERAL_Type"/>
-               <xs:element name="DETALLE_CONTRATO_GENERAL" type="TDC_Simple:STRING_60_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="CONTRATO_LOCAL_Type">
@@ -1833,12 +1767,6 @@
                <xs:element name="COD_ALFANUM_30" type="TDC_Simple:CODIGO_ALFANUM_30_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="CUESTIONARIO_TITUS_Type">
-          <xs:sequence>
-               <xs:element name="TIPO_CUESTIONARIOS_TITUS" type="TDC_Simple:TIPO_CUESTIONARIOS_TITUS_Type"/>
-               <xs:element name="PREGUNTA_TITUS" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="DADO_FORMATO_ALTAIR_BR_Type">
           <xs:sequence>
                <xs:element name="APLICACAO_ALTAIR_BR" type="TDC_Simple:APLICACAO_ALTAIR_BR_Type"/>
@@ -1854,12 +1782,6 @@
                <xs:element name="FOLIO" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
                <xs:element name="SECCION" type="TDC_Simple:CODIGO_ALFANUM_25_Type"/>
                <xs:element name="NUMERO_REGISTRAL" type="TDC_Simple:CODIGO_ALFANUM_9_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="DENG_CODE_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="DENOMINACION_ATRIBUT_CONT_Type">
@@ -1897,19 +1819,6 @@
                <xs:element name="INDICADOR_GASTOS_POR_CTA" type="TDC_Simple:INDICADOR_GASTOS_POR_CTA_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="DESC_DECISION_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="DESGLOSE_DIVISA_Type">
-          <xs:sequence>
-               <xs:element name="DIVISA" type="TDC_Simple:DIVISA_Type"/>
-               <xs:element name="INDICADOR_TIPO_DIVISA" type="TDC_Simple:INDICADOR_GENERICO_Type"/>
-               <xs:element name="VALOR_DIVISA" type="TDC_Simple:NUMERO_DECIMAL_CORTO_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="DIFER_COMPRA_CON_FIN_Type">
           <xs:sequence>
                <xs:element name="ENTORNO_CONSOLIDAC_FINAN" type="tns:ESCENARIO_CONSOLID_FINAN_Type"/>
@@ -1922,12 +1831,6 @@
                <xs:element name="DESGLOSE_CONSO_FINAN" type="TDC_Simple:CODIGO_ALFANUM_5_Type"/>
                <xs:element name="CODIGO_AJUSTE" type="TDC_Simple:CODIGO_NUMERICO_9_Type"/>
                <xs:element name="NUMERO_ASIGNACION" type="TDC_Simple:SECUENCIAL_CORTO_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="DIPECO_UNIDAD_Type">
-          <xs:sequence>
-               <xs:element name="COD_SOCIEDAD" type="TDC_Simple:CODIGO_ALFANUM_5_Type"/>
-               <xs:element name="COD_UNIDAD" type="TDC_Simple:CODIGO_ALFANUM_10_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="DIRECCION_EXTRANJERA_AL_Type">
@@ -2156,13 +2059,6 @@
                <xs:element name="INDICADOR_PAB" type="TDC_Simple:INDICADOR_SIM_NAO_BR_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ENTIDAD_AHIRIS_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_CANAL" type="TDC_Simple:CODIGO_DE_CANAL_Type"/>
-               <xs:element name="COD_ENTIDAD" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ENTORNO_CONSOLIDAC_FINAN_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -2289,12 +2185,6 @@
                <xs:element name="COD_ESTADO_INTENTO_OBM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ESTADO_LOTE_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ESTADO_MDTO_BP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -2317,18 +2207,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ESTADO_ORDEN_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ESTADO_ORDEN_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ESTADO_REMESA_GEM_Type">
@@ -2392,13 +2270,6 @@
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CODIGO_DE_CANAL" type="TDC_Simple:CODIGO_DE_CANAL_Type"/>
                <xs:element name="CODIGO_ALFANUM_6" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="EVENTO_AHIRIS_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_CANAL" type="TDC_Simple:CODIGO_DE_CANAL_Type"/>
-               <xs:element name="COD_EVENTO" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="EVENTO_PRODUCTO_Type">
@@ -2509,22 +2380,10 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="FORMATO_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="FORMATO_SCC_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CODIGO_DE_FORMATO" type="TDC_Simple:CODIGO_NUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="FORMATO_SOPORTE_FACTOR_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA_CON_COD_ALFANUM2" type="tns:TIP_SOPORTE_RECEP_FACTOR_Type"/>
-               <xs:element name="COD_ALFANUM2" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="FORMA_DE_PAGO_SEGUROS_Type">
@@ -2881,12 +2740,6 @@
                <xs:element name="DIALECTO_ISO" type="TDC_Simple:DIALECTO_ISO_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_ACCION_DOCUMENTO_COB_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_ACCION_DP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -2899,22 +2752,10 @@
                <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_ACTIVIDAD_CTRFCO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_ACTIVIDAD_DP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFAJUSTI_4_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_ACTIVIDAD_EXPCOR_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_DE_ACTIVIDAD" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_ACUERDO_ACBCO_Type">
@@ -2922,22 +2763,6 @@
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ACUERDO" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
                <xs:element name="COD_TIPO" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_ACUERDO_CUTOFF_ACBCO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="BIC" type="tns:CODIGO_BIC_Type"/>
-               <xs:element name="DIVISA" type="TDC_Simple:DIVISA_Type"/>
-               <xs:element name="MENSAJE" type="TDC_Simple:COD_MENSAJE_ACBCO_Type"/>
-               <xs:element name="SENTIDO" type="TDC_Simple:COD_SENTIDO_MENSAJE_ACBCO_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_ACUERDO_MENSAJE_ACBCO_Type">
-          <xs:sequence>
-               <xs:element name="ACUERDO" type="tns:ID_ACUERDO_ACBCO_Type"/>
-               <xs:element name="MENSAJE" type="TDC_Simple:COD_MENSAJE_ACBCO_Type"/>
-               <xs:element name="SENTIDO" type="TDC_Simple:COD_SENTIDO_MENSAJE_ACBCO_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_ALARMA_DP_Type">
@@ -2965,12 +2790,6 @@
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_BUSCADOR_GDPF_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_BUSCADOR_GESDPP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
@@ -3093,30 +2912,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_DECISION_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="NUM_EXPEDIENTE" type="TDC_Simple:CODIGO_NUMERICO_15_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_DECI_COMMENTS_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_DETALLE_TARIFA_SEG_FAB_Type">
-          <xs:sequence>
-               <xs:element name="COMPANIA_DE_SEGUROS" type="TDC_Simple:COMPANIA_DE_SEGUROS_Type"/>
-               <xs:element name="CODIGO_DETALLE_TARIFA" type="TDC_Simple:CODIGO_ALFANUM_10_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_DIRECTRIZ_EXCOGL_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_DIRECTRIZ" type="TDC_Simple:CANTIDAD_GRANDE_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_DISCLAIMER_PATRIMONIO_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -3159,12 +2954,6 @@
                <xs:element name="CODIGO_RIESGO" type="TDC_Simple:CODIGO_NUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_ESTADO_DOCUMENTO_COB_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_ESTADO_DOC_PRN_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -3199,12 +2988,6 @@
           <xs:sequence>
                <xs:element name="PROCESO_DE_NEGOCIO" type="tns:PROCESO_DE_NEGOCIO_Type"/>
                <xs:element name="COD_ESTADO_PN" type="TDC_Simple:ESTADO_PN_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_ESTADO_OPORT_EXCOGL_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_ESTADO_PROC_TREPFI_Type">
@@ -3249,12 +3032,6 @@
                <xs:element name="NUM_EXPEDIENTE" type="TDC_Simple:CODIGO_NUMERICO_15_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_FECHA_VALOR_ACBCO_Type">
-          <xs:sequence>
-               <xs:element name="ID_AICUERDO_MENSAJE_ACBCO" type="tns:ID_ACUERDO_MENSAJE_ACBCO_Type"/>
-               <xs:element name="SUBTIPO_FECHA_ACBCO" type="tns:SUBTIPO_FECHA_ACBCO_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_FLUJO_OPERACION_COC_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -3270,22 +3047,10 @@
                <xs:element name="IDFORM" type="TDC_Simple:COD_ALFAJUSTI_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_FUNCIONALIDAD_ALM_Type">
-          <xs:sequence>
-               <xs:element name="COD_APLICACION_ALM" type="TDC_Simple:COD_APLICACION_ALM_Type"/>
-               <xs:element name="COD_FUNCIONALIDAD" type="TDC_Simple:CODIGO_NUMERICO_5_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_GOAL_CATEGORY_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_NUM_3" type="TDC_Simple:CODIGO_NUMERICO_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_GRUPO_CAS_Type">
-          <xs:sequence>
-               <xs:element name="COD_GRUPO_CAS" type="TDC_Simple:CODIGO_ALFANUM_10_Type"/>
-               <xs:element name="TIP_GRUPO_CAS" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_GRUPO_LIQ_SCC_Type">
@@ -3306,18 +3071,6 @@
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_LINEA_NEGOCIO_EXCOGL_Type">
-          <xs:sequence>
-               <xs:element name="METODO_COMERCIAL" type="tns:METODO_COMERCIAL_Type"/>
-               <xs:element name="COD_LINEA_NEGOCIO" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_LIST_OF_AGREEMENTS_COB_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_MEDIO_CCR_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -3334,13 +3087,6 @@
           <xs:sequence>
                <xs:element name="GRUPO_COMUNICACION_NOF" type="tns:GRUPO_COMUNICACION_NOF_Type"/>
                <xs:element name="COD_MENSAJE_NOF" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_MENSAJE_RESPUEST_ACBCO_Type">
-          <xs:sequence>
-               <xs:element name="ID_ACUERDO_MENSAJE_ACBCO" type="tns:ID_ACUERDO_MENSAJE_ACBCO_Type"/>
-               <xs:element name="COD_RESPUESTA_ACBCO" type="TDC_Simple:COD_RESPUESTA_ACBCO_Type"/>
-               <xs:element name="MENSWIFT" type="TDC_Simple:CODIGO_ALFANUM_5_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_MSGERROR_DP_Type">
@@ -3360,12 +3106,6 @@
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="TIPO_OBJETO" type="TDC_Simple:TIPO_OBJETO_CONDICIONES_Type"/>
                <xs:element name="CONTADOR_OBJETO" type="TDC_Simple:SECUENCIAL_MEDIO_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_OCURRENCIA_EXCOGL_Type">
-          <xs:sequence>
-               <xs:element name="ID_DIRECTRIZ_EXCOGL" type="tns:ID_DIRECTRIZ_EXCOGL_Type"/>
-               <xs:element name="OC_DIRECTRIZ" type="TDC_Simple:SECUENCIAL_CORTO_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_OPERACION_TRAREP_Type">
@@ -3436,13 +3176,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_RESP_ACTIVIDAD_EXPCOR_Type">
-          <xs:sequence>
-               <xs:element name="ID_ACTIVIDAD_EXPCOR" type="tns:ID_ACTIVIDAD_EXPCOR_Type"/>
-               <xs:element name="CODIGO_DE_CANAL" type="TDC_Simple:CODIGO_DE_CANAL_Type"/>
-               <xs:element name="COD_RESULTADO_GESTION" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_SENTIDO_CCR_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -3468,12 +3201,6 @@
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_SITUACION_SCC_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_SITUAC_GESTION_EXPCOR_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
@@ -3517,12 +3244,6 @@
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_SUBTIP_ERROR_INC_ALM_Type">
-          <xs:sequence>
-               <xs:element name="CODIGO_TIPO_ERROR_INC_ALM" type="TDC_Simple:CODIGO_TIPO_ERROR_INC_ALM_Type"/>
-               <xs:element name="CODIGO_SUBTIPO_ERROR_INC" type="TDC_Simple:CODIGO_ALFANUM_5_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_SUCESO_SEG_FAB_Type">
           <xs:sequence>
                <xs:element name="COMPANIA_DE_SEGUROS" type="TDC_Simple:COMPANIA_DE_SEGUROS_Type"/>
@@ -3541,40 +3262,10 @@
                <xs:element name="COD_ALFANUM_6" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_TIPO_ACTION_BIL_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_AMOUNT_APL_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_AMOUNT_APP_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_TIPO_CAMPOS_RINSTP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_DECISION_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_DOCUMENTO_COB_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_16_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_TIPO_ENVIO_SCC_Type">
@@ -3601,64 +3292,16 @@
                <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_TIPO_EXTINFO_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_TIPO_IMPORTE_PRL_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_TIPO_INCIDENCIA_ALM_Type">
-          <xs:sequence>
-               <xs:element name="COD_TIPO_INCIDENCIA_ALM" type="TDC_Simple:COD_ALFANUM_30_Type"/>
-               <xs:element name="COD_SUBTIP_INCIDENCIA_ALM" type="TDC_Simple:COD_ALFANUM_30_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_INDICATOR_APL_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_INDICATOR_APP_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_KEY_BIL_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_LIMITE_BIL_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_METRICA_BIL_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_TIPO_OPERACION_TREPFI_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_PARAM_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_TIPO_PERDIDA_DP_Type">
@@ -3679,28 +3322,10 @@
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_TIPO_RATIO_APL_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_RATIO_APP_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_TIPO_REASON_BIL_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_REASON_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_TIPO_REF_RINSTP_Type">
@@ -3709,22 +3334,10 @@
                <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="ID_TIPO_RULECOUNT_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="ID_TIPO_SCORE_BIL_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="ID_TIPO_SCORE_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="ID_TIPO_SERVIC_Y_SOP_GDPF_Type">
@@ -3811,12 +3424,6 @@
                <xs:element name="DIVISA" type="TDC_Simple:DIVISA_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="IMPORTE_19_2_Type">
-          <xs:sequence>
-               <xs:element name="NUM_IMPORTE_19_2" type="TDC_Simple:DECIMAL_19_2_Type"/>
-               <xs:element name="DIVISA" type="TDC_Simple:DIVISA_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="IMPORTE_ALTA_PRECISION_Type">
           <xs:sequence>
                <xs:element name="NUMIMPORTE_ALTA_PRECISION" type="TDC_Simple:NUMIMPORTE_ALTA_PRECISION_Type"/>
@@ -3895,12 +3502,6 @@
           <xs:sequence>
                <xs:element name="COD_ALFANUM2" type="TDC_Simple:TIPO_CLASIFICACION_FONDO_Type"/>
                <xs:element name="COD_ALFANUM3" type="TDC_Simple:COD_ALFAJUSTI_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="IND_GASTOS_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="INIC_DISPUT_COMERC_FACTOR_Type">
@@ -3988,13 +3589,6 @@
           <xs:sequence>
                <xs:element name="CENTRO_DE_INTERACCION" type="tns:CENTRO_Type"/>
                <xs:element name="NRO_DE_INTERACCI0N_CIC" type="TDC_Simple:CODIGO_ALFANUM_16_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="INTERFASE_OTT_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="TIP_INTER_OTT" type="TDC_Simple:TIP_INTER_OTT_Type"/>
-               <xs:element name="SEC_INTERFASE" type="TDC_Simple:NUMERO_SECUENCIAL_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="INTERVENCION_BNF_Type">
@@ -4217,18 +3811,6 @@
                <xs:element name="MATCHKPAF" type="TDC_Simple:CODIGO_ALFANUM_18_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="MEDIADOR_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM_6" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="MEDIO_FINANCIERO_LOCAL_Type">
-          <xs:sequence>
-               <xs:element name="COMP1" type="TDC_Simple:ORGANISMO_LOCAL_Type"/>
-               <xs:element name="COMP2" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="MENSAGEM_LDAP_BR_Type">
           <xs:sequence>
                <xs:element name="ACAO" type="TDC_Simple:ACAO_LDAP_BR_Type"/>
@@ -4240,13 +3822,6 @@
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="CANAL" type="TDC_Simple:CANAL_BASICO_Type"/>
                <xs:element name="COD_ASUNTO" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="MENSEG_TEXCONF_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CANAL" type="TDC_Simple:CANAL_BASICO_Type"/>
-               <xs:element name="COD_TEXCONF" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="MERCADO_POTENCIAL_Type">
@@ -4434,12 +4009,6 @@
                <xs:element name="COD_MODALIDAD_PAGO" type="TDC_Simple:CODIGO_NUMERICO_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="MODALIDAD_TRASPASO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="MODELO_BALANCE_EEFF_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -4552,12 +4121,6 @@
           <xs:sequence>
                <xs:element name="INCIDENCIA_FACT_TJT" type="tns:INCIDENCIA_FACT_TJT_Type"/>
                <xs:element name="MOTIVO_INCIDENCIA" type="TDC_Simple:CODIGO_NUMERICO_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="MOTIVO_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="MOTIVO_MODIFICACION_BNF_Type">
@@ -4704,56 +4267,6 @@
                <xs:element name="ID_CCR_ASUNTO" type="TDC_Simple:ID_CCR_ASUNTO_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="NUMERO_EXTRACTO_PCAS_Type">
-          <xs:sequence>
-               <xs:element name="CONTRATO" type="tns:CONTRATO_PCAS_Type"/>
-               <xs:element name="NUM_EXTRACTO" type="TDC_Simple:CODIGO_NUMERICO_3_Type"/>
-               <xs:element name="MONEDA" type="TDC_Simple:DIVISA_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUMERO_MOVIMIENTO_PCAS_Type">
-          <xs:sequence>
-               <xs:element name="NUMERO_EXTRACTO_PCAS" type="tns:NUMERO_EXTRACTO_PCAS_Type"/>
-               <xs:element name="NUM_MOVIMIENTO" type="TDC_Simple:CODIGO_NUMERICO_7_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUM_COMPRA_ESPECIAL_PCAS_Type">
-          <xs:sequence>
-               <xs:element name="CONTRATO" type="tns:CONTRATO_Type"/>
-               <xs:element name="NUM_COMPRA_ESPECIAL" type="TDC_Simple:CODIGO_NUMERICO_6_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUM_EXCEP_CAS_Type">
-          <xs:sequence>
-               <xs:element name="NUM_EXCEP_CAS" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-               <xs:element name="NUM_HVD_CAS" type="tns:NUM_HVD_CAS_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUM_EXTRACTO_PCAS_Type">
-          <xs:sequence>
-               <xs:element name="CONTRATO" type="tns:CONTRATO_Type"/>
-               <xs:element name="NUM_EXTRACTO" type="TDC_Simple:CODIGO_NUMERICO_3_Type"/>
-               <xs:element name="MONEDA" type="TDC_Simple:DIVISA_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUM_FINAN_COMPRA_ESP_PCAS_Type">
-          <xs:sequence>
-               <xs:element name="NUM_COMPRA_ESPECIAL_PCAS" type="tns:NUM_COMPRA_ESPECIAL_PCAS_Type"/>
-               <xs:element name="NUM_FINANCIACION" type="TDC_Simple:CODIGO_NUMERICO_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUM_HVD_CAS_Type">
-          <xs:sequence>
-               <xs:element name="NUM_HVD_CAS" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-               <xs:element name="ID_PROPUESTA_CAS" type="TDC_Simple:ID_PROPUESTA_CAS_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="NUM_MOVIMIENTO_PCAS_Type">
-          <xs:sequence>
-               <xs:element name="NUMERO_EXTRACTO_PCAS" type="tns:NUM_EXTRACTO_PCAS_Type"/>
-               <xs:element name="NUM_MOVIMIENTO" type="TDC_Simple:CODIGO_NUMERICO_7_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="NUM_PERSONA_ACTUANTE_Type">
           <xs:sequence>
                <xs:element name="TIPO_DE_ACTUANTE" type="tns:TIPO_DE_ACTUANTE_Type"/>
@@ -4821,12 +4334,6 @@
                <xs:element name="CODIGO_ALFANUM_10" type="TDC_Simple:CODIGO_ALFANUM_10_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="OFICINA_TERCERO_OTT_Type">
-          <xs:sequence>
-               <xs:element name="TERCERO" type="tns:TERCERO_OTT_Type"/>
-               <xs:element name="COD_OFICINA" type="TDC_Simple:CODIGO_ALFANUM_5_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="OPCION_MENU_FMIS_Type">
           <xs:sequence>
                <xs:element name="APLICACION_FMIS" type="TDC_Simple:APLICACION_FMIS_Type"/>
@@ -4885,12 +4392,6 @@
                <xs:element name="SUBTIPO_DE_PRODUCTO" type="tns:SUBTIPO_DE_PRODUCTO_Type"/>
                <xs:element name="OPERACION_BANCARIA" type="tns:OPERACION_BANCARIA_Type"/>
                <xs:element name="FECHA_DE_OPERACION" type="TDC_Simple:FECHA_OPERACION_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="OPERACION_TRASPASO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="OPERATIVA_DOC_COB_FACTOR_Type">
@@ -4982,13 +4483,6 @@
                <xs:element name="COD_DAUDI" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="PARAM_EV_AHIRIS_Type">
-          <xs:sequence>
-               <xs:element name="EVENTO_AHIRIS" type="tns:EVENTO_AHIRIS_Type"/>
-               <xs:element name="COD_ACRONIMO_PADRE" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-               <xs:element name="COD_ACRONIMO_PADRE_DATO" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="PARAM_PNC_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -4999,12 +4493,6 @@
           <xs:sequence>
                <xs:element name="SERVICIO_AHEBMG" type="tns:SERVICIO_AHEBMG_Type"/>
                <xs:element name="COD_ALFANUM_2" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="PARTICIPE_FONDO_Type">
-          <xs:sequence>
-               <xs:element name="CODIGO_DE_FONDO" type="TDC_Simple:CODIGO_DE_FONDO_Type"/>
-               <xs:element name="NUMERO_PARTICIPE" type="TDC_Simple:CODIGO_ALFANUM_7_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="PARTICULA_APELLIDO_Type">
@@ -5190,12 +4678,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="PROCEDENCIA_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="PROCESO_ALERTA_FACTOR_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -5307,19 +4789,6 @@
                <xs:element name="NUMERO_DE_PROPUESTA" type="TDC_Simple:SECUENCIAL_CORTO_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="PROPUESTA_PIPECO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="ID_PROPUESTA" type="TDC_Simple:CANTIDAD_GRANDE_Type"/>
-               <xs:element name="VERSION_PROPUESTA" type="TDC_Simple:CODIGO_NUMERICO_4_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="PROVEEDOR_LAN_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="PRUEBA_CD_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -5387,18 +4856,6 @@
           <xs:sequence>
                <xs:element name="TRAMO_CUENTA_DESDE" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
                <xs:element name="TRAMO_CUENTA_HASTA" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="RATING_TITUS_Type">
-          <xs:sequence>
-               <xs:element name="CODIGO_AGENCIA_TITUS" type="TDC_Simple:CODIGO_AGENCIA_TITUS_Type"/>
-               <xs:element name="COD_RATING" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="REASON_DLG_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="RECAUDACION_EMISORA_Type">
@@ -5503,12 +4960,6 @@
                <xs:element name="COD_REGLA_PNC" type="TDC_Simple:CODIGO_ALFANUM_8_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="REG_INTER_OTT_Type">
-          <xs:sequence>
-               <xs:element name="INTERFASE_OTT" type="tns:INTERFASE_OTT_Type"/>
-               <xs:element name="SEC_REG_INTERFASE" type="TDC_Simple:NUMERO_SECUENCIAL_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="REL_AGRUPAC_CUENTA_EEFF_Type">
           <xs:sequence>
                <xs:element name="PLAN_CONTABLE_EEFF" type="tns:PLAN_CONTABLE_EEFF_Type"/>
@@ -5528,12 +4979,6 @@
           <xs:sequence>
                <xs:element name="CONTRATO" type="tns:CONTRATO_Type"/>
                <xs:element name="COD_NUM_10" type="TDC_Simple:CODIGO_NUM_10_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="REMESA_PAGO_PRV_Type">
-          <xs:sequence>
-               <xs:element name="CONTRATO" type="tns:CONTRATO_Type"/>
-               <xs:element name="NUMERO_DE_REMESA" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="RESOLUCION_SAT_3270_Type">
@@ -5687,30 +5132,6 @@
                <xs:element name="ID_PRIVADA" type="TDC_Simple:ID_PRIVADA_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="RTES_LIMITE_RIESGO_Type">
-          <xs:sequence>
-               <xs:element name="GRUPO_EMPRESA" type="TDC_Simple:GRUPO_EMPRESA_Type"/>
-               <xs:element name="LIMITE_RIESGO" type="TDC_Simple:CODIGO_ALFANUM_7_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="RTES_NIVEL_SUJ_INTERNO_Type">
-          <xs:sequence>
-               <xs:element name="GRUPO_EMPRESA" type="TDC_Simple:GRUPO_EMPRESA_Type"/>
-               <xs:element name="NIVEL_INTERNO" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="RTES_PLAZO_DE_RIESGO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:GRUPO_EMPRESA_Type"/>
-               <xs:element name="PLAZO_RIESGO" type="TDC_Simple:CODIGO_ALFANUM_7_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="RTES_SUJETO_INTERNO_Type">
-          <xs:sequence>
-               <xs:element name="NIVEL_INTERNO" type="tns:RTES_NIVEL_SUJ_INTERNO_Type"/>
-               <xs:element name="COD_SUJETO_INTERNO" type="TDC_Simple:CODIGO_ALFANUM_11_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="SALDO_PUNTUAL_Type">
           <xs:sequence>
                <xs:element name="POSICION_DE_CONTRATO" type="tns:POSICION_DE_CONTRATO_Type"/>
@@ -5765,7 +5186,7 @@
      <xs:complexType name="SEGMENTO_RG_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
+               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_SIN_ESP_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="SERVICIO_AHEBMG_Type">
@@ -5885,18 +5306,6 @@
                <xs:element name="CODIGO_NUMERICO" type="TDC_Simple:CODIGO_NUMERICO_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="SOPORTE_ORIGINAL_FACTOR_Type">
-          <xs:sequence>
-               <xs:element name="SOPORTE_RECIBIDO_FACTOR" type="tns:SOPORTE_RECIBIDO_FACTOR_Type"/>
-               <xs:element name="NUMERO_REGISTRO" type="TDC_Simple:CODIGO_NUMERICO_9_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="SOPORTE_RECIBIDO_FACTOR_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_SOPORTE" type="TDC_Simple:CODIGO_ALFANUM_10_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="SUBAGRUP_MOVIMIENTOS_DGO_Type">
           <xs:sequence>
                <xs:element name="AGRUP_MOVIMIENTOS" type="TDC_Simple:AGRUP_MOVIMIENTOS_DGO_Type"/>
@@ -5946,12 +5355,6 @@
                <xs:element name="COD_SUBFAMILIA_PRODUCTO" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="SUBFAM_PRODUCTO_SEG_FAB_Type">
-          <xs:sequence>
-               <xs:element name="FAMILIA_DE_PRODUCTO" type="TDC_Simple:FAMILIA_PRODUCTO_SEG_FAB_Type"/>
-               <xs:element name="SUBFAMILIA_DE_PRODUCTO" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="SUBFUNCION_FRANQUICIA_TJT_Type">
           <xs:sequence>
                <xs:element name="CODFUNCION_FRANQUICIA_TJT" type="tns:CODFUNCION_FRANQUICIA_TJT_Type"/>
@@ -5980,12 +5383,6 @@
           <xs:sequence>
                <xs:element name="ORIGEN_ERROR_PROC_LIQUID" type="TDC_Simple:ORIGEN_ERROR_PROC_LIQUID_Type"/>
                <xs:element name="COD_SUBORIGEN" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="SUBSERVICIO_BNF_Type">
-          <xs:sequence>
-               <xs:element name="COD_TIP_SERVICIO" type="tns:TIPO_SERVICIO_BNF_Type"/>
-               <xs:element name="COD_SUBSERVICIO" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="SUBSISTEMA_GSTP_Type">
@@ -6153,12 +5550,6 @@
                <xs:element name="CODIGO_NUM_3" type="TDC_Simple:CODIGO_NUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TERCERO_OTT_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM_5" type="TDC_Simple:CODIGO_ALFANUM_5_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_ACTIVIDAD_BDM_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -6225,12 +5616,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_BENEFICIARIO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_BENEFICIO_BNF_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -6241,12 +5626,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM_6" type="TDC_Simple:CODIGO_ALFANUM_6_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_BUSQUEDA_PIPECO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIPO_BUZON_ENVIO_Type">
@@ -6374,18 +5753,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_CUENTA_CARGO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_CUENTA_CARGO_GESDPS_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIPO_CUENTA_GEM_Type">
@@ -6569,12 +5936,6 @@
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_ESTADO_PIPECO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_ESTADO_PROMOCION_BNF_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -6606,12 +5967,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_4_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_FINANCIACION_PIPECP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_FINANCIACION_TJT_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -6629,12 +5984,6 @@
           <xs:sequence>
                <xs:element name="COD_TIPO_FUENTE_APV_CE" type="TDC_Simple:CODIGO_NUMERICO_5_Type"/>
                <xs:element name="COD_GRUPO_ENTIDAD_BIS" type="TDC_Simple:COD_GRUPO_ENTIDAD_BIS_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_FUENTE_PIPECO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIPO_FUNCION_GR_Type">
@@ -6719,12 +6068,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_LOTE_LAN_Type">
-          <xs:sequence>
-               <xs:element name="FORMATO_LAN" type="tns:FORMATO_LAN_Type"/>
-               <xs:element name="COD_TIPO_LOTE_LAN" type="TDC_Simple:CODIGO_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIPO_MARCAJE_TTGG_Type">
@@ -6856,18 +6199,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_OPERACION_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_OPERACION_GESDPS_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_OPERACION_MISPAG_Type">
           <xs:sequence>
                <xs:element name="NATURALEZA_PAGO_MISPAG" type="tns:NATURALEZA_PAGO_MISPAG_Type"/>
@@ -6880,19 +6211,7 @@
                <xs:element name="COD_TIPO_OPERACION" type="TDC_Simple:CODIGO_NUMERICO_7_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_OPERACION_TEE_Type">
-          <xs:sequence>
-               <xs:element name="TIPO_TRANSACCION_TEE" type="TDC_Simple:TIPO_TRANSACCION_TEE_Type"/>
-               <xs:element name="OPERACION_BE_TEE" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_ORDENANTE_FACTORING_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_ORDEN_GESDPP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
@@ -6934,12 +6253,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_PLAN_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_PREFIJO_TLF_UK_Type">
           <xs:sequence>
                <xs:element name="TIPO_NUMERO_TELEFONICO" type="TDC_Simple:TIPO_NUMERO_TELEFONICO_UK_Type"/>
@@ -6953,12 +6266,6 @@
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIPO_PROMOCION_BNF_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_RAZON_PERDIDA_PIPECO_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
@@ -7049,18 +6356,6 @@
                <xs:element name="CODIGO_ALFANUM_3" type="TDC_Simple:COD_ALFANUM_3_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_SERVICIO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_SERVICIO_GESDPS_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_SOPORTE_FACTOR_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -7085,12 +6380,6 @@
                <xs:element name="IND_TIPO_TARJETA" type="TDC_Simple:CODIGO_NUMERICO_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIPO_TASA_PIPECP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIPO_TITULARIDAD_BDM_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -7101,12 +6390,6 @@
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIPO_TRASPASO_GESDPP_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="CODIGO_ALFANUM" type="TDC_Simple:CODIGO_ALFANUM_1_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIP_CAIDA_FINANC_FACTOR_Type">
@@ -7134,12 +6417,6 @@
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TIP_CUENTA_GAU_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIP_DEPOSITO_PASIV_PIPECP_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
@@ -7223,24 +6500,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIP_RAZON_OPORTUN_PIPECO_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIP_REF_AGR_ACUMULADOR_PB_Type">
-          <xs:sequence>
-               <xs:element name="COD_AGRUPADOR" type="TDC_Simple:DESGLOSE_ACUMULADOR_PB_Type"/>
-               <xs:element name="REF_AGRUPADOR" type="TDC_Simple:CODIGO_ALFANUM_8_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TIP_REF_ORDEN_PGD_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIP_RESOLU_DISPUTA_FACTOR_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -7289,12 +6548,6 @@
                <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
           </xs:sequence>
      </xs:complexType>
-     <xs:complexType name="TIP_SOPORTE_RECEP_FACTOR_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="COD_ALFANUM" type="TDC_Simple:COD_ALFANUM_2_Type"/>
-          </xs:sequence>
-     </xs:complexType>
      <xs:complexType name="TIP_TRAT_IMPORTE_MISPAG_Type">
           <xs:sequence>
                <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
@@ -7305,13 +6558,6 @@
           <xs:sequence>
                <xs:element name="TIPO_DATO_BNF" type="tns:TIPO_DATO_BNF_Type"/>
                <xs:element name="COD_DATO_OPER_BONIS" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="TRANSACCION_TEE_Type">
-          <xs:sequence>
-               <xs:element name="EMPRESA" type="TDC_Simple:EMPRESA_Type"/>
-               <xs:element name="FECHA_DECLARACION" type="TDC_Simple:FECHA_AAAAMMDD_Type"/>
-               <xs:element name="SECUENCIA_OPERACION" type="TDC_Simple:CODIGO_NUMERICO_7_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="TRANSICION_LZD_Type">
@@ -7386,12 +6632,6 @@
           <xs:sequence>
                <xs:element name="DENOMINACION_ATRIBUT_CONT" type="tns:DENOMINACION_ATRIBUT_CONT_Type"/>
                <xs:element name="COD_VALOR_ATRIB" type="TDC_Simple:COD_ALFANUM_3_Type"/>
-          </xs:sequence>
-     </xs:complexType>
-     <xs:complexType name="VALOR_ATRIBUTO_PRODUCTO_Type">
-          <xs:sequence>
-               <xs:element name="COD_ATRIBUTO_PRODUCTO" type="TDC_Simple:COD_ATRIBUTO_PRODUCTO_Type"/>
-               <xs:element name="VALOR_ATRIBUTO_PROD" type="TDC_Simple:STRING_25_Type"/>
           </xs:sequence>
      </xs:complexType>
      <xs:complexType name="VALOR_AYUDA_VALCOR_Type">
