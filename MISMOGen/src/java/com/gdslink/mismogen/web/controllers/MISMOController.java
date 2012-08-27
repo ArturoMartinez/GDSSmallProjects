@@ -50,8 +50,15 @@ public class MISMOController extends AbstractController
         try
         {
             String strId = getParameter(servletRequest, "id", true);
+            String strCompany = getParameter(servletRequest, "company", false);
+            if(strCompany.isEmpty())
+            {
+                strCompany = Application.instance().getDefaultCompany();
+                if(strCompany.isEmpty())
+                    throw new Exception("No 'company' parameter specified in the URL or the configuration files");
+            }
                         
-            List<String> listMismos = MISMOService.getConvertedMISMO(strId);            
+            List<String> listMismos = MISMOService.getConvertedMISMO(strId, strCompany);
             List<Mismo> listBodies = new ArrayList<Mismo>();
 
             String[] aTitles = Application.instance().getTabTitlesArray();

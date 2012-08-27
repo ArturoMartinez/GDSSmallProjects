@@ -5,18 +5,11 @@
 package com.gdslink.mismogen.web.service;
 
 import com.gdslink.mismogen.Application;
-import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType;
-import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicantsResponse;
-import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicants;
-import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKMISMOType;
-import com.gdslink.mpmerge.santander.soap.GetMISMOAllApplicantsFault;
-import com.gdslink.mpmerge.santander.soap.Faultreason;
-import com.gdslink.mpmerge.santander.soap.ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType;
-import com.sun.corba.se.spi.activation._LocatorImplBase;
+import com.gdslink.mpmerge.santander.soap.*;
 import com.sun.xml.bind.StringInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.lang.Exception;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.transform.Transformer;
@@ -37,18 +30,21 @@ public class MISMOService
 {
     private static final Logger log = Logger.getLogger(MISMOService.class);
 
-    public static List<String> getMismo(String strId) throws Exception
+    public static List<String> getMismo(String strId, String strCompany) throws Exception
     {
         List<String> listMismos = new ArrayList<String>();
 
-        log.info("Fetching mismo");
+        log.info("Fetching mismo " + strCompany + ":" + strId);
 
         GetMISMOAllApplicantsResponse response = null;
 
         try
         {
             ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType inputInner = new ComBanestoAlMtxcorGestionMFCbCBKGetMISMOAllApplicantsINType();
-            inputInner.setBureauId(Long.parseLong(strId));
+            BUREAUIDMTXType idBureau = new BUREAUIDMTXType();
+            idBureau.setEMPRESA(strCompany); 
+            idBureau.setNUMEXPEDIENTE(Long.parseLong(strId));
+            inputInner.setBureauIdMtx(idBureau);
 
             GetMISMOAllApplicants input = new GetMISMOAllApplicants();
             input.setGetMismoIN(inputInner);
@@ -57,17 +53,17 @@ public class MISMOService
 
             if(response != null && response.getMethodResult() != null)
             {
-                if(response.getMethodResult().getMISMOApplicantLevel() != null &&
-                    response.getMethodResult().getMISMOApplicantLevel().getMismoInfo() != null)
+                if(response.getMethodResult().getMismoApplicantLevel() != null &&
+                    response.getMethodResult().getMismoApplicantLevel().getMismoInfo() != null)
                 {
-                    log.debug("Number of mismos returned: " + response.getMethodResult().getMISMOApplicantLevel().getMismoInfo().size());
+                    log.debug("Number of mismos returned: " + response.getMethodResult().getMismoApplicantLevel().getMismoInfo().size());
 
-                    for(ComBanestoAlMtxcorGestionMFCbCBKMISMOType result : response.getMethodResult().getMISMOApplicantLevel().getMismoInfo())
+                    for(ComBanestoAlMtxcorGestionMFCbCBKMISMOType result : response.getMethodResult().getMismoApplicantLevel().getMismoInfo())
                     {
-                        if(result.getBDPId() != null)
+                        if(result.getBdpId() != null)
                         {
-                            log.debug("BPDId/CODIGODEPERSONA = " + result.getBDPId().getCODIGODEPERSONA());
-                            log.debug("BPDId/TIPODEPERSONA = " + result.getBDPId().getTIPODEPERSONA());
+                            log.debug("BPDId/CODIGODEPERSONA = " + result.getBdpId().getCODIGODEPERSONA());
+                            log.debug("BPDId/TIPODEPERSONA = " + result.getBdpId().getTIPODEPERSONA());
                         }
 
                         String strMismo = result.getMismo();
@@ -96,7 +92,6 @@ public class MISMOService
         {
             log.error("An error occurred while retrieving the MISMO: " + e.getMessage());
 
-            StringBuilder strReasons = new StringBuilder();
             try
             {
                 for(Faultreason reason : e.getFaultInfo().getReasons().getReason())
@@ -107,7 +102,7 @@ public class MISMOService
             }
             catch(Exception ex)
             {
-                log.error("Error occurred while retriving error message");
+                log.error("Error occurred while retriving error message, Exception: " + ex.getMessage());
             }
 
             throw new Exception("An error occurred while retrieving the MISMO: " + e.getMessage());
@@ -126,9 +121,9 @@ public class MISMOService
         return factoryTransformer.newTransformer(new StreamSource(streamIn));
     }
 
-    public static List<String> getConvertedMISMO(String strId) throws Exception
+    public static List<String> getConvertedMISMO(String strId, String strCompany) throws Exception
     {
-        List<String> listMismos = getMismo(strId);
+        List<String> listMismos = getMismo(strId, strCompany);
 
         List<String> listConverted = new ArrayList<String>();
 

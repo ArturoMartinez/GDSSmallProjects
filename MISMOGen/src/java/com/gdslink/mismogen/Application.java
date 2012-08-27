@@ -43,6 +43,7 @@ public class Application
     private String _strBdmUrl = null;
     private MTXWSPortTypeHTTP _soapPort = null;
     private String _strTabTitles = null;
+    private String _strDefaultCompany = "";
 
     protected Application()
     {
@@ -87,6 +88,16 @@ public class Application
         return getTabTitles().split(";");
     }
 
+    public String getDefaultCompany()
+    {
+        return _strDefaultCompany;
+    }
+
+    public void setDefaultCompany(String strCompany)
+    {
+        _strDefaultCompany = strCompany;
+    }
+
     public synchronized MTXWSPortTypeHTTP getSOAPPort() throws Exception
     {
         if(_soapPort == null)
@@ -104,6 +115,7 @@ public class Application
                 bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, _strBdmUrl);
 
                 _soapPort = port;
+                log.debug("Initialization complete");
             }
             catch(Exception e)
             {
