@@ -120,9 +120,9 @@ public class MPMerge
                 }
                 else
                 {
-                    log.error("Got non-xml merge result, returning SOAP fault");
+                    log.error("Got non-xml merge result, returning error as xml");
                     log.error(strResult);
-                    throw new Exception(strResult);
+                    return errorToXML(strResult);
                 }
             }
             catch (InterruptedException e)
@@ -147,6 +147,11 @@ public class MPMerge
         {
             log.info("Finished call to mergeBureauReports");
         }
+    }
+
+    private String errorToXML(String strError)
+    {
+        return strError;
     }
 
     private String getFullPath(String strFilename) throws Exception
