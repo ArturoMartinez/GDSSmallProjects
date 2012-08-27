@@ -6,10 +6,15 @@ package com.gdslink.mismogen;
 
 import com.gdslink.mpmerge.santander.soap.MTXWSPortTypeHTTP;
 import com.gdslink.mpmerge.santander.soap.MTXWSService;
+import java.io.IOException;
 import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import java.lang.Package;
+import java.net.JarURLConnection;
+import java.net.URL;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 
 /**
  *
@@ -49,8 +54,32 @@ public class Application
     protected Application()
     {
         DOMConfigurator.configure(Application.class.getResource("/log4j.xml"));
+        logVersion();
+    }
 
-        String strVersion = Application.class.getPackage().getImplementationVersion();
+    private void logVersion()
+    {
+        URL res = getClass().getResource(com.gdslink.mismogen.Application.class.getSimpleName() + ".class");
+        String strVersion = "Unknown";
+
+        try
+        {
+            if(res.openConnection() instanceof JarURLConnection)
+            {
+                JarURLConnection conn = (JarURLConnection) res.openConnection();
+                Manifest mf = conn.getManifest();
+                Attributes atts = mf.getMainAttributes();
+                if(atts.containsKey("Implementation-Version"))
+                    strVersion = atts.getValue("Implementation-Version");
+                else
+                    strVersion = "No version in MANIFEST.MF";
+            }
+        }
+        catch(IOException e)
+        {
+
+        }
+
         log.info("MISMOGen Implementation version: " + strVersion);
     }
 
