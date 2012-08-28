@@ -7,6 +7,7 @@ package com.gdslink.mismogen;
 import com.gdslink.mpmerge.santander.soap.MTXWSPortTypeHTTP;
 import com.gdslink.mpmerge.santander.soap.MTXWSService;
 import java.io.IOException;
+import java.io.InputStream;
 import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -64,18 +65,25 @@ public class Application
 
         try
         {
+            Manifest mf = null;
             if(res.openConnection() instanceof JarURLConnection)
             {
                 JarURLConnection conn = (JarURLConnection) res.openConnection();
-                Manifest mf = conn.getManifest();
-                Attributes atts = mf.getMainAttributes();
-                if(atts.containsKey("Implementation-Version"))
-                    strVersion = atts.getValue("Implementation-Version");
-                else
-                    strVersion = "No version in MANIFEST.MF";
+                mf = conn.getManifest();
             }
+            else
+            {
+                InputStream stream = getClass().getResourceAsStream("/META-INF/MANIFEST.MF");
+                mf = new Manifest(stream);
+            }
+
+            Attributes atts = mf.getMainAttributes();
+            if(atts.containsKey("Implementation-Version"))
+                strVersion = atts.getValue("Implementation-Version");
+            else
+                strVersion = "No version in MANIFEST.MF";
         }
-        catch(IOException e)
+        catch(Exception e)
         {
 
         }

@@ -73,11 +73,11 @@
         <format property="NOW" pattern="yyyy-MM-dd HH:mm:ss"/>
       </tstamp>
     </target>
-    <target name="-pre-dist">
+    <target name="-pre-compile">
       <copydir src="${conf.dir}/xml-resources/web-service-references/MTXWS_v1/wsdl" dest="${build.web.dir}/WEB-INF/wsdl"/>
       <manifest file="${conf.dir}/MANIFEST.MF">
         <attribute name="Implementation-Version" value="${NOW}"/>
-      </manifest>
+      </manifest>      
     </target>
 
 </project>

@@ -73,7 +73,7 @@ public class MISMOService
                 }
                 else if(response.getMethodResult().getMensaje() != null)
                 {
-                    log.warn("Error message from TBM: " + response.getMethodResult().getMensaje());
+                    log.warn("Error message from BDM: " + response.getMethodResult().getMensaje());
                     throw new Exception(response.getMethodResult().getMensaje());
                 }
             }

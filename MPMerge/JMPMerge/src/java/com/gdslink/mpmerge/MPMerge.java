@@ -5,9 +5,13 @@
 package com.gdslink.mpmerge;
 
 import com.gdslink.common.resourcethread.ResourceThreadFactory;
+import java.io.InputStream;
+import java.net.JarURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 import javax.annotation.Resource;
 import javax.jws.WebService;
 import javax.servlet.ServletContext;
@@ -50,7 +54,7 @@ public class MPMerge
             DOMConfigurator.configure(MPMerge.class.getResource("/log4j.xml"));
 
             log.info("Initializing MPMerge Web Service");
-
+            logVersion();
             log.debug("Loading configuration");
 
             MessageContext ctxMessage = _context.getMessageContext();
@@ -75,6 +79,39 @@ public class MPMerge
             log.error("Initialization failed: " + e.getMessage(), e);
             throw new RuntimeException("Failed to initialize web service: " + e.getMessage(), e);
         }
+    }
+
+    private void logVersion()
+    {
+        URL res = getClass().getResource(com.gdslink.mpmerge.MPMerge.class.getSimpleName() + ".class");
+        String strVersion = "Unknown";
+
+        try
+        {
+            Manifest mf = null;
+            if(res.openConnection() instanceof JarURLConnection)
+            {
+                JarURLConnection conn = (JarURLConnection) res.openConnection();
+                mf = conn.getManifest();
+            }
+            else
+            {
+                InputStream stream = getClass().getResourceAsStream("/META-INF/MANIFEST.MF");
+                mf = new Manifest(stream);
+            }
+
+            Attributes atts = mf.getMainAttributes();
+            if(atts.containsKey("Implementation-Version"))
+                strVersion = atts.getValue("Implementation-Version");
+            else
+                strVersion = "No version in MANIFEST.MF";
+        }
+        catch(Exception e)
+        {
+
+        }
+
+        log.info("MPMerge Implementation version: " + strVersion);
     }
 
     public java.lang.String mergeBureauReports( java.lang.String inputExperian1, java.lang.String inputEquifax1, java.lang.String inputTU1, java.lang.String inputExperian2, java.lang.String inputEquifax2, java.lang.String inputTU2, java.lang.String inmcfg, java.lang.String inccfg, java.lang.String stylesheet)
