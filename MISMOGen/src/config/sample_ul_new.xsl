@@ -460,7 +460,33 @@ function phonehome(acctname,acctnumber)
 						</TD>
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_AccountReportedDate"/>&#160;<br/><xsl:value-of select="substring($aot,1,14)"/>&#160;</center></TD>
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_AccountOpenedDate"/>&#160;<br/><xsl:value-of select="../@_LastActivityDate"/>&#160;</center></TD>
-						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_HighCreditAmount"/>&#160;<br/><xsl:value-of select="../@_AccountType"/>&#160;</center></TD>
+						
+						<TD WIDTH="9%" NOWRAP="TRUE"><center>
+						
+						<xsl:choose>
+						  <xsl:when test="../@_HighBalanceAmount and ../@_HighCreditAmount">
+							<xsl:choose>
+								<xsl:when test="../@_HighCreditAmount > ../@_HighBalanceAmount">
+									<xsl:value-of select="../@_HighCreditAmount"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates select="../@_HighBalanceAmount"/>
+								</xsl:otherwise>
+							</xsl:choose>
+					     </xsl:when>		
+  					     <xsl:when test="../@_HighCreditAmount">
+							<xsl:value-of select="../@_HighCreditAmount"/>
+					     </xsl:when>		
+  					     <xsl:when test="../@_HighBalanceAmount">
+							<xsl:value-of select="../@_HighBalanceAmount"/>
+					     </xsl:when>	
+					     <xsl:otherwise>  <!-- no values so put a blank here -->
+					     	&#160;
+					     </xsl:otherwise>
+					   </xsl:choose>  	
+						
+					    &#160;<br/><xsl:value-of select="../@_AccountType"/>&#160;</center></TD>
+						                                     
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_UnpaidBalanceAmount"/>&#160;<br/><xsl:value-of select="../@_TermsDescription"/></center></TD>
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_PastDueAmount"/>&#160;</center></TD>
 						<TD WIDTH="6%" NOWRAP="TRUE"><center><xsl:value-of select="../@_MonthsReviewedCount"/>&#160;</center></TD>                                   			
