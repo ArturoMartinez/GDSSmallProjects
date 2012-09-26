@@ -776,11 +776,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){1}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="BMG_CONJ_REGLA_CALENDARIO_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="BMG_CONVENCION_FECHA_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
@@ -1028,11 +1023,6 @@
                <xs:maxInclusive value="+99999"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="BMG_REGLA_CALENDARIO_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="BMG_SECURITY_Type">
           <xs:restriction base="xs:string">
                <xs:length value="20"/>
@@ -1192,11 +1182,6 @@
      <xs:simpleType name="BMG_TIPO_RECEPCION_GL_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="BMG_TIPO_REGLA_CALENDARIO_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="BMG_TIPO_REGLA_CONCIL_GL_Type">
@@ -1511,11 +1496,6 @@
      <xs:simpleType name="CATEGORIA_PERGUNTA_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="2"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CATEGORIA_TTGG_ES_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CATEGO_TITUS_Type">
@@ -2172,18 +2152,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_ATRIBUTO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_ATRIBUTO_GCD_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_ATRIBUTO_RO_Type">
           <xs:restriction base="xs:string">
                <xs:length value="2"/>
@@ -2240,12 +2208,6 @@
                <xs:length value="1"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_CATALOGO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_CEDENTE_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="11"/>
@@ -2291,12 +2253,6 @@
      <xs:simpleType name="CODIGO_CRITERIO_CARTERAS_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_CURVA_REDUCIDA_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_DE_ACCION_SWIFT_Type">
@@ -2497,23 +2453,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){6}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_ESTADO_AGRE_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-9"/>
-               <xs:maxInclusive value="+9"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_ESTADO_APV_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){30}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_ESTADO_CARGA_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-9"/>
-               <xs:maxInclusive value="+9"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_ESTADO_CIC_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
@@ -2539,36 +2478,9 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_ESTADO_SEG_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-9"/>
-               <xs:maxInclusive value="+9"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_ESTAMPACAO_BR_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){0,3}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_EST_CONTRATO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-9"/>
-               <xs:maxInclusive value="+9"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_EST_INCIDENCIA_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_EST_INTERFAZ_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_EST_REGISTRO_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_EVENTO_PRESTAMO_Type">
@@ -2658,21 +2570,9 @@
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){2}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_INTERFAZ_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_ISIN_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){12}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_LINEA_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_LINEA_DE_RIESGOS_Type">
@@ -2927,12 +2827,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_OPERADOR_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_OPER_PAGO_PRV_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
@@ -2976,12 +2870,6 @@
      <xs:simpleType name="CODIGO_PERGUNTA_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="3"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_PERIMETRO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_PERIODICIDAD_Type">
@@ -3037,11 +2925,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_PROCESO_APV_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){21}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_PROCESO_DE_NEGOCIO_Type">
           <xs:restriction base="xs:string">
                <xs:length value="4"/>
@@ -3071,12 +2954,6 @@
      <xs:simpleType name="CODIGO_REDONDEO_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_REGLA_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_RESIDENCIA_Type">
@@ -3139,11 +3016,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){0,5}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_SISTEMA_ORIGEN_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_SITUACAO_RECIBO_BR_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){1}"/>
@@ -3179,32 +3051,9 @@
                <xs:length value="5"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_AMORT_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_ATRIB_GCD_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_ATR_DISC_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-9"/>
-               <xs:maxInclusive value="+9"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_TIPO_CONTA_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="2"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_CONTRATO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_TIPO_DE_DATO_Type">
@@ -3228,11 +3077,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_ERROR_INC_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){5}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_TIPO_GARANTIA_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){6}"/>
@@ -3243,43 +3087,14 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){1}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_PAR_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_RIESGO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_TIPO_RUTA_CIC_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIPO_UMBRAL_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_TIP_CICLO_TEMP_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="CODIGO_TRAMO_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="CODIGO_UMBRAL_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CODIGO_UNIDAD_DE_MEDIDA_Type">
@@ -3434,11 +3249,6 @@
                <xs:length value="3"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_ALFANUM_30_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){30}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_ALFANUM_3_SIN_ESP_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
@@ -3447,11 +3257,6 @@
      <xs:simpleType name="COD_ANU_FIDELIZACION_BNF_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_APLICACION_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_APLICACION_TESORERIA_Type">
@@ -3506,12 +3311,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_ATRIBUT_POND_AGRE_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_BANDEIRA_BR_Type">
           <xs:restriction base="xs:integer">
                <xs:minInclusive value="-999"/>
@@ -3521,11 +3320,6 @@
      <xs:simpleType name="COD_BARRA_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="44"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_BASE_TRAMO_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_BLOQ_BR_Type">
@@ -3722,12 +3516,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){5}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_DIVISA_REDUCIDA_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999999999"/>
-               <xs:maxInclusive value="+999999999999999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_EMP_RECORR_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="4"/>
@@ -3753,11 +3541,6 @@
           <xs:restriction base="xs:integer">
                <xs:minInclusive value="-99999"/>
                <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_ESTADO_AGREGADOR_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_ESTADO_CONTRATO_BR_Type">
@@ -3922,25 +3705,9 @@
                <xs:maxInclusive value="+999"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_GESTOR_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_GRADO_VIG_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_GRUPO_ATIVIDADE_BR_Type">
           <xs:restriction base="xs:string">
                <xs:length value="4"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_GRUPO_DE_CUENTA_GCC_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-999999999"/>
-               <xs:maxInclusive value="+999999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_GRUPO_DOCUMENTO_Type">
@@ -3988,11 +3755,6 @@
      <xs:simpleType name="COD_IMPACTO_HABILITAC_COC_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_INCIDENCIA_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_INFORME_TARJETA_Type">
@@ -4148,12 +3910,6 @@
                <xs:maxInclusive value="+9999999"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_OPERADOR_AGREGADO_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_ORDEN_HCE_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
@@ -4174,12 +3930,6 @@
                <xs:length value="3"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_PERFIL_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999"/>
-               <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_PERFIL_COMERCIAL_Type">
           <xs:restriction base="xs:string">
                <xs:length value="2"/>
@@ -4195,12 +3945,6 @@
           <xs:restriction base="xs:integer">
                <xs:minInclusive value="-99999"/>
                <xs:maxInclusive value="+99999"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_PERIODO_FACTURAC_ALM_Type">
-          <xs:restriction base="xs:integer">
-               <xs:minInclusive value="-99999999"/>
-               <xs:maxInclusive value="+99999999"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_PERIODO_HORIZO_BIS_II_Type">
@@ -4239,11 +3983,6 @@
      <xs:simpleType name="COD_PLAZA_INE_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){9}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_PLAZO_LIQ_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_POLITICA_INTERVENCION_Type">
@@ -4309,11 +4048,6 @@
      <xs:simpleType name="COD_PROPOSITO_PRESTAMO_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_PROP_ELECTR_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){13}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_RAZON_MENSAJE_PMAS_Type">
@@ -4602,11 +4336,6 @@
                <xs:maxInclusive value="+99999"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="COD_TIPO_FUNCIONALID_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="COD_TIPO_INFORME_APV_CE_Type">
           <xs:restriction base="xs:integer">
                <xs:minInclusive value="-99999"/>
@@ -4665,11 +4394,6 @@
      <xs:simpleType name="COD_TIPO_PRODUCTO_SOV_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="COD_TIPO_REN_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="COD_TIPO_RESPUESTA_QUIZ_Type">
@@ -5041,7 +4765,7 @@
      </xs:simpleType>
      <xs:simpleType name="CRITERIO_SEGMENTO_RG_Type">
           <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
+               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){3}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="CRITERIO_SEG_DIST_Type">
@@ -6497,11 +6221,6 @@
                <xs:enumeration value="1"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="FLNTDC_IND_RETENCION_R85_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="FONDO_AJENO_Type">
           <xs:restriction base="xs:integer">
                <xs:minInclusive value="-9999999"/>
@@ -7220,11 +6939,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){5}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="ID_PROPUESTA_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){8}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="ID_RAMO_INTMED_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
@@ -7398,19 +7112,9 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="INDICE_MOD_VISUAL_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="INDICE_REF_TESORERIA_Type">
           <xs:restriction base="xs:string">
                <xs:length value="16"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="INDICE_TIPO_LANZAM_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="INDIC_PRE_AUTORIZACAO_BR_Type">
@@ -7481,11 +7185,6 @@
      <xs:simpleType name="IND_EMISION_ANTI_PAGO_PRV_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="IND_ENTORNO_ORIGEN_ALM_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){1}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="IND_FECHA_CONDICION_LIQUI_Type">
@@ -9547,11 +9246,6 @@
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="PROPOSITO_TTGG_ES_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){4}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="PROVEEDOR_RECARGA_PMAS_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[Ñ]|[ñ]){2}"/>
@@ -9924,11 +9618,6 @@
                <xs:maxLength value="18"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="REFER_FUNCIONAL_INTINS_Type">
-          <xs:restriction base="xs:string">
-               <xs:length value="3"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="REF_ARCHIVO_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){17}"/>
@@ -10078,11 +9767,6 @@
      <xs:simpleType name="RFRV_BASE_INTERES_Type">
           <xs:restriction base="xs:string">
                <xs:length value="1"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="RFRV_COD_ATRIBTBL_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){6}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="RFRV_CONCEPTO_CONTABLE_Type">
@@ -10240,11 +9924,6 @@
                <xs:length value="1"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="RFRV_TIPO_INCIDE_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){6}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="RFRV_TIPO_MODIF_OPER_Type">
           <xs:restriction base="xs:string">
                <xs:length value="1"/>
@@ -10278,16 +9957,6 @@
      <xs:simpleType name="ROL_CONSOLIDAC_FINAN_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="RTES_NIVEL_SUJ_EXTERNO_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="RTES_TIPO_DE_RIESGO_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){7}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="RURAL_TYPE_USA_Type">
@@ -10457,11 +10126,6 @@
           <xs:restriction base="xs:string">
                <xs:minLength value="0"/>
                <xs:maxLength value="8000"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="SEC_ECON_CAS_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="SEC_EMPLEADO_SSAA_Type">
@@ -11153,12 +10817,6 @@
                <xs:maxLength value="16"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="STRING_25_Type">
-          <xs:restriction base="xs:string">
-               <xs:minLength value="0"/>
-               <xs:maxLength value="25"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="STRING_290_Type">
           <xs:restriction base="xs:string">
                <xs:minLength value="0"/>
@@ -11223,12 +10881,6 @@
           <xs:restriction base="xs:string">
                <xs:minLength value="0"/>
                <xs:maxLength value="8"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="STRING_80_Type">
-          <xs:restriction base="xs:string">
-               <xs:minLength value="0"/>
-               <xs:maxLength value="80"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="SUBCOD_RESOLUCION_Type">
@@ -13013,11 +12665,6 @@
                <xs:length value="2"/>
           </xs:restriction>
      </xs:simpleType>
-     <xs:simpleType name="TIPO_GRUPO_DE_CUENTA_GCC_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
      <xs:simpleType name="TIPO_HERRAMIENTA_FISCAL_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){8}"/>
@@ -13257,11 +12904,6 @@
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="TIPO_MENSAJE_TESORERIA_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="TIPO_MICR_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){2}"/>
           </xs:restriction>
@@ -13508,11 +13150,6 @@
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="TIPO_OPERATIVA_DGO_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="TIPO_OPER_CAS_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
           </xs:restriction>
@@ -14565,11 +14202,6 @@
      <xs:simpleType name="TIP_IND_EMIS_INTER_FISCAL_Type">
           <xs:restriction base="xs:string">
                <xs:pattern value="([0-9]|[ ]){1}"/>
-          </xs:restriction>
-     </xs:simpleType>
-     <xs:simpleType name="TIP_IND_FUNCIONALIDAD_GAU_Type">
-          <xs:restriction base="xs:string">
-               <xs:pattern value="([a-zA-Z0-9]|[ ]|[Ñ]|[ñ]|[\?]){3}"/>
           </xs:restriction>
      </xs:simpleType>
      <xs:simpleType name="TIP_IND_PS_NORESID_FISCAL_Type">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:TDCc="http://www.isban.es/webservices/TDCc" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:tns="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v2">
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:TDCc="http://www.isban.es/webservices/TDCc" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:tns="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v1">
     <xs:import namespace="http://www.isban.es/webservices/TDCs" schemaLocation="./ws_TDCs.xsd"/>
     <xs:import namespace="http://www.isban.es/webservices/TDCc" schemaLocation="./ws_TDCc.xsd"/>
     <xs:element name="com.banesto.al.mtxcor.gestion.m.f.exc.NO_DATA">
