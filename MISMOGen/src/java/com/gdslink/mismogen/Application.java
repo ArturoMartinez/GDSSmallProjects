@@ -50,7 +50,7 @@ public class Application
     private String _strBdmUrl = null;
     private MTXWSPortTypeHTTP _soapPort = null;
     private String _strTabTitles = null;
-    //private String _strDefaultCompany = "";
+    private String _strCompany = "";
 
     protected Application()
     {
@@ -128,17 +128,18 @@ public class Application
     {
         return getTabTitles().split(";");
     }
-/*
-    public String getDefaultCompany()
+
+    public String getCompany()
     {
-        return _strDefaultCompany;
+        return _strCompany;
     }
 
-    public void setDefaultCompany(String strCompany)
+    public void setCompany(String strCompany)
     {
-        _strDefaultCompany = strCompany;
+        log.debug("Set Company to: " + strCompany);
+        _strCompany = strCompany;
     }
-*/
+
     public synchronized MTXWSPortTypeHTTP getSOAPPort() throws Exception
     {
         if(_soapPort == null)
