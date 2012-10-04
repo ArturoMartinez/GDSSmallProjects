@@ -93,7 +93,7 @@ JNIEXPORT jstring JNICALL Java_com_gdslink_mpmerge_MPMergeJNI_test(JNIEnv* env, 
 
         std::string strExtraArgs = "Logging=\"";
         strExtraArgs += strLogLevel + "\"";
-        strExtraArgs += " RatingCodeType=\"Experian\" ShowBurCodes=\"YES\"";
+        strExtraArgs += " RatingCodeType=\"Experian\" ShowBurCodes=\"YES\" MiscVars=\"Santander,Late90_derog\" DeDupe=\"NO\"";
 
         if(!szLicenseData)
              return env->NewStringUTF("No license data has been specified");
