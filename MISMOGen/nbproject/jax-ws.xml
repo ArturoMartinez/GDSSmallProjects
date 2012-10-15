@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
-  <services/>
+  <services>
+  </services>
   <clients>
-    <client name="MTXWS_v1">
-      <wsdl-url>file:/C:/Temp/New%20folder/wsdl/MTXWS_v1.wsdl</wsdl-url>
-      <local-wsdl-file>MTXWS_v1.wsdl</local-wsdl-file>
+    <client name="MTXWS_v2">
+      <wsdl-url>file:/C:/Code/svn.general_projects/MISMOGen/src/conf/xml-resources/web-service-references/MTXWS_v2/MTXWS_v2.wsdl</wsdl-url>
+      <local-wsdl-file>MTXWS_v2.wsdl</local-wsdl-file>
       <package-name forceReplace="true">com.gdslink.mpmerge.soap</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -18,7 +19,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>/WEB-INF/wsdl/MTXWS_v1.wsdl</wsimport-option-value>
+          <wsimport-option-value>/WEB-INF/wsdl/MTXWS_v2.wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -35,4 +36,5 @@
       </wsimport-options>
     </client>
   </clients>
+  <jsr109>true</jsr109>
 </jax-ws>

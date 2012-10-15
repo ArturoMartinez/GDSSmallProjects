@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:cbtypes="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v1" xmlns:fault="http://www.gruposantander.es/webservices/genericFault" xmlns:faultExceptions="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:cbtypes="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v2" xmlns:fault="http://www.gruposantander.es/webservices/genericFault" xmlns:faultExceptions="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2">
     <documentation>MTXWS</documentation>
     <types>
-        <xs:schema targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1">
+        <xs:schema targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2">
             <xs:import namespace="http://www.gruposantander.es/webservices/genericFault" schemaLocation="./schemas/fault.xsd"/>
-            <xs:import namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v1" schemaLocation="./schemas/MTXWS_functionalFaults_v1.xsd"/>
-            <xs:import namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v1" schemaLocation="./schemas/MTXWS_cb_types_v1.xsd"/>
+            <xs:import namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v2" schemaLocation="./schemas/MTXWS_functionalFaults_v2.xsd"/>
+            <xs:import namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v2" schemaLocation="./schemas/MTXWS_cb_types_v2.xsd"/>
             <xs:import namespace="http://www.isban.es/webservices/TDCs" schemaLocation="./schemas/ws_TDCs.xsd"/>
             <xs:element name="getCurrentBureauData">
                 <xs:complexType>
@@ -139,7 +139,7 @@
     <binding name="MTXWSSoapBindingHTTP" type="tns:MTXWSPortTypeHTTP">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="getMISMOAllApplicants">
-            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1/getMISMOAllApplicants" style="document"/>
+            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2/getMISMOAllApplicants" style="document"/>
             <input name="getMISMOAllApplicants_Input">
                 <soap:body use="literal"/>
             </input>
@@ -154,7 +154,7 @@
             </fault>
         </operation>
         <operation name="getCurrentBureauData">
-            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1/getCurrentBureauData" style="document"/>
+            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2/getCurrentBureauData" style="document"/>
             <input name="getCurrentBureauData_Input">
                 <soap:body use="literal"/>
             </input>
@@ -169,7 +169,7 @@
             </fault>
         </operation>
         <operation name="getRawAllBureaus">
-            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v1/getRawAllBureaus" style="document"/>
+            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2/getRawAllBureaus" style="document"/>
             <input name="getRawAllBureaus_Input">
                 <soap:body use="literal"/>
             </input>
@@ -186,10 +186,7 @@
     </binding>
     <service name="MTXWS_Service">
         <port binding="tns:MTXWSSoapBindingHTTP" name="MTXWSPortHTTP">
-            <soap:address location=""/>
-            <!--
-		Missing message: VegaWSDLWriter.problems.with.HTTP.URL.line1{0} in: java.util.PropertyResourceBundle@2f4f2f4f
-		-->
+            <soap:address location="http://mulbur.sov.pre.corp/MTXSDV_ENS/ws/MTXSDV_Def_Listener"/>
         </port>
     </service>
 </definitions>

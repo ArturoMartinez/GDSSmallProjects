@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://localhost/soap/MTXWS_v1.wsdl" uri="../wsdl/MTXWS_v1.wsdl"/>
+    <system systemId="http://localhost/soap/MTXWS_v2.wsdl" uri="../wsdl/MTXWS_v2.wsdl"/>
     <system systemId="http://localhost/soap/schemas/fault.xsd" uri="../wsdl/schemas/fault.xsd"/>
-    <system systemId="http://localhost/soap/schemas/MTXSOVWS_cb_types_v1.xsd" uri="../wsdl/schemas/MTXSOVWS_cb_types_v1.xsd"/>
+    <system systemId="http://localhost/soap/schemas/MTXWS_cb_types_v2.xsd" uri="../wsdl/schemas/MTXWS_cb_types_v2.xsd"/>
     <system systemId="http://localhost/soap/schemas/ws_TDCs.xsd" uri="../wsdl/schemas/ws_TDCs.xsd"/>
     <system systemId="http://localhost/soap/schemas/ws_TDCc.xsd" uri="../wsdl/schemas/ws_TDCc.xsd"/>
+    <system systemId="http://localhost/soap/schemas/MTXWS_functionalFaults_v2.xsd" uri="../wsdl/schemas/MTXWS_functionalFaults_v2.xsd"/>
 </catalog>

@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
         *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
         *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
         *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
         *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
 
-        -->
-<project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
     <!--
                 ===================
                 JAX-WS WSGEN SECTION
@@ -27,21 +25,21 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-MTXWS_v1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/MTXWS_v1"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXWS_v1" destdir="${build.generated.dir}/jax-wsCache/MTXWS_v1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v1/wsdl/MTXWS_v1.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="/WEB-INF/wsdl/MTXWS_v1.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.mpmerge.santander.soap">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v1/wsdl/MTXWS_v1.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/MTXWS_v1"/>
+    <target name="wsimport-client-MTXWS_v2" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MTXWS_v2"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXWS_v2" destdir="${build.generated.dir}/jax-wsCache/MTXWS_v2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v2/wsdl/MTXWS_v2.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="/WEB-INF/wsdl/MTXWS_v2.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.mpmerge.santander.soap">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v2/wsdl/MTXWS_v2.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MTXWS_v2"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/MTXWS_v1">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MTXWS_v2">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-MTXWS_v1" depends="-init-project">
+    <target name="wsimport-client-clean-MTXWS_v2" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/com/gdslink/mpmerge/soap"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/MTXWS_v1"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MTXWS_v2"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-MTXWS_v1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-MTXWS_v2"/>
 </project>
