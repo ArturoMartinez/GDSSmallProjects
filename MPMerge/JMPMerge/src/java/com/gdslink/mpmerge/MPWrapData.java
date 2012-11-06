@@ -194,4 +194,24 @@ public class MPWrapData
             _strEfxIn2 = strData;
         }
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder strBuilder = new StringBuilder();
+
+        strBuilder.append("INCFG: ").append(_strInccfg != null ? _strInccfg : "EMPTY").append("\n");
+        strBuilder.append("VER: ").append(_strVer != null ? _strVer : "EMPTY").append("\n");
+        strBuilder.append("STYLESHEET: ").append(_strStylesheet != null ? _strStylesheet : "EMPTY").append("\n");
+        //private byte[] _aLicenseData;
+        strBuilder.append("LOGLEVEL: ").append(_strLogLevel != null ? _strLogLevel : "EMPTY").append("\n");
+        strBuilder.append("TU: ").append(_strTuIn != null ? _strTuIn : "EMPTY").append("\n");
+        strBuilder.append("XPN: ").append(_strXpnIn != null ? _strXpnIn : "EMPTY").append("\n");
+        strBuilder.append("EFX: ").append(_strEfxIn != null ? _strEfxIn : "EMPTY").append("\n");
+        strBuilder.append("TU 2: ").append(_strTuIn2 != null ? _strTuIn2 : "EMPTY").append("\n");
+        strBuilder.append("XPN 2: ").append(_strXpnIn2 != null ? _strXpnIn2 : "EMPTY").append("\n");
+        strBuilder.append("EFX 2: ").append(_strEfxIn2 != null ? _strEfxIn2 : "EMPTY").append("\n");
+
+        return strBuilder.toString();
+    }
 }

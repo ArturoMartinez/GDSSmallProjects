@@ -139,7 +139,7 @@ public class MPMerge
             data.setLicenseData(getFullPath("MPWrap.lic"));
             
 
-            log.info("Submitting call to worker thread");
+            log.info("Submitting call to worker thread with data: " + data.hashCode());
 
             MPMergeCallable call = new MPMergeCallable(data);
             Future<String> futureResult = __threadPool.submit(call);
@@ -159,6 +159,7 @@ public class MPMerge
                 {
                     log.error("Got non-xml merge result, returning error as xml");
                     log.error(strResult);
+                    log.error("Data passed in = " + data.toString());
                     return errorToXML(strResult);
                 }
             }
