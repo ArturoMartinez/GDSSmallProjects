@@ -38,6 +38,7 @@ public class MPMerge
     private static int __iMaxThreads;
     private static int __iTimeout;
     private static boolean __bInitialized;
+    private static String __strSettings;
 
     public MPMerge()
     {
@@ -62,9 +63,11 @@ public class MPMerge
 
             __iMaxThreads = Integer.parseInt(ctxServlet.getInitParameter("dll_count"));
             __iTimeout = Integer.parseInt(ctxServlet.getInitParameter("mpmerge_timeout"));
+            __strSettings = ctxServlet.getInitParameter("mpmerge_settings");
 
             log.debug("Max Threads = " + __iMaxThreads);
             log.debug("Timeout = " + __iTimeout);
+            log.debug("Settings = " + __strSettings);
           
             List<IMPMerge> listResources = MPMergeJNIFactory.createJNIResources(__iMaxThreads);
 
@@ -137,7 +140,7 @@ public class MPMerge
             data.setLogLevel("YES");
             data.setVer("2.4");
             data.setLicenseData(getFullPath("MPWrap.lic"));
-            
+            data.setSettings(__strSettings);
 
             log.info("Submitting call to worker thread with data: " + data.hashCode());
 

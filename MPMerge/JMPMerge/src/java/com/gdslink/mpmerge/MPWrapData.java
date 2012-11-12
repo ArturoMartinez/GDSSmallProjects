@@ -30,6 +30,8 @@ public class MPWrapData
     private String _strTuIn2;
     private String _strXpnIn2;
     private String _strEfxIn2;
+    private String _strSettings;
+
 
   /*  private String readWholeFile(String strFilename) throws Exception
     {
@@ -86,6 +88,15 @@ public class MPWrapData
         }
     }
 
+    public void setSettings(String strSettings)
+    {
+        _strSettings = strSettings;
+    }
+
+    public String getSettings()
+    {
+        return _strSettings;
+    }
 
     public void setInmcfg(String strFilename) throws Exception
     {
