@@ -1,0 +1,11 @@
+START TRANSACTION;
+SET SQL_SAFE_UPDATES=0; 
+DELETE FROM `fundation_uat`.`usuryrate`;
+LOAD DATA LOW_PRIORITY LOCAL INFILE './Usury.csv' 
+INTO TABLE `fundation_uat`.`usuryrate` 
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY '"' LINES TERMINATED BY '\r' IGNORE 1 LINES 
+(`BusCurStateCode`, @ColVar1) 
+SET 
+`PTUsuryRate` = REPLACE(@ColVar1, '%', '');
+SHOW WARNINGS;
+COMMIT;
