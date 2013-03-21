@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:tns="http://www.isban.es/webservices/GESTION/Gestion_e/F_mtxscu_gestion_e/scu/intranet/functionalFaults/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTION/Gestion_e/F_mtxscu_gestion_e/scu/intranet/functionalFaults/v1">
+    <xs:element name="com.banesto.al.mtxscu.gestion.e.f.exc.GeneralException">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

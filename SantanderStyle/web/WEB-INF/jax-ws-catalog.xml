@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/MTXUDVWS_v1.wsdl" uri="wsdl/MTXUDVWS_v1.wsdl"/>
+    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/fault.xsd" uri="wsdl/schemas/fault.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/MTXUDVWS_functionalFaults_v1.xsd" uri="wsdl/schemas/MTXUDVWS_functionalFaults_v1.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/MTXUDVWS_cb_types_v1.xsd" uri="wsdl/schemas/MTXUDVWS_cb_types_v1.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/ws_TDCs.xsd" uri="wsdl/schemas/ws_TDCs.xsd"/>
+    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/ws_TDCc.xsd" uri="wsdl/schemas/ws_TDCc.xsd"/>
+</catalog>

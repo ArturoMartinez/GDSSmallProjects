@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:TDCc="http://www.isban.es/webservices/TDCc" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:cbtypes="http://www.isban.es/webservices/GESTION/Gestion_e/F_mtxscu_gestion_e/scu/intranet/cbTypes/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTION/Gestion_e/F_mtxscu_gestion_e/scu/intranet/cbTypes/v1">
+    <xs:import namespace="http://www.isban.es/webservices/TDCs" schemaLocation="./ws_TDCs.xsd"/>
+    <xs:import namespace="http://www.isban.es/webservices/TDCc" schemaLocation="./ws_TDCc.xsd"/>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_BureauId_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_BureauId</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="bureauId" type="TDCc:BUREAUID_MTX_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawAllBureaus_OUT_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawAllBureaus_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="callType" type="TDCs:COD_ALFANUM_2_Type"/>
+            <xs:element minOccurs="0" name="bureauNames" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBI_BureauNames_Type"/>
+            <xs:element minOccurs="0" name="rawList" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBI_RawList_Type"/>
+            <xs:element minOccurs="0" name="message" type="TDCs:DESCRIPCION_CORTA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBI_BureauNames_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawAllBureaus_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="bureauName" nillable="true" type="TDCs:BUREAU_NAME_MTX_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBI_RawList_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawAllBureaus_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="rawData" nillable="true" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawList_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawList_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawAllBureaus_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="bureauName" type="TDCs:BUREAU_NAME_MTX_Type"/>
+            <xs:element minOccurs="0" name="rawData" type="TDCs:DOCUMENTO_GRANDE_XML_Type"/>
+            <xs:element minOccurs="0" name="date" type="TDCs:FECHA_GENERICA_Type"/>
+            <xs:element minOccurs="0" name="bdpId" type="TDCc:NUM_PERSONA_CLIENTE_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_IN_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_IN</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="applicants" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBI_ApplicantBureau_Type"/>
+            <xs:element minOccurs="0" name="callType" type="TDCs:CODIGO_ALFANUM_2_Type"/>
+            <xs:element minOccurs="0" name="company" type="TDCs:EMPRESA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBI_ApplicantBureau_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_IN</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="applicant" nillable="true" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBK_ApplicantBureau_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_ApplicantBureau_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_IN</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="bdpId" type="TDCc:NUM_PERSONA_CLIENTE_Type"/>
+            <xs:element minOccurs="0" name="validity" type="TDCs:CODIGO_ALFANUM_3_Type"/>
+            <xs:element minOccurs="0" name="bureauNames" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBI_BureauNames_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_OUT_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="applicants" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBI_RawApplicantList_Type"/>
+            <xs:element minOccurs="0" name="message" type="TDCs:DESCRIPCION_CORTA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBI_RawApplicantList_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="applicant" nillable="true" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawApplicantBureau_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawApplicantBureau_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="bdpId" type="TDCc:NUM_PERSONA_CLIENTE_Type"/>
+            <xs:element minOccurs="0" name="rawData" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBI_RawDateList_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBI_RawDateList_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="raw" nillable="true" type="cbtypes:com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawDate_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="com.banesto.al.mtxscu.gestion.e.f.cb.CBK_RawDate_Type">
+        <xs:annotation>
+            <xs:appinfo>ContextBean</xs:appinfo>
+            <xs:appinfo>com.banesto.al.mtxscu.gestion.e.f.cb.CBK_CurrentBureauData_OUT</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="bureauName" type="TDCs:BUREAU_NAME_MTX_Type"/>
+            <xs:element minOccurs="0" name="RawInfo" type="TDCs:DOCUMENTO_GRANDE_XML_Type"/>
+            <xs:element minOccurs="0" name="date" type="TDCs:FECHA_GENERICA_Type"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
