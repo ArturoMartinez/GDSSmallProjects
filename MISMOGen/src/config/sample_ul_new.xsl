@@ -130,25 +130,67 @@ function phonehome(acctname,acctnumber)
 
       openwindow = window.open("","openwindow","WIDTH= 400 HEIGHT=300");
       
-      var formstr = "<html><he" + "ad><title>GDS LINK update screen  " + acctname + " - " + acctnumber + "</title></he" + "ad>";
-      formstr += "<bo" + "dy bgcolor=SILVER ><form name=\"upwindow\" action=\"http://www.mergepower.com\" method=\"POST\" >";
+      var formstr = "<html><he"+"ad><title>GDS LINK update screen  " + acctname + " - " + acctnumber + "</title></he"+"ad>";
+      formstr += "<bo"+"dy bgcolor=SILVER ><form name=\"upwindow\" action=\"http://www.mergepower.com\" method=\"POST\" >";
 
       formstr += "<BR><BR>";
       formstr += "<TABLE width=\"100%\"><tr>"
       formstr += "<td><center><input type=button value=\"Cancel \" onClick=\"self.close()\"/></center></td>";
       formstr += "</tr></TABLE>"
-      formstr += "<BR><BR></form></bo" + "dy></html>";
+      formstr += "<BR><BR></form></b"+"ody></html>";
       
       openwindow.document.write(formstr);
       
 }
 
+function openbase64(strType)
+{
+    var data = $("div.embedded_files>div[_type='" + strType + "']").text();
+    if(data)
+    {
+        var w = window.open();
+        var plain = $.base64.decode(data);
+        w.document.body.innerHTML = "<pre>" + plain + "</pre>";
+        w.document.head.innerHTML = "<title>" + strType + "</title>";
+    }
+}
 
 ]]></script>			
 					
 </HEAD>
 <FORM name="mpsample">
 <BODY>
+
+
+
+        <TABLE class="raw_data_links">
+        	<TR>
+	            <xsl:for-each select="//CREDIT_RESPONSE/EMBEDDED_FILE">
+    	            <TD><A>
+        	            <xsl:attribute name="href">
+            	            <xsl:text>javascript:openbase64('</xsl:text>
+                            <xsl:value-of select="@_Description"/>
+                            <xsl:text>');</xsl:text>
+                	    </xsl:attribute>
+                        <xsl:value-of select="@_Description"/>
+        	        </A></TD>
+                    <TD style="width:30px;"/>
+            	</xsl:for-each>
+            </TR>
+        </TABLE>
+
+
+
+        <div class="embedded_files" style="display:none;">
+            <xsl:for-each select="//CREDIT_RESPONSE/EMBEDDED_FILE">
+                <div>
+                    <xsl:attribute name="_Type">
+                        <xsl:value-of select="@_Description"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="./DOCUMENT"/>
+                </div>
+            </xsl:for-each>
+        </div>
 
 		<xsl:text disable-output-escaping="yes">&lt;input type="hidden" name="creditreportid" value="</xsl:text>  
 			<xsl:value-of select="//CREDIT_RESPONSE/@CreditReportIdentifier"/>
@@ -397,10 +439,10 @@ function phonehome(acctname,acctnumber)
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="22%">CREDITOR</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">DATE<br/>REPORTED<hr/>ECOA</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">DATE<br/>OPENED<hr/>DLA</TD>
-						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">HIGH<br/>CREDIT<hr/>ACCT TYPE</TD>
-						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">BALANCE<br/>&#160;<hr/>TERMS</TD>
-						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">PAST<br/>DUE</TD>
-						<TD CLASS="TRADEBANNERCENTER" WIDTH="6%">MO<br/>REV</TD>
+						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">CREDIT<br/>LIMIT<hr/>ACCT TYPE</TD>
+						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">HIGH<br/>BALANCE<hr/>TERMS</TD>
+						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">BALANCE<br/>&#160;<hr/>PAST DUE</TD>
+						<TD CLASS="TRADEBANNERCENTER" WIDTH="6%">MONTHS<br/>REV</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="3%">30</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="3%">60</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="3%">90</TD>
@@ -461,6 +503,22 @@ function phonehome(acctname,acctnumber)
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_AccountReportedDate"/>&#160;<br/><xsl:value-of select="substring($aot,1,14)"/>&#160;</center></TD>
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_AccountOpenedDate"/>&#160;<br/><xsl:value-of select="../@_LastActivityDate"/>&#160;</center></TD>
 						
+						
+						<TD WIDTH="9%" NOWRAP="TRUE"><center>
+						    <xsl:value-of select="../@_CreditLimitAmount"/>&#160;<br/>
+						    <!--<xsl:value-of select="../@_AccountType"/>&#160;</center> dlf 041813 -->
+						    <xsl:choose>
+						       <xsl:when test="../CREDIT_COMMENT/@_TypeOtherDescription[.='SantanderAccountType']"> 
+							       <xsl:value-of select="../CREDIT_COMMENT[@_TypeOtherDescription='SantanderAccountType']/@_Code"/>
+							   </xsl:when>
+							   <xsl:otherwise>
+								   <xsl:apply-templates select="../@_AccountType"/>
+							   </xsl:otherwise>
+							</xsl:choose>   
+						    &#160;</center>
+						</TD>
+										
+						
 						<TD WIDTH="9%" NOWRAP="TRUE"><center>
 						
 						<xsl:choose>
@@ -485,10 +543,9 @@ function phonehome(acctname,acctnumber)
 					     </xsl:otherwise>
 					   </xsl:choose>  	
 						
-					    &#160;<br/><xsl:value-of select="../@_AccountType"/>&#160;</center></TD>
+					    &#160;<br/><xsl:value-of select="../@_TermsDescription"/>&#160;</center></TD>
 						                                     
-						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_UnpaidBalanceAmount"/>&#160;<br/><xsl:value-of select="../@_TermsDescription"/></center></TD>
-						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_PastDueAmount"/>&#160;</center></TD>
+						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_UnpaidBalanceAmount"/>&#160;<br/><xsl:value-of select="../@_PastDueAmount"/></center></TD>
 						<TD WIDTH="6%" NOWRAP="TRUE"><center><xsl:value-of select="../@_MonthsReviewedCount"/>&#160;</center></TD>                                   			
  						<TD WIDTH="3%" NOWRAP="TRUE"><center><xsl:value-of select="../_LATE_COUNT/@_30Days"/>&#160;</center></TD>
 						<TD WIDTH="3%" NOWRAP="TRUE"><center><xsl:value-of select="../_LATE_COUNT/@_60Days"/>&#160;</center></TD>
@@ -506,15 +563,28 @@ function phonehome(acctname,acctnumber)
 						<TD COLSPAN="2">&#160;</TD>
 						<TD COLSPAN="3"><B>COMMENTS:&#160;&#160;</B>
 					        <xsl:for-each select="../CREDIT_COMMENT">
-			 			      <xsl:value-of select="_Text"/><xsl:text>&#160;;&#160;</xsl:text>
-                            </xsl:for-each>
+			 			      <xsl:value-of select="_Text"/>
+			 			      <xsl:if test="string-length(_Text)>1">
+			 			          <xsl:text>&#160;;&#160;</xsl:text>
+			 			      </xsl:if>
+                           	</xsl:for-each>
 						</TD>
  						<TD COLSPAN="8"><B>PAY PATTERN:</B>&#160;&#160;  Start &#160;<xsl:value-of select="../_PAYMENT_PATTERN/@_StartDate"/>&#160;
 																&#160;&#160;&#160;<xsl:value-of select="../_PAYMENT_PATTERN/@_Data"/>
 						</TD>
 					</TR>
-					<TR><TD COLSPAN="13"><hr/></TD></TR>					
 					
+					<TR>
+						<TD COLSPAN="2">&#160;</TD>
+						<TD COLSPAN="3"><B>LOAN TYPE:&#160;&#160;</B>
+							<xsl:value-of select="../@CreditLoanType"/>
+						</TD>
+ 						<TD COLSPAN="8"><B>BUSINESS TYPE:</B>&#160;&#160; 
+ 							<xsl:value-of select="../@CreditBusinessType"/>
+						</TD>
+					</TR>
+	
+					<TR><TD COLSPAN="13"><hr/></TD></TR>					
 			    </xsl:for-each>	
 			<xsl:if test="count(//CREDIT_LIABILITY) = 0"><TR><TD COLSPAN="13"><CENTER>NO RECORDS FOUND</CENTER></TD></TR></xsl:if>   
 			    <TR><TD COLSPAN="13"></TD></TR>

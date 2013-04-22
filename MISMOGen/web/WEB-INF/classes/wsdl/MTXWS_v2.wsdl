@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:TDCs="http://www.isban.es/webservices/TDCs" xmlns:cbtypes="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v2" xmlns:fault="http://www.gruposantander.es/webservices/genericFault" xmlns:faultExceptions="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2">
+    <documentation>MTXWS</documentation>
+    <types>
+        <xs:schema targetNamespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2">
+            <xs:import namespace="http://www.gruposantander.es/webservices/genericFault" schemaLocation="./schemas/fault.xsd"/>
+            <xs:import namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/functionalFaults/v2" schemaLocation="./schemas/MTXWS_functionalFaults_v2.xsd"/>
+            <xs:import namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/sovereign/intranet/cbTypes/v2" schemaLocation="./schemas/MTXWS_cb_types_v2.xsd"/>
+            <xs:import namespace="http://www.isban.es/webservices/TDCs" schemaLocation="./schemas/ws_TDCs.xsd"/>
+            <xs:element name="getCurrentBureauData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="rawData_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion.m.f.cb.CBK_GetCurrentData_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>Parameter for getting Raw Info</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCurrentBureauDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion.m.f.cb.CBK_GetCurrentData_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>Raw Info associted to Applicant</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRawAllBureaus">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="bureauID" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion.m.f.cb.CBK_GetRawABu_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>Bureau Id associate to application</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRawAllBureausResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion.m.f.cb.CBK_GetRawABu_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>Return all raws data by Bureau Id</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMISMOAllApplicants">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="getMismo_IN" nillable="true" type="cbtypes:com.banesto.al.mtxcor.gestion.m.f.cb.CBK_GetMISMOAllApplicants_IN_Type">
+                            <xs:annotation>
+                                <xs:documentation>Bureau Id associate to application</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute fixed="MTXWS" name="facade" type="TDCs:DESCRIPCION_GENERAL_Type"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMISMOAllApplicantsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="methodResult" type="cbtypes:com.banesto.al.mtxcor.gestion.m.f.cb.CBK_GetMISMOAllApplicants_OUT_Type">
+                            <xs:annotation>
+                                <xs:documentation>The MISMO information for all applicants trougth the Bureau Id</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+    <message name="getCurrentBureauData_Input">
+        <part element="tns:getCurrentBureauData" name="getCurrentBureauData_InputPart"/>
+    </message>
+    <message name="getCurrentBureauData_Output">
+        <part element="tns:getCurrentBureauDataResponse" name="getCurrentBureauData_OutputPart"/>
+    </message>
+    <message name="getCurrentBureauData_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault">
+        <part element="faultExceptions:com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION" name="com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_FaultPart"/>
+    </message>
+    <message name="getCurrentBureauData_Fault">
+        <part element="fault:Exception" name="getCurrentBureauData_FaultPart"/>
+    </message>
+    <message name="getRawAllBureaus_Input">
+        <part element="tns:getRawAllBureaus" name="getRawAllBureaus_InputPart"/>
+    </message>
+    <message name="getRawAllBureaus_Output">
+        <part element="tns:getRawAllBureausResponse" name="getRawAllBureaus_OutputPart"/>
+    </message>
+    <message name="getRawAllBureaus_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault">
+        <part element="faultExceptions:com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION" name="com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_FaultPart"/>
+    </message>
+    <message name="getRawAllBureaus_Fault">
+        <part element="fault:Exception" name="getRawAllBureaus_FaultPart"/>
+    </message>
+    <message name="getMISMOAllApplicants_Input">
+        <part element="tns:getMISMOAllApplicants" name="getMISMOAllApplicants_InputPart"/>
+    </message>
+    <message name="getMISMOAllApplicants_Output">
+        <part element="tns:getMISMOAllApplicantsResponse" name="getMISMOAllApplicants_OutputPart"/>
+    </message>
+    <message name="getMISMOAllApplicants_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault">
+        <part element="faultExceptions:com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION" name="com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_FaultPart"/>
+    </message>
+    <message name="getMISMOAllApplicants_Fault">
+        <part element="fault:Exception" name="getMISMOAllApplicants_FaultPart"/>
+    </message>
+    <portType name="MTXWSPortTypeHTTP">
+        <operation name="getMISMOAllApplicants">
+            <documentation>Return the MISMO Information for all applicant associated into the same application.</documentation>
+            <input message="tns:getMISMOAllApplicants_Input" name="getMISMOAllApplicants_Input"/>
+            <output message="tns:getMISMOAllApplicants_Output" name="getMISMOAllApplicants_Output"/>
+            <fault message="tns:getMISMOAllApplicants_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault" name="getMISMOAllApplicants_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault"/>
+            <fault message="tns:getMISMOAllApplicants_Fault" name="getMISMOAllApplicants_Fault"/>
+        </operation>
+        <operation name="getCurrentBureauData">
+            <documentation>Get the raw data for the bureau and the applicant included into the input data.</documentation>
+            <input message="tns:getCurrentBureauData_Input" name="getCurrentBureauData_Input"/>
+            <output message="tns:getCurrentBureauData_Output" name="getCurrentBureauData_Output"/>
+            <fault message="tns:getCurrentBureauData_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault" name="getCurrentBureauData_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault"/>
+            <fault message="tns:getCurrentBureauData_Fault" name="getCurrentBureauData_Fault"/>
+        </operation>
+        <operation name="getRawAllBureaus">
+            <documentation>Return all raws data by Bureau Id</documentation>
+            <input message="tns:getRawAllBureaus_Input" name="getRawAllBureaus_Input"/>
+            <output message="tns:getRawAllBureaus_Output" name="getRawAllBureaus_Output"/>
+            <fault message="tns:getRawAllBureaus_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault" name="getRawAllBureaus_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault"/>
+            <fault message="tns:getRawAllBureaus_Fault" name="getRawAllBureaus_Fault"/>
+        </operation>
+    </portType>
+    <binding name="MTXWSSoapBindingHTTP" type="tns:MTXWSPortTypeHTTP">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getMISMOAllApplicants">
+            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2/getMISMOAllApplicants" style="document"/>
+            <input name="getMISMOAllApplicants_Input">
+                <soap:body use="literal"/>
+            </input>
+            <output name="getMISMOAllApplicants_Output">
+                <soap:body use="literal"/>
+            </output>
+            <fault name="getMISMOAllApplicants_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault">
+                <soap:fault name="getMISMOAllApplicants_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault" use="literal"/>
+            </fault>
+            <fault name="getMISMOAllApplicants_Fault">
+                <soap:fault name="getMISMOAllApplicants_Fault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="getCurrentBureauData">
+            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2/getCurrentBureauData" style="document"/>
+            <input name="getCurrentBureauData_Input">
+                <soap:body use="literal"/>
+            </input>
+            <output name="getCurrentBureauData_Output">
+                <soap:body use="literal"/>
+            </output>
+            <fault name="getCurrentBureauData_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault">
+                <soap:fault name="getCurrentBureauData_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault" use="literal"/>
+            </fault>
+            <fault name="getCurrentBureauData_Fault">
+                <soap:fault name="getCurrentBureauData_Fault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="getRawAllBureaus">
+            <soap:operation soapAction="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2/getRawAllBureaus" style="document"/>
+            <input name="getRawAllBureaus_Input">
+                <soap:body use="literal"/>
+            </input>
+            <output name="getRawAllBureaus_Output">
+                <soap:body use="literal"/>
+            </output>
+            <fault name="getRawAllBureaus_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault">
+                <soap:fault name="getRawAllBureaus_com.banesto.al.mtxcor.gestion.m.f.exc.GENERAL_EXCEPTION_Fault" use="literal"/>
+            </fault>
+            <fault name="getRawAllBureaus_Fault">
+                <soap:fault name="getRawAllBureaus_Fault" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="MTXWS_Service">
+        <port binding="tns:MTXWSSoapBindingHTTP" name="MTXWSPortHTTP">
+            <soap:address location="http://mulbur.sov.pre.corp/MTXSDV_ENS/ws/MTXSDV_Def_Listener"/>
+        </port>
+    </service>
+</definitions>

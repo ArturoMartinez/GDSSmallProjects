@@ -11,6 +11,7 @@
     <head>
 	<script src="./jquery/js/jquery-1.7.2.min.js"></script>
 	<script src="./jquery/js/jquery-ui-1.8.20.custom.min.js"></script>
+	<script src="./jquery.base64.min.js"></script>
 	<link href='./jquery/css/ui-lightness/jquery-ui-1.8.20.custom.css' rel='stylesheet' type='text/css'></link>
 	<link href='./styles.css' rel='stylesheet' type='text/css'></link>
 	<script>

@@ -16,6 +16,7 @@
                 ===================
             -->
     <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
         <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
         <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
         <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
@@ -27,7 +28,7 @@
     </target>
     <target name="wsimport-client-MTXWS_v2" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/MTXWS_v2"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXWS_v2" destdir="${build.generated.dir}/jax-wsCache/MTXWS_v2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v2/wsdl/MTXWS_v2.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="/WEB-INF/wsdl/MTXWS_v2.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.mpmerge.santander.soap">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXWS_v2" destdir="${build.generated.dir}/jax-wsCache/MTXWS_v2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v2/wsdl/MTXWS_v2.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="/wsdl/MTXWS_v2.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.mpmerge.santander.soap">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MTXWS_v2/wsdl/MTXWS_v2.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/MTXWS_v2"/>
         </wsimport>

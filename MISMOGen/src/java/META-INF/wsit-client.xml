@@ -5,5 +5,5 @@
  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig"
  >
-    <import location="MTXWS_v2.xml" namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2"/>
+    <import location="../wsdl/MTXWS_v2.wsdl" namespace="http://www.isban.es/webservices/GESTIONCORE/Gestion_m/F_mtxcor_gestion_m/intranet/MTXWS/v2"/>
 </definitions>

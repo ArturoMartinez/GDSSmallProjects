@@ -19,7 +19,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>/WEB-INF/wsdl/MTXWS_v2.wsdl</wsimport-option-value>
+          <wsimport-option-value>/wsdl/MTXWS_v2.wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
