@@ -36,7 +36,6 @@
     <context-param>
         <description>The settings string to pass to the Merge engine</description>
         <param-name>mpmerge_settings</param-name>
-        <param-value>Logging="YES" SortType="5" RatingCodeType="Experian" ShowBurCodes="YES" MiscVars="Santander,Late90_derog" DeDupe="NO"
-</param-value>
+        <param-value>Logging="YES" SortType="5" RatingCodeType="Experian" ShowBurCodes="YES" MiscVars="Santander,Late90_derog" DeDupe="NO" RawInfOutput="base64" PrintImageInfOutput="base64"</param-value>
     </context-param>
 </web-app>
