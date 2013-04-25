@@ -60,6 +60,8 @@ public class MISMOController extends AbstractController
                 String strMismo = listMismos.get(i);
                 log.debug("Converted Mismo found is: " + strMismo);
 
+                strMismo = strMismo.replaceAll("__REPLACE_ID__", "embedded_id_" + i);
+
                 String strTitle = "Record " +  (i+1);
                 if(i < aTitles.length)
                     strTitle = aTitles[i];

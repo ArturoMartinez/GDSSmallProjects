@@ -143,9 +143,9 @@ function phonehome(acctname,acctnumber)
       
 }
 
-function openbase64(strType)
+function openbase64(strType, strEmbeddedId)
 {
-    var data = $("div.embedded_files>div[_type='" + strType + "']").text();
+    var data = $("div#" + strEmbeddedId + ">div[_type='" + strType + "']").text();
     if(data)
     {
         var w = window.open();
@@ -161,8 +161,6 @@ function openbase64(strType)
 <FORM name="mpsample">
 <BODY>
 
-
-
         <TABLE class="raw_data_links">
         	<TR>
 	            <xsl:for-each select="//CREDIT_RESPONSE/EMBEDDED_FILE">
@@ -170,7 +168,7 @@ function openbase64(strType)
         	            <xsl:attribute name="href">
             	            <xsl:text>javascript:openbase64('</xsl:text>
                             <xsl:value-of select="@_Description"/>
-                            <xsl:text>');</xsl:text>
+                            <xsl:text>', '__REPLACE_ID__');</xsl:text>
                 	    </xsl:attribute>
                         <xsl:value-of select="@_Description"/>
         	        </A></TD>
@@ -179,9 +177,7 @@ function openbase64(strType)
             </TR>
         </TABLE>
 
-
-
-        <div class="embedded_files" style="display:none;">
+        <div id="__REPLACE_ID__" class="embedded_files" style="display:none;">
             <xsl:for-each select="//CREDIT_RESPONSE/EMBEDDED_FILE">
                 <div>
                     <xsl:attribute name="_Type">
@@ -441,8 +437,8 @@ function openbase64(strType)
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">DATE<br/>OPENED<hr/>DLA</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">CREDIT<br/>LIMIT<hr/>ACCT TYPE</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">HIGH<br/>BALANCE<hr/>TERMS</TD>
-						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">BALANCE<br/>&#160;<hr/>PAST DUE</TD>
-						<TD CLASS="TRADEBANNERCENTER" WIDTH="6%">MONTHS<br/>REV</TD>
+						<TD CLASS="TRADEBANNERCENTER" WIDTH="9%">BALANCE</TD>
+						<TD CLASS="TRADEBANNERCENTER" WIDTH="7%">PAST<br/>DUE<hr/>MOS REV</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="3%">30</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="3%">60</TD>
 						<TD CLASS="TRADEBANNERCENTER" WIDTH="3%">90</TD>
@@ -545,8 +541,8 @@ function openbase64(strType)
 						
 					    &#160;<br/><xsl:value-of select="../@_TermsDescription"/>&#160;</center></TD>
 						                                     
-						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_UnpaidBalanceAmount"/>&#160;<br/><xsl:value-of select="../@_PastDueAmount"/></center></TD>
-						<TD WIDTH="6%" NOWRAP="TRUE"><center><xsl:value-of select="../@_MonthsReviewedCount"/>&#160;</center></TD>                                   			
+			    <TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_UnpaidBalanceAmount"/></center></TD>
+						<TD WIDTH="7%" NOWRAP="TRUE"><center><xsl:value-of select="../@_PastDueAmount"/>&#160;<br/><xsl:value-of select="../@_MonthsReviewedCount"/>&#160;</center></TD>
  						<TD WIDTH="3%" NOWRAP="TRUE"><center><xsl:value-of select="../_LATE_COUNT/@_30Days"/>&#160;</center></TD>
 						<TD WIDTH="3%" NOWRAP="TRUE"><center><xsl:value-of select="../_LATE_COUNT/@_60Days"/>&#160;</center></TD>
 						<TD WIDTH="3%" NOWRAP="TRUE"><center><xsl:value-of select="../_LATE_COUNT/@_90Days"/>&#160;</center></TD>
