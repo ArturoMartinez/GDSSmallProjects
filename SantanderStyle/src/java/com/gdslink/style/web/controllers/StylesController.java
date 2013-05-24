@@ -103,6 +103,6 @@ public class StylesController extends AbstractController
             }
         }
 
-        throw new Exception("The input data was not ina recognized format");
+        throw new Exception("The input data was not in a recognized format, this data type has not been implemented");
     }
 }

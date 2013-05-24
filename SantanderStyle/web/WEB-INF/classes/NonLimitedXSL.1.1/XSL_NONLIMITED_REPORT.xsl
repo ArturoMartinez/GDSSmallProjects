@@ -11,7 +11,7 @@
 	<xsl:include href="xsl_notices_of_correction.xsl"/>
 	<xsl:include href="xsl_previous_searches.xsl"/>
 	<xsl:include href="xsl_directorship_and_secretaryship_informaion_of_proprietors.xsl"/>
-	<xsl:template match="/RawBureauData/NonLtdBusinessData">
+	<xsl:template match="NonLtdBusinessData">
 		<html>
 			<head>
 				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>

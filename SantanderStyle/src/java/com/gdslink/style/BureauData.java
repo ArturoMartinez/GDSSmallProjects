@@ -18,18 +18,38 @@ public class BureauData
 
     private String _strEncodedRaw;
     private String _strDate;
-    private String _strBureau;
+    private String _strBureauName;
+    private String _strRaw;
+    private boolean _bRecognized;
 
-    public BureauData(String strDate, String strRaw, String strBureau)
+
+    public BureauData(String strDate, String strRaw)
     {
         _strEncodedRaw = strRaw;
         _strDate = strDate;
-        _strBureau = strBureau;
+        _strRaw = decodeBase64(_strEncodedRaw);
+        calculateBureauName();
+    }
+
+    private void calculateBureauName()
+    {
+        _strBureauName = "Unknown Data";
+        _bRecognized = false;
+
+        for(String strRegexp : Application.instance().regularExpressions())
+        {
+            if(_strRaw.matches(strRegexp))
+            {
+                _bRecognized = true;
+                _strBureauName = Application.instance().getNameFor(strRegexp);
+                break;
+            }
+        }
     }
 
     public String getRaw()
     {
-        return decodeBase64(_strEncodedRaw);
+        return _strRaw;
     }
 
     public String getDate()
@@ -39,7 +59,7 @@ public class BureauData
 
     public String getBureau()
     {
-        return _strBureau;
+        return _strBureauName;
     }
 
     public String getBase64Raw()
@@ -47,13 +67,26 @@ public class BureauData
         return _strEncodedRaw;
     }
 
+    public boolean isRecognized()
+    {
+        return _bRecognized;
+    }
+
     public String getCompressedBase64Raw() throws IOException
     {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        GZIPOutputStream gzip = new GZIPOutputStream(out);
-        gzip.write(DatatypeConverter.parseBase64Binary(_strEncodedRaw));
-        gzip.close();
-        return Base64.encodeBase64String(out.toByteArray());
+        try
+        {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            GZIPOutputStream gzip = new GZIPOutputStream(out);
+            gzip.write(DatatypeConverter.parseBase64Binary(_strEncodedRaw));
+            gzip.close();
+            return Base64.encodeBase64String(out.toByteArray());
+        }
+        catch(IOException e)
+        {
+            log.error("Error compressing data", e);
+            throw e;
+        }
     }
 
     private static String decodeBase64(String strData)

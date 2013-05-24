@@ -19,7 +19,7 @@
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
  
-	<xsl:template match="/RawBureauData/LtdCompanyData">
+	<xsl:template match="/LtdCompanyData">
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html></xsl:text>
 		<html>
 			<head>

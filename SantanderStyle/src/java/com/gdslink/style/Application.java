@@ -61,6 +61,7 @@ public class Application
     private String      _strDefaultCallType;
     private String      _strDefaultValidity;
     private Map<String, Templates> _mapTemplates = new HashMap<String, Templates>();
+    private Map<String, String> _mapNames = new HashMap<String, String>();
 
     protected Application()
     {
@@ -87,7 +88,9 @@ public class Application
 
             TransformerFactory factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/LtdGoldReport/"));
-            _mapTemplates.put("^.*\\<RawBureauData\\>[^\\<]*\\<LtdCompanyData\\>.*$", factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            String strRegexp = "^.*\\<LtdCompanyData\\>.*$";
+            _mapTemplates.put(strRegexp, factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(strRegexp, "Ltd Company");
 
             //non ltd
 
@@ -97,7 +100,9 @@ public class Application
 
             factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/NonLimitedXSL.1.1/"));
-            _mapTemplates.put("^.*\\<RawBureauData\\>[^\\<]*\\<NonLtdBusinessData\\>.*$", factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            strRegexp = "^.*\\<NonLtdBusinessData\\>.*$";
+            _mapTemplates.put("^.*\\<NonLtdBusinessData\\>.*$", factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(strRegexp, "Non-Ltd Company");
 
             //consumer
 
@@ -107,13 +112,20 @@ public class Application
 
             factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/NonLtdProprietor/"));
-            _mapTemplates.put("^.*\\<RawBureauData\\>[^\\<]*\\<ConsumerOutput\\>.*$", factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            strRegexp = "^.*\\<ConsumerOutput\\>.*$";
+            _mapTemplates.put(strRegexp, factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(strRegexp, "Non-Ltd Proprietor");
         }
         catch(Exception e)
         {
             log.error("Error initializing style sheets " + e.getMessage());
             throw new Error(e);
         }
+    }
+
+    public String getNameFor(String strRegexp)
+    {
+        return _mapNames.get(strRegexp);
     }
 
     private void logVersion()

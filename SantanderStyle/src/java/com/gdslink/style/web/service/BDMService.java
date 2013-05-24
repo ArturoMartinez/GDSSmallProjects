@@ -57,12 +57,18 @@ public class BDMService
                             log.debug("BPDId/TIPODEPERSONA = " + result.getBdpId().getTIPODEPERSONA());
                         }
 
-                        BureauData bureauData = new BureauData(result.getDate().toString(), result.getRawData(), result.getBureauName());
+                        String strData = result.getRawData();
 
-                        log.debug("Report = " + bureauData.getRaw());
-                        log.debug("Bureau = " + bureauData.getBureau());
+                        if(strData != null && strData.length() > 0)
+                        {
+                            BureauData bureauData = new BureauData(result.getDate().toString(), strData);
 
-                        listBureauData.add(bureauData);
+                            log.debug("Report = " + bureauData.getRaw());
+                            log.debug("Bureau = " + bureauData.getBureau());
+
+                            if(bureauData.isRecognized())
+                                listBureauData.add(bureauData);
+                        }
                     }
                 
                     return listBureauData;
@@ -160,12 +166,17 @@ public class BDMService
                         {
                             for(ComBanestoAlMtxscuGestionEFCbCBKRawDateType data : result.getRawData().getRaw())
                             {
-                                BureauData bureauData = new BureauData(data.getDate().toString(), data.getRawInfo(), data.getBureauName());
+                                String strRawInfo = data.getRawInfo();
+                                if(strRawInfo != null && strRawInfo.length() > 0)
+                                {
+                                    BureauData bureauData = new BureauData(data.getDate().toString(), data.getRawInfo());
 
-                                log.debug("Report = " + bureauData.getRaw());
-                                log.debug("Bureau = " + bureauData.getBureau());
+                                    log.debug("Report = " + bureauData.getRaw());
+                                    log.debug("Bureau = " + bureauData.getBureau());
 
-                                listBureauData.add(bureauData);
+                                    if(bureauData.isRecognized())
+                                        listBureauData.add(bureauData);
+                                }
                             }
                         }
                     }
