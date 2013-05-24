@@ -57,6 +57,9 @@ public class Application
     private String      _strBdmUrl = null;
     private String      _strCompany = "";
     private String      _strFacade;
+    private String      _strDefaultBureauName;
+    private String      _strDefaultCallType;
+    private String      _strDefaultValidity;
     private Map<String, Templates> _mapTemplates = new HashMap<String, Templates>();
 
     protected Application()
@@ -108,7 +111,7 @@ public class Application
         }
         catch(Exception e)
         {
-            log.error("Error initializing logging " + e.getMessage());
+            log.error("Error initializing style sheets " + e.getMessage());
             throw new Error(e);
         }
     }
@@ -196,7 +199,54 @@ public class Application
         log.debug("Set Facade to: " + strFacade);
         _strFacade = strFacade;
     }
+    public void setDefaultBureauName(String strBureauName)
+    {
+        log.debug("Set default bureau name to: " + strBureauName);
+        _strDefaultBureauName = strBureauName;
+    }
 
+    public String getDefaultBureauName()
+    {
+        return _strDefaultBureauName;
+    }
+
+    public boolean hasDefaultBureauName()
+    {
+        return _strDefaultBureauName != null && !_strDefaultBureauName.isEmpty();
+    }
+
+    public void setDefaultCallType(String strCallType)
+    {
+        log.debug("Set default call type to: " + strCallType);
+        _strDefaultCallType = strCallType;
+    }
+
+    public String getDefaultCallType()
+    {
+        return _strDefaultCallType;
+    }
+
+    public boolean hasDefaultCallType()
+    {
+        return _strDefaultCallType != null & !_strDefaultCallType.isEmpty();
+    }
+
+    public void setDefaultValidity(String strValidity)
+    {
+        log.debug("Set default validity to:" + strValidity);
+        _strDefaultValidity = strValidity;
+    }
+
+    public String getDefaultValidity()
+    {
+        return _strDefaultValidity;
+    }
+
+    public boolean hasDefaultValidity()
+    {
+        return _strDefaultValidity != null && !_strDefaultValidity.isEmpty();
+    }
+    
     public synchronized MTXUDVWSPortTypeHTTP getSOAPPort() throws Exception
     {
         if(_soapPort == null)

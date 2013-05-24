@@ -56,14 +56,26 @@ public class BureauDataController extends AbstractController
             List<BureauData> listBureauData;
 
             //Activity 4_15 – Rule: Single Report?
-            if(strBDPType == null || strBDPType.isEmpty())
+            if(strBDPType != null && !strBDPType.isEmpty())
             {
-                String strCallType = "CALL_TYPE";
+                String strCallType = getParameter(servletRequest, "call_type", false);
+                if((strCallType == null || strCallType.isEmpty()) && Application.instance().hasDefaultCallType())
+                    strCallType = Application.instance().getDefaultCallType();
+
+                String strBureauName = getParameter(servletRequest, "bureau_name", false);
+                if((strBureauName == null || strBureauName.isEmpty()) && Application.instance().hasDefaultBureauName())
+                    strBureauName = Application.instance().getDefaultBureauName();
+
+                String strValidity = getParameter(servletRequest, "validity", false);
+                if((strValidity == null || strValidity.isEmpty()) && Application.instance().hasDefaultValidity())
+                    strValidity = Application.instance().getDefaultValidity();
+
+                int iBDPCode = Integer.parseInt(getParameter(servletRequest, "bdp_code", true));
 
                 List<Applicant> listApplicants = new LinkedList<Applicant>();
 
-                listApplicants.add(new Applicant("VALIDITY", strBDPType, 111, new String[] {"Bureau1A", "Bureau1B"}));
-                listApplicants.add(new Applicant("VALIDITY2", strBDPType, 222, new String[] {"Bureau2A", "Bureau2B"}));
+                listApplicants.add(new Applicant(strValidity, strBDPType,iBDPCode, new String[] {strBureauName}));
+               
 
                 //getCurrentReport
                 listBureauData = BDMService.getCurrentReport(strFacade, strCompany, strCallType, 

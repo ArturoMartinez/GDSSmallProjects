@@ -9,11 +9,13 @@ import com.sun.xml.bind.StringInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.DatatypeConverter;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
@@ -55,11 +57,13 @@ public class StylesController extends AbstractController
         try
         {
             byte[] aBytes = Base64.decodeBase64(getParameter(servletRequest, "page", true));
-            GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(aBytes));
 
+            GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(aBytes));
             byte[] aDecompressed = IOUtils.toByteArray(gzip);
             gzip.close();
-            String strPage = transformPage(new String(aDecompressed, Charset.forName("UTF-8")));
+
+            String strPage = transformPage(aDecompressed);
+            log.debug("Transformed into: " + strPage);
 
             mapModel.put("page", strPage);
 
@@ -75,20 +79,25 @@ public class StylesController extends AbstractController
         }
     }
 
-    private String transformPage(String strData) throws Exception
+    private String transformPage(byte[] aData) throws Exception
     {
         log.info("Transforming data");
 
         for(String strRegexp : Application.instance().regularExpressions())
         {
+            String strData = new String(aData, Charset.forName("UTF-8"));
+
+            log.debug("Data to transform:" + strData);
+
             if(strData.matches(strRegexp))
             {
                 StringWriter writerResult = new StringWriter();
 
                 Transformer transformer = Application.instance().getStylesheet(strRegexp);
+                log.debug("Transformer class: " + transformer.getClass().toString());
 
                 transformer.transform(
-                    new StreamSource(new StringInputStream(strData)),
+                    new StreamSource(new ByteArrayInputStream(aData)),
                     new StreamResult(writerResult));
                 return writerResult.toString();
             }

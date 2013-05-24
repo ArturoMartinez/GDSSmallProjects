@@ -22,9 +22,12 @@
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
 
     <bean name="application" class="com.gdslink.style.Application" factory-method="create">
-        <property name="bdmUrl" value="http://127.0.0.1:8088/mockMTXUDVWSSoapBindingHTTP"/>
-        <property name="company" value="0317"/>
+        <property name="bdmUrl" value="http://192.168.2.15:8088/mockMTXUDVWSSoapBindingHTTP"/>
+        <property name="company" value="0015"/>
         <property name="facade" value="MTXUDVWS"/>
+        <property name="defaultBureauName" value="01"/>
+        <property name="defaultCallType" value="01"/>
+        <property name="defaultValidity" value=""/>
     </bean>
 
 </beans>

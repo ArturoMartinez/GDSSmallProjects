@@ -8,6 +8,8 @@ import com.gdslink.santanderuk.soap.*;
 import com.gdslink.style.Application;
 import com.gdslink.style.BureauData;
 import java.lang.Exception;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,7 +57,7 @@ public class BDMService
                             log.debug("BPDId/TIPODEPERSONA = " + result.getBdpId().getTIPODEPERSONA());
                         }
 
-                        BureauData bureauData = new BureauData(result.getDate().toString(), decodeBase64(result.getRawData()), result.getBureauName());
+                        BureauData bureauData = new BureauData(result.getDate().toString(), result.getRawData(), result.getBureauName());
 
                         log.debug("Report = " + bureauData.getRaw());
                         log.debug("Bureau = " + bureauData.getBureau());
@@ -116,7 +118,8 @@ public class BDMService
 
                 ComBanestoAlMtxscuGestionEFCbCBKApplicantBureauType appBureauTypeK = new ComBanestoAlMtxscuGestionEFCbCBKApplicantBureauType();
                 appBureauTypeK.setBdpId(clientType);
-                appBureauTypeK.setValidity(applicant.getValidity());
+                if(applicant.getValidity() != null && !applicant.getValidity().isEmpty())
+                    appBureauTypeK.setValidity(applicant.getValidity());
                 appBureauTypeK.setBureauNames(bureauNames);
                
                 appBureauType.getApplicant().add(appBureauTypeK);
@@ -125,7 +128,9 @@ public class BDMService
             ComBanestoAlMtxscuGestionEFCbCBKCurrentBureauDataINType inType = new ComBanestoAlMtxscuGestionEFCbCBKCurrentBureauDataINType();
 
             inType.setCompany(strCompany);
-            inType.setCallType(strCallType);
+            if(strCallType != null && !strCallType.isEmpty())
+                inType.setCallType(strCallType);
+
             inType.setApplicants(appBureauType);
 
             GetCurrentBureauData input = new GetCurrentBureauData();
@@ -155,7 +160,7 @@ public class BDMService
                         {
                             for(ComBanestoAlMtxscuGestionEFCbCBKRawDateType data : result.getRawData().getRaw())
                             {
-                                BureauData bureauData = new BureauData(data.getDate().toString(), decodeBase64(data.getRawInfo()), data.getBureauName());
+                                BureauData bureauData = new BureauData(data.getDate().toString(), data.getRawInfo(), data.getBureauName());
 
                                 log.debug("Report = " + bureauData.getRaw());
                                 log.debug("Bureau = " + bureauData.getBureau());
@@ -207,22 +212,4 @@ public class BDMService
     {
         return Application.instance().getSOAPPort().getCurrentBureauData(getCurrentBureauDataInputPart);
     }
-
-    private static String decodeBase64(String strData)
-    {
-        try
-        {
-            byte[] aBytes = DatatypeConverter.parseBase64Binary(strData);
-            String strDecoded = new String(aBytes);
-            log.debug("Decoded MISMO = " + strDecoded);
-            return strDecoded;
-        }
-        catch(Exception e)
-        {
-            log.debug("MISMO data was not convertible to valid xml from base 64, assuming not base64 encoded");
-            log.debug("Exception = " + e.getMessage());
-            return strData;
-        }
-    }
-
 }
