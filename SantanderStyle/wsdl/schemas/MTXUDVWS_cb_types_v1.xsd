@@ -128,7 +128,7 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element minOccurs="0" name="bureauName" type="TDCs:BUREAU_NAME_MTX_Type"/>
-            <xs:element minOccurs="0" name="RawInfo" type="TDCs:DOCUMENTO_GRANDE_XML_Type"/>
+            <xs:element minOccurs="0" name="rawInfo" type="TDCs:DOCUMENTO_GRANDE_XML_Type"/>
             <xs:element minOccurs="0" name="date" type="TDCs:FECHA_GENERICA_Type"/>
         </xs:sequence>
     </xs:complexType>

@@ -129,7 +129,7 @@
     </binding>
     <service name="MTXUDVWS_Service">
         <port binding="tns:MTXUDVWSSoapBindingHTTP" name="MTXUDVWSPortHTTP">
-            <soap:address location="http://180.102.33.166:8080/MTXUDV_ESCE/ws/MTXUDV_Def_Listener"/>
+            <soap:address location="http://7.1.54.95:8080/MTXUDV_ESCE/ws/MTXUDV_Def_Listener"/>
         </port>
     </service>
 </definitions>
