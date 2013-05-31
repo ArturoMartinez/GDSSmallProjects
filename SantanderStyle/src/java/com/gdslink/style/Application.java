@@ -28,6 +28,9 @@ import org.apache.log4j.xml.DOMConfigurator;
  */
 public class Application 
 {
+    public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*$";
+    public static final String REGEX_LTD = "^.*\\<LtdCompanyData\\>.*$";
+    public static final String REGEX_NONLTD = "^.*\\<NonLtdBusinessData\\>.*$";
 
 
     //singleton
@@ -88,9 +91,8 @@ public class Application
 
             TransformerFactory factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/LtdGoldReport/"));
-            String strRegexp = "^.*\\<LtdCompanyData\\>.*$";
-            _mapTemplates.put(strRegexp, factoryTransformer.newTemplates(new StreamSource(streamIn)));
-            _mapNames.put(strRegexp, "Ltd Company");
+            _mapTemplates.put(REGEX_LTD, factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(REGEX_LTD, "Ltd Company");
 
             //non ltd
 
@@ -100,9 +102,8 @@ public class Application
 
             factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/NonLimitedXSL.1.1/"));
-            strRegexp = "^.*\\<NonLtdBusinessData\\>.*$";
-            _mapTemplates.put("^.*\\<NonLtdBusinessData\\>.*$", factoryTransformer.newTemplates(new StreamSource(streamIn)));
-            _mapNames.put(strRegexp, "Non-Ltd Company");
+            _mapTemplates.put(REGEX_NONLTD, factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(REGEX_NONLTD, "Non-Ltd Company");
 
             //consumer
 
@@ -112,9 +113,8 @@ public class Application
 
             factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/NonLtdProprietor/"));
-            strRegexp = "^.*\\<ConsumerOutput\\>.*$";
-            _mapTemplates.put(strRegexp, factoryTransformer.newTemplates(new StreamSource(streamIn)));
-            _mapNames.put(strRegexp, "Non-Ltd Proprietor");
+            _mapTemplates.put(REGEX_CONSUMER, factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(REGEX_CONSUMER, "Non-Ltd Proprietor");
         }
         catch(Exception e)
         {

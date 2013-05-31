@@ -17,7 +17,7 @@
 	<xsl:include href="xsl_CAIS.xsl"/>
 	
 	<xsl:include href="xsl_address_links.xsl"/>
-	<xsl:template match="/">
+	<xsl:template match="/RawBureauData">
 		<html>
 			<head>
 				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
