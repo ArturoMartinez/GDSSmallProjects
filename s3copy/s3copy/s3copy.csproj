@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F0B9B44-054E-4F1E-825E-944B6D494243}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>s3copy</RootNamespace>
+    <AssemblyName>s3copy</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>s3copy.Program</StartupObject>
+    <TargetFrameworkSubset>Full</TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACLChangeRequest.cs" />
+    <Compile Include="ACLChangeResponse.cs" />
+    <Compile Include="ACLGetRequest.cs" />
+    <Compile Include="ACLGetResponse.cs" />
+    <Compile Include="ACLGrantee.cs" />
+    <Compile Include="ACLPolicy.cs" />
+    <Compile Include="AWS100Request.cs" />
+    <Compile Include="AWS100Response.cs" />
+    <Compile Include="BucketAddRequest.cs" />
+    <Compile Include="BucketAddResponse.cs" />
+    <Compile Include="BucketDeleteRequest.cs" />
+    <Compile Include="BucketDeleteResponse.cs" />
+    <Compile Include="BucketListRequest.cs" />
+    <Compile Include="BucketListResponse.cs" />
+    <Compile Include="DistributionAddRequest.cs" />
+    <Compile Include="DistributionAddResponse.cs" />
+    <Compile Include="DistributionConfig.cs" />
+    <Compile Include="DistributionDeleteRequest.cs" />
+    <Compile Include="DistributionDeleteResponse.cs" />
+    <Compile Include="DistributionGetRequest.cs" />
+    <Compile Include="DistributionGetResponse.cs" />
+    <Compile Include="DistributionInfo.cs" />
+    <Compile Include="DistributionListRequest.cs" />
+    <Compile Include="DistributionListResponse.cs" />
+    <Compile Include="DistributionUpdateRequest.cs" />
+    <Compile Include="DistributionUpdateResponse.cs" />
+    <Compile Include="ObjectAddRequest.cs" />
+    <Compile Include="ObjectAddResponse.cs" />
+    <Compile Include="ObjectCopyRequest.cs" />
+    <Compile Include="ObjectCopyResponse.cs" />
+    <Compile Include="ObjectDeleteRequest.cs" />
+    <Compile Include="ObjectDeleteResponse.cs" />
+    <Compile Include="ObjectGetRequest.cs" />
+    <Compile Include="ObjectGetResponse.cs" />
+    <Compile Include="PaymentChangeRequest.cs" />
+    <Compile Include="PaymentChangeResponse.cs" />
+    <Compile Include="PaymentGetRequest.cs" />
+    <Compile Include="PaymentGetResponse.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="Response.cs" />
+    <Compile Include="S3Request.cs" />
+    <Compile Include="S3Response.cs" />
+    <Compile Include="ThreeSharp.cs" />
+    <Compile Include="ThreeSharpConfig.cs" />
+    <Compile Include="ThreeSharpException.cs" />
+    <Compile Include="ThreeSharpQuery.cs" />
+    <Compile Include="ThreeSharpStatistics.cs" />
+    <Compile Include="ThreeSharpUtils.cs" />
+    <Compile Include="Transfer.cs" />
+    <Compile Include="TransferInfo.cs" />
+    <Compile Include="UrlGetRequest.cs" />
+    <Compile Include="UrlGetResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
