@@ -6,18 +6,23 @@
         
             <h2>company ratio &amp; disclosure items</h2>
         <div class="dataLabel">date latest account</div>	<div class="dataValue doubt">
-            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>
-        </div><br/>
+            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>&#160;
+             <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#160;
+            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/>
+
+        </div><br style="clear:both"/>
         <div class="dataLabel">date latest returns</div>	<div class="dataValue doubt">
-            <xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/></div><br/>
+
+             <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#160;
+             <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#160;
+            <xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/>
+        </div>
+            <br style="clear:both"/>
         <div class="dataLabel">account ref. date</div>		<div class="dataValue doubt">
-            <xsl:value-of select="/LtdCompanyData/Identification/FilingDetails/AccountsRefDate/MM"/> /
-            <xsl:value-of select="/LtdCompanyData/Identification/FilingDetails/AccountsRefDate/DD"/>
-        </div><br/>
+
+        <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#160;
+             <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>
+        </div><br style="clear:both"/>
             <div class="matrixLabel" id="company_ratio_and_disclosure_items_details">company ratio &amp; disclosure items details</div>
             <div class="matrix" id="company_ratio_and_disclosure_items_details_matrix">
             
@@ -25,7 +30,11 @@
                 <tr>
                     <th><span>date of account</span></th>
                     <xsl:for-each select="Financials/Ratios">
-                        <td><xsl:value-of select="DateOfAccounts/CCYY"/> / <xsl:value-of select="DateOfAccounts/MM"/> / <xsl:value-of select="DateOfAccounts/DD"/></td>
+                        <td>
+                             <xsl:value-of select="DateOfAccounts/DD"/>&#160;
+             <span class="toMonthName"><xsl:value-of select="DateOfAccounts/MM"/></span>&#160;
+            <xsl:value-of select="DateOfAccounts/CCYY"/>
+                            </td>
                     </xsl:for-each>
                 </tr>
                 
@@ -177,7 +186,12 @@
                         <tr>
                             <th><span>date of account</span></th>
                             <xsl:for-each select="Financials/Quartiles/MedianQuartiles">
-                                <td><xsl:value-of select="DateOfAccounts/CCYY"/> / <xsl:value-of select="DateOfAccounts/MM"/> / <xsl:value-of select="DateOfAccounts/DD"/></td>
+                                <td>
+ <xsl:value-of select="DateOfAccounts/DD"/>&#160;
+             <span class="toMonthName"><xsl:value-of select="DateOfAccounts/MM"/></span>&#160;
+            <xsl:value-of select="DateOfAccounts/CCYY"/>
+                            </td>
+
                             </xsl:for-each>
                         </tr>
                         

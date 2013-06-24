@@ -12,7 +12,7 @@
 	<script src="./jquery/js/jquery-1.7.2.min.js"></script>
 	<script src="./jquery/js/jquery-ui-1.8.20.custom.min.js"></script>
 	<link href='./jquery/css/ui-lightness/jquery-ui-1.8.20.custom.css' rel='stylesheet' type='text/css'></link>
-	<link href='./styles.css' rel='stylesheet' type='text/css'></link>
+	<link href='./styles_jsp.css' rel='stylesheet' type='text/css'></link>
 
     <% List<BureauData> listData = (List<BureauData>)request.getAttribute("data"); %>
 
@@ -56,6 +56,12 @@
              });
 
 		});
+
+        function iframeLoaded(fr, num)
+        {
+            if(fr.contentDocument.title != "")
+                $('#tab' + num).text(fr.contentDocument.title)
+        }
 	</script>
 
     </head>
@@ -64,7 +70,7 @@
             <ul class="tabnav">
                <% for(int i = 0;i < listData.size();++i) { %>
                <li>
-                   <a href="div#contentpage<%=i%>">
+                   <a id="tab<%=i%>" href="div#contentpage<%=i%>">
                        <%=listData.get(i).getBureau()%>
                    </a>
                </li>
@@ -78,7 +84,7 @@
                     </form>
                     <div id="contentpage<%=i%>">
                         <div class="datelabel">Report Date: <%=listData.get(i).getDate()%></div>
-                        <iframe style="width:100%;height:90%;" name="framedata<%=i%>">&nbsp;</iframe>
+                        <iframe onload="javascript:iframeLoaded(this, <%=i%>);" style="width:100%;height:90%;" name="framedata<%=i%>">&nbsp;</iframe>
                     </div>
                 <% } %>
             </div>

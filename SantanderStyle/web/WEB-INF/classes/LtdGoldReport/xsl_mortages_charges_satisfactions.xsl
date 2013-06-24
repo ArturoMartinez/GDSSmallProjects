@@ -13,10 +13,10 @@
                 
                 <br style="clear:both"/>
             <div class="dataLabel">date charge registred</div>
-                <div class="dataValue"> 
-                    <xsl:value-of select="RegistrationDate/CCYY"/> / 
-                    <xsl:value-of select="RegistrationDate/MM"/> /
-                    <xsl:value-of select="RegistrationDate/DD"/>
+                <div class="dataValue">
+
+                    <xsl:value-of select="RegistrationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="RegistrationDate/MM"/></span>&#xA0;<xsl:value-of select="RegistrationDate/CCYY"/>
+                
                 </div>
             <br style="clear:both"/>
            

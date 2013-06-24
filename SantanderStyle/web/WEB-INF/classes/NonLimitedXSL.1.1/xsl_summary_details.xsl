@@ -4,7 +4,7 @@
         <div class="section" id="summary_details">
             <h2>summary details</h2>
             <div class="dataLabel">business name</div>
-            <div class="dataValue">
+            <div class="dataValue" id="company_name">
                 <xsl:value-of select="BusinessName"/>
             </div>
             <br style="clear:both"/>
@@ -51,10 +51,7 @@
             <br style="clear:both"/>
             <div class="dataLabel">earliest date Known To Experian </div>
             <div class="dataValue">
-                
-                <xsl:value-of select="Identification/EarliestKnownDate/CCYY"/> / 
-                <xsl:value-of select="Identification/EarliestKnownDate/MM"/> / 
-                <xsl:value-of select="Identification/EarliestKnownDate/DD"/>
+                <xsl:value-of select="Identification/EarliestKnownDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/EarliestKnownDate/MM"/></span>&#xA0;<xsl:value-of select="Identification/EarliestKnownDate/CCYY"/>
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">notice of correction count</div>

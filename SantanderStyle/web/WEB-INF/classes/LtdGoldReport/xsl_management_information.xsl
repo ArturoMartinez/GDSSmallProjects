@@ -25,9 +25,10 @@
                 <br style="clear:both"/>
                 <div class="dataLabel">date of birth</div>
                 <div class="dataValue">
-                    <xsl:value-of select="DirectorDetails/DateOfBirth/CCYY"/> / <xsl:value-of
-                        select="DirectorDetails/DateOfBirth/MM"/> / <xsl:value-of
-                        select="DirectorDetails/DateOfBirth/DD"/>
+
+                    <xsl:value-of select="DirectorDetails/DateOfBirth/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DirectorDetails/DateOfBirth/MM"/></span>&#xA0;<xsl:value-of select="DirectorDetails/DateOfBirth/CCYY"/>
+               
+                   
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">position</div>
@@ -47,8 +48,7 @@
                 <br style="clear:both"/>
                 <div class="dataLabel">date appointed</div>
                 <div class="dataValue">
-                    <xsl:value-of select="AppointmentDate/CCYY"/> / <xsl:value-of
-                        select="AppointmentDate/MM"/> / <xsl:value-of select="AppointmentDate/DD"/>
+                    <xsl:value-of select="AppointmentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="AppointmentDate/MM"/></span>&#xA0;<xsl:value-of select="AppointmentDate/CCYY"/>
                 </div>
                 <br style="clear:both"/>
              
@@ -74,9 +74,9 @@
                 <br style="clear:both"/>
                 <div class="dataLabel">date of birth</div>
                 <div class="dataValue">
-                    <xsl:value-of select="DirectorDetails/DateOfBirth/CCYY"/> / <xsl:value-of
-                        select="DirectorDetails/DateOfBirth/MM"/> / <xsl:value-of
-                        select="DirectorDetails/DateOfBirth/DD"/>
+
+                    <xsl:value-of select="DirectorDetails/DateOfBirth/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DirectorDetails/DateOfBirth/MM"/></span>&#xA0;<xsl:value-of select="DirectorDetails/DateOfBirth/CCYY"/>
+
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">position</div>
@@ -86,13 +86,15 @@
                 <br style="clear:both"/>
                 <div class="dataLabel">date appointed</div>
                 <div class="dataValue">
-                    <xsl:value-of select="AppointmentDate/CCYY"/> / <xsl:value-of
-                        select="AppointmentDate/MM"/> / <xsl:value-of select="AppointmentDate/DD"/>
+                   <xsl:value-of select="AppointmentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="AppointmentDate/MM"/></span>&#xA0;<xsl:value-of select="AppointmentDate/CCYY"/>
+                
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">date resigned</div>
-                <div class="dataValue"><xsl:value-of select="ResignationDate/CCYY"/> / <xsl:value-of
-                    select="ResignationDate/MM"/> / <xsl:value-of select="ResignationDate/DD"/></div>
+                <div class="dataValue">
+                     <xsl:value-of select="ResignationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="ResignationDate/MM"/></span>&#xA0;<xsl:value-of select="ResignationDate/CCYY"/>
+             
+                </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">resigned prior to</div>
                 <div class="dataValue" id="notFound">???</div>
@@ -119,8 +121,8 @@
                 </div><br style="clear:both"/>
                 <div class="dataLabel">date appointed</div>
                 <div class="dataValue">
-                    <xsl:value-of select="AppointmentDate/CCYY"/> / <xsl:value-of
-                        select="AppointmentDate/MM"/> / <xsl:value-of select="AppointmentDate/DD"/>
+                    <xsl:value-of select="AppointmentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="AppointmentDate/MM"/></span>&#xA0;<xsl:value-of select="AppointmentDate/CCYY"/>
+                
                 </div>
                 <br style="clear:both"/>
                 <br style="clear:both"/>
@@ -143,12 +145,13 @@
                 </div><br style="clear:both"/>
                 <div class="dataLabel">date appointed</div>
                 <div class="dataValue">
-                    <xsl:value-of select="AppointmentDate/CCYY"/> / <xsl:value-of
-                        select="AppointmentDate/MM"/> / <xsl:value-of select="AppointmentDate/DD"/>
+                    <xsl:value-of select="AppointmentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="AppointmentDate/MM"/></span>&#xA0;<xsl:value-of select="AppointmentDate/CCYY"/>
+                
                 </div><br style="clear:both"/>
                 <div class="dataLabel">date resigned</div>
-                <div class="dataValue"><xsl:value-of select="ResignationDate/CCYY"/> / <xsl:value-of
-                    select="ResignationDate/MM"/> / <xsl:value-of select="ResignationDate/DD"/></div>
+                <div class="dataValue">
+                     <xsl:value-of select="ResignationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="ResignationDate/MM"/></span>&#xA0;<xsl:value-of select="ResignationDate/CCYY"/>
+                </div>
                 <br style="clear:both"/>
                 <div style="width:100%;border-bottom:1px solid #EEE;margin:5px 0px 10px 0px"></div>
                 

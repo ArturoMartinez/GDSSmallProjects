@@ -572,7 +572,8 @@
       <CreditLimit>02500000</CreditLimit>
       <ProbabilityDefaultScore>0.00</ProbabilityDefaultScore>
       <StabilityOdds>121:1</StabilityOdds>
-      <CommDelphiBandText>2</CommDelphiBandText>
+      <CommDelphiBand>2</CommDelphiBand>
+      <CommDelphiBandText>Low Risk</CommDelphiBandText>
       <OverrideIndicator>Y</OverrideIndicator>
       <CreditRatingOverrideIndicator>Y</CreditRatingOverrideIndicator>
       <CreditLimitOverrideIndicator>Y</CreditLimitOverrideIndicator>
@@ -1228,7 +1229,7 @@
                             <CurrentDirector>
                                 <AppointmentDate>
                                     <CCYY>CCYY</CCYY>
-                                    <MM>MM</MM>
+                                    <MM>12</MM>
                                     <DD>DD</DD>
                                 </AppointmentDate>
                                 <AppointmentIndicator>AppointmentIndicator8</AppointmentIndicator>

@@ -4,13 +4,14 @@
         <div class="section" id="credit_summary">
             <h2>credit summary</h2>
             <div class="dataLabel">credit rating</div>
-            <div class="dataValue num">
+            <div class="dataValue num devise">
                 <xsl:value-of select="CommercialDelphi/CreditRating"/>
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">risk band</div>
             <div class="dataValue">
-                <span id="notFound"> ??? </span>
+               <xsl:value-of select="CommercialDelphi/CommDelphiBand"/> - <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
+                
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">opinion</div>
@@ -48,21 +49,21 @@
                     </div>
                     <br style="clear:both"/>
                 </div>
-                <xsl:variable name="ratingStarsImgSectionHeight">116</xsl:variable>
+                <xsl:variable name="ratingStarsImgSectionHeight">58</xsl:variable>
                 <xsl:variable name="score">
                     <xsl:value-of
                         select="CommercialDelphiHistory/CommDelphiScore"/>
                 </xsl:variable>
-                <div class="subSectionInsert" style="width:400px;float:left">
+                <div class="subSectionInsert" style="width:300px;float:left">
                     <h3>commercial delphi rating</h3>
-                    <div
-                        style="margin:auto;padding-top:10px;width:300px;font:italic normal 21px MS Serif"
+                    <div style="margin:auto;padding-top:10px;width:300px;font:italic normal 18px MS Serif"
                         ><xsl:value-of
                             select="CommercialDelphiHistory/CommDelphiScore"
                         /> out of 100 </div>
                     <div
-                        style="margin:auto;width:300px;height:116px;background:URL(ratingStars.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
+                        style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
                     />
+                    <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
                 </div>
             </div>
         </div>

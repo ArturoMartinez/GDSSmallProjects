@@ -64,7 +64,7 @@
                 <table cellspacing="0" cellpadding="0">
 
                     <tr>
-                        <th>
+                        <th style="width:120px">
                             <span>date</span>
                         </th>
 
@@ -86,8 +86,8 @@
                     <xsl:for-each select="Identification/PrevSearches/PrevSearchDetail">
                         
                     <tr>
-                        <td>
-                            <xsl:value-of select="SearchDate"/>
+                        <td style="text-align:left;padding-left:5px">
+                            <xsl:value-of select="SearchDate/DD"/>&#160;<span class="toMonthName" style="margin:0px:padding:0px"><xsl:value-of select="SearchDate/MM"/></span>&#160;<xsl:value-of select="SearchDate/CCYY"/>
                         </td>
                         <td>
                             <xsl:value-of select="EnquiryType"/>

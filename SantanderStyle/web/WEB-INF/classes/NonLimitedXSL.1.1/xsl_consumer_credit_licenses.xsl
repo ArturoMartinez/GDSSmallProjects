@@ -13,9 +13,8 @@
             <br style="clear:both"/>
             <div class="dataLabel">dated</div>
                 <div class="dataValue">
-                    <xsl:value-of select="LicenceDate/CCYY"/> / 
-                    <xsl:value-of select="LicenceDate/MM"/> /
-                    <xsl:value-of select="LicenceDate/DD"/>
+                    <xsl:value-of select="LicenceDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LicenceDate/MM"/></span>&#xA0;<xsl:value-of select="LicenceDate/CCYY"/>
+                    
                 </div>
                 
                 <br style="clear:both"/>

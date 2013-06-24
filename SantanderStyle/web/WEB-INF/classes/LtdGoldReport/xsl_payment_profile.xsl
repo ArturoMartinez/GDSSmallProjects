@@ -103,9 +103,8 @@
                     <tr>
                         <th style="background:#fff;border:none;border-right:1px solid #bbb;border-bottom:1px solid #aaa"></th>
                         <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
-                            <td  style="width:60px">
-                                <xsl:value-of select="CompanyExpMonth/CCYY"/>/
-                                <xsl:value-of select="CompanyExpMonth/MM"/>
+                            <td  style="padding:5px">
+                                <span class="toMonthName"><xsl:value-of select="CompanyExpMonth/MM"/></span>&#160;<xsl:value-of select="CompanyExpMonth/CCYY"/>
                             </td>
                         </xsl:for-each>
                     </tr>

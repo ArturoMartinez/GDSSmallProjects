@@ -3,7 +3,7 @@
     version="1.0">
     <xsl:template name="xsl_payment_performance">
         <div class="section" id="payment_performance" style="overflow:hidden">
-        <h2>payment pformance</h2>
+        <h2>payment performance</h2>
            
             <div class="subSectionInsert" style="width:45%">
                 <h3  >Summary Based On The Information Supplied From Our Sources</h3>

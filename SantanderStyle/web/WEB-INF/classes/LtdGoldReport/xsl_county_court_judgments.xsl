@@ -20,8 +20,8 @@
                 
                 <div class="dataLabel">judgement date</div>
                 <div class="dataValue">
-                    <xsl:value-of select="JudgmentDate/CCYY"/> /
-                    <xsl:value-of select="JudgmentDate/MM"/>
+                    <span class="toMonthName"><xsl:value-of select="JudgmentDate/MM"/></span>&#xA0;<xsl:value-of select="JudgmentDate/CCYY"/>
+
                 </div>
                 <br style="clear:both"/>
                 

@@ -16,7 +16,7 @@
             <div class="dataLabel">
                 Total value : 
             </div>
-            <div class="dataValue num">
+            <div class="dataValue num devise">
                 <xsl:value-of select="CCJs/MValueCCJs0To72"/>
             </div>
            
@@ -58,22 +58,22 @@
                 </tr>
                 <tr>
                     <th><span>value</span></th>
-                    <td>
+                    <td class="num devise">
                         <xsl:value-of select="CCJs/MValueCCJsLast12"/>
                     </td>
-                    <td>
+                    <td class="num devise">
                         <xsl:value-of select="CCJs/MValueCCJs13To24"/>
                     </td>
-                    <td>
+                    <td class="num devise">
                         <xsl:value-of select="CCJs/MValueCCJs25To36"/>
                     </td>
-                    <td>
+                    <td class="num devise">
                         <xsl:value-of select="CCJs/MValueCCJs37To48"/>
                     </td>
-                    <td>
+                    <td class="num devise">
                         <xsl:value-of select="CCJs/MValueCCJs49To60"/>
                     </td>
-                    <td>
+                    <td class="num devise">
                         <xsl:value-of select="CCJs/MValueCCJs61To72"/>
                     </td>
                     
@@ -96,15 +96,16 @@
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">amount</div>
-                <div class="dataValue num">
+                <div class="dataValue num devise">
                     <xsl:value-of select="JudgementAmount"/>
                 </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">judgement date</div>
                 <div class="dataValue">
-                    <xsl:value-of select="JudgementDate/CCYY"/> /
-                    <xsl:value-of select="JudgementDate/MM"/>
+                    <span class="toMonthName"><xsl:value-of select="JudgementDate/MM"/></span>&#xA0;
+                    <xsl:value-of select="JudgementDate/CCYY"/>
+                    
                 </div>
                 <br style="clear:both"/>
                 

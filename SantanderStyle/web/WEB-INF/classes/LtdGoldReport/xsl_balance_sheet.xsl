@@ -3,19 +3,22 @@
     <xsl:template name="xsl_balance_sheet">
     <div class="section" id="balance_sheet">
         <h2>balance sheet</h2>
-        <div class="dataLabel">date latest account</div>	<div class="dataValue doubt">
-            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>
-        </div><br/>
-        <div class="dataLabel">date latest returns</div>	<div class="dataValue doubt">
-            <xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/> /
-            <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/></div><br/>
-        <div class="dataLabel">account ref. date</div>		<div class="dataValue doubt">
-            <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/> /
-            <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>
-        </div><br/>
+        <div class="dataLabel">date latest account</div>	<div class="dataValue ">
+
+
+                <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/>
+           
+        </div>
+        <br style="clear:both"/>
+        <div class="dataLabel">date latest returns</div>	<div class="dataValue ">
+        <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/></div>
+         
+        <br style="clear:both"/>
+        <div class="dataLabel">account ref. date</div>		<div class="dataValue ">
+        <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/AccountsRefDate/CCYY"/>
+
+        </div>
+        <br style="clear:both"/>
         
         <div class="matrixLabel" id="balance_sheet_f_details">financial details</div>
         <div class="matrix" id="balance_sheet_f_details_matrix">
@@ -24,7 +27,9 @@
                 <tr>
                     <th><span>date of account</span></th>
                     <xsl:for-each select="Financials/Accounts">
-                        <td><xsl:value-of select="DateOfAccounts/CCYY"/> / <xsl:value-of select="DateOfAccounts/MM"/> / <xsl:value-of select="DateOfAccounts/DD"/></td>
+                        <td>
+                             <xsl:value-of select="DateOfAccounts/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateOfAccounts/MM"/></span>&#xA0;<xsl:value-of select="DateOfAccounts/CCYY"/>
+                            </td>
                     </xsl:for-each>
                 </tr>
                 <tr>
@@ -112,7 +117,7 @@
                     <xsl:for-each select="Financials/Accounts">
                         <td style="vertical-align:top;" class="num">
                             <xsl:for-each select="BalanceSheet/InventoriesDetails">
-                                <span><xsl:value-of select="Inventories"/></span>
+                                <span><xsl:value-of select="Inventories"/>&#xA0;</span>
                                 <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
                                     <xsl:value-of select="RawMaterialStock"/>
                                 </div>

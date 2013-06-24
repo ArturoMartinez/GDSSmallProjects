@@ -39,7 +39,11 @@
             <div class="dataLabel" style="height:{$noticeCount*11}px">legal notices</div>
             <div class="dataValue" style="overflow:hidden;width:300px">
             <xsl:for-each select="LegalNotices/SummaryLine">
-                <div style="float:left;width:100px"><xsl:value-of select="EventDate/CCYY"/> / <xsl:value-of select="EventDate/MM"/> / <xsl:value-of select="EventDate/DD"/> : </div>
+                <div style="float:left;width:100px">
+
+                <xsl:value-of select="EventDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="EventDate/MM"/></span>&#xA0;<xsl:value-of select="EventDate/CCYY"/>
+                    
+                </div>
                 <div style="float:left;width:100px">
                    <xsl:call-template name="creditType"></xsl:call-template>
                 </div>

@@ -7,22 +7,22 @@
             <xsl:for-each select="LegalNotices/WindUp/Petition">
                 
                 <div class="dataLabel">date of petition presentation</div>
-                <div class="dataValue"><xsl:value-of select="PresentationDate/CCYY"/> /
-                    <xsl:value-of select="PresentationDate/MM"/> /
-                    <xsl:value-of select="PresentationDate/DD"/></div>
+                <div class="dataValue">
+                    <xsl:value-of select="PresentationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PresentationDate/MM"/></span>&#xA0;<xsl:value-of select="PresentationDate/CCYY"/>
+                
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">date of petition publication</div>
-                <div class="dataValue"><xsl:value-of select="PublicationDate/CCYY"/> /
-                    <xsl:value-of select="PublicationDate/MM"/> /
-                    <xsl:value-of select="PublicationDate/DD"/></div>
+                <div class="dataValue">
+                    <xsl:value-of select="PublicationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PublicationDate/MM"/></span>&#xA0;<xsl:value-of select="PublicationDate/CCYY"/>
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">date of hearingn</div>
                 <div class="dataValue">
-                    <xsl:value-of select="HearingDate/CCYY"/> /
-                    <xsl:value-of select="HearingDate/MM"/> /
-                    <xsl:value-of select="HearingDate/DD"/>
+                    <xsl:value-of select="HearingDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="HearingDate/MM"/></span>&#xA0;<xsl:value-of select="HearingDate/CCYY"/>
+             
                 </div>
                 <br style="clear:both"/>
                 
@@ -72,27 +72,35 @@
             <h3>Winding up dismissal</h3>
             <xsl:for-each select="LegalNotices/WindUp/Dismissal">
                 <div class="dataLabel">publication date</div>
-                <div class="dataValue"><xsl:value-of select="PublicationDate/CCYY"/> /
-                    <xsl:value-of select="PublicationDate/MM"/> /
-                    <xsl:value-of select="PublicationDate/DD"/></div>
+                <div class="dataValue">
+
+                    <xsl:value-of select="PublicationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PublicationDate/MM"/></span>&#xA0;<xsl:value-of select="PublicationDate/CCYY"/>
+
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">original petition date</div>
-                <div class="dataValue"><xsl:value-of select="OriginalPetitionDate/CCYY"/> /
-                    <xsl:value-of select="OriginalPetitionDate/MM"/> /
-                    <xsl:value-of select="OriginalPetitionDate/DD"/></div>
+                <div class="dataValue">
+
+                    <xsl:value-of select="OriginalPetitionDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="OriginalPetitionDate/MM"/></span>&#xA0;<xsl:value-of select="OriginalPetitionDate/CCYY"/>
+
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">hearing date</div>
-                <div class="dataValue"><xsl:value-of select="HearingDate/CCYY"/> /
-                    <xsl:value-of select="HearingDate/MM"/> /
-                    <xsl:value-of select="HearingDate/DD"/></div>
+                <div class="dataValue">
+
+                    <xsl:value-of select="HearingDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="HearingDate/MM"/></span>&#xA0;<xsl:value-of select="HearingDate/CCYY"/>
+
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">dismissal date</div>
-                <div class="dataValue"><xsl:value-of select="DismissalDate/CCYY"/> /
-                    <xsl:value-of select="DismissalDate/MM"/> /
-                    <xsl:value-of select="DismissalDate/DD"/></div>
+                <div class="dataValue">
+
+                    <xsl:value-of select="DismissalDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DismissalDate/MM"/></span>&#xA0;<xsl:value-of select="DismissalDate/CCYY"/>
+
+                </div>
                 <br style="clear:both"/>
                 
                 <div style="border-bottom:1px solid #EEE;width:100%;margin:5px 0px 10px 0px"></div>
@@ -101,15 +109,17 @@
             <h3>Winding up order</h3>
             <xsl:for-each select="LegalNotices/WindUp/Order">
                 <div class="dataLabel">publication date</div>
-                <div class="dataValue"><xsl:value-of select="PublicationDate/CCYY"/> /
-                    <xsl:value-of select="PublicationDate/MM"/> /
-                    <xsl:value-of select="PublicationDate/DD"/></div>
+                <div class="dataValue">
+                    <xsl:value-of select="PublicationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PublicationDate/MM"/></span>&#xA0;<xsl:value-of select="PublicationDate/CCYY"/>
+               
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">Order date</div>
-                <div class="dataValue"><xsl:value-of select="OrderDate/CCYY"/> /
-                    <xsl:value-of select="OrderDate/MM"/> /
-                    <xsl:value-of select="OrderDate /DD"/></div>
+                <div class="dataValue">
+                    <xsl:value-of select="OrderDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="OrderDate/MM"/></span>&#xA0;<xsl:value-of select="OrderDate/CCYY"/>
+               
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">trading name</div>
@@ -124,15 +134,17 @@
             <h3>Winding up resolution</h3>
             <xsl:for-each select="LegalNotices/WindUp/Resolution">
                 <div class="dataLabel">publication date</div>
-                <div class="dataValue"><xsl:value-of select="PublicationDate/CCYY"/> /
-                    <xsl:value-of select="PublicationDate/MM"/> /
-                    <xsl:value-of select="PublicationDate/DD"/></div>
+                <div class="dataValue">
+                    <xsl:value-of select="PublicationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PublicationDate/MM"/></span>&#xA0;<xsl:value-of select="PublicationDate/CCYY"/>
+               
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">resolution date</div>
-                <div class="dataValue"><xsl:value-of select="ResolutionDate/CCYY"/> /
-                    <xsl:value-of select="ResolutionDate/MM"/> /
-                    <xsl:value-of select="ResolutionDate /DD"/></div>
+                <div class="dataValue">
+                    <xsl:value-of select="ResolutionDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="ResolutionDate/MM"/></span>&#xA0;<xsl:value-of select="ResolutionDate/CCYY"/>
+               
+                </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">trading name</div>
