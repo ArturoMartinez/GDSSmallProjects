@@ -28,7 +28,8 @@ import org.apache.log4j.xml.DOMConfigurator;
  */
 public class Application 
 {
-    public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*$";
+//    public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*$";
+    public static final String REGEX_CONSUMER = "^NEVER_MATCH_ANYTHING$";
     public static final String REGEX_LTD = "^.*\\<LtdCompanyData\\>.*$";
     public static final String REGEX_NONLTD = "^.*\\<NonLtdBusinessData\\>.*$";
 
