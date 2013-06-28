@@ -4,8 +4,8 @@
         <div class="section" id="voters_roll">
             <h2>voters roll</h2>
             
-            <div class="dataLabel">current</div><div class="dataValue doubt">
-                [ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/...]?<br style="clear:both"/>
+            <div class="dataLabel">current</div><div class="dataValue">
+                <br style="clear:both"/>
                 <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/HouseNumber"/><br style="clear:both"/>
                 
                 <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street"/><br style="clear:both"/>
@@ -25,7 +25,7 @@
             <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollPerson">
                 <div class="dataLabel">name</div>
                 <div class="dataValue" >
-                    <xsl:value-of select="VRollPersonDetails/Name/Surname   "/>
+                    <xsl:value-of select="VRollPersonDetails/Name/Surname"/>
                     &#xA0;
                     <xsl:value-of select="VRollPersonDetails/Name/Forename"/>
                 </div>

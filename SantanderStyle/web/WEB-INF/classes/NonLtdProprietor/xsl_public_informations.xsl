@@ -4,7 +4,7 @@
         <div class="section" id="public_informations">
             <h2>public informations</h2>
             <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/PublicInformation">
-                <div class="dataLabel" style="width:100%">
+                <div  style="margin-left:15px;width:100%">
                     &#x2022;&#xA0;<xsl:value-of select="PublicInfoDetails/Name/Title"/>&#xA0;
                 <xsl:value-of select="PublicInfoDetails/Name/Surname"/>&#xA0;
                     <xsl:value-of select="PublicInfoDetails/Name/Forename"/> - 
@@ -22,17 +22,19 @@
                    <br style="clear:both"/>
                     
                     <div class="dataLabel">date</div><div class="dataValue" style="font-weight:normal">
-                        <xsl:value-of select="PublicInfoDetails/InformationDate"/>
+                        <xsl:value-of select="PublicInfoDetails/InformationDate/DD"/>&#160;
+                        <span class="toMonthName"><xsl:value-of select="PublicInfoDetails/InformationDate/MM"/></span>&#160;
+                        <xsl:value-of select="PublicInfoDetails/InformationDate/CCYY"/>&#160;
                     </div>
                     <br style="clear:both"/>
-                    <div class="dataLabel">court name</div><div class="dataValue" style="font-weight:normal" id="notFound">???</div>
+                    <div class="dataLabel">court name</div><div class="dataValue" style="font-weight:normal" id="notFound" >???</div>
                     <br style="clear:both"/>
-                    <div class="dataLabel">amount</div><div class="dataValue numeric" style="font-weight:normal">
+                    <div class="dataLabel">amount</div><div class="dataValue num" style="font-weight:normal">
                         <xsl:value-of select="PublicInfoDetails/AmountPounds"/>
                     </div>
                     <br style="clear:both"/>
                     
-                    <div class="dataLabel">case number</div><div class="dataValue" style="font-weight:normal" id="notFound">???</div>
+                    <div class="dataLabel">case number</div><div class="dataValue" style="font-weight:normal" id="notFound" >???</div>
                     <br style="clear:both"/>
                     
                     <div class="dataLabel">type</div><div class="dataValue" style="font-weight:normal">

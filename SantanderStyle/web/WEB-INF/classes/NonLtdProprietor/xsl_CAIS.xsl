@@ -43,7 +43,9 @@
 
                         <div class="dataLabel">date of birth</div>
                         <div class="dataValue">
-                            <xsl:value-of select="DateOfBirth"/>
+                            <xsl:value-of select="DateOfBirth/DD"/>&#160;
+                        <span class="toMonthName"><xsl:value-of select="DateOfBirth/MM"/></span>&#160;
+                        <xsl:value-of select="DateOfBirth/CCYY"/>&#160;
                         </div>
                         <br style="clear:both"/>
 
@@ -69,19 +71,21 @@
                         <br style="clear:both"/>
                         <div class="dataLabel">start date</div>
                         <div class="dataValue">
-                            <xsl:value-of select="CAISAccStartDate"/>
+                            <xsl:value-of select="CAISAccStartDate/DD"/>&#160;
+                        <span class="toMonthName"><xsl:value-of select="CAISAccStartDate/MM"/></span>&#160;
+                        <xsl:value-of select="CAISAccStartDate/CCYY"/>&#160;
                         </div>
                         <br style="clear:both"/>
                         <div class="dataLabel">default date</div>
                         <div class="dataValue" id="notFound">???</div>
                         <br style="clear:both"/>
                         <div class="dataLabel">current balance</div>
-                        <div class="dataValue numeric">
+                        <div class="dataValue num">
                             <xsl:value-of select="Balance/Amount"/>
                         </div>
                         <br style="clear:both"/>
                         <div class="dataLabel">default balance</div>
-                        <div class="dataValue numeric">
+                        <div class="dataValue num">
                             <xsl:value-of select="CurrentDefBalance/Amount"/>
                         </div>
 
