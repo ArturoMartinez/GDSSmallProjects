@@ -1,6 +1,17 @@
 
 document.devise="&pound;";
 document.debugmode=false;
+
+var prmstr = window.location.search.substr(1);
+var prmarr = prmstr.split ("&");
+var params = {};
+
+for ( var i = 0; i < prmarr.length; i++) {
+    var tmparr = prmarr[i].split("=");
+    params[tmparr[0]] = tmparr[1];
+}
+if(typeof(params.debugmode)!='undefined' && params.debugmode==1)document.debugmode=true
+
 $(document).ready(function () {
     $("div.num").digits();
     $("span.num").digits();
@@ -26,6 +37,7 @@ $(document).ready(function () {
    $("#notfound").hideValue();
    $("#notFound,#notfound").hideValue();
 
+   $(".stringDateToReadable").dateStringToReadableDate();
     var sectionsOptionsArray = $(".section");
     for (s = 0; s < sectionsOptionsArray.length; s++) {
         var id = sectionsOptionsArray[s].id;
@@ -45,12 +57,12 @@ $(document).ready(function () {
         var collapseImg = document.createElement('img');
         collapseImg.collapsedStatus = false
 
-        collapseImg.src = "collapse.png"
-        collapseImg.style.margin = "1px 15px 0px 0px"
-        collapseImg.style.float = "right"
+        collapseImg.src = "collapse.png";
+        collapseImg.style.margin="1px 15px 0px 0px";
+        collapseImg.style.float="right";
+        collapseImg.style.cssFloat="right";
         collapseImg.style.border = "none"
-        collapseImg.style.cursor = "pointer"
-
+        collapseImg.style.cursor = "pointer";
         collapseImg.onclick = function () {
             if (! this.collapsedStatus) {
                 this.originalDivParentHeight = this.parentNode.parentNode.clientHeight
@@ -73,7 +85,8 @@ $(document).ready(function () {
 $.fn.hideEmptyTable=function(){
     return this.each(function () {
         rows=$("tr",this).length
-        if(rows<1 && !document.debugmode)$(this).css("display","none")
+        
+        if(rows<=1 && document.debugmode==false)$(this).css("display","none")
     })
 }
 
@@ -81,9 +94,9 @@ $.fn.hideEmptyValue = function () {
     return this.each(function () {
         correspondingValue=$(this).next(".dataValue")
         if($.trim(correspondingValue.text())==''){
-            if(document.debugmode){
-                $(this).css("background","#ffbbbb");
-                $(correspondingValue).css("background","ffbbbb");
+            if(document.debugmode==true){
+                $(this).css("background","#aac397");
+                $(correspondingValue).css("background","#aac397");
             }else{
                 $(this).css("display","none");
                 $(correspondingValue).css("display","none");
@@ -94,11 +107,15 @@ $.fn.hideEmptyValue = function () {
 
 $.fn.hideValue = function () {
     return this.each(function () {
-        correspondingLabel=$(this).prev(".dataLabel")
-       
-            if(document.debugmode){
-                $(this).css("background","#ffbbbb");
-                $(correspondingLabel).css("background","ffbbbb");
+        var correspondingLabel=$(this).prev(".dataLabel")
+            
+            if(document.debugmode==true){
+                var bgColor="#ffbbbb";
+                var clName=$(this)[0].className
+                if(clName.indexOf("doubt")>-1)bgColor="#ffEEEE";
+               
+                $(this).css("background",bgColor);
+                $(correspondingLabel).css("background",bgColor);
             }else{
                 $(this).css("display","none");
                 $(correspondingLabel).css("display","none");
@@ -106,7 +123,18 @@ $.fn.hideValue = function () {
         
     })
 }
+$.fn.dateStringToReadableDate=function(){
+     return this.each(function () {
+        var stringDate=$(this).text();
+        var stringYear=stringDate.substr(0,4);
 
+        var stringMonth=stringDate.substr(4,2);
+
+        var stringDay=stringDate.substr(6,2);
+        var readableMonth=intToMonthName(parseInt(stringMonth))
+       $(this).text(stringDay+" "+readableMonth+" "+stringYear)
+    })
+}
 $.fn.digits = function () {
     return this.each(function () {
         $(this).text($(this).text().replace(/^0+/, '').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
@@ -121,10 +149,15 @@ $.fn.deviseSign = function () {
 
 $.fn.toMonthName = function () {
     return this.each(function () {
-        arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
+       
         
-        if($.trim($(this).html())!="")$(this).html(arrayMonthName[parseInt($(this).text())]);
+        if($.trim($(this).html())!="")$(this).html(intToMonthName(parseInt($(this).text())));
     })
+}
+
+function intToMonthName(pMonthNum){
+     arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
+     return arrayMonthName[pMonthNum];
 }
 
     

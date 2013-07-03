@@ -3,7 +3,7 @@
     <xsl:template name="xsl_consumer_credit_licences">
         <div class="section" id="consumer_credit_licences">
             <h2>consumer credit licences</h2>
-            <xsl:for-each select="/LtdCompanyData/Identification/CCLs/CCLDetail">
+            <xsl:for-each select="Identification/CCLs/CCLDetail">
                 
             
             <div class="dataLabel">License Number</div>
