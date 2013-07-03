@@ -21,7 +21,7 @@
     <xsl:template name="aliasAssoTemplate">
         <xsl:param name="linkSentence"/>
         <xsl:param name="sourceString"/>
-        <div style="margin:20px">
+        <div style="margin:20px"> 
             <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/Association/AssociationDetails">
                 <xsl:if test="Source=$sourceString">
                     <div class="dataValue"><xsl:value-of select="Name/Title"
@@ -42,8 +42,10 @@
                             <xsl:value-of select="Location/Postcode"/>
                     </div><br style="clear:both"/>
                     <div class="dataLabel">on</div>
-                    <div class="dataValue doubt">
-                        <xsl:value-of select="DoBAssociateOrAlias"/>
+                    <div class="dataValue">
+                        <xsl:value-of select="InformationDate/DD"/>&#160;            
+                        <span class="toMonthName"><xsl:value-of select="InformationDate/MM"/></span>&#160; 
+                        <xsl:value-of select="InformationDate/CCYY"/>
                     </div><br style="clear:both"/>
                     <div class="dataLabel">source</div>
                     <div class="dataValue">

@@ -80,12 +80,12 @@
                         <div class="dataValue" id="notFound">???</div>
                         <br style="clear:both"/>
                         <div class="dataLabel">current balance</div>
-                        <div class="dataValue num">
+                        <div class="dataValue num devise">
                             <xsl:value-of select="Balance/Amount"/>
                         </div>
                         <br style="clear:both"/>
                         <div class="dataLabel">default balance</div>
-                        <div class="dataValue num">
+                        <div class="dataValue num devise">
                             <xsl:value-of select="CurrentDefBalance/Amount"/>
                         </div>
 

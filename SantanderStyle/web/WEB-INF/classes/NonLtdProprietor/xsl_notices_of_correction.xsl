@@ -5,7 +5,7 @@
             <h2>notices of correction</h2>
             
             <div class="dataLabel">number</div><div class="dataValue numeric">
-                <xsl:value-of select="NonLtdBusinessData/NoticeOfCorrection/NumCorrections"/>
+                <xsl:value-of select="DirectorData/NoticeOfCorrection/NumCorrections"/>
             </div><br style="clear:both"/>
             
             <div class="matrixLabel" id="notices_of_correction_details">notices of correction details</div>
@@ -16,7 +16,7 @@
                         <th><span>reference</span></th>
                         <th><span>text</span></th>
                     </tr>
-                    <xsl:for-each select="NonLtdBusinessData/NoticeOfCorrection/NOCDetail">
+                    <xsl:for-each select="DirectorData/NoticeOfCorrection/NOCDetail">
                         <tr>
                             <td>
                                 <span ><xsl:value-of select="Reference"/></span>

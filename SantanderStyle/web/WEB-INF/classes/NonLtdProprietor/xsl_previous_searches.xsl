@@ -3,28 +3,32 @@
     <xsl:template name="xsl_previous_searches">
         <div class="section" id="previous_searches">
             <h2>previous searches</h2>
-            <xsl:for-each select="NonLtdBusinessData/Identification/PrevSearches">
+            <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/PreviousApplication">
                 <div class="dataLabel">application type</div>
                 <div class="dataValue">
-                    <xsl:value-of select="PrevSearchDetail/EnquiryType"/>
+                    <xsl:value-of select="PrevApplnDetails/ApplicationType"/>
                 </div>
                 
                     <br style="clear:both"/>
                 
                 <div class="dataLabel">application date</div>
                 <div class="dataValue">
-                    <xsl:value-of select="PrevSearchDetail/SearchDate/DD"/>&#160;
-                   <span class="toMonthName"><xsl:value-of select="PrevSearchDetail/SearchDate/MM"/></span>&#160;
-                    <xsl:value-of select="PrevSearchDetail/SearchDate/CCYY"/>&#160;
+                    <xsl:value-of select="PrevApplnDetails/ApplicationDate/DD"/>&#160;
+                    <span class="toMonthName"><xsl:value-of select="PrevApplnDetails/ApplicationDate/MM"/></span>&#160;
+                    <xsl:value-of select="PrevApplnDetails/ApplicationDate/CCYY"/>&#160;
                 </div>
                 
                     <br style="clear:both"/>
                 
                 <div class="dataLabel">company type</div>
                 <div class="dataValue">
-                    <xsl:value-of select="PrevSearchDetail/SICInformation/Description"/>
+                    <xsl:value-of select="PrevApplnDetails/CompanyType"/>
                 </div>
+                <br style="clear:both"/>
+                
+                <br style="clear:both"/>
             </xsl:for-each>
+            
 
         </div>
     </xsl:template>

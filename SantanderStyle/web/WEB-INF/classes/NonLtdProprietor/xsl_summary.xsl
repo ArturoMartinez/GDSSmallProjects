@@ -29,7 +29,7 @@
             <br style="clear:both"/>
 
             <div class="dataLabel numeric">total amount</div>
-            <div class="dataValue num">
+            <div class="dataValue num devise">
                 <xsl:value-of
                     select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/PublicInfoSummary/TotalAmount"
                 />
@@ -37,7 +37,7 @@
             <br style="clear:both"/>
 
             <div class="dataLabel">latest</div>
-            <div class="dataValue">
+            <div class="dataValue stringDateToReadable">
                 <xsl:value-of
                     select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/PublicInfoSummary/DateOfLatest"
                 />
@@ -48,22 +48,19 @@
 
             <div class="dataLabel">0-3 months</div>
             <div class="dataValue">
-                <xsl:value-of
-                    select="NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch3Mth"/>
+                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/CAISPrevSearches/NumberUpTo3Months"/>
             </div>
             <br style="clear:both"/>
 
             <div class="dataLabel">4-6 months</div>
             <div class="dataValue">
-                <xsl:value-of
-                    select="NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch6Mth"/>
+                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/CAISPrevSearches/Num3To6Months"/>
             </div>
             <br style="clear:both"/>
 
             <div class="dataLabel">7-12 months</div>
             <div class="dataValue">
-                <xsl:value-of
-                    select="NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch12Mth"/>
+                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/CAISPrevSearches/Num6To12Months"/>
             </div>
             <br style="clear:both"/>
 
@@ -82,7 +79,7 @@
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">total balance</div>
-            <div class="dataValue num">
+            <div class="dataValue num devise">
                 <xsl:value-of
                     select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/TotalBalance"
                 />

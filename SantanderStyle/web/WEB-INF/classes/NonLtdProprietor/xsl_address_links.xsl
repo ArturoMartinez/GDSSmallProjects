@@ -5,7 +5,7 @@
             <h2>address links</h2>
             <xsl:for-each
                 select="ConsumerOutput/FullConsumerData/ConsumerData/LocationLink">
-                <div class="dataLabel" style="width:100%"> &#x2022;&#xA0;<xsl:value-of
+                <div style="margin-left:10px;width:100%"> &#x2022;&#xA0;<xsl:value-of
                         select="LocationLinkDetails/Name/Title"/>&#xA0; <xsl:value-of
                         select="LocationLinkDetails/Name/Surname"/>&#xA0; <xsl:value-of
                         select="LocationLinkDetails/Name/Forename"/> - <xsl:value-of
@@ -16,15 +16,19 @@
                         select="LocationLinkDetails/Location/PostTown"/> &#xA0; <xsl:value-of
                         select="LocationLinkDetails/Location/Country"/>
                     <br style="clear:both"/>
-                    <div class="dataLabel">link to</div><div class="dataValue doubt"
+                    <div class="dataLabel">link to</div><div class="dataValue"
                         style="font-weight:normal">
                         <xsl:value-of select="LocationLinkDetails/RelatedSegmentNum"/>&#xA0;
-                        [LocationLinkDetails/RelatedSegmentNum]??
+                        
                     </div>
                     <br style="clear:both"/>
-                    <div class="dataLabel">date</div><div class="dataValue"
-                        style="font-weight:normal"/>
-                    <xsl:value-of select="LocationLinkDetails/LocationLinkDate"/>
+                    <div class="dataLabel">date</div>
+                    <div class="dataValue"
+                        style="font-weight:normal">
+                    <xsl:value-of select="LocationLinkDetails/LocationLinkDate/DD"/>&#xA0;
+                    <span class="toMonthName"><xsl:value-of select="LocationLinkDetails/LocationLinkDate/MM"/></span>&#xA0;
+                    <xsl:value-of select="LocationLinkDetails/LocationLinkDate/CCYY"/>
+                    </div>
                     <br style="clear:both"/>
                 </div>
 

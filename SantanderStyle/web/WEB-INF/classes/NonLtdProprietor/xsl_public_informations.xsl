@@ -27,14 +27,14 @@
                         <xsl:value-of select="PublicInfoDetails/InformationDate/CCYY"/>&#160;
                     </div>
                     <br style="clear:both"/>
-                    <div class="dataLabel">court name</div><div class="dataValue" style="font-weight:normal" id="notFound" >???</div>
+                    <div class="dataLabel">court name</div><div class="dataValue" style="font-weight:normal"><xsl:value-of select="PublicInfoDetails/CourtPlaintiff"/></div>
                     <br style="clear:both"/>
-                    <div class="dataLabel">amount</div><div class="dataValue num" style="font-weight:normal">
+                    <div class="dataLabel">amount</div><div class="dataValue num devise" style="font-weight:normal">
                         <xsl:value-of select="PublicInfoDetails/AmountPounds"/>
                     </div>
                     <br style="clear:both"/>
                     
-                    <div class="dataLabel">case number</div><div class="dataValue" style="font-weight:normal" id="notFound" >???</div>
+                    <div class="dataLabel">case number</div><div class="dataValue" style="font-weight:normal"><xsl:value-of select="PublicInfoDetails/CameraNumber"/></div>
                     <br style="clear:both"/>
                     
                     <div class="dataLabel">type</div><div class="dataValue" style="font-weight:normal">
