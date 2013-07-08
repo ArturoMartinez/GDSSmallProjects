@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="xsl_notices_of_correction">
         <div class="section" id="notices_of_correction">
@@ -11,13 +11,13 @@
                 Total Number : 
             </div>
             <div class="dataValue">
-                <xsl:value-of select="/NonLtdBusinessData/NoticeOfCorrection/NumCorrections"/>
+                <xsl:value-of select="NoticeOfCorrection/NumCorrections"/>
             </div>
             
             <br style="clear:both"/>
             
             <h3>Notices :</h3>
-            <xsl:for-each select="/NonLtdBusinessData/NoticeOfCorrection/NOCDetail">
+            <xsl:for-each select="NoticeOfCorrection/NOCDetail">
                 <div class="dataLabel">
                     reference
                 </div>

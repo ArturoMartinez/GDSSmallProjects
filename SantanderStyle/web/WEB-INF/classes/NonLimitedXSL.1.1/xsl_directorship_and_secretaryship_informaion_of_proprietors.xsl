@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="xsl_directorship_and_secretaryship_informaion_of_proprietors">
         <div class="section" id="directorship_and_secretaryship_information_of_proprietors">
@@ -9,24 +9,24 @@
             
             <div class="dataLabel">name</div>
             <div class="dataValue">
-                <xsl:value-of select="/NonLtdBusinessData/DirectorData/DirectorDetails/Name"/>
+                <xsl:value-of select="DirectorData/DirectorDetails/Name"/>
             </div>
             
             <br style="clear:both"/>
             <div class="dataLabel">date of birth</div>
             <div class="dataValue">
-                <xsl:value-of select="/NonLtdBusinessData/DirectorData/DirectorDetails/DateOfBirth/DD"/>&#160;<span class="toMonthName" style="margin:0px:padding:0px"><xsl:value-of select="/NonLtdBusinessData/DirectorData/DirectorDetails/DateOfBirth/MM"/></span>&#160;<xsl:value-of select="/NonLtdBusinessData/DirectorData/DirectorDetails/DateOfBirth/CCYY"/>
+                <xsl:value-of select="DirectorData/DirectorDetails/DateOfBirth/DD"/>&#160;<span class="toMonthName" style="margin:0px:padding:0px"><xsl:value-of select="DirectorData/DirectorDetails/DateOfBirth/MM"/></span>&#160;<xsl:value-of select="DirectorData/DirectorDetails/DateOfBirth/CCYY"/>
             </div>
             
             <br style="clear:both"/>
             <div class="dataLabel">latest filed address</div>
             <div class="dataValue">
-                <xsl:value-of select="/NonLtdBusinessData/DirectorData/DirectorDetails/Location"/>
+                <xsl:value-of select="DirectorData/DirectorDetails/Location"/>
             </div>
             
             <br style="clear:both"/>
             <h3>current directorships</h3>
-            <xsl:for-each select="/NonLtdBusinessData/DirectorData/Directorships/CurrentDirector">
+            <xsl:for-each select="DirectorData/Directorships/CurrentDirector">
                 <div class="dataLabel">company name</div>
                 <div class="dataValue">
                     <xsl:value-of select="CommercialDetail/Name"/>
@@ -44,7 +44,7 @@
             
 
             <h3>current secretaryships</h3>
-            <xsl:for-each select="/NonLtdBusinessData/DirectorData/Secretaryships/CurrentSecretary">
+            <xsl:for-each select="DirectorData/Secretaryships/CurrentSecretary">
                 <div class="dataLabel">company name</div>
                 <div class="dataValue">
                     <xsl:value-of select="CommercialDetail/Name"/>
@@ -60,7 +60,7 @@
                 <br style="clear:both"/>
             </xsl:for-each>
             <h3>previous directorships</h3>
-            <xsl:for-each select="/NonLtdBusinessData/DirectorData/Directorships/PreviousDirector">
+            <xsl:for-each select="DirectorData/Directorships/PreviousDirector">
                 <div class="dataLabel">company name</div>
                 <div class="dataValue">
                     <xsl:value-of select="CommercialDetail/Name"/>
@@ -82,7 +82,7 @@
                 <br style="clear:both"/>
             </xsl:for-each>
             <h3>previous secretaryships</h3>
-            <xsl:for-each select="/NonLtdBusinessData/DirectorData/Secretaryships/PreviousSecretary">
+            <xsl:for-each select="DirectorData/Secretaryships/PreviousSecretary">
                 <div class="dataLabel">company name</div>
                 <div class="dataValue">
                     <xsl:value-of select="CommercialDetail/Name"/>
@@ -104,7 +104,7 @@
                 <br style="clear:both"/>
             </xsl:for-each>
             <h3>dissolved current directorships</h3>
-            <xsl:for-each select="/NonLtdBusinessData/DirectorData/Directorships/CurrentDissolvedDirector">
+            <xsl:for-each select="DirectorData/Directorships/CurrentDissolvedDirector">
                 <div class="dataLabel">company name</div>
                 <div class="dataValue">
                     <xsl:value-of select="CommercialDetail/Name"/>
@@ -125,7 +125,7 @@
             <br style="clear:both"/>
         </xsl:for-each>
         <h3>dissolved current secretaryships</h3>
-        <xsl:for-each select="/NonLtdBusinessData/DirectorData/Secretaryships/CurrentDissolvedSecretary">
+        <xsl:for-each select="DirectorData/Secretaryships/CurrentDissolvedSecretary">
             <div class="dataLabel">company name</div>
             <div class="dataValue">
                 <xsl:value-of select="CommercialDetail/Name"/>
@@ -147,7 +147,7 @@
             <br style="clear:both"/>
         </xsl:for-each>
         <h3>dissolved previous directorships</h3>
-        <xsl:for-each select="/NonLtdBusinessData/DirectorData/Directorships/PreviousDissolvedDirector">
+        <xsl:for-each select="DirectorData/Directorships/PreviousDissolvedDirector">
             <div class="dataLabel">company name</div>
             <div class="dataValue">
                 <xsl:value-of select="CommercialDetail/Name"/>
@@ -169,7 +169,7 @@
             <br style="clear:both"/>
         </xsl:for-each>
         <h3>dissolved previous secretaryships</h3>
-        <xsl:for-each select="/NonLtdBusinessData/DirectorData/Secretaryships/PreviousDissolvedSecretary">
+        <xsl:for-each select="DirectorData/Secretaryships/PreviousDissolvedSecretary">
             <div class="dataLabel">company name</div>
             <div class="dataValue">
                 <xsl:value-of select="CommercialDetail/Name"/>
@@ -192,7 +192,7 @@
         </xsl:for-each>
 
         <h3>dissolved current directorships</h3>
-        <xsl:for-each select="/NonLtdBusinessData/DirectorData/Directorships/CurrentDissolvedDirector">
+        <xsl:for-each select="DirectorData/Directorships/CurrentDissolvedDirector">
             <div class="dataLabel">company name</div>
             <div class="dataValue">
                 <xsl:value-of select="CommercialDetail/Name"/>
@@ -214,7 +214,7 @@
             <br style="clear:both"/>
         </xsl:for-each>
         <h3>convictions</h3>
-        <xsl:for-each select="/NonLtdBusinessData/DirectorData/Convictions">
+        <xsl:for-each select="DirectorData/Convictions">
             <div class="dataLabel">company name</div>
             <div class="dataValue">
                 <xsl:value-of select="ConvictionDetails/CompanyName"/>
@@ -242,7 +242,7 @@
         </xsl:for-each>
 
         <h3>convictions</h3>
-        <xsl:for-each select="/NonLtdBusinessData/DirectorData/Convictions">
+        <xsl:for-each select="DirectorData/Convictions">
             <div class="dataLabel">company name</div>
             <div class="dataValue">
                 <xsl:value-of select="ConvictionDetails/CompanyName"/>

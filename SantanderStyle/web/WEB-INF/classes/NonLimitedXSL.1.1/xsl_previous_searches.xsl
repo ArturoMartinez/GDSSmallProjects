@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="xsl_previous_searches">
         <div class="section" id="previous_searches">
@@ -34,17 +34,17 @@
                         </th>
                         <td>
                             <xsl:value-of
-                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch3Mth"
+                                select="Identification/PrevSearches/NumPrevSearch3Mth"
                             />
                         </td>
                         <td>
                             <xsl:value-of
-                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch6Mth"
+                                select="Identification/PrevSearches/NumPrevSearch6Mth"
                             />
                         </td>
                         <td>
                             <xsl:value-of
-                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch12Mth"
+                                select="Identification/PrevSearches/NumPrevSearch12Mth"
                             />
                         </td>
 

@@ -30,12 +30,8 @@ public class BureauData
         _strRaw = decodeBase64(_strEncodedRaw);
         calculateBureauName();
 
-        //data is not valid XML because it may also have director data at root level, needs outer tag adding manually
-        if(_strRaw.matches(Application.REGEX_CONSUMER))
-        {
-            _strRaw = "<RawBureauData>" + _strRaw + "</RawBureauData>";
-            _strEncodedRaw = DatatypeConverter.printBase64Binary(_strRaw.getBytes(Charset.forName("UTF-8")));
-        }
+        _strRaw = "<RawBureauData>" + _strRaw + "</RawBureauData>";
+        _strEncodedRaw = DatatypeConverter.printBase64Binary(_strRaw.getBytes(Charset.forName("UTF-8")));
     }
 
     private void calculateBureauName()

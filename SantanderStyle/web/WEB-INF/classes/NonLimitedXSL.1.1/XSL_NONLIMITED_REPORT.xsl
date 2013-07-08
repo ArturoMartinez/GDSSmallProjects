@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html" encoding="utf-8" indent="yes" doctype-system="http://www.w3.org/TR/html4/strict.dtd"/>
 	<xsl:include href="xsl_summary_details.xsl"/>
@@ -11,7 +11,7 @@
 	<xsl:include href="xsl_notices_of_correction.xsl"/>
 	<xsl:include href="xsl_previous_searches.xsl"/>
 	<xsl:include href="xsl_directorship_and_secretaryship_informaion_of_proprietors.xsl"/>
-	<xsl:template match="/NonLtdBusinessData">
+	<xsl:template match="/RawBureauData/NonLtdBusinessData">
 		<html>
 			<head>
 				<title><xsl:value-of select="BusinessName"/></title>

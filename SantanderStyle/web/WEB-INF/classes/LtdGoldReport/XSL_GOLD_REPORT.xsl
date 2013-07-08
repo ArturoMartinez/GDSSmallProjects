@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html" encoding="utf-8" indent="yes" doctype-system="http://www.w3.org/TR/html4/strict.dtd"/>
 	<xsl:include href="xsl_balance_sheet.xsl"/>
@@ -18,7 +18,7 @@
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
 
-	<xsl:template match="/LtdCompanyData">
+	<xsl:template match="/RawBureauData/LtdCompanyData">
 		<html>
 			<head>
 				<title><xsl:value-of select="CommercialName"/></title>
