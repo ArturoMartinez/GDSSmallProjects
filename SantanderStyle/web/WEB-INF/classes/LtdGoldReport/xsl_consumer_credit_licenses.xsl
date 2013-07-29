@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+     <xsl:template name="CCLCategoriesList">
+        <xsl:choose>
+            <xsl:when test="LicenceCategories='A'">Consumer credit business</xsl:when>
+            <xsl:when test="LicenceCategories='B'">Consumer hire business</xsl:when>
+            <xsl:when test="LicenceCategories='C'">Credit brokerage</xsl:when>
+            <xsl:when test="LicenceCategories='D'">Debt adjusting and debt counselling</xsl:when>
+            <xsl:when test="LicenceCategories='E'">Debt collecting</xsl:when>
+            <xsl:when test="LicenceCategories='F'">Credit reference agency</xsl:when>
+            <xsl:when test="LicenceCategories='Z'">Right to canvass</xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
     <xsl:template name="xsl_consumer_credit_licences">
         <div class="section" id="consumer_credit_licences">
             <h2>consumer credit licences</h2>
@@ -34,7 +46,7 @@
             <br style="clear:both"/>
             <div class="dataLabel">categories</div>
                 <div class="dataValue">
-                    <xsl:value-of select="LicenceCategories"/>
+                    <xsl:call-template name="CCLCategoriesList"></xsl:call-template>
                 </div>
             <br style="clear:both"/>
                 <xsl:variable name="tNameNum"><xsl:value-of select="count(TradingNames/TradingName)"/></xsl:variable>

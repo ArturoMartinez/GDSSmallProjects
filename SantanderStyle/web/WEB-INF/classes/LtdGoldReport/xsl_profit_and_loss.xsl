@@ -37,7 +37,7 @@
                 <tr>
                     <th><span>accounting standard</span></th>
                     <xsl:for-each select="Financials/Accounts">
-                        <td><span id="notFound">??</span></td>
+                        <td><xsl:value-of select="LatestAccountsType"/></td>
                     </xsl:for-each>
                 </tr>
                 <tr>

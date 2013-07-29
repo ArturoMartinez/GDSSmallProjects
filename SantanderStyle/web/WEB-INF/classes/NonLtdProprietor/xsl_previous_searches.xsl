@@ -22,7 +22,8 @@
                 
                 <div class="dataLabel">company type</div>
                 <div class="dataValue">
-                    <xsl:value-of select="PrevApplnDetails/CompanyType"/>
+                     <xsl:call-template name="companyTypeValues"> <xsl:with-param name="curValue" select="PrevApplnDetails/CompanyType" /> </xsl:call-template>
+                  
                 </div>
                 <br style="clear:both"/>
                 

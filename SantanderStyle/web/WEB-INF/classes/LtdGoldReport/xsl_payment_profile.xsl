@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+
+
     <xsl:template name="xsl_payment_profile">
         <div class="section" id="payment_profile" style="overflow:hidden">
         <h2>payment profile</h2>
@@ -10,8 +12,10 @@
                 <div id="notFound">This company pays ???
                     <xsl:value-of select="PaymentPerformance/PaymentFull/PaymentToTerms"/>
                 </div>
-                <div id="notFound">There is ??? payment pattern
-                    <xsl:value-of select="PaymentPerformance/PaymentFull/PaymentPattern"/>
+                <div>
+                    <div>There is <xsl:call-template name="PaymentPatternValues"></xsl:call-template> payment pattern
+                    
+                </div>
                 </div>
                 <div  class="doubt">This company has <xsl:value-of select="PaymentPerformance/PaymentFull/NumberCollection"/> accounts placed for collection.
                     
@@ -33,7 +37,7 @@
                          <tr>
                              <th style="background:#fff;border:none;text-align:right"><span>days beyond terms (DBT) for </span></th>
                              <td style="background:#fff;border:none;text-align:left">
-                                <span id="notfound">???</span>
+                                <xsl:value-of select="CorporateStructure/CompanyOwnership/ParentDetail/CurrentDBT"/>
                             </td>
                         </tr>
                            
@@ -53,8 +57,8 @@
                         
                         <tr>
                             <th><span>DBT (month to date)</span></th>
-                            <td class="doubt">
-                                <span id="notfound">???</span>
+                            <td >
+                                <xsl:value-of select="PaymentPerformance/PaymentFull/SlowestPayment"/>
                             </td>
                         </tr>
                         
@@ -68,7 +72,7 @@
                         <tr>
                             <th><span>industry</span></th>
                             <td>
-                                <span id="notfound">???</span>
+                                <xsl:value-of select="PaymentPerformance/PaymentFull/IndustryNumMnths"/>
                             </td>
                         </tr>
                         
@@ -218,8 +222,6 @@
                         </th>
                         <th style="text-align:center">
                             £10,001 - £100,000
-                            £100,000+
-                            
                         </th>
                         <th style="text-align:center">
                             £100,000+
@@ -301,11 +303,12 @@
             <h3 style="margin-bottom:5px">Additional informations</h3>
             
             <div style="margin:10px;font-weight:bold">Other payment informations</div>
-            <span id="notfound">calculation required ???</span>
+            <xsl:for-each select="PaymentPerformance/PaymentFull/NumberCashFirst"/>
+
             
             
             <div style="margin:10px;font-weight:bold">Unpaid accounts</div>
-            <span id="notfound">calculation required ???</span>
+            <span ><xsl:for-each select="PaymentPerformance/PaymentFull/UnpaidAccounts"/></span>
     </div>
     </xsl:template>
 </xsl:stylesheet>

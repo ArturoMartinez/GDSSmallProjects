@@ -51,12 +51,14 @@
 
                         <div class="dataLabel">company type</div>
                         <div class="dataValue">
-                            <xsl:value-of select="CompanyType"/>
+                            <xsl:call-template name="companyTypeValues"> <xsl:with-param name="curValue" select="CompanyType" /> </xsl:call-template>
+                            
                         </div>
                         <br style="clear:both"/>
                         <div class="dataLabel">account type</div>
                         <div class="dataValue">
-                            <xsl:value-of select="AccountType"/>
+                             <xsl:call-template name="accountTypeValues"> <xsl:with-param name="curValue" select="AccountType" /> </xsl:call-template>
+                            
                         </div>
                         <br style="clear:both"/>
                         <div class="dataLabel">status 1-2</div>

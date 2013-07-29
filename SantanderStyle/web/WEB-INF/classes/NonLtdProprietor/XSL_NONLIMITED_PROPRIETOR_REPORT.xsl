@@ -15,6 +15,9 @@
 	<xsl:include href="xsl_previous_searches.xsl"/>
 	
 	<xsl:include href="xsl_CAIS.xsl"/>
+
+	<xsl:include href="xsl_list_company_types.xsl"/>
+	<xsl:include href="xsl_list_account_types.xsl"/>
 	
 	<xsl:include href="xsl_address_links.xsl"/>
 	<xsl:template match="/RawBureauData">

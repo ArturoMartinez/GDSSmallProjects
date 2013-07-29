@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+    <xsl:template name="worstValues">
+        <xsl:param name="curValue" />
+         <xsl:choose>
+            <xsl:when test="$curValue = '0'">Satisfactory</xsl:when>
+            <xsl:when test="$curValue = '1'">1 Month Delinquent</xsl:when>
+            <xsl:when test="$curValue = '2'">2 Month Delinquent</xsl:when>
+            <xsl:when test="$curValue = '3'">3 Month Delinquent</xsl:when>
+            <xsl:when test="$curValue = '4'">4 Month Delinquent</xsl:when>
+            <xsl:when test="$curValue = '5'">5 Month Delinquent</xsl:when>
+            <xsl:when test="$curValue = '6'">6 Month Delinquent</xsl:when>
+            <xsl:when test="$curValue = '8'">Default</xsl:when>
+            <xsl:when test="$curValue = '9'">Bad Debt</xsl:when>
+            <xsl:when test="$curValue = 'S'">Slow Payer</xsl:when>
+            <xsl:when test="$curValue = 'U'">Unclassified</xsl:when>
+            <xsl:when test="$curValue = 'D'">Dormant</xsl:when>
+            <xsl:when test="$curValue = '?'">Unknown Status</xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
+   
+
     <xsl:template name="xsl_summary">
         <div class="section" id="summary">
             <h2>summary</h2>
@@ -87,16 +109,18 @@
             <br style="clear:both"/>
             <div class="dataLabel">worst current</div>
             <div class="dataValue">
-                <xsl:value-of
-                    select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/WorstCurrent"
-                />
+                <xsl:call-template name="worstValues"> <xsl:with-param name="curValue" select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/WorstCurrent" /> </xsl:call-template>
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">worst historical</div>
             <div class="dataValue">
-                <xsl:value-of
-                    select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/WorstHistorical"
-                />
+                 <xsl:call-template name="worstValues"> <xsl:with-param name="curValue" select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/CAISSummary/WorstHistorical" /> </xsl:call-template>
+               
+            </div><br style="clear:both"/>
+            <div class="dataLabel">worst status</div>
+            <div class="dataValue">
+                 <xsl:call-template name="worstValues"> <xsl:with-param name="curValue" select="ConsumerOutput/FullConsumerData/ConsumerData/CAIS/CAISDetails/WorstStatus" /> </xsl:call-template>
+               
             </div>
             <br style="clear:both"/>
 

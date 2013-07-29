@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html" encoding="utf-8" indent="yes" doctype-system="http://www.w3.org/TR/html4/strict.dtd"/>
 	<xsl:include href="xsl_balance_sheet.xsl"/>
@@ -17,6 +17,7 @@
 	<xsl:include href="xsl_management_information.xsl"/>
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
+	<xsl:include href="xsl_list_payment_patterns.xsl"/>
 
 	<xsl:template match="/RawBureauData/LtdCompanyData">
 		<html>
@@ -147,7 +148,6 @@
 					</div>
 				</div>
 
-				<xsl:call-template name="xsl_payment_summary"/>
 
 				<xsl:call-template name="xsl_instalment_cais"/>
 
