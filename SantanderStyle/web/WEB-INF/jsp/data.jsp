@@ -59,10 +59,11 @@
 
         function iframeLoaded(fr, num)
         {
-            if(fr.contentDocument.title != "")
-                $('#tab' + num).text(fr.contentDocument.title)
+            if(fr.contentWindow && fr.contentWindow.document && fr.contentWindow.document.title && fr.contentWindow.document.title != "")
+                $('#tab' + num).text(fr.contentWindow.document.title);
         }
 	</script>
+
 
     </head>
     <body>
