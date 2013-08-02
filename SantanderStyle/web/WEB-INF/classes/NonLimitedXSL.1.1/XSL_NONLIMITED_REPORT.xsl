@@ -18,7 +18,7 @@
 				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
 				<script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
 				<link rel="stylesheet" type="text/css" href="styles.css"/>
-			
+				<meta http-equiv="x-ua-compatible" content="IE=8"/>
 			</head>
 			<body>
 
