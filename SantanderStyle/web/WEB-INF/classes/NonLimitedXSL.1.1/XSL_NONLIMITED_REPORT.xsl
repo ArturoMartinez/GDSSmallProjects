@@ -15,8 +15,6 @@
 		<html>
 			<head>
 				<title><xsl:value-of select="BusinessName"/></title>
-				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-				<script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
 				<link rel="stylesheet" type="text/css" href="styles.css"/>
 				<meta http-equiv="x-ua-compatible" content="IE=8"/>
 			</head>
@@ -41,7 +39,10 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				
 				<xsl:call-template name="xsl_directorship_and_secretaryship_informaion_of_proprietors"/>
-			
+                
+                 		<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
+                                <script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
+	
 			</body>
 		</html>
 	</xsl:template>

@@ -1,22 +1,21 @@
-
-document.devise="&pound;";
-document.debugmode=false;
-
-var prmstr = window.location.search.substr(1);
-var prmarr = prmstr.split ("&");
-var params = {};
-
-for ( var i = 0; i < prmarr.length; i++) {
-    var tmparr = prmarr[i].split("=");
-    params[tmparr[0]] = tmparr[1];
-}
-if(typeof(params.debugmode)!='undefined' && params.debugmode==1)document.debugmode=true
-
 $(document).ready(function () {
-    $("div.num").digits();
-    $("span.num").digits();
-    $("td.num span").digits();
-    $("td.num div").digits();
+    document.devise="&pound;";
+    document.debugmode=false;
+
+    var prmstr = window.location.search.substr(1);
+    var prmarr = prmstr.split ("&");
+    var params = {};
+
+    for ( var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    if(typeof(params.debugmode)!='undefined' && params.debugmode==1)document.debugmode=true
+    //---
+$("div.num").digits();
+$("span.num").digits();
+$("td.num span").digits();
+$("td.num div").digits();
     //$("td.num").digits();
     
 
@@ -27,17 +26,19 @@ $(document).ready(function () {
     $("td.devise").deviseSign();
 
     $(".toMonthName").toMonthName();
-   
-   $(".dataLabel").hideEmptyValue()
 
-   $("table").hideEmptyTable();
+    $(".dataLabel").hideEmptyValue()
 
-   $(".doubt").hideValue();
-   $("#notFound").hideValue();
-   $("#notfound").hideValue();
-   $("#notFound,#notfound").hideValue();
+    $("table").hideEmptyTable();
 
-   $(".stringDateToReadable").dateStringToReadableDate();
+    $(".doubt").hideValue();
+    $("#notFound").hideValue();
+
+
+    $("#notfound").hideValue();
+    $("#notfound,#notFound").hideValue();
+
+    $(".stringDateToReadable").dateStringToReadableDate();
     var sectionsOptionsArray = $(".section");
     for (s = 0; s < sectionsOptionsArray.length; s++) {
         var id = sectionsOptionsArray[s].id;
@@ -108,32 +109,32 @@ $.fn.hideEmptyValue = function () {
 $.fn.hideValue = function () {
     return this.each(function () {
         var correspondingLabel=$(this).prev(".dataLabel")
-            
-            if(document.debugmode==true){
-                var bgColor="#ffbbbb";
-                var clName=$(this)[0].className
-                if(clName.indexOf("doubt")>-1)bgColor="#ffEEEE";
-               
-                $(this).css("background",bgColor);
-                $(correspondingLabel).css("background",bgColor);
-            }else{
-                $(this).css("display","none");
-                $(correspondingLabel).css("display","none");
-            }
+
+        if(document.debugmode==true){
+            var bgColor="#ffbbbb";
+            var clName=$(this)[0].className
+            if(clName.indexOf("doubt")>-1)bgColor="#ffEEEE";
+
+            $(this).css("background",bgColor);
+            $(correspondingLabel).css("background",bgColor);
+        }else{
+            $(this).css("display","none");
+            $(correspondingLabel).css("display","none");
+        }
         
     })
 }
 $.fn.dateStringToReadableDate=function(){
-     return this.each(function () {
-        var stringDate=$(this).text();
-        var stringYear=stringDate.substr(0,4);
+   return this.each(function () {
+    var stringDate=$(this).text();
+    var stringYear=stringDate.substr(0,4);
 
-        var stringMonth=stringDate.substr(4,2);
+    var stringMonth=stringDate.substr(4,2);
 
-        var stringDay=stringDate.substr(6,2);
-        var readableMonth=intToMonthName(parseInt(stringMonth))
-       $(this).text(stringDay+" "+readableMonth+" "+stringYear)
-    })
+    var stringDay=stringDate.substr(6,2);
+    var readableMonth=intToMonthName(parseInt(stringMonth))
+    $(this).text(stringDay+" "+readableMonth+" "+stringYear)
+})
 }
 $.fn.digits = function () {
     return this.each(function () {
@@ -149,15 +150,14 @@ $.fn.deviseSign = function () {
 
 $.fn.toMonthName = function () {
     return this.each(function () {
-       
-        
+
+
         if($.trim($(this).html())!="")$(this).html(intToMonthName(parseInt($(this).text())));
     })
 }
 
 function intToMonthName(pMonthNum){
-     arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
-     return arrayMonthName[pMonthNum];
+   arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
+   return arrayMonthName[pMonthNum];
 }
 
-    
