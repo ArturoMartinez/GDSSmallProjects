@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using System.Net;
+using System.Xml;
 
 namespace cshttp
 {
@@ -55,8 +56,8 @@ namespace cshttp
                 {
                     String strInputFile = getNextInputFile();
                     String strComparisonFile = _program.getComparisonFile(strInputFile);
-
-                    String strOutputFile = Path.Combine(_program.getSettings().getOutputPath(), Thread.CurrentThread.ManagedThreadId.ToString() + "_" + i.ToString() + ".xml");
+                    String strInputFilename = Path.GetFileNameWithoutExtension(strInputFile);
+                    String strOutputFile = Path.Combine(_program.getSettings().getOutputPath(), strInputFilename + "_" + Thread.CurrentThread.ManagedThreadId.ToString() + "_" + i.ToString() + ".xml");
 
                     Stopwatch timer = _stats.getTimer();
 
@@ -69,11 +70,14 @@ namespace cshttp
             }
         }
 
+        
         private bool ProcessFile(string strInput, string strOutput, string strComparisonFile, int iIteration)
         {
             bool bError = true;
             try
             {
+                Console.WriteLine("Executing test {0}", strInput);
+
                 string strData = File.ReadAllText(strInput);
                 UTF8Encoding encoding = new UTF8Encoding();
                 byte[] aData = encoding.GetBytes(strData);
@@ -87,11 +91,20 @@ namespace cshttp
 
                 if (strResponse.Length > 0)
                 {
+                    if (_program.getSettings().hasXMLConversions())
+                    {
+                        strResponse = convertXML(strResponse);
+                    }
+
+                    byte[] aResponse = Encoding.UTF8.GetBytes(strResponse);
+
                     if(File.Exists(strComparisonFile))
                     {
-                        String strCompareData = File.ReadAllText(strComparisonFile);
+                        byte[] aCompareData = File.ReadAllBytes(strComparisonFile);
 
-                        if (!strCompareData.Equals(strResponse))
+                        //String strCompareData = File.ReadAllText(strComparisonFile);
+                        //if (!strCompareData.Equals(strResponse))
+                        if(!aResponse.SequenceEqual(aCompareData))
                         {
                             Console.WriteLine("Thread {0} iteration {1} did not  match comparison {2}", Thread.CurrentThread.ManagedThreadId, iIteration, strComparisonFile);
                         }
@@ -104,11 +117,11 @@ namespace cshttp
                     else
                     {
                         Console.WriteLine("Missing comparison file {0}, creating it now", strComparisonFile);
-                        File.WriteAllText(strComparisonFile, strResponse);
+                        File.WriteAllBytes(strComparisonFile, aResponse);
                     }
 
                     if (_program.getSettings().isWriteGoodResults() || bError)
-                        File.WriteAllText(strOutput, strResponse);
+                        File.WriteAllBytes(strOutput, aResponse);
                 }
                 else
                 {
@@ -120,6 +133,78 @@ namespace cshttp
                 Console.WriteLine(e.Message);
             }
             return bError;
+        }
+
+        private XmlDocument extractInner(XmlDocument doc, XmlNamespaceManager namespaceManager)
+        {
+            if (_program.getSettings().getInnerXML() != null)
+            {                
+                XmlNode xmlNode = doc.SelectSingleNode(_program.getSettings().getInnerXML(), namespaceManager);
+                if (xmlNode != null)
+                {
+                    XmlDocument newDoc = new XmlDocument(doc.NameTable);
+                    newDoc.LoadXml(xmlNode.InnerText);
+                    return newDoc;
+                }
+                else
+                    throw new Exception("Invalid XPATH location for inner xml");
+            }
+            else
+                return doc;
+        }
+
+        private XmlDocument xmlReplacements(XmlDocument doc, XmlNamespaceManager namespaceManager)
+        {
+            foreach (KeyValuePair<String, String> entry in _program.getSettings().getReplacements())
+            {
+                try
+                {
+                    foreach(XmlNode xmlNode in doc.SelectNodes(entry.Key))
+                    {
+                        xmlNode.InnerText = entry.Value;
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            return doc;
+        }
+
+        private String convertXML(String strInputXML)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(strInputXML);
+
+                XmlNamespaceManager namespaceManager = new XmlNamespaceManager(doc.NameTable);
+
+                foreach(KeyValuePair<String, String> entry in _program.getSettings().getNamespaces())
+                {
+                    namespaceManager.AddNamespace(entry.Key, entry.Value);
+                }
+
+                XmlDocument xmlDoc = extractInner(doc, namespaceManager);
+                xmlDoc = xmlReplacements(xmlDoc, namespaceManager);
+                
+                using(MemoryStream stream = new MemoryStream())
+                using (XmlTextWriter writer = new XmlTextWriter(stream, Encoding.UTF8))
+                {
+                    writer.Formatting = Formatting.Indented;
+                    xmlDoc.WriteContentTo(writer);
+                    writer.Flush();
+                    stream.Flush();
+
+                    return Encoding.UTF8.GetString(stream.ToArray());
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("Error parsing XML response: " + e.Message);
+                return strInputXML;
+            }
         }
     }
 }

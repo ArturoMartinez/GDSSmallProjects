@@ -23,6 +23,11 @@ namespace cshttp
         private String _strOutputPath;
         private String _strComparisonPath;
 
+        private bool _bXMLConversions;
+        private string _strInnerXML;
+        private Dictionary<String, String> _mapNamespaces;
+        private Dictionary<String, String> _mapReplacements;
+
         public Settings(string strFilename)
         {
             _strMethod = "POST";
@@ -34,6 +39,10 @@ namespace cshttp
             _iIterationsPerThread = 10;
             _bWriteGoodResults = false;
 
+            _bXMLConversions = false;
+
+            _mapNamespaces = new Dictionary<string, string>();
+            _mapReplacements = new Dictionary<string, string>();
             loadXML(strFilename);
         }
 
@@ -93,8 +102,68 @@ namespace cshttp
             xmlNode = xmlDoc.SelectSingleNode("/cshttp/comparepath");
             if (xmlNode != null)
                 _strComparisonPath = xmlNode.InnerText;
+
+            xmlNode = xmlDoc.SelectSingleNode("/cshttp/xmlconversions");
+            if (xmlNode != null)
+                loadXMLConversions(xmlNode);
         }
 
+        private void loadXMLConversions(XmlNode xmlNode)
+        {
+            _bXMLConversions = true;
+            XmlNode xmlChild = xmlNode.SelectSingleNode("./innerxml");
+            if (xmlChild != null)
+                _strInnerXML = xmlChild.InnerText;
+
+            //namespaces
+            xmlChild = xmlNode.SelectSingleNode("./namespaces");
+            if (xmlChild != null)
+            {
+                foreach (XmlNode xmlNameSpace in xmlChild.SelectNodes("./namespace"))
+                {
+                    XmlNode xmlName = xmlNameSpace.SelectSingleNode("./name");
+                    XmlNode xmlSpace = xmlNameSpace.SelectSingleNode("./value");
+
+                    if (xmlName != null && xmlSpace != null)
+                        _mapNamespaces.Add(xmlName.InnerText, xmlSpace.InnerText);
+                }
+            }
+
+            //replacements
+            xmlChild = xmlNode.SelectSingleNode("./replacements");
+            if (xmlChild != null)
+            {
+                foreach (XmlNode xmlReplacement in xmlChild.SelectNodes("./replacement"))
+                {
+                    XmlNode xmlXpath = xmlReplacement.SelectSingleNode("./xpath");
+                    XmlNode xmlValue = xmlReplacement.SelectSingleNode("./value");
+
+                    if (xmlXpath != null && xmlValue != null)
+                        _mapReplacements.Add(xmlXpath.InnerText, xmlValue.InnerText);
+                }
+            }
+        }
+
+        public IDictionary<String, String> getNamespaces()
+        {
+            return _mapNamespaces;
+        }
+
+        public IDictionary<String, String> getReplacements()
+        {
+            return _mapReplacements;
+        }
+
+        public bool hasXMLConversions()
+        {
+            return _bXMLConversions;
+        }
+
+        public String getInnerXML()
+        {
+            return _strInnerXML;
+        }
+                
         public String getInputPath()
         {
             return _strInputPath;
