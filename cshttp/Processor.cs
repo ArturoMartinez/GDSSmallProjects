@@ -54,19 +54,31 @@ namespace cshttp
             {
                 for (int i = 0; i < _iIterations; i++)
                 {
-                    String strInputFile = getNextInputFile();
-                    String strComparisonFile = _program.getComparisonFile(strInputFile);
-                    String strInputFilename = Path.GetFileNameWithoutExtension(strInputFile);
-                    String strOutputFile = Path.Combine(_program.getSettings().getOutputPath(), strInputFilename + "_" + Thread.CurrentThread.ManagedThreadId.ToString() + "_" + i.ToString() + ".xml");
+                    Stopwatch timer = null;
+                    try
+                    {
+                        String strInputFile = getNextInputFile();
+                        String strComparisonFile = _program.getComparisonFile(strInputFile);
+                        String strInputFilename = Path.GetFileNameWithoutExtension(strInputFile);
+                        String strOutputFile = Path.Combine(_program.getSettings().getOutputPath(), strInputFilename + "_" + Thread.CurrentThread.ManagedThreadId.ToString() + "_" + i.ToString() + ".xml");
 
-                    Stopwatch timer = _stats.getTimer();
+                        timer = _stats.getTimer();
 
-                    _stats.complete(!ProcessFile(strInputFile, strOutputFile, strComparisonFile, i), timer);
+                        _stats.complete(ProcessFile(strInputFile, strOutputFile, strComparisonFile, i), timer);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (timer == null)
+                            timer = _stats.getTimer();
+
+                        Console.WriteLine("Outer exception on {0}: {1}",  Thread.CurrentThread.ManagedThreadId.ToString(), ex.Message);
+                        _stats.complete(true, timer);
+                    }
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception on {0}: {1}", Thread.CurrentThread.ManagedThreadId.ToString(), e.Message);
+                Console.WriteLine("Fatal Exception on {0}: {1}", Thread.CurrentThread.ManagedThreadId.ToString(), e.Message);
             }
         }
 

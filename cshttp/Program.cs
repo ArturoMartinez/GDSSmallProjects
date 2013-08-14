@@ -92,6 +92,7 @@ namespace cshttp
         {
             try
             {
+                Console.WriteLine("CSHTTP Version 1.0");
                 Program program = new Program(args);
                 return program.processFiles();
             }
