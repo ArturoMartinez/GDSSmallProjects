@@ -5,20 +5,20 @@
         <div class="section" id="company_ratio_and_disclosure_items">
 
             <h2>company ratio &amp; disclosure items</h2>
-            <div class="dataLabel">date latest account</div>	<div class="dataValue doubt">
+            <div class="dataLabel">date latest account</div>	<div class="dataValue">
             <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>&#160;
             <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#160;
             <xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/>
 
         </div><br style="clear:both"/>
-        <div class="dataLabel">date latest returns</div>	<div class="dataValue doubt">
+        <div class="dataLabel">date latest returns</div>	<div class="dataValue">
 
         <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#160;
         <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#160;
         <xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/>
     </div>
     <br style="clear:both"/>
-    <div class="dataLabel">account ref. date</div>		<div class="dataValue doubt">
+    <div class="dataLabel">account ref. date</div>		<div class="dataValue">
 
     <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#160;
     <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>
@@ -221,7 +221,7 @@
         </td></xsl:for-each>
 
 
-        <td> <xsl:value-of select="PercentageChange/PercentChangeReturnOnCapital"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeReturnOnCapital"/></td>
 
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/ReturnOnCapitalMedian"/></span>
@@ -232,7 +232,7 @@
         <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
             <xsl:value-of select="PreTaxProfitMargin"/>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="PercentageChange/PercentChangePreTaxProfitMargin"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangePreTaxProfitMargin"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/PreTaxMarginMedian"/></span>
         </td>
@@ -246,7 +246,7 @@
             <xsl:value-of select="CreditPeriod"/>
         </td></xsl:for-each>
         
-        <td> <xsl:value-of select="PercentageChange/PercentChangeCreditPeriod"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeCreditPeriod"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/CreditPeriodMedian"/></span>
         </td>
@@ -255,15 +255,15 @@
 
     <tr>
         <th><span>liquidity</span></th>
+        <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
+            <xsl:value-of select="CurrentRatio"/>
+        </td></xsl:for-each>
          <td>
-            
-            <span><xsl:value-of select="ScoringData/LiquidityStandardRatio"/></span>
+              <span><xsl:value-of select="Financials/PercentageChange/PercentChangeCurrentRatio"/></span>
         </td>
-         <td>
-            
-            <span><xsl:value-of select="ScoringData/LiquidityStandardRatio"/></span>
+        <td>
+            <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/CurrentRatioMedian"/></span>
         </td>
-        <td></td><td></td>
 
     </tr>
 
@@ -272,7 +272,7 @@
         <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
             <xsl:value-of select="BorrowingRatio"/>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeBorrowingRatio"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeBorrowingRatio"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/BorrowingRatioMedian"/></span>
         </td>
@@ -283,7 +283,7 @@
         <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
             <xsl:value-of select="EquityGearing"/>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeEquityGearing"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeEquityGearing"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/EquityGearingMedian"/></span>
         </td>
@@ -294,7 +294,7 @@
         <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
             <xsl:value-of select="DebtGearing"/>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeDebtGearing"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeDebtGearing"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/DebtGearingMedian"/></span>
         </td>
@@ -307,7 +307,7 @@
         </td>
 
     </xsl:for-each>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeNumEmployees"/></td>
+        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeNumEmployees"/></td>
     <td></td>
 </tr>
 
@@ -316,7 +316,7 @@
     <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td class="num">
             <span><xsl:value-of select="AvgRemPerEmp"/></span>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeAvgEmpPerRem"/></td>
+    <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeAvgEmpPerRem"/></td>
     <td class="num">
         <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/AvgRemPerEmpMedian"/></span>
     </td>
@@ -324,9 +324,13 @@
 
 <tr>
     <th><span>turnover/employee £</span></th>
-    <td><xsl:value-of select="ScoringData/TurnoverPerEmp"/></td>
-    <td></td>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeTurnoverPerEmp"/></td>
+    <xsl:for-each select="Financials/Ratios[position() &lt; 3]">
+        <td class="num">
+            <span><xsl:value-of select="TurnoverPerEmp"/></span>
+        </td>
+    </xsl:for-each>
+    
+    <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeTurnoverPerEmp"/></td>
     <td class="num">
         <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/TurnoverPerEmpMedian"/></span>
     </td>
@@ -334,9 +338,12 @@
 
 <tr>
     <th><span>pre-tax profit/employee £</span></th>
-    <td></td>
-    <td></td>
-        <td> <xsl:value-of select="PercentageChange/PercentChangeProfPerEmp"/></td>
+    <xsl:for-each select="Financials/Ratios[position() &lt; 3]">
+        <td class="num">
+            <span><xsl:value-of select="ProfitPerEmp"/></span>
+        </td>
+    </xsl:for-each>
+    <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeProfPerEmp"/></td>
     <td class="num">
         <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/ProfitPerEmpMedian"/></span>
     </td>

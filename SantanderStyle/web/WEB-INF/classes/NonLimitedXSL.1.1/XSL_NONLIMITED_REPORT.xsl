@@ -39,10 +39,9 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				
 				<xsl:call-template name="xsl_directorship_and_secretaryship_informaion_of_proprietors"/>
-                
-                 		<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-                                <script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
-	
+			
+				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
+				<script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
 			</body>
 		</html>
 	</xsl:template>

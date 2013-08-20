@@ -41,7 +41,17 @@
 
 
             <h2>corporate structure</h2>
-
+            <div class="dataLabel">parent company</div>
+            <div class="dataValue">
+                <xsl:value-of select="CorporateStructure/CompanyOwnership/ParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/ParRegNumber"/>)
+            </div>
+           
+            <br style="clear:both"/>
+            <div class="dataLabel">ultimate parent company</div>
+            <div class="dataValue">
+                <xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/ParRegNumber"/>)
+            </div>
+            <br style="clear:both"/>
             <div class="dataLabel">principal shareholders</div>
 
             <div class="dataValue">

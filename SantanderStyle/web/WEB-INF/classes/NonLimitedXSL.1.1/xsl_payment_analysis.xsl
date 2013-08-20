@@ -6,8 +6,7 @@
                </h2>
             <h3>Payment Performance Days Beyond Terms By Different Terms</h3>
             <div class="dataValue" id="notFound"> 
-                ???, calculation required?
-                [/NonLtdBusinessData/PaymentPerformance/PaymentFull/CommonTerms/...]
+                ??? Need synced html reports and xml examples 
             </div>
            
         </div>

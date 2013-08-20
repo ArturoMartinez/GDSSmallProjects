@@ -274,8 +274,18 @@
                     </xsl:for-each>
                 </tr>
                 <tr>
-                    <th>total long term liabilities
-                        <div class="inCellSubTitle" style="margin-top:5px">group long term liabilities</div>
+                    <th>total long term liabilities</th>
+                    <xsl:for-each select="Financials/Accounts">
+                        <td class="num">
+                            <span>
+                                <xsl:value-of select="BalanceSheet/TotalNonCurrentLiabilities"/>
+                            </span>
+                        </td>
+                    </xsl:for-each>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="inCellSubTitle" >group long term liabilities</div>
                         <div class="inCellSubTitle">director long term liabilities</div>
                         <div class="inCellSubTitle">hire purchase/leasing</div>
                         <div class="inCellSubTitle">hire purchase</div>
@@ -286,9 +296,10 @@
                     </th>
                     <xsl:for-each select="Financials/Accounts">
                         <td style="vertical-align:top;" class="num">
+                            
                             <xsl:for-each select="BalanceSheet/LongTermFinancialLiabilitiesDetails">
-                                <span id="notFound">??</span>
-                                <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
+                              
+                                <div class="inCellSubValue"  >&#xA0;
                                          <xsl:value-of select="GroupLoans"/>
                                 </div>
                                 <div class="inCellSubValue">&#xA0;
@@ -328,9 +339,9 @@
                     <xsl:for-each select="Financials/Accounts">
                         <td style="vertical-align:top;" class="num">
                             <xsl:for-each select="BalanceSheet/ProvisionsDetails">
-                                <span>
+                                <div >&#xA0;
                                     <xsl:value-of select="Provisions"/>
-                                </span>
+                                </div>
                                 <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
                                     <xsl:value-of select="DeferredTaxation"/>
                                 </div>
@@ -359,9 +370,9 @@
                 <tr>
                     <th><span>total net assets</span></th>
                     <xsl:for-each select="Financials/Accounts">
-                        <td class="num doubt">
+                        <td  class="num">
                             <span>
-                                <xsl:value-of select="BalanceSheet/TotalCurrentAssets"/>
+                                <xsl:value-of select="BalanceSheet/NetAssets"/>
                             </span>
                         </td>
                     </xsl:for-each>
@@ -405,7 +416,7 @@
                             <div class="inCellSubValue">&#xA0;
                                 <xsl:value-of select="BalanceSheet/RetainedEarnings"/>
                             </div>
-                            <div class="inCellSubValue doubt">&#xA0;
+                            <div class="inCellSubValue">&#xA0;
                                 <xsl:value-of select="BalanceSheet/Other"/>
                             </div>
                             

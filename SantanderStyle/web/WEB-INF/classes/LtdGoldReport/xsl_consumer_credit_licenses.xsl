@@ -9,6 +9,9 @@
             <xsl:when test="LicenceCategories='E'">Debt collecting</xsl:when>
             <xsl:when test="LicenceCategories='F'">Credit reference agency</xsl:when>
             <xsl:when test="LicenceCategories='Z'">Right to canvass</xsl:when>
+            <xsl:otherwise>
+                    <xsl:value-of select="LicenceCategories"/>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 

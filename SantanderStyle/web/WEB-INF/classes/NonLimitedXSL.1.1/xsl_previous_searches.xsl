@@ -34,17 +34,17 @@
                         </th>
                         <td>
                             <xsl:value-of
-                                select="Identification/PrevSearches/NumPrevSearch3Mth"
+                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch3Mth"
                             />
                         </td>
                         <td>
                             <xsl:value-of
-                                select="Identification/PrevSearches/NumPrevSearch6Mth"
+                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch6Mth"
                             />
                         </td>
                         <td>
                             <xsl:value-of
-                                select="Identification/PrevSearches/NumPrevSearch12Mth"
+                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch12Mth"
                             />
                         </td>
 

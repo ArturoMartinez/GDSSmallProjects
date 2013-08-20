@@ -95,9 +95,7 @@
                      <xsl:value-of select="ResignationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="ResignationDate/MM"/></span>&#xA0;<xsl:value-of select="ResignationDate/CCYY"/>
              
                 </div>
-                <br style="clear:both"/>
-                <div class="dataLabel">resigned prior to</div>
-                <div class="dataValue" id="notFound">???</div>
+                
                 <br style="clear:both"/>
                 <div style="width:100%;border-bottom:1px solid #EEE;margin:5px 0px 10px 0px"></div>
                 
