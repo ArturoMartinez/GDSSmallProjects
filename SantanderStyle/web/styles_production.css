@@ -70,25 +70,20 @@
 
       font-size:12px
    }
-   
-   
    #notFound, #notfound{
       color:#f00;
+      visibility:hidden;
    }
+
 
    .doubt{
       color:#e90;
+      visibility:hidden;
    }
-   
    div .matrix table td .doubt{
       color:#e90;
+      visibility:hidden;
    }
-
-   /*
-   #notFound, #notfound, .doubt, div .matrix table td .doubt{
-      color:#FFF;
-   }
-   */
 
    /*Tables*/
 

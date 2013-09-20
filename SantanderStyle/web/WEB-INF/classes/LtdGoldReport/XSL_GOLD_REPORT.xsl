@@ -18,13 +18,15 @@
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
 	<xsl:include href="xsl_list_payment_patterns.xsl"/>
+	<xsl:include href="xsl_list_payment_terms.xsl"/>
+	<xsl:include href="xsl_list_industry_payment_patterns.xsl"/>
+	<xsl:include href="xsl_list_latest_account_type.xsl"/>
 
 	<xsl:template match="/RawBureauData/LtdCompanyData">
 		<html>
 			<head>
-				<meta http-equiv="x-ua-compatible" content="IE=8"/>
 				<title><xsl:value-of select="CommercialName"/></title>
-				<link rel="stylesheet" type="text/css" href="styles.css"/>
+				<link rel="stylesheet" type="text/css" href="styles_production.css"/>
 			</head>
 			<body>
 				<div id="sectionNavigator" style="">Go to:<br/>
@@ -173,8 +175,8 @@
 
 				<xsl:call-template name="xsl_county_court_judgments"/>
 				
-				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-				<script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
+				<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+				<script src="mainJS.js" type="text/javascript"></script>
 			</body>
 		</html>
 	</xsl:template>

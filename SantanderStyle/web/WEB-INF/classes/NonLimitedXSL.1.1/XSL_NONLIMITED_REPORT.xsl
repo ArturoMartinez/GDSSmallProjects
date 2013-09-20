@@ -7,6 +7,10 @@
 	<xsl:include href="xsl_payment_analysis.xsl"/>
 	<xsl:include href="xsl_public_record_information.xsl"/>
 	
+
+	<xsl:include href="xsl_list_payment_terms.xsl"/>
+	<xsl:include href="xsl_list_payment_patterns.xsl"/>
+
 	<xsl:include href="xsl_consumer_credit_licenses.xsl"/>
 	<xsl:include href="xsl_notices_of_correction.xsl"/>
 	<xsl:include href="xsl_previous_searches.xsl"/>
@@ -15,8 +19,7 @@
 		<html>
 			<head>
 				<title><xsl:value-of select="BusinessName"/></title>
-				<link rel="stylesheet" type="text/css" href="styles.css"/>
-				<meta http-equiv="x-ua-compatible" content="IE=8"/>
+				<link rel="stylesheet" type="text/css" href="styles_production.css"/>
 			</head>
 			<body>
 
@@ -40,8 +43,8 @@
 				
 				<xsl:call-template name="xsl_directorship_and_secretaryship_informaion_of_proprietors"/>
 			
-				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-				<script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
+				<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+				<script src="mainJS.js" type="text/javascript"></script>
 			</body>
 		</html>
 	</xsl:template>

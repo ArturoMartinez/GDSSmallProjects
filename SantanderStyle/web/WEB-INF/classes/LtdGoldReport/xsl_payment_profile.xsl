@@ -20,21 +20,21 @@
 
             <div class="subSectionInsert" style="width:45%">
                 <h3>Summary Based On The Information Supplied From Our Sources</h3>
-                <div id="notFound">This company pays ??? <xsl:value-of
-                        select="PaymentPerformance/PaymentFull/PaymentToTerms"/>
+                <div>
+                    <xsl:call-template name="IndustryPaymentPatternValues"/>
                 </div>
                 <div>
                     <div>There is <xsl:call-template name="PaymentPatternValues"/> payment pattern
                     </div>
                 </div>
-                <div class="doubt">This company has <xsl:value-of
-                        select="PaymentPerformance/PaymentFull/NumberCollection"/> accounts placed
+            <div >This company has <xsl:value-of
+                select="PaymentPerformance/PaymentFull/NumberCollection"/> account<xsl:if test="PaymentPerformance/PaymentFull/NumberCollection > 1">s</xsl:if> placed
                     for collection. </div>
-                <div class="doubt">This company has (multiple occurences of
-                    PaymentPerformance/PaymentFull/UnpaidAccountsDetails/UnpaidAccounts) outstanding
-                    unpaid accounts. </div>
-                <div id="notFound">This company pays <xsl:value-of
-                        select="PaymentPerformance/PaymentFull/PaymentToTerms"/> its terms.</div>
+                <div >This company has <xsl:value-of select='sum(PaymentPerformance/PaymentFull/UnpaidAccountsDetails/UnpaidAccounts)'/> outstanding unpaid account<xsl:if test="sum(PaymentPerformance/PaymentFull/UnpaidAccountsDetails/UnpaidAccounts)>1" >s</xsl:if>. </div>
+                <div>
+                    This company pays <xsl:call-template name="PaymentTermValues"/>
+
+                </div>
             </div>
 
             <div class="subSectionInsert" style="width:45%;overflow:auto;text-align:center">
@@ -159,6 +159,7 @@
                         <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
                             <td>
                                 <xsl:value-of select="CompanyDBT"/>
+                                                        
                             </td>
                         </xsl:for-each>
                     </tr>
@@ -166,9 +167,10 @@
                         <th>
                             <span>industry</span>
                         </th>
-                        <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
+                                                <xsl:for-each select="PaymentPerformance/PaymentFull/IndDBTMonthly">
                             <td>
-                                <xsl:value-of select="../IndDBTMonthly/IndustryDBT"/>
+                                                        <xsl:value-of select="IndustryDBT"/>
+                                                        
                             </td>
                         </xsl:for-each>
                     </tr>
@@ -207,10 +209,12 @@
                         </th>
                         <td>
                             <span>
+                                                                <xsl:variable name="lastCompanyDBTMonth" select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/MM"/>
+
+                                                    
+                                                                <xsl:variable name="lastCompanyDBTYear" select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonthCCYY"/>
+                                                                <xsl:value-of select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyDBT"/>
                                 
-                                <xsl:value-of
-                                    select="ManagementInfo/LimitedCompanyDelphiPayment/AverageCurrentDaysBeyondTerm"
-                                />
                             </span>
                         </td>
                         <td>
@@ -229,7 +233,16 @@
                             <span>industry</span>
                         </th>
                         <td>
-                            <span id="notfound">???</span>
+
+                                                        <xsl:variable name="lastIndDBTMonth" select="PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/MM"/>
+                                                        <xsl:variable name="lastIndDBTYear" select="PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/CCYY"/>
+                                                        <xsl:if test="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/MM = PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/MM
+                                                            and PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/CCYY= PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/CCYY">
+
+                                                        <xsl:value-of select="PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndustryDBT"/>
+
+                                                    </xsl:if>
+
                         </td>
                         <td>
                             <xsl:value-of select="PaymentPerformance/PaymentFull/IndAvgDBT3Mnths"/>
@@ -250,9 +263,8 @@
                 style="overflow:auto;margin-bottom:0px">
                 <table cellspacing="0" cellpadding="0" style="float:left;margin:5px">
                     <tr>
-                        <th style="background:#fff;border:none;text-align:center" colspan="5"
-                            >Payment Performance By Size Of Account For <span id="notfound"
-                                >???(date)</span></th>
+                                            <th style="background:#fff;border:none;text-align:center" colspan="5">Payment Performance By Size Of Account For 
+                                                <span class="toMonthName"><xsl:value-of select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/MM"/></span> / <xsl:value-of select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/CCYY"/></th>
 
                     </tr>
 

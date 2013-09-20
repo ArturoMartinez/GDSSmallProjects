@@ -28,7 +28,7 @@
     </target>
     <target name="wsimport-client-MTXUDVWS_v1" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/MTXUDVWS_v1"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXUDVWS_v1" destdir="${build.generated.dir}/jax-wsCache/MTXUDVWS_v1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXUDVWS_v1/wsdl/MTXUDVWS_v1.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/MTXUDVWS_v1.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.santanderuk.soap">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MTXUDVWS_v1" destdir="${build.generated.dir}/jax-wsCache/MTXUDVWS_v1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MTXUDVWS_v1/wsdl/MTXUDVWS_v1.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/MTXUDVWS_v1.wsdl" xnocompile="true" xendorsed="true" package="com.gdslink.santanderuk.soap">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MTXUDVWS_v1/wsdl/MTXUDVWS_v1.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/MTXUDVWS_v1"/>
         </wsimport>

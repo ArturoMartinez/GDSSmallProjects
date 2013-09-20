@@ -24,9 +24,7 @@
 		<html>
 			<head>
 				<title><xsl:value-of select="ConsumerOutput/Applicant/FormattedName"/></title>
-				<script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-				<script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
-				<link rel="stylesheet" type="text/css" href="styles.css"/>
+				<link rel="stylesheet" type="text/css" href="styles_production.css"/>
 			</head>
 			<body>
 				
@@ -51,6 +49,8 @@
 				<xsl:call-template name="xsl_CAIS"/>
 			
 				<xsl:call-template name="xsl_address_links"/>
+            <script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+				<script src="mainJS.js" type="text/javascript"></script>
 			</body>
 		</html>
 	</xsl:template>

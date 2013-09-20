@@ -25,8 +25,11 @@
             <br style="clear:both"/>
             <div class="dataLabel">registered office</div>
             <div class="dataValue">
-                <xsl:value-of select="Identification/RegisteredOffice/LocationLine1"/>&#xA0;
-                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine2"/>&#xA0;
+                <xsl:value-of select="Identification/RegisteredOffice/LocationLine1"/>&#xA0;,
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine2"/>&#xA0;,
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine3"/>&#xA0;,
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine4"/>&#xA0;,
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine5"/>&#xA0;
                     <xsl:value-of select="Identification/RegisteredOffice/Postcode"/>
             </div>
             <br style="clear:both"/>
@@ -34,7 +37,17 @@
             <div class="dataValue">
                 <xsl:value-of select="Identification/TradingLocation/LocationLine1"/>&#xA0;
                     <xsl:value-of select="Identification/TradingLocation/LocationLine2"/>&#xA0;
+                    
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine3"/>&#xA0;,
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine4"/>&#xA0;,
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine5"/>&#xA0;
                     <xsl:value-of select="Identification/TradingLocation/Postcode"/>
+            </div>
+            <br style="clear:both"/>
+            <div class="dataLabel">telephone number</div>
+            <div class="dataValue">
+                <xsl:value-of select="Identification/TradingTelephoneNum"/>
+                   
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">SIC codes (1980)</div>
@@ -57,16 +70,21 @@
                 <xsl:value-of select="Identification/SICInformation1992/Description"/>
             </div>
             <br style="clear:both"/>
+            <div class="dataLabel">Principal Activities</div>
+            <div class="dataValue">
+                <xsl:value-of select="Identification/PrincipalActivities"/>
+            </div>
+            <br style="clear:both"/>
             <xsl:if test="Identification/PreviousNames/NumPrevNames[.> 0]"><br style="clear:both"/>
                 <div class="dataLabel">previous names</div>
                 <div class="dataValue">
                     <xsl:for-each select="Identification/PreviousNames/PreviousName">
-                        <div style="float:left;width:100px">
-                            <xsl:value-of select="DateChanged/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateChanged/MM"/></span>&#xA0;<xsl:value-of select="DateChanged/CCYY"/>
-                             : </div>
-                        <div style="float:left;width:300px;overflow:auto">
+                        <div style="float:left;overflow:auto">
                             <xsl:value-of select="Name"/>
-                        </div>
+                       
+                            (until <xsl:value-of select="DateChanged/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateChanged/MM"/></span>&#xA0;<xsl:value-of select="DateChanged/CCYY"/>
+                             )</div>
+                        
                         <br style="clear:both"/>
                     </xsl:for-each>
                 </div>
@@ -77,13 +95,13 @@
             <div class="dataLabel">previous registered office</div>
             <div class="dataValue">
                 <xsl:for-each select="Identification/PreviousAddresses/PreviousCRO">
-                    <div style="float:left;width:100px"><xsl:value-of select="DateChanged/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateChanged/MM"/></span>&#xA0;<xsl:value-of select="DateChanged/CCYY"/>
-                              : </div>
-                    <div style="float:left;width:300px;overflow:auto">
+                   
+                    <div style="float:left;overflow:auto">
                         <xsl:value-of select="RegisteredOffice/LocationLine1"/>&#xA0;
                         <xsl:value-of select="RegisteredOffice/LocationLine2"/>&#xA0;
                         <xsl:value-of select="RegisteredOffice/LocationLine3"/>&#xA0;
                         <xsl:value-of select="RegisteredOffice/LocationLine4"/>&#xA0;
+                        (until <xsl:value-of select="DateChanged/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateChanged/MM"/></span>&#xA0;<xsl:value-of select="DateChanged/CCYY"/>)
                     </div>
                     <br style="clear:both"/>
                 </xsl:for-each>
@@ -91,8 +109,8 @@
             <br style="clear:both"/>
             </xsl:if>
             <div class="dataLabel">account type</div>
-            <div class="dataValue doubt">
-                <xsl:value-of select="Identification/FilingDetails/LatestAccountType"/>
+            <div class="dataValue">
+                <xsl:call-template name="LatestAccountTypeList"></xsl:call-template>
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">account ref. date</div>
@@ -110,7 +128,11 @@
             <div class="dataLabel">date latest returns</div>
             <div class="dataValue">
                 <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/></div>
+           
             <br style="clear:both"/>
+            <div class="dataLabel">Auditor/Accountant</div>
+            <div class="dataValue">
+                <xsl:value-of select="Identification/Auditor/Auditors"/></div>
         </div>
     </xsl:template>
 </xsl:stylesheet>

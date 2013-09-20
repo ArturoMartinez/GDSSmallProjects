@@ -7,10 +7,14 @@
            
             <div class="subSectionInsert" style="width:45%">
                 <h3  >Summary Based On The Information Supplied From Our Sources</h3>
-                <div id="notFound">This company pays ??? (calculation required?)
-                    <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/CommonTerms/CommonTermsCode"/>>&#xA0;
-                    <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/CommonTerms/CommonTermsDBT"/>>&#xA0;
-                    <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/CommonTerms/CommonTermsText"/>>&#xA0;
+                <div>
+
+                    This company pays its accounts on average <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/DBTMonthly[last()]/DBT"/> days beyond terms. (<span class="toMonthName"><xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/DBTMonthly[last()]/ExpMonth/MM"/></span>&#xA0;<xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/DBTMonthly[last()]/ExpMonth/CCYY"/>)
+                    
+                    <br/>
+                        There is <xsl:call-template name="PaymentPatternValues"/> payment pattern.
+                    <br/>
+                        This company pays <xsl:call-template name="PaymentTermValues"/>.
                 </div>
                
             </div>

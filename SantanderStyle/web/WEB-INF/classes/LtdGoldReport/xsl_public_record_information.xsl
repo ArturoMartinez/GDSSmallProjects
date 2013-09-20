@@ -30,14 +30,17 @@
             
             <div class="dataLabel">mortage/charges</div>
             <div class="dataValue">
-                <xsl:value-of select="Mortgages/NumMortgages"/> (of <xsl:value-of select="Mortgages/NumSatMortgages"/> which are fully satisfied)
+                <xsl:value-of select="Mortgages/NumMortgages"/> (of which <xsl:value-of select="Mortgages/NumSatMortgages"/> are fully satisfied)
             </div>
             <br style="clear:both"/><br style="clear:both"/>
             <xsl:variable name="noticeCount">
                 <xsl:if test="LegalNotices > 0"><xsl:value-of select="LegalNotices/SummaryCount"/></xsl:if>
+
+                
             </xsl:variable>
             <div class="dataLabel" style="height:{$noticeCount*11}px">legal notices</div>
             <div class="dataValue" style="overflow:hidden;width:300px">
+                <xsl:if test="LegalNotices/SummaryCount = 0">None Recorded</xsl:if>
             <xsl:for-each select="LegalNotices/SummaryLine">
                 <div style="float:left;width:100px">
 
@@ -56,16 +59,16 @@
             <div class="dataValue">
                 <div class="dataValue" style="overflow:hidden;width:300px">
                     <div style="float:left;width:100px">Total Number : </div><div style="float:left;">
-                        <xsl:value-of select="Identification/CCLs/TotalNumberCCL"/>
+                        <xsl:value-of select="CCJs/NumberCCJs0To72"/>
                     </div>
                     
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Total Value : </div><div style="float:left">
-                        <xsl:value-of select="CCJs/ValueCCJs0To72"/>
+                        <span class="num devise"><xsl:value-of select="CCJs/ValueCCJs0To72"/></span>
                     </div>
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Age of most recent : </div><div style="float:left">
-                        <xsl:value-of select="CCJs/AgeMostRecentCCJ"/>
+                        <xsl:value-of select="CCJs/AgeMostRecentCCJ"/> Month<xsl:if test="CCJs/AgeMostRecentCCJ>1">s</xsl:if>
                     </div>
                 </div>
             </div>
