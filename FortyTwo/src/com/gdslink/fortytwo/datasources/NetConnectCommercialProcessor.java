@@ -29,19 +29,20 @@ import org.w3c.dom.Document;
  *
  * @author GDS Link Asia
  */
-public class MersProcessor extends HTTPProcessor{
+public class NetConnectCommercialProcessor extends HTTPProcessor
+{
     
-     private static final Logger log = Logger.getLogger(NetConnectProcessor.class.getName());
+private static final Logger log = Logger.getLogger(NetConnectProcessor.class.getName());
 
-    public MersProcessor(Socket clientSocket, Settings settings, Generator generator)
+    public NetConnectCommercialProcessor(Socket clientSocket, Settings settings, Generator generator)
     {
         super(clientSocket, settings, generator);
     }
-    
+
     @Override
     protected String getInputKey() throws Exception
     {
-        log.info("Responding to Mers request");
+        log.info("Responding to Net Connect request");
 
         HttpRequest httpRequest = getHttpRequest();
 
@@ -62,22 +63,20 @@ public class MersProcessor extends HTTPProcessor{
         DocumentBuilder builder = builderFactory.newDocumentBuilder();
 
         ByteArrayInputStream stream = new ByteArrayInputStream(aPostData);
-        stream.skip("MERSOrganizationIdentifier=".length());
-        stream.skip("&MERSOrganizationPassword=".length());
-        stream.skip("&RequestData=".length());
+        stream.skip("&NETCONNECT_TRANSACTION=".length());
         Document document = builder.parse(stream);
 
         log.fine("Building XPath");
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();
-        XPathExpression expr = xpath.compile("/REQUEST_GROUP/REQUEST/REQUEST_DATA/MERS_RESIDENTIAL_REGISTRATION_REQUEST/BORROWER/_FirstName");
+        XPathExpression expr = xpath.compile("/NetConnectRequest/Request/Products/Intelliscore/BusinessApplicant/SSN");
 
-        log.fine("Extracting FirtsName");
-        String strFNAME = expr.evaluate(document);
+        log.fine("Extracting BusinessName");
+        String strBusinessName = expr.evaluate(document);
 
-        log.log(Level.INFO, "FirstName = {0}", strFNAME);
+        log.log(Level.INFO, "BusinessName = {0}", strBusinessName);
 
-        return strFNAME;
+        return strBusinessName;
     }
 
     @Override
@@ -85,7 +84,7 @@ public class MersProcessor extends HTTPProcessor{
     {
         try
         {
-            log.warning("Returning default response to Mers request");
+            log.warning("Returning default response to Net Connect request");
 
             getHttpResponse().setStatusCode(HttpStatus.SC_OK);
             StringEntity entity = new StringEntity(
