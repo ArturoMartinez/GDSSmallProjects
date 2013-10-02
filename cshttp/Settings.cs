@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.IO;
 
 namespace cshttp
 {
@@ -15,9 +16,11 @@ namespace cshttp
         private String _strHost;
         private String _strUserAgent;
         private String _strContentType;
+        private string _strRootPath;
         private int _iThreads;
         private int _iIterationsPerThread;
         private bool _bWriteGoodResults;
+        private byte[] _aWrapper;
 
         private String _strInputPath;
         private String _strOutputPath;
@@ -40,6 +43,8 @@ namespace cshttp
             _bWriteGoodResults = false;
 
             _bXMLConversions = false;
+
+            _strRootPath = (new FileInfo(strFilename)).DirectoryName;
 
             _mapNamespaces = new Dictionary<string, string>();
             _mapReplacements = new Dictionary<string, string>();
@@ -93,19 +98,31 @@ namespace cshttp
 
             xmlNode = xmlDoc.SelectSingleNode("/cshttp/inputpath");
             if (xmlNode != null)
-                _strInputPath = xmlNode.InnerText;
+                _strInputPath = getFullPath(xmlNode.InnerText);
 
             xmlNode = xmlDoc.SelectSingleNode("/cshttp/outputpath");
             if (xmlNode != null)
-                _strOutputPath = xmlNode.InnerText;
+                _strOutputPath = getFullPath(xmlNode.InnerText);
 
             xmlNode = xmlDoc.SelectSingleNode("/cshttp/comparepath");
             if (xmlNode != null)
-                _strComparisonPath = xmlNode.InnerText;
+                _strComparisonPath = getFullPath(xmlNode.InnerText);
 
             xmlNode = xmlDoc.SelectSingleNode("/cshttp/xmlconversions");
             if (xmlNode != null)
                 loadXMLConversions(xmlNode);
+
+            xmlNode = xmlDoc.SelectSingleNode("/cshttp/wrapper");
+            if(xmlNode != null && xmlNode.InnerText.Length != 0)
+                _aWrapper = File.ReadAllBytes(getFullPath(xmlNode.InnerText));
+        }
+
+        private String getFullPath(String strFile)
+        {
+            if (Path.IsPathRooted(strFile))
+                return strFile;
+            else
+                return Path.Combine(_strRootPath, strFile);
         }
 
         private void loadXMLConversions(XmlNode xmlNode)
@@ -227,6 +244,16 @@ namespace cshttp
         public String getContentType()
         {
             return _strContentType;
+        }
+
+        public byte[] getWrapper()
+        {
+            return _aWrapper;
+        }
+
+        public bool hasWrapper()
+        {
+            return _aWrapper != null;
         }
     }
 }

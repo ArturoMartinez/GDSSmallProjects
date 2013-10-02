@@ -82,6 +82,30 @@ namespace cshttp
             }
         }
 
+        private void getWrappedData(ref byte[] aData)
+        {
+            //wrap if necessary
+            if (_program.getSettings().hasWrapper())
+            {
+                Encoding enc = Encoding.UTF8;
+                String strData = null;
+                try
+                {
+                    strData = enc.GetString(aData);
+                }
+                catch
+                {
+                    enc = Encoding.Unicode;
+                    strData = enc.GetString(aData);
+                }
+
+                String strWrapper = enc.GetString(_program.getSettings().getWrapper());
+
+                strWrapper = strWrapper.Replace("#{DATA}", strData);
+
+                aData = enc.GetBytes(strWrapper);
+            }
+        }
         
         private bool ProcessFile(string strInput, string strOutput, string strComparisonFile, int iIteration)
         {
@@ -90,9 +114,9 @@ namespace cshttp
             {
                 Console.WriteLine("Executing test {0}", strInput);
 
-                string strData = File.ReadAllText(strInput);
-                UTF8Encoding encoding = new UTF8Encoding();
-                byte[] aData = encoding.GetBytes(strData);
+                byte[] aData = File.ReadAllBytes(strInput);
+
+                getWrappedData(ref aData);
 
                 HTTPCall http = new HTTPCall(_program.getSettings(), aData);
 
@@ -114,15 +138,12 @@ namespace cshttp
                     {
                         byte[] aCompareData = File.ReadAllBytes(strComparisonFile);
 
-                        //String strCompareData = File.ReadAllText(strComparisonFile);
-                        //if (!strCompareData.Equals(strResponse))
                         if(!aResponse.SequenceEqual(aCompareData))
                         {
                             Console.WriteLine("Thread {0} iteration {1} did not  match comparison {2}", Thread.CurrentThread.ManagedThreadId, iIteration, strComparisonFile);
                         }
                         else
                         {
-                            //Console.WriteLine("Success");
                             bError = false;
                         }
                     }
