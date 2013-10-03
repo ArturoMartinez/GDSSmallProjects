@@ -500,20 +500,20 @@ function openbase64(strType, strEmbeddedId)
 						<TD WIDTH="9%" NOWRAP="TRUE"><center><xsl:value-of select="../@_AccountOpenedDate"/>&#160;<br/><xsl:value-of select="../@_LastActivityDate"/>&#160;</center></TD>
 						
 						
+						
 						<TD WIDTH="9%" NOWRAP="TRUE"><center>
-						    <xsl:value-of select="../@_CreditLimitAmount"/>&#160;<br/>
-						    <!--<xsl:value-of select="../@_AccountType"/>&#160;</center> dlf 041813 -->
-						    <xsl:choose>
-						       <xsl:when test="../CREDIT_COMMENT/@_TypeOtherDescription[.='SantanderAccountType']"> 
-							       <xsl:value-of select="../CREDIT_COMMENT[@_TypeOtherDescription='SantanderAccountType']/@_Code"/>
-							   </xsl:when>
-							   <xsl:otherwise>
-								   <xsl:apply-templates select="../@_AccountType"/>
-							   </xsl:otherwise>
-							</xsl:choose>   
-						    &#160;</center>
+							<xsl:value-of select="../@_CreditLimitAmount"/>&#160;<br/>
+							<!--<xsl:value-of select="../@_AccountType"/>&#160;</center> dlf 041813 -->
+							<xsl:choose>
+							   <xsl:when test="../CREDIT_COMMENT/_TypeOtherDescription[.='SantanderAccountType']">
+									   <xsl:value-of select="../CREDIT_COMMENT/_TypeOtherDescription[.='SantanderAccountType']/../@_Code"/>
+								   </xsl:when>
+								   <xsl:otherwise>
+										   <xsl:apply-templates select="../@_AccountType"/>
+								   </xsl:otherwise>
+								</xsl:choose>
+							&#160;</center>
 						</TD>
-										
 						
 						<TD WIDTH="9%" NOWRAP="TRUE"><center>
 						
