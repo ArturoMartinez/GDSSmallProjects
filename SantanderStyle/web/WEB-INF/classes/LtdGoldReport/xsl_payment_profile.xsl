@@ -335,8 +335,7 @@
 
 
                     <tr>
-                        <th
-                            style="background:#fff;border:none;border-right:1px solid #aaa;border-bottom:1px solid #aaa"/>
+                                                                            <th style="background:#fff;border:none;border-right:1px solid #aaa;border-bottom:1px solid #aaa"/>
 
                         <th style="text-align:center"> DBT </th>
                         <th style="text-align:center"> accounts </th>
@@ -367,14 +366,14 @@
             <h3 style="margin-bottom:5px">Additional informations</h3>
 
             <div style="margin:10px;font-weight:bold">Other payment informations</div>
-            <xsl:for-each select="PaymentPerformance/PaymentFull/NumberCashFirst"/>
-
-
-
             <div style="margin:10px;font-weight:bold">Unpaid accounts</div>
-            <span>
-                <xsl:for-each select="PaymentPerformance/PaymentFull/UnpaidAccounts"/>
+                                                                    <span class="num" style="margin-left:15px">
+                                                                        <xsl:value-of select="ScoringData/LimitedCompanyDelphiPayment/NumberUnpaidAccountsLastMonth"/>
+                                                                       account(s) have received no payment for 1 month.
+
             </span>
+                                                                    <br style="clear:both"/>
+                                                                    <br style="clear:both"/>
         </div>
     </xsl:template>
 </xsl:stylesheet>

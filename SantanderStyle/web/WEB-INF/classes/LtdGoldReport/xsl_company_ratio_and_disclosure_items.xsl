@@ -141,13 +141,49 @@
             <span><xsl:value-of select="AmortisationCharges"/></span>
         </td></xsl:for-each>
     </tr>
-
-    <tr>
-        <th><span>discontinued operations</span></th>
-        <xsl:for-each select="Financials/Accounts/DiscontinuedOperations"><td class="num">
-            <span><xsl:value-of select="PreTaxProfits"/></span>
+<tr>
+        <th><span>Impairment Charges</span></th>
+        <xsl:for-each select="Financials/Accounts"><td class="num">
+            <span><xsl:value-of select="DisclosureItems/ImpairmentCharges"/></span>
         </td></xsl:for-each>
     </tr>
+    <tr>
+        <th><span>Dividends</span></th>
+        <xsl:for-each select="Financials/Accounts"><td class="num">
+            <span><xsl:value-of select="DiscontinuedOperations/Dividends"/></span>
+        </td></xsl:for-each>
+    </tr>
+    <tr>
+        <th style="background:#fff;padding-top:5px;border:none"><span>discontinued operations</span></th>
+        <xsl:for-each select="Financials/Accounts/DisclosureItems"><td style="background:#fff;border:none">
+
+        </td></xsl:for-each>
+    </tr>
+    <tr>
+        <th><span>turnover</span></th>
+        <xsl:for-each select="Financials/Accounts"><td class="num">
+            <span><xsl:value-of select="DiscontinuedOperations/Turnover"/></span>
+        </td></xsl:for-each>
+    </tr>
+    <tr>
+        <th><span>gross profit</span></th>
+        <xsl:for-each select="Financials/Accounts"><td class="num">
+            <span><xsl:value-of select="DiscontinuedOperations/GrossProfit"/></span>
+        </td></xsl:for-each>
+    </tr>
+    <tr>
+        <th><span>operating profit</span></th>
+        <xsl:for-each select="Financials/Accounts"><td class="num">
+            <span><xsl:value-of select="DiscontinuedOperations/OperatingProfit"/></span>
+        </td></xsl:for-each>
+    </tr>
+    <tr>
+        <th><span>pre-tax profit</span></th>
+        <xsl:for-each select="Financials/Accounts"><td class="num">
+            <span><xsl:value-of select="DiscontinuedOperations/PreTaxProfits"/></span>
+        </td></xsl:for-each>
+    </tr>
+
 
     <tr>
         <th style="background:#fff;padding-top:5px;border:none">&#xA0;</th>

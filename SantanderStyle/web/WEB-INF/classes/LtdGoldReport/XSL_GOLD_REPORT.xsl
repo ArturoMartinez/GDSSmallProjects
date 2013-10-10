@@ -17,10 +17,14 @@
 	<xsl:include href="xsl_management_information.xsl"/>
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
+	<xsl:include href="xsl_previous_searches.xsl"/>
+
 	<xsl:include href="xsl_list_payment_patterns.xsl"/>
 	<xsl:include href="xsl_list_payment_terms.xsl"/>
 	<xsl:include href="xsl_list_industry_payment_patterns.xsl"/>
 	<xsl:include href="xsl_list_latest_account_type.xsl"/>
+	<xsl:include href="xsl_list_account_types.xsl"/>
+	<xsl:include href="xsl_cifas.xsl"/>
 
 	<xsl:template match="/RawBureauData/LtdCompanyData">
 		<html>
@@ -72,12 +76,22 @@
 					<h2>credit summary</h2>
 					<div class="dataLabel">credit rating</div>
 					<div class="dataValue">
-						<span>
+						<span class="devise num">
 							<xsl:value-of select="CommercialDelphi/CreditRating"/>
 							
 						</span>
 					</div>
 					<br style="clear:both"/>
+
+					<div class="dataLabel">credit limit</div>
+					<div class="dataValue">
+						<span class="devise num">
+							<xsl:value-of select="CommercialDelphi/CreditLimit"/>
+							
+						</span>
+					</div>
+					<br style="clear:both"/>
+
 					<div class="dataLabel">credit opinion</div>
 
 									
@@ -174,6 +188,8 @@
 				<xsl:call-template name="xsl_legal_notices"/>
 
 				<xsl:call-template name="xsl_county_court_judgments"/>
+				<xsl:call-template name="xsl_previous_searches"/>
+				<xsl:call-template name="xsl_cifas"/>
 				
 				<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
 				<script src="mainJS.js" type="text/javascript"></script>

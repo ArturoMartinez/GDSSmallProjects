@@ -45,13 +45,16 @@
             <div class="dataValue">
                 <xsl:value-of select="CorporateStructure/CompanyOwnership/ParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/ParRegNumber"/>)
             </div>
-           
             <br style="clear:both"/>
+
             <div class="dataLabel">ultimate parent company</div>
             <div class="dataValue">
-                <xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/ParRegNumber"/>)
+                <xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/UltParRegNumber"/>)
             </div>
             <br style="clear:both"/>
+
+           
+
             <div class="dataLabel">principal shareholders</div>
 
             <div class="dataValue">
@@ -83,6 +86,13 @@
                 </xsl:for-each>
             </div>
             <br style="clear:both"/>
+            
+             <div class="dataLabel">Overseas Subsidiaries</div>
+            <div class="dataValue">
+                <xsl:value-of select="CorporateStructure/Subsidiaries/ForeignSubsidiaries/Name"/> (<xsl:value-of select="CorporateStructure/Subsidiaries/ForeignSubsidiaries/Country"/>)
+            </div>
+            <br style="clear:both"/>
+
             <br/>
             <div class="dataLabel">corporate tree report shareholders</div>
             <div class="dataValue" id="notFound">??? Need to know where to get data and how to
