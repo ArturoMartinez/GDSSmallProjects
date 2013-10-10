@@ -191,10 +191,11 @@ class Program
 
             StringBuilder strFilename = new StringBuilder();
             strFilename.Append("c:\\arfs\\")
-                .Append("reflector_")
+                .Append("reflector_").Append(strPrefix)
                 .Append(time.Year).Append(time.Month).Append(time.Day).Append("_")
-                .Append(time.Hour).Append(time.Minute).Append(time.Second).Append(time.Millisecond)
-                .Append(strPrefix).Append(".txt");
+                .Append(time.Hour).Append(time.Minute).Append(time.Second).Append(time.Millisecond).Append("_")
+                .Append(Thread.CurrentThread.ManagedThreadId)
+                .Append(".txt");
 
             try
             {
