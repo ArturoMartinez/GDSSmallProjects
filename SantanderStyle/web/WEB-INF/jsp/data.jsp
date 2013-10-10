@@ -16,32 +16,7 @@
       <link href='./styles_jsp.css' rel='stylesheet' type='text/css'/>
       
       <% List<BureauData> listData = (List<BureauData>)request.getAttribute("data"); %>
-   </head>
-    <body>
-        <div class='whole'>
-            <ul class="tabnav">
-               <% for(int i = 0;i < listData.size();++i) { %>
-               <li>
-                   <a id="tab<%=i%>" href="div#contentpage<%=i%>">
-                       <%=listData.get(i).getBureau()%>
-                   </a>
-               </li>
-               <% } %>
-            </ul>
-
-            <div id='content'>
-                <% for(int i = 0;i < listData.size();++i) { %>
-                    <form style="display:none;" id="formdata<%=i%>" target="framedata<%=i%>" method="post" action="style.htm">
-                        <input type="hidden" name="page" value="<%=listData.get(i).getCompressedBase64Raw()%>"/>
-                    </form>
-                    <div id="contentpage<%=i%>" class="contentpage">
-                        <div class="datelabel">Report Date: <%=listData.get(i).getDate()%></div>
-                        <iframe onload="javascript:iframeLoaded(this, <%=i%>);" class="framedata" name="framedata<%=i%>">&nbsp;</iframe>
-                    </div>
-                <% } %>
-            </div>
-        </div>
-            
+      
       <script src="./jquery/js/jquery-1.7.2.min.js"></script>
       <script src="./jquery/js/jquery-ui-1.8.20.custom.min.js"></script>      
       <script type="text/javascript">
@@ -104,5 +79,30 @@
             });
          }
       </script>
+   </head>
+    <body>
+        <div class='whole'>
+            <ul class="tabnav">
+               <% for(int i = 0;i < listData.size();++i) { %>
+               <li>
+                   <a id="tab<%=i%>" href="div#contentpage<%=i%>">
+                       <%=listData.get(i).getBureau()%>
+                   </a>
+               </li>
+               <% } %>
+            </ul>
+
+            <div id='content'>
+                <% for(int i = 0;i < listData.size();++i) { %>
+                    <form style="display:none;" id="formdata<%=i%>" target="framedata<%=i%>" method="post" action="style.htm">
+                        <input type="hidden" name="page" value="<%=listData.get(i).getCompressedBase64Raw()%>"/>
+                    </form>
+                    <div id="contentpage<%=i%>" class="contentpage">
+                        <div class="datelabel">Report Date: <%=listData.get(i).getDate()%></div>
+                        <iframe onload="javascript:iframeLoaded(this, <%=i%>);" class="framedata" name="framedata<%=i%>">&nbsp;</iframe>
+                    </div>
+                <% } %>
+            </div>
+        </div>
     </body>
 </html>
