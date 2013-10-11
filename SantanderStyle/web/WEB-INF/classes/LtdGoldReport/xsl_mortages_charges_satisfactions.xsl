@@ -68,6 +68,13 @@
                 </div>
                 <br style="clear:both"/>
                 
+
+                <div class="dataLabel">satisfactions</div>
+                <div class="dataValue">
+                    <xsl:value-of select="NumberPartialSatisfactionDates"/>&#xA0;
+                </div>
+                <br style="clear:both"/>
+                
             <div class="dataLabel">secured on</div>
                 <div class="dataValue" style="width:600px;font-size:10px"> 
                     <xsl:value-of select="AmountSecured"/>

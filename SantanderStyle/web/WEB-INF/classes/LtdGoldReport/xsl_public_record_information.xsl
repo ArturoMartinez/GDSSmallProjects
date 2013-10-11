@@ -30,7 +30,7 @@
             
             <div class="dataLabel">mortage/charges</div>
             <div class="dataValue">
-                <xsl:value-of select="Mortgages/NumMortgages"/> (of which <xsl:value-of select="Mortgages/NumSatMortgages"/> are fully satisfied)
+                <xsl:value-of select="ScoringData/NumSatMortgages"/> (of which <xsl:value-of select="ScoringData/NumUnsatMortgages"/> are fully satisfied)
             </div>
             <br style="clear:both"/><br style="clear:both"/>
             <xsl:variable name="noticeCount">
