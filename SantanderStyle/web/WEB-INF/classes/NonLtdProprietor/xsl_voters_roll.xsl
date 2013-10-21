@@ -4,36 +4,39 @@
         <div class="section" id="voters_roll">
             <h2>voters roll</h2>
             
-            <div class="dataLabel">current</div><div class="dataValue">
-                <br style="clear:both"/>
-                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/HouseNumber"/><br style="clear:both"/>
+            <div class="dataLabel">current</div><div class="dataValue" style="font-weight:bold">
+            
+                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/HouseNumber"/>
                 
-                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street"/><br style="clear:both"/>
+               <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street != '' ">,&#xA0;<xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street"/></xsl:if> 
                 
-                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street2"/><br style="clear:both"/>
+                 <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street2 != '' ">,&#xA0;<xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Street2"/></xsl:if> 
                 
                 
-                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Postcode"/><br style="clear:both"/>
-                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/PostTown"/><br style="clear:both"/>
+                 <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Postcode != '' ">,&#xA0;<xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Postcode"/></xsl:if> 
                 
-                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Country"/><br style="clear:both"/>
+                 <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/PostTown != '' ">,&#xA0;<xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/PostTown"/></xsl:if> 
+                
+                 <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/County != '' ">,&#xA0;<xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/County"/></xsl:if> 
+                
+                 <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Country != '' ">,&#xA0;<xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation/VRollStreetDetails/Location/Country"/></xsl:if> 
                 
             </div>
             
             <br style="clear:both"/>
             <br style="clear:both"/>
-            <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollPerson">
+            <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollPerson/VRollPersonDetails">
                 <div class="dataLabel">name</div>
                 <div class="dataValue" >
-                    <xsl:value-of select="VRollPersonDetails/Name/Surname"/>
+                    <xsl:value-of select="Name/Surname"/>
                     &#xA0;
-                    <xsl:value-of select="VRollPersonDetails/Name/Forename"/>
+                    <xsl:value-of select="Name/Forename"/>
                 </div>
                 
                 <br style="clear:both"/>
                 <div class="dataLabel">period</div>
                 <div class="dataValue doubt">
-                    <xsl:value-of select="VRollPersonDetails/DatesRegLeft"/> [ConsumerOutput/FullConsumerData/ConsumerData/VotersRollPerson/VRollPersonDetails/DatesRegLeft]?
+                    <xsl:value-of select="DatesRegLeft"/> [ConsumerOutput/FullConsumerData/ConsumerData/VotersRollPerson/VRollPersonDetails/DatesRegLeft]?
                 </div><br style="clear:both"/>
                 <br style="clear:both"/>
             </xsl:for-each>

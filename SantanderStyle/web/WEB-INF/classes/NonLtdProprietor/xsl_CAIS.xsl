@@ -98,9 +98,6 @@
                         <div class="dataLabel">overdraft limit</div>
                         <div class="dataValue" id="notFound"> ??? </div>
 
-                        <br style="clear:both"/>
-                        <div class="dataLabel">overdraft limit</div>
-                        <div class="dataValue" id="notFound"> ??? </div>
 
                         <br style="clear:both"/>
                         <div class="dataLabel">arrangement</div>

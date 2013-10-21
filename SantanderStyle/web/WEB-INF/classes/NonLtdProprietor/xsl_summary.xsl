@@ -29,7 +29,23 @@
             <h3>search details</h3>
 
             <div class="dataLabel">person</div>
-            <div class="dataValue" id="notFound">???</div>
+            <div class="dataValue">
+
+               <xsl:value-of select="ConsumerOutput/Applicant/Name/Title"/>&#xA0;
+                <xsl:value-of select="ConsumerOutput/Applicant/Name/Forename"/>&#xA0;
+<xsl:value-of select="ConsumerOutput/Applicant/Name/MiddleName"/>&#xA0;
+ <xsl:value-of select="ConsumerOutput/Applicant/Name/Surname"/>
+
+            <br style="clear:both"/>
+ <xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/HouseNumber"/>
+ ,&#xA0;<xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/Flat"/>
+ ,&#xA0;<xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/Street"/>
+ ,&#xA0;<xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/District"/>
+ ,&#xA0;<xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/PostTown"/>
+ ,&#xA0;<xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/County"/>
+ ,&#xA0;<xsl:value-of select="ConsumerOutput/LocationDetails/UKLocation/Postcode"/>
+        </div>
+            
             <br style="clear:both"/>
 
             <div class="dataLabel">match</div>
