@@ -10,7 +10,7 @@
             <xsl:for-each select="ManagementInfo/Directors/CurrentDirector">
                 <div class="dataLabel">name</div>
                 <div class="dataValue">
-                    <xsl:value-of select="DirectorDetails/Name"/>
+                   <xsl:value-of select="DirectorDetails/Name"/>
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">address</div>
@@ -46,7 +46,7 @@
                     <xsl:value-of select="DirectorDetails/Occupation"/>
                 </div>
                 <br style="clear:both"/>
-                <div class="dataLabel">date appointed</div>
+                <div class="dataLabel"><xsl:if test="AppointmentIndicator='E'">date appointed</xsl:if><xsl:if test="AppointmentIndicator='P'">appointed prior to</xsl:if></div>
                 <div class="dataValue">
                     <xsl:value-of select="AppointmentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="AppointmentDate/MM"/></span>&#xA0;<xsl:value-of select="AppointmentDate/CCYY"/>
                 </div>
@@ -59,7 +59,7 @@
             <xsl:for-each select="ManagementInfo/Directors/PreviousDirector">
                 <div class="dataLabel">name</div>
                 <div class="dataValue">
-                    <xsl:value-of select="DirectorDetails/Name"/>
+                   <xsl:value-of select="DirectorDetails/Name"/>
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">adddress</div>
@@ -105,11 +105,12 @@
             <xsl:for-each select="ManagementInfo/Secretaries/CurrentSecretary">
                 <div class="dataLabel">name</div>
                 <div class="dataValue">
-                    <xsl:value-of select="SecretaryDetails/Name"/>
+                     <xsl:value-of select="SecretaryDetails/Name"/>
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">address</div>
                 <div class="dataValue" style="width:400px;font-size:10px">
+                     <xsl:value-of select="SecretaryDetails/Location/HouseNumber"/>&#xA0;
                     <xsl:value-of select="SecretaryDetails/Location/HouseName"/>&#xA0; <xsl:value-of
                         select="SecretaryDetails/Location/Street"/>&#xA0; <xsl:value-of
                             select="SecretaryDetails/Location/PostTown"/>&#xA0; <xsl:value-of
@@ -129,11 +130,12 @@
             <xsl:for-each select="ManagementInfo/Secretaries/PreviousSecretary">
                 <div class="dataLabel">name</div>
                 <div class="dataValue">
-                    <xsl:value-of select="SecretaryDetails/Name"/>
+                     <xsl:value-of select="SecretaryDetails/Name"/>
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel">address</div>
                 <div class="dataValue" style="width:400px;font-size:10px">
+                     <xsl:value-of select="SecretaryDetails/Location/HouseNumber"/>&#xA0;
                     <xsl:value-of select="SecretaryDetails/Location/HouseName"/>&#xA0; <xsl:value-of
                         select="SecretaryDetails/Location/Street"/>&#xA0; <xsl:value-of
                             select="SecretaryDetails/Location/PostTown"/>&#xA0; <xsl:value-of

@@ -338,13 +338,14 @@
 
     <tr>
         <th><span>number of employees</span></th>
-        <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
+        <xsl:for-each select="Financials/Ratios[position() &lt; 3]">
+            <td>
             <span><xsl:value-of select="NumEmployees"/></span>
         </td>
 
     </xsl:for-each>
         <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeNumEmployees"/></td>
-    <td></td>
+    <td>N/A</td>
 </tr>
 
 <tr>

@@ -12,13 +12,13 @@
    <head>
       <meta http-equiv="X-UA-Compatible" content="IE=8"/>
       
-      <link href='./jquery/css/ui-lightness/jquery-ui-1.8.20.custom.css' rel='stylesheet' type='text/css'/>
-      <link href='./styles_jsp.css' rel='stylesheet' type='text/css'/>
+      <link href='./rsc/css/ui-lightness/jquery-ui-1.8.20.custom.css' rel='stylesheet' type='text/css'/>
+      <link href='./rsc/css/styles_jsp.css' rel='stylesheet' type='text/css'/>
       
       <% List<BureauData> listData = (List<BureauData>)request.getAttribute("data"); %>
       
-      <script src="./jquery/js/jquery-1.7.2.min.js"></script>
-      <script src="./jquery/js/jquery-ui-1.8.20.custom.min.js"></script>      
+      <script src="./rsc/js/jquery-1.7.2.min.js"></script>
+      <script src="./rsc/js/jquery-ui-1.8.20.custom.min.js"></script>      
       <script type="text/javascript">
          if (jQuery){
             

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+
+    <xsl:template name="legalForms">
+        <xsl:param name="curValue"/>
+        <xsl:choose>
+           <xsl:when test="$curValue =''">Blank</xsl:when>
+            <xsl:when test="$curValue = '1'">Private Unlimited</xsl:when>
+            <xsl:when test="$curValue = '2'">Private Limited</xsl:when>
+            <xsl:when test="$curValue = '3'">PLC</xsl:when>
+            <xsl:when test="$curValue = '4'">Old Public Company</xsl:when>
+            <xsl:when test="$curValue = '5'">Private Company Limited by Guarantee (Exempt from using word “Limited”)</xsl:when>
+            <xsl:when test="$curValue = '6'">Limited Partnership</xsl:when>
+            <xsl:when test="$curValue = '7'">Private Limited Company Without Share Capital</xsl:when>
+            <xsl:when test="$curValue = '8'">Company Converted / Closed</xsl:when>
+            <xsl:when test="$curValue = '9'">Private Unlimited Company Without Share Capital</xsl:when>
+            <xsl:when test="$curValue = '0'">Other</xsl:when>
+            <xsl:when test="$curValue = 'A'">Private Company Limited by Shares (Exempt from using word Limited)</xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
+
+
     <xsl:template name="xsl_company_identification_details">
         <div class="section" id="company_identification_details">
             <h2>company identification details</h2>
@@ -15,7 +37,8 @@
             <br style="clear:both"/>
             <div class="dataLabel">legal form</div>
             <div class="dataValue">
-                <xsl:value-of select="Identification/LegalStatus"/>
+                <xsl:call-template name="legalForms"><xsl:with-param name="curValue" select="Identification/LegalStatus"/></xsl:call-template>
+               
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">date incorporated</div>
@@ -133,6 +156,14 @@
             <div class="dataLabel">Auditor/Accountant</div>
             <div class="dataValue">
                 <xsl:value-of select="Identification/Auditor/Auditors"/></div>
+
+            <br style="clear:both"/>
+            <div class="dataLabel">Bankers</div>
+            <div class="dataValue">
+                <xsl:value-of select="Identification/Bank/BankName"/>
+                <br style="clear:both"/>
+                <xsl:value-of select="Identification/Bank/BankLocation"/>
+            </div>
         </div>
     </xsl:template>
 </xsl:stylesheet>

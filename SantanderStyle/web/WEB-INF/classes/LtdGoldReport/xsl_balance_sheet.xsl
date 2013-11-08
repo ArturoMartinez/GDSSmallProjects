@@ -217,6 +217,8 @@
                 <tr>
                     <th>debtors
                         <div class="inCellSubTitle" style="margin-top:5px">trade debtors</div>
+                        <div class="inCellSubTitle">Subsidiary/Associate/Joint</div>
+                        <div class="inCellSubTitle">Prepayments/Accruals</div>
                         <div class="inCellSubTitle">group loans</div>
                         <div class="inCellSubTitle">directors loans</div>
                         <div class="inCellSubTitle">other debtors</div>
@@ -227,6 +229,12 @@
                                 <span><xsl:value-of select="Debtors"/></span>
                                 <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
                                     <xsl:value-of select="AccountsReceivableTradeDebtors"/>
+                                </div>
+                                <div class="inCellSubValue">&#xA0;
+                                    <xsl:value-of select="DebtorsSubsidiaryAssociateJoint"/>
+                                </div>
+                                <div class="inCellSubValue" >&#xA0;
+                                    <xsl:value-of select="PrepaymentsAccruals"/>
                                 </div>
                                 <div class="inCellSubValue">&#xA0;
                                     <xsl:value-of select="DebtorsGroupLoans"/>
@@ -762,8 +770,8 @@
                 <tr>
                     <th><span>minority interests (UK GAAP Only)</span></th>
                     <xsl:for-each select="Financials/Accounts">
-                        <td class="num">
-                            <span>
+                        <td>
+                            <span class="num">
                                 <xsl:value-of select="BalanceSheet/MinorityInterestsUKGAAP"/>
                             </span>
                         </td>
@@ -771,48 +779,29 @@
                 </tr>
                 
                 <tr>
-                    <th><span>total net assets</span></th>
+                    <th><span>total net assets</span>
+                         <div class="inCellSubTitle" style="margin-top:5px">Interest In Own Shares</div>
+                        <div class="inCellSubTitle">Currency Translation Reserve</div>
+                    </th>
                     <xsl:for-each select="Financials/Accounts">
                         <td  class="num">
                             <span>
                                 <xsl:value-of select="BalanceSheet/NetAssets"/>
                             </span>
+                                <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
+                                    <xsl:value-of select="BalanceSheet/InterestInOwnShares"/>
+                                </div>
+                                <div class="inCellSubValue">&#xA0;
+                                    <xsl:value-of select="BalanceSheet/CurrencyTranslationReserve"/>
+                                </div>
+                            
                         </td>
                     </xsl:for-each>
                 </tr>
                 
-                <tr>
-                    <th><span>Interest In Own Shares</span></th>
-                    <xsl:for-each select="Financials/Accounts">
-                        <td  class="num">
-                            <span>
-                                <xsl:value-of select="BalanceSheet/InterestInOwnShares"/>
-                            </span>
-                        </td>
-                    </xsl:for-each>
-                </tr>
 
-                <tr>
-                    <th><span>Currency Translation Reserve</span></th>
-                    <xsl:for-each select="Financials/Accounts">
-                        <td  class="num">
-                            <span>
-                                <xsl:value-of select="BalanceSheet/CurrencyTranslationReserve"/>
-                            </span>
-                        </td>
-                    </xsl:for-each>
-                </tr>
 
-                <tr>
-                    <th><span>Minority Interests (IFRS Only)</span></th>
-                    <xsl:for-each select="Financials/Accounts">
-                        <td  class="num">
-                            <span>
-                                <xsl:value-of select="BalanceSheet/MinorityInterestsIFRS"/>
-                            </span>
-                        </td>
-                    </xsl:for-each>
-                </tr>
+               
                 
                 <tr>
                     <th>issued capital
@@ -870,7 +859,16 @@
                         </td>
                     </xsl:for-each>
                 </tr>
-                
+                 <tr>
+                    <th><span>Minority Interests (IFRS Only)</span></th>
+                    <xsl:for-each select="Financials/Accounts">
+                        <td  class="num">
+                            <span>
+                                <xsl:value-of select="BalanceSheet/MinorityInterestsIFRS"/>
+                            </span>
+                        </td>
+                    </xsl:for-each>
+                </tr>
                 <tr>
                     <th><span>net worth</span></th>
                     <xsl:for-each select="Financials/Accounts">

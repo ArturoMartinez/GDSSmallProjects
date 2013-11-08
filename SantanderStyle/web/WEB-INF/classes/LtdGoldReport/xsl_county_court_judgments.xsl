@@ -8,12 +8,13 @@
                 
                 <div class="dataLabel">registered against</div>
                 <div class="dataValue">
-                    <xsl:value-of select="JudgmentAgainst"/>
+                    <xsl:value-of select="JudgmentAgainst"/>&#xA0;&#xA0;
+                    <xsl:value-of select="TradingLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine3"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine4"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine5"/>,&#xA0;<xsl:value-of select="TradingLocation/Postcode"/>
                 </div>
                 <br style="clear:both"/>
                 
                 <div class="dataLabel">amount</div>
-                <div class="dataValue">
+                <div class="dataValue num devise">
                     <xsl:value-of select="JudgmentAmount"/>
                 </div>
                 <br style="clear:both"/>

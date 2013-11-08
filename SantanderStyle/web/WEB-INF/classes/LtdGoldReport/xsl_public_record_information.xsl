@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-    <xsl:template name="creditType">
-        <xsl:choose>
-            <xsl:when test="EventType='C'">Receiver appointments</xsl:when>
-            <xsl:when test="EventType='D'">Cessations of Receiver</xsl:when>
-            <xsl:when test="EventType='E'">Winding up petitions</xsl:when>
-            <xsl:when test="EventType='F'">Dismissals of winding up petitions</xsl:when>
-            <xsl:when test="EventType='G'">Winding up orders</xsl:when>
-            <xsl:when test="EventType='H'">Voluntary appointments of liquidators</xsl:when>
-            <xsl:when test="EventType='I'">Meetings of creditors</xsl:when>
-            <xsl:when test="EventType='J'">Resolutions to wind up</xsl:when>
-            <xsl:when test="EventType='K'">Intentions to dissolve</xsl:when>
-            <xsl:when test="EventType='L'">Dissolution notices</xsl:when>
-            <xsl:when test="EventType='M'">Reinstatement notices</xsl:when>
-            <xsl:when test="EventType='Q'">Administrators appointed</xsl:when>
-            <xsl:when test="EventType='R'">Administrators dismissals</xsl:when>
-            <xsl:when test="EventType='S'">Approvals of Voluntary arrangements</xsl:when>
-            <xsl:when test="EventType='T'">Completions of Voluntary arrangements</xsl:when>
-            <xsl:when test="EventType='U'">Compulsory appointments of liquidators</xsl:when>
-            <xsl:when test="EventType='V'">Revocations of Voluntary arrangements</xsl:when>
-            <xsl:when test="EventType='W'">Suspensions of Voluntary arrangements</xsl:when>
-        </xsl:choose>
-    </xsl:template>
     
     <xsl:template name="xsl_public_record_information">
         <div class="section" id="public_record_information">
@@ -30,7 +8,7 @@
             
             <div class="dataLabel">mortage/charges</div>
             <div class="dataValue">
-                <xsl:value-of select="ScoringData/NumSatMortgages"/> (of which <xsl:value-of select="ScoringData/NumUnsatMortgages"/> are fully satisfied)
+                <xsl:value-of select="Mortgages/NumMortgages"/> (of which <xsl:value-of select="Mortgages/NumSatMortgages"/> are fully satisfied)
             </div>
             <br style="clear:both"/><br style="clear:both"/>
             <xsl:variable name="noticeCount">
@@ -47,8 +25,10 @@
                 <xsl:value-of select="EventDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="EventDate/MM"/></span>&#xA0;<xsl:value-of select="EventDate/CCYY"/>
                     
                 </div>
-                <div style="float:left;width:100px">
-                   <xsl:call-template name="creditType"></xsl:call-template>
+                  <div style="float:left;width:200px">
+                   <xsl:call-template name="creditEventType">
+                    <xsl:with-param name="curValue" select="EventType"/>
+                    </xsl:call-template>
                 </div>
                 <br style="clear:both"/>
             </xsl:for-each>

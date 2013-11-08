@@ -145,10 +145,12 @@
                         <th
                             style="background:#fff;border:none;border-right:1px solid #bbb;border-bottom:1px solid #aaa"/>
                         <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
+                                                <xsl:if test="position() &lt; 13">
                             <td style="padding:5px">
                                 <span class="toMonthName"><xsl:value-of select="CompanyExpMonth/MM"
                                     /></span>&#160;<xsl:value-of select="CompanyExpMonth/CCYY"/>
                             </td>
+                                                    </xsl:if>
                         </xsl:for-each>
                     </tr>
 
@@ -157,10 +159,12 @@
                             <span>company</span>
                         </th>
                         <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
+                                                    <xsl:if test="position() &lt; 13">
                             <td>
                                 <xsl:value-of select="CompanyDBT"/>
                                                         
                             </td>
+                                                    </xsl:if>
                         </xsl:for-each>
                     </tr>
                     <tr>
@@ -168,10 +172,12 @@
                             <span>industry</span>
                         </th>
                                                 <xsl:for-each select="PaymentPerformance/PaymentFull/IndDBTMonthly">
+                                                    <xsl:if test="position() &lt; 13">
                             <td>
                                                         <xsl:value-of select="IndustryDBT"/>
                                                         
                             </td>
+                                                    </xsl:if>
                         </xsl:for-each>
                     </tr>
 
@@ -213,7 +219,7 @@
 
                                                     
                                                                 <xsl:variable name="lastCompanyDBTYear" select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonthCCYY"/>
-                                                                <xsl:value-of select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyDBT"/>
+                                                                <xsl:value-of select="PaymentPerformance/PaymentFull/CompanyDBTMonthly[12]/CompanyDBT"/>
                                 
                             </span>
                         </td>
@@ -236,12 +242,9 @@
 
                                                         <xsl:variable name="lastIndDBTMonth" select="PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/MM"/>
                                                         <xsl:variable name="lastIndDBTYear" select="PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/CCYY"/>
-                                                        <xsl:if test="PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/MM = PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/MM
-                                                            and PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndExpMonth/CCYY= PaymentPerformance/PaymentFull/CompanyDBTMonthly[last()]/CompanyExpMonth/CCYY">
 
-                                                        <xsl:value-of select="PaymentPerformance/PaymentFull/IndDBTMonthly[last()]/IndustryDBT"/>
+                                                        <xsl:value-of select="PaymentPerformance/PaymentFull/IndDBTMonthly[12]/IndustryDBT"/>
 
-                                                    </xsl:if>
 
                         </td>
                         <td>
@@ -274,7 +277,7 @@
                             style="background:#fff;border:none;border-right:1px solid #aaa;border-bottom:1px solid #aaa"/>
 
                         <th style="text-align:center"> £1 - £1,000 </th>
-                        <th style="text-align:center"> 1,001 - £10,000 </th>
+                                                    <th style="text-align:center"> £1,001 - £10,000 </th>
                         <th style="text-align:center"> £10,001 - £100,000 </th>
                         <th style="text-align:center"> £100,000+ </th>
 
@@ -286,7 +289,6 @@
                         </th>
                         <td>
                             <xsl:value-of select="PaymentPerformance/PaymentFull/NumberDBT1K"/>
-                            <xsl:value-of select="PaymentPerformance/PaymentFull/NumberDBT1k"/>
                         </td>
                         <td>
                             <xsl:value-of select="PaymentPerformance/PaymentFull/NumberDBT10K"/>

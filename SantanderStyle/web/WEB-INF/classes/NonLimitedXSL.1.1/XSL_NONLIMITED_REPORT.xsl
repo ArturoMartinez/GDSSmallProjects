@@ -19,7 +19,9 @@
 		<html>
 			<head>
 				<title><xsl:value-of select="BusinessName"/></title>
-				<link rel="stylesheet" type="text/css" href="styles_production.css"/>
+				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
+            <script src="./rsc/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+				<script src="./rsc/js/mainJS.js" type="text/javascript"></script>
 			</head>
 			<body>
 
@@ -42,9 +44,6 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				
 				<xsl:call-template name="xsl_directorship_and_secretaryship_informaion_of_proprietors"/>
-			
-				<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
-				<script src="mainJS.js" type="text/javascript"></script>
 			</body>
 		</html>
 	</xsl:template>

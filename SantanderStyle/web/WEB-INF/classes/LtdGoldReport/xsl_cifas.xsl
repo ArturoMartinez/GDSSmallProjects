@@ -57,7 +57,7 @@
                 </div>
                 <br style="clear:both"/>
 
-                <div class="dataLabel">Date Supplied  </div>
+                <div class="dataLabel alwaysVisible">Date Supplied  </div>
                 <div class="dataValue">
                     <xsl:value-of select="Date/DateSupplied-Dd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/DateSupplied-Mm"/></span>&#xA0;<xsl:value-of select="Date/DateSupplied-Yyyy"/>
           
@@ -70,7 +70,7 @@
                 </div>
                 <br style="clear:both"/>
 
-                <div class="dataLabel">Expiry Date</div>
+                <div class="dataLabel alwaysVisible">Expiry Date</div>
                 <div class="dataValue">
                     <xsl:value-of select="Date/ExpiryDate-Dd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/ExpiryDate-Mm"/></span>&#xA0;<xsl:value-of select="Date/ExpiryDate-Yyyy"/>
           </div>

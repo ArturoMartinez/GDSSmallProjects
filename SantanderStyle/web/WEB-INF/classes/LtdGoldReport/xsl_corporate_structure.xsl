@@ -78,7 +78,7 @@
                         <xsl:value-of select="SubRegNumber"/>
                     <br style="clear:both"/>
                     Status : <xsl:call-template name="UKSUbStatus"></xsl:call-template><br style="clear:both"/>
-                    Legal Status : <xsl:call-template name="UKSUbLegalStatus"></xsl:call-template>
+                  
                     <br style="clear:both"/>
                     <xsl:value-of select="SubName"/>
                     <br style="clear:both"/>
