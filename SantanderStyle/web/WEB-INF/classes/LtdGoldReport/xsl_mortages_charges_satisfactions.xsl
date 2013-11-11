@@ -42,8 +42,10 @@
             <br style="clear:both"/>
            
             <div class="dataLabel">latest form type</div>
+                    
                 <div class="dataValue">
-                    <xsl:value-of select="FormType"/>
+                     <xsl:call-template name="mortgageFormTypes"><xsl:with-param name="curValue" select="FormType"/></xsl:call-template>
+                   
                 </div>
                 <br style="clear:both"/>
                 

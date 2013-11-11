@@ -25,6 +25,7 @@
 	<xsl:include href="xsl_list_latest_account_type.xsl"/>
 	<xsl:include href="xsl_list_account_types.xsl"/>
 	<xsl:include href="xsl_list_eventTypes.xsl"/>
+	<xsl:include href="xsl_list_mortgageFormTypes.xsl"/>
 	<xsl:include href="xsl_cifas.xsl"/>
 
 	<xsl:template match="/RawBureauData/LtdCompanyData">
@@ -44,7 +45,7 @@
 						style="text-transform:capitalize"> </select>
 				</div>
 					<div style="padding-top:5px;text-align:right">
-						v 1.8.20
+						v 1.8.21
 						</div>
 				</div>
 				
