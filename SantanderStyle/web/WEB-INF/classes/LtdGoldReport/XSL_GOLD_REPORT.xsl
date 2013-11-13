@@ -17,20 +17,36 @@
 	<xsl:include href="xsl_management_information.xsl"/>
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
+	<xsl:include href="xsl_previous_searches.xsl"/>
+
 	<xsl:include href="xsl_list_payment_patterns.xsl"/>
+	<xsl:include href="xsl_list_payment_terms.xsl"/>
+	<xsl:include href="xsl_list_industry_payment_patterns.xsl"/>
+	<xsl:include href="xsl_list_latest_account_type.xsl"/>
+	<xsl:include href="xsl_list_account_types.xsl"/>
+	<xsl:include href="xsl_list_eventTypes.xsl"/>
+	<xsl:include href="xsl_list_mortgageFormTypes.xsl"/>
+	<xsl:include href="xsl_cifas.xsl"/>
 
 	<xsl:template match="/RawBureauData/LtdCompanyData">
 		<html>
 			<head>
 				<title><xsl:value-of select="CommercialName"/></title>
-				<meta http-equiv="x-ua-compatible" content="IE=8"/>
-				<link rel="stylesheet" type="text/css" href="styles.css"/>
+				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
+            <script src="./rsc/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+				<script src="./rsc/js/mainJS.js" type="text/javascript"></script>
 			</head>
 			<body>
-				<div id="sectionNavigator" style="">Go to:<br/>
+				<div id="sectionNavigator" style="">
+					<div>
+					Go to:<br/>
 					<select id="selectSectionNavigator"
 						onchange="document.location.href='#'+this.options[this.selectedIndex].value"
 						style="text-transform:capitalize"> </select>
+				</div>
+					<div style="padding-top:5px;text-align:right">
+						v 1.8.21
+						</div>
 				</div>
 				
 				
@@ -70,29 +86,40 @@
 					<h2>credit summary</h2>
 					<div class="dataLabel">credit rating</div>
 					<div class="dataValue">
-						<span>
+						<span class="devise num">
 							<xsl:value-of select="CommercialDelphi/CreditRating"/>
 							
 						</span>
 					</div>
 					<br style="clear:both"/>
+
+					<div class="dataLabel">credit limit</div>
+					<div class="dataValue">
+						<span class="devise num">
+							<xsl:value-of select="CommercialDelphi/CreditLimit"/>
+							
+						</span>
+					</div>
+					<br style="clear:both"/>
+
 					<div class="dataLabel">credit opinion</div>
 
 									
 					<div class="dataValue">
 						<span>
+							<xsl:value-of select="CommercialDelphi/ConclusionText"/>
+							
+						</span>
+					</div>
+					<br style="clear:both"/>
+					<div class="dataLabel">risk analysis</div>
+					<div class="dataValue">
 							<xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
 							<xsl:if test="CommercialDelphi/CreditTextLine1!=''"><xsl:value-of select="CommercialDelphi/CreditTextLine1"/><br style="clear:both"/></xsl:if>
 							<xsl:if test="CommercialDelphi/CreditTextLine2!=''"><xsl:value-of select="CommercialDelphi/CreditTextLine2"/><br style="clear:both"/></xsl:if>
 							<xsl:if test="CommercialDelphi/CreditTextLine3!=''"><xsl:value-of select="CommercialDelphi/CreditTextLine3"/><br style="clear:both"/></xsl:if>
 							<xsl:if test="CommercialDelphi/CreditTextLine4!=''"><xsl:value-of select="CommercialDelphi/CreditTextLine4"/><br style="clear:both"/></xsl:if>
 							<xsl:if test="CommercialDelphi/CreditTextLine5!=''"><xsl:value-of select="CommercialDelphi/CreditTextLine5"/><br style="clear:both"/></xsl:if>
-						</span>
-					</div>
-					<br style="clear:both"/>
-					<div class="dataLabel">risk analysis</div>
-					<div class="dataValue">
-						<xsl:value-of select="CommercialDelphi/ConclusionText"/>
 					</div>
 					<br style="clear:both"/>
 
@@ -138,7 +165,7 @@
 									select="CommercialDelphiHistory/CompanyHistory/CommDelphiScore"
 								/> out of 100 </div>
 							<div
-								style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
+								style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL('./rsc/images/ratingStars-mid.png') 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
 							/>
 
 									<xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
@@ -172,8 +199,8 @@
 				<xsl:call-template name="xsl_legal_notices"/>
 
 				<xsl:call-template name="xsl_county_court_judgments"/>
-                                <script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-                                <script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
+				<xsl:call-template name="xsl_previous_searches"/>
+				<xsl:call-template name="xsl_cifas"/>
 			</body>
 		</html>
 	</xsl:template>

@@ -9,7 +9,10 @@
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'S'">a significant worsening</xsl:when>
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'I'">an improvement</xsl:when>
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'O'">a noticeable improvement</xsl:when>
-            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'T'">a noticeable improvement</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'T'">a significant improvement</xsl:when>
+            <xsl:otherwise>
+                    <xsl:value-of select="PaymentPerformance/PaymentFull/PaymentPattern"/>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 

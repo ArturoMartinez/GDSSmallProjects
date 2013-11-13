@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-    <xsl:template name="creditType">
-        <xsl:choose>
-            <xsl:when test="EventType='C'">Receiver appointments</xsl:when>
-            <xsl:when test="EventType='D'">Cessations of Receiver</xsl:when>
-            <xsl:when test="EventType='E'">Winding up petitions</xsl:when>
-            <xsl:when test="EventType='F'">Dismissals of winding up petitions</xsl:when>
-            <xsl:when test="EventType='G'">Winding up orders</xsl:when>
-            <xsl:when test="EventType='H'">Voluntary appointments of liquidators</xsl:when>
-            <xsl:when test="EventType='I'">Meetings of creditors</xsl:when>
-            <xsl:when test="EventType='J'">Resolutions to wind up</xsl:when>
-            <xsl:when test="EventType='K'">Intentions to dissolve</xsl:when>
-            <xsl:when test="EventType='L'">Dissolution notices</xsl:when>
-            <xsl:when test="EventType='M'">Reinstatement notices</xsl:when>
-            <xsl:when test="EventType='Q'">Administrators appointed</xsl:when>
-            <xsl:when test="EventType='R'">Administrators dismissals</xsl:when>
-            <xsl:when test="EventType='S'">Approvals of Voluntary arrangements</xsl:when>
-            <xsl:when test="EventType='T'">Completions of Voluntary arrangements</xsl:when>
-            <xsl:when test="EventType='U'">Compulsory appointments of liquidators</xsl:when>
-            <xsl:when test="EventType='V'">Revocations of Voluntary arrangements</xsl:when>
-            <xsl:when test="EventType='W'">Suspensions of Voluntary arrangements</xsl:when>
-        </xsl:choose>
-    </xsl:template>
     
     <xsl:template name="xsl_public_record_information">
         <div class="section" id="public_record_information">
@@ -30,22 +8,27 @@
             
             <div class="dataLabel">mortage/charges</div>
             <div class="dataValue">
-                <xsl:value-of select="Mortgages/NumMortgages"/> (of <xsl:value-of select="Mortgages/NumSatMortgages"/> which are fully satisfied)
+                <xsl:value-of select="Mortgages/NumMortgages"/> (of which <xsl:value-of select="Mortgages/NumSatMortgages"/> are fully satisfied)
             </div>
             <br style="clear:both"/><br style="clear:both"/>
             <xsl:variable name="noticeCount">
                 <xsl:if test="LegalNotices > 0"><xsl:value-of select="LegalNotices/SummaryCount"/></xsl:if>
+
+                
             </xsl:variable>
             <div class="dataLabel" style="height:{$noticeCount*11}px">legal notices</div>
             <div class="dataValue" style="overflow:hidden;width:300px">
+                <xsl:if test="LegalNotices/SummaryCount = 0">None Recorded</xsl:if>
             <xsl:for-each select="LegalNotices/SummaryLine">
                 <div style="float:left;width:100px">
 
                 <xsl:value-of select="EventDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="EventDate/MM"/></span>&#xA0;<xsl:value-of select="EventDate/CCYY"/>
                     
                 </div>
-                <div style="float:left;width:100px">
-                   <xsl:call-template name="creditType"></xsl:call-template>
+                  <div style="float:left;width:200px">
+                   <xsl:call-template name="creditEventType">
+                    <xsl:with-param name="curValue" select="EventType"/>
+                    </xsl:call-template>
                 </div>
                 <br style="clear:both"/>
             </xsl:for-each>
@@ -56,16 +39,16 @@
             <div class="dataValue">
                 <div class="dataValue" style="overflow:hidden;width:300px">
                     <div style="float:left;width:100px">Total Number : </div><div style="float:left;">
-                        <xsl:value-of select="Identification/CCLs/TotalNumberCCL"/>
+                        <xsl:value-of select="CCJs/NumberCCJs0To72"/>
                     </div>
                     
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Total Value : </div><div style="float:left">
-                        <xsl:value-of select="CCJs/ValueCCJs0To72"/>
+                        <span class="num devise"><xsl:value-of select="CCJs/ValueCCJs0To72"/></span>
                     </div>
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Age of most recent : </div><div style="float:left">
-                        <xsl:value-of select="CCJs/AgeMostRecentCCJ"/>
+                        <xsl:value-of select="CCJs/AgeMostRecentCCJ"/> Month<xsl:if test="CCJs/AgeMostRecentCCJ>1">s</xsl:if>
                     </div>
                 </div>
             </div>

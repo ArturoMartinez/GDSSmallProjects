@@ -2,7 +2,7 @@
 
 <?xml-stylesheet type="text/xsl" href="XSL_NONLIMITED_REPORT.xsl"?>
 <RawBureauData>
-	<NonLtdBusinessData>
+<NonLtdBusinessData>
    <NonLimitedKey>01910150</NonLimitedKey>
    <BusinessName>Nottingham City Council</BusinessName>
    <OwnershipEndDate>
@@ -2386,6 +2386,6 @@
                             <NocFlag>NocFlag5</NocFlag>
                         </SummaryDirectorCIFAS>
                     </DirectorData>
-	</NonLtdBusinessData>
+</NonLtdBusinessData>
 	<SearchResult />
 </RawBureauData>

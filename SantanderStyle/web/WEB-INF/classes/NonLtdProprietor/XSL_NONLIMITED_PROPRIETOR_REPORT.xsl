@@ -23,9 +23,10 @@
 	<xsl:template match="/RawBureauData">
 		<html>
 			<head>
-				<meta http-equiv="x-ua-compatible" content="IE=8"/>
 				<title><xsl:value-of select="ConsumerOutput/Applicant/FormattedName"/></title>
-				<link rel="stylesheet" type="text/css" href="styles.css"/>
+				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
+            <script src="./rsc/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+				<script src="./rsc/js/mainJS.js" type="text/javascript"></script>
 			</head>
 			<body>
 				
@@ -50,10 +51,6 @@
 				<xsl:call-template name="xsl_CAIS"/>
 			
 				<xsl:call-template name="xsl_address_links"/>
-
-                                <script src="jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-                                <script src="mainJS.js" type="text/javascript"><xsl:comment/></script>
-
 			</body>
 		</html>
 	</xsl:template>

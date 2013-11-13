@@ -61,7 +61,7 @@
                             select="CommercialDelphiHistory/CommDelphiScore"
                         /> out of 100 </div>
                     <div
-                        style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
+                        style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(./rsc/images/ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
                     />
                     <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
                 </div>

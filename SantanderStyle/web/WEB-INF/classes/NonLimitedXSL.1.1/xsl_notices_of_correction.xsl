@@ -11,13 +11,13 @@
                 Total Number : 
             </div>
             <div class="dataValue">
-                <xsl:value-of select="NoticeOfCorrection/NumCorrections"/>
+                <xsl:value-of select="/NonLtdBusinessData/NoticeOfCorrection/NumCorrections"/>
             </div>
             
             <br style="clear:both"/>
             
             <h3>Notices :</h3>
-            <xsl:for-each select="NoticeOfCorrection/NOCDetail">
+            <xsl:for-each select="/NonLtdBusinessData/NoticeOfCorrection/NOCDetail">
                 <div class="dataLabel">
                     reference
                 </div>
