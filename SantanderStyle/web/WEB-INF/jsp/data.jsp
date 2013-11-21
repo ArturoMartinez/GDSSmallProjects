@@ -10,15 +10,18 @@
 <%@page import="java.util.List,com.gdslink.style.BureauData"%>
 <html>
    <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=8"/>
-      
-      <link href='./rsc/css/ui-lightness/jquery-ui-1.8.20.custom.css' rel='stylesheet' type='text/css'/>
-      <link href='./rsc/css/styles_jsp.css' rel='stylesheet' type='text/css'/>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=8" />
+      <meta name="author" content="GDS Modellica" />
+      <meta name="robots" content="noindex, nofollow" />
+      <title>SantanderStyle</title>
+      <link href='./rsc/css/ui-lightness/jquery-ui-1.10.3.custom.min.css' rel='stylesheet' />
+      <link href='./rsc/css/styles_jsp.css' rel='stylesheet' />
       
       <% List<BureauData> listData = (List<BureauData>)request.getAttribute("data"); %>
       
-      <script src="./rsc/js/jquery-1.7.2.min.js"></script>
-      <script src="./rsc/js/jquery-ui-1.8.20.custom.min.js"></script>      
+      <script src="./rsc/js/jquery-1.10.2.min.js"></script>
+      <script src="./rsc/js/jquery-ui-1.10.3.custom.min.js"></script>      
       <script type="text/javascript">
          if (jQuery){
             
@@ -29,12 +32,22 @@
             }
           
             function adjustHeight(){
-               $('.whole').height(0).height(Number($(document).height()));
+               var whole = $(document).find('.whole');
+               if (whole){
+                  whole.height(0).height(Number($(document).height()));
+                  
+                  var tabNav = whole.find('.tabnav');
+                  var content = whole.find('#content');               
+                  if (tabNav && content){
+                     content.height(0).height(Number(whole.height()-tabNav.outerHeight(true)));
+                     content.find('.contentpage').each(function(){
+                        var iframe = $(this).find('iframe');
+                        var regDate = $(this).find('.datelabel:eq(0)');
+                        iframe.height(0).height(Number(content.height()-regDate.outerHeight(true)-4));
+                     });
+                  }//fi:tabNav&&content
+               }//fi:whole
             }
-            
-            $(window).resize(function(){
-               adjustHeight();
-            });
             
             $(document).ready(function () {
             

@@ -32,8 +32,8 @@
 		<html>
 			<head>
 				<title><xsl:value-of select="CommercialName"/></title>
-				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
-            <script src="./rsc/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+				<link rel="stylesheet" href="./rsc/css/styles_production.css"/>
+            <script src="./rsc/js/jquery-1.10.2.min.js" type="text/javascript"></script>
 				<script src="./rsc/js/mainJS.js" type="text/javascript"></script>
 			</head>
 			<body>
