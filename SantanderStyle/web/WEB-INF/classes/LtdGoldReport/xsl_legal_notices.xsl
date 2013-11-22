@@ -394,7 +394,7 @@
  <br style="clear:both"/>
 </xsl:for-each>
 <br style="clear:both"/>
-
+<!--
 <h3>Insolvency Data</h3>
 
 
@@ -589,7 +589,7 @@
 <div class="dataLabel" style="clear:both;width:400px">Time since last winding up hearing date</div>
 <div class="dataValue">
     <xsl:value-of select="ScoringData/TimeSinceLastWindUpHearing"/>
-</div>
+</div>-->
 <br style="clear:both"/>
 
 

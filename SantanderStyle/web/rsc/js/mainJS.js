@@ -1,4 +1,5 @@
-_imagesPath='./rsc/images/';
+document._version='1.8.3';
+document._ressourcesPath='./rsc/images/';
 
 function intToMonthName(pMonthNum){
    arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
@@ -7,12 +8,12 @@ function intToMonthName(pMonthNum){
 
 if (jQuery){
    $(document).ready(function () {
-      document.getElementById("currentXSLSourceVersion").innerHTML="v 1.8.3";
+        document.getElementById("currentXSLSourceVersion").innerHTML="v"+document._version;
       document.devise = "&pound;";
       document.debugmode = false;
 
       //var prmstr = window.location.search.substr(1);
-      var prmstr = parent.window.location.search.replace("?", "");
+      var prmstr = parent.window.location.href.replace("?", "&");
       var prmarr = prmstr.split ("&");
       var params = {};
 
@@ -30,10 +31,10 @@ if (jQuery){
       $("span.num").digits();
       $("td.num span").digits();
       $("td.num div").digits();
-      $("td.num").digits();
+      //$("td.num").digits();
 
 
-    $(".ratingStarDiv").css("backgroundImage","url("+_imagesPath+"ratingStars-mid.png)");
+    $(".ratingStarDiv").css("backgroundImage","url("+document._ressourcesPath+"ratingStars-mid.png)");
 
       $("div.devise").deviseSign();
       $("span.devise").deviseSign();
@@ -79,7 +80,7 @@ if (jQuery){
          var collapseImg = document.createElement('img');
          collapseImg.collapsedStatus = false;
 
-         collapseImg.src = _imagesPath+"collapse.png";
+        collapseImg.src = document._ressourcesPath+"collapse.png";
          collapseImg.style.margin="1px 15px 0px 0px";
          collapseImg.style.float="right";
          collapseImg.style.cssFloat="right";
@@ -88,12 +89,12 @@ if (jQuery){
          collapseImg.onclick = function () {
             if (! this.collapsedStatus) {
                this.originalDivParentHeight = this.parentNode.parentNode.clientHeight;
-               this.src = _imagesPath+"expand.png";
+                this.src = document._ressourcesPath+"expand.png";
                this.parentNode.parentNode.style.height = "20px";
                this.parentNode.parentNode.style.overflow = "hidden";
                this.collapsedStatus = true;
             } else {
-               this.src = _imagesPath+"collapse.png"
+                this.src = document._ressourcesPath+"collapse.png"
                this.parentNode.parentNode.style.height = this.originalDivParentHeight-10 + "px";
                this.collapsedStatus = false;
             }

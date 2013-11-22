@@ -51,13 +51,13 @@
                         <xsl:value-of select="CCJs/AgeMostRecentCCJ"/> Month<xsl:if test="CCJs/AgeMostRecentCCJ>1">s</xsl:if>
                     </div>
                     <br style="clear:both"/>
-                    <div style="float:left;width:100px">Last 12 months Number : </div><div style="float:left">
+                    <!--<div style="float:left;width:100px">Last 12 months Number : </div><div style="float:left">
                         <xsl:value-of select="CCJs/NumberCCJsLast12Months"/>
                     </div>
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Last 12 months Value : </div><div style="float:left">
                          <span class="num devise"><xsl:value-of select="CCJs/ValueCCJsLast12Months"/></span>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <br style="clear:both"/>

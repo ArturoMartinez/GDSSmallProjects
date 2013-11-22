@@ -192,9 +192,12 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				<xsl:call-template name="xsl_cifas"/>
 
-				<div class="section">
+				<!--<div class="section">
 					<div class="dataLabel" style="clear:both">Report update flag</div><xsl:value-of select="ReportUpdateFlag" />
-				</div>
+				</div>-->
+
+				<script src="../jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
+				<script src="../mainJS.js" type="text/javascript"><xsl:comment/></script>
 			</body>
 		</html>
 	</xsl:template>

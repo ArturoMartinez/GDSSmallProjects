@@ -6,7 +6,7 @@
 
             <h2>management information</h2>
 
-
+<!--
             <div class="dataLabel" style="clear:both;width:400px">Number of convictions held by current board</div>
             <div class="dataValue">
                 <xsl:value-of select="NumConvictions"/>
@@ -20,7 +20,7 @@
             <div class="dataLabel" style="clear:both;width:400px">Number of Creditor Wind Downs of Directorships held by current board</div>
             <div class="dataValue">
                 <xsl:value-of select="DirectorhsipsCreditorWindDown"/>
-            </div>
+            </div>-->
             
                 <br style="clear:both"/>
 
@@ -82,15 +82,15 @@
                     <xsl:value-of select="ScoringData/PercentageDirsResidentUK"/>
                 </div>
 
-                 <div class="dataLabel" style="clear:both">Directors CIFAS flag</div>
+                 <!--<div class="dataLabel" style="clear:both">Directors CIFAS flag</div>
                 <div class="dataValue">
                   <xsl:variable name="curCifasFlag" select="ScoringData/DirectorsCIFASFlag"/>
                   <xsl:if test="$curCifasFlag = Y">Information detected</xsl:if>
                   <xsl:if test="$curCifasFlag = N">No information detected</xsl:if>
-                  <xsl:if test="$curCifasFlag = BLANK">No entitlement to CIFAS</xsl:if>
+                  <xsl:if test="not(string($curCifasFlag))">No entitlement to CIFAS</xsl:if>
 
 
-                </div>
+                </div>-->
             
                 <br style="clear:both"/>
 

@@ -5,15 +5,19 @@
     <xsl:template name="xsl_balance_sheet">
     <div class="section" id="balance_sheet">
         <h2>balance sheet</h2>
-        <div class="dataLabel">date latest account</div>
-        <div class="dataValue "><xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/></div>
+        <div class="dataLabel">date latest account</div>	<div class="dataValue ">
         
-        <div class="dataLabel" style="clear:both">date latest returns</div>
-        <div class="dataValue "><xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/></div>
          
-        <div class="dataLabel" style="clear:both">account ref. date</div>
-        <div class="dataValue "><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/AccountsRefDate/CCYY"/></div>
+                <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/>
         
+        </div>
+        <div class="dataLabel" style="clear:both">date latest returns</div>	<div class="dataValue ">
+        <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/></div>
+         
+        <div class="dataLabel" style="clear:both">account ref. date</div>		<div class="dataValue ">
+        <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>&#xA0;<xsl:value-of select="Identification/FilingDetails/AccountsRefDate/CCYY"/>
+
+        </div>
         <br style="clear:both"/>
         
         <div class="matrixLabel" id="balance_sheet_f_details">financial details</div>
@@ -762,9 +766,7 @@
                </tr>
                 
                <tr>
-                  <th>
-                     <span>minority interests (UK GAAP Only)</span>
-                  </th>
+                    <th><span>minority interests (UK GAAP Only)</span></th>
                   <xsl:for-each select="Financials/Accounts">
                      <td>
                         <span class="num">
@@ -775,8 +777,7 @@
                </tr>
                 
                <tr>
-                  <th>
-                     <span>total net assets</span>
+                    <th><span>total net assets</span>
                      <div class="inCellSubTitle" style="margin-top:5px">Interest In Own Shares</div>
                      <div class="inCellSubTitle">Currency Translation Reserve</div>
                   </th>
@@ -847,9 +848,7 @@
                </tr>
                 
                <tr>
-                  <th>
-                     <span>total shareholder's funds</span>
-                  </th>
+                    <th><span>total shareholder's funds</span></th>
                   <xsl:for-each select="Financials/Accounts">
                      <td class="num">
                         <span>
@@ -859,9 +858,7 @@
                   </xsl:for-each>
                </tr>
                <tr>
-                  <th>
-                     <span>Minority Interests (IFRS Only)</span>
-                  </th>
+                    <th><span>Minority Interests (IFRS Only)</span></th>
                   <xsl:for-each select="Financials/Accounts">
                      <td  class="num">
                         <span>
@@ -871,9 +868,7 @@
                   </xsl:for-each>
                </tr>
                <tr>
-                  <th>
-                     <span>net worth</span>
-                  </th>
+                    <th><span>net worth</span></th>
                   <xsl:for-each select="Financials/Accounts">
                      <td class="num">
                         <span>
@@ -884,8 +879,7 @@
                </tr>
                 
             </table>
-         </div>
-         <br/>
+        </div><br/>
       </div>
    </xsl:template>
 </xsl:stylesheet>

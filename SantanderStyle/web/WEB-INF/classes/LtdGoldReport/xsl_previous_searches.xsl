@@ -272,7 +272,7 @@
 </table>
 
 </div>
-
+<!--
 <br style="clear:both"/>
 <div class="dataLabel" style="clear:both;width:550px">Number of found directors</div>
 <div class="dataValue">
@@ -403,7 +403,7 @@
 <div class="dataLabel" style="clear:both;width:550px">Number of Notices of Correction</div>
 <div class="dataValue">
     <xsl:value-of select="NoticeOfCorrection/NumCorrections"/>
-</div>
+</div>-->
 
 
 
