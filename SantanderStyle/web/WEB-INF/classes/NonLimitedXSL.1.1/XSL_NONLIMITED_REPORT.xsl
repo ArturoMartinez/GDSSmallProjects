@@ -29,6 +29,7 @@
 					<select id="selectSectionNavigator"
 						onchange="document.location.href='#'+this.options[this.selectedIndex].value"
 						style="text-transform:capitalize"> </select>
+						<div style="padding-top:5px;text-align:right" id="currentXSLSourceVersion"></div>
 				</div>
 				<br style="clear:both"/>
 				<br style="clear:both"/>

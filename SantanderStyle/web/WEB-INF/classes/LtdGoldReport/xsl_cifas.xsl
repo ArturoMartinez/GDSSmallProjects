@@ -26,9 +26,7 @@
                 <div class="dataValue">
                     <xsl:value-of select="Name"/>
                 </div>
-                <br style="clear:both"/>
-
-                <div class="dataLabel">Address Of Subject</div>
+                <div class="dataLabel" style="clear:both">Address Of Subject</div>
                 <div class="dataValue">
                    <xsl:if test="Address1!=''"><xsl:value-of select="Address1"/>&#xA0;</xsl:if>
                    <xsl:if test="Address2!=''"><xsl:value-of select="Address2"/>&#xA0;</xsl:if>
@@ -36,22 +34,15 @@
                    <xsl:if test="Address4!=''"><xsl:value-of select="Address4"/>&#xA0;</xsl:if>
                     <xsl:if test="Postcode!=''"><xsl:value-of select="Postcode"/></xsl:if>
                 </div>
-                <br style="clear:both"/>
-
-                <div class="dataLabel">Reference</div>
+                <div class="dataLabel" style="clear:both">Reference</div>
                 <div class="dataValue">
                     <xsl:value-of select="Reference"/>
                 </div>
-                <br style="clear:both"/>
-
-
-                <div class="dataLabel">CIFAS Category</div>
+                <div class="dataLabel" style="clear:both">CIFAS Category</div>
                 <div class="dataValue">
                     <xsl:value-of select="FraudCategory"/>
                 </div>
-                <br style="clear:both"/>
-
-                <div class="dataLabel">Category Description</div>
+                <div class="dataLabel" style="clear:both">Category Description</div>
                 <div class="dataValue">
                     <xsl:call-template name="fraudCategories"/>
                 </div>
@@ -62,9 +53,7 @@
                     <xsl:value-of select="Date/DateSupplied-Dd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/DateSupplied-Mm"/></span>&#xA0;<xsl:value-of select="Date/DateSupplied-Yyyy"/>
           
                 </div>
-                <br style="clear:both"/>
-
-                <div class="dataLabel">CIFAS Member </div>
+                <div class="dataLabel" style="clear:both">CIFAS Member </div>
                 <div class="dataValue">
                     <xsl:value-of select="SupplierName"/>
                 </div>

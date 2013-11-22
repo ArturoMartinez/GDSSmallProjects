@@ -12,14 +12,12 @@
            <xsl:value-of select="Identification/FilingDetails/LatestAccounts/DD"/>&#160;
              <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#160;
             <xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/>
-        </div><br style="clear:both"/>
-        <div class="dataLabel">date latest returns</div>	<div class="dataValue">
+        </div><div class="dataLabel" style="clear:both">date latest returns</div>	<div class="dataValue">
             <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#160;
              <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#160;
             <xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/>
         </div>
-            <br style="clear:both"/>
-        <div class="dataLabel">account ref. date</div>		<div class="dataValue">
+            <div class="dataLabel" style="clear:both">account ref. date</div>		<div class="dataValue">
         <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#160;
              <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>&#160;
           
@@ -50,7 +48,33 @@
                 <tr>
                     <th><span>currency</span></th><xsl:for-each select="Financials/Accounts"><td><xsl:value-of select="Currency"/></td></xsl:for-each>
                 </tr>
-
+                 <tr>
+                    <th><span>turnover/sales</span>
+                        <div class="inCellSubTitle" style="margin-top:5px">home nation</div>
+                        <div class="inCellSubTitle">europe</div>
+                        <div class="inCellSubTitle">rest of the world</div>
+                        <div class="inCellSubTitle">export</div>
+                    </th>
+                    <xsl:for-each select="Financials/Accounts/ProfitLoss">
+                        <td style="vertical-align:top;" class="num">
+                            <xsl:for-each select="TurnoverSalesDetails">
+                                <span><xsl:value-of select="TurnoverSales"/></span>
+                                <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
+                                    <xsl:value-of select="HomeNation"/>
+                                </div>
+                                <div class="inCellSubValue">&#xA0;
+                                    <xsl:value-of select="Europe"/>
+                                </div>
+                                <div class="inCellSubValue">&#xA0;
+                                    <xsl:value-of select="RestOfTheWorld"/>
+                                </div>
+                                <div class="inCellSubValue">&#xA0;
+                                    <xsl:value-of select="Export"/>
+                                </div>
+                            </xsl:for-each>
+                        </td>
+                    </xsl:for-each>
+                </tr>
                 <tr>
                     <th><span>cost of sales</span>
                         <div class="inCellSubTitle" style="margin-top:5px">Exceptional Items (UK GAAP Only)</div>
@@ -103,33 +127,7 @@
                     </xsl:for-each>
                 </tr>
 
-                <tr>
-                    <th><span>turnover/sales</span>
-                        <div class="inCellSubTitle" style="margin-top:5px">home nation</div>
-                        <div class="inCellSubTitle">europe</div>
-                        <div class="inCellSubTitle">rest of the world</div>
-                        <div class="inCellSubTitle">export</div>
-                    </th>
-                    <xsl:for-each select="Financials/Accounts/ProfitLoss">
-                        <td style="vertical-align:top;" class="num">
-                            <xsl:for-each select="TurnoverSalesDetails">
-                                <span><xsl:value-of select="TurnoverSales"/></span>
-                                <div class="inCellSubValue"  style="margin-top:5px">&#xA0;
-                                    <xsl:value-of select="HomeNation"/>
-                                </div>
-                                <div class="inCellSubValue">&#xA0;
-                                    <xsl:value-of select="Europe"/>
-                                </div>
-                                <div class="inCellSubValue">&#xA0;
-                                    <xsl:value-of select="RestOfTheWorld"/>
-                                </div>
-                                <div class="inCellSubValue">&#xA0;
-                                    <xsl:value-of select="Export"/>
-                                </div>
-                            </xsl:for-each>
-                        </td>
-                    </xsl:for-each>
-                </tr>
+               
                 
                <!-- <tr>
                     <th><span>exceptionnal items pre OP</span></th>

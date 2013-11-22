@@ -136,43 +136,34 @@
                     <xsl:value-of select="Identification/RegisteredOffice/LocationLine5"/>&#xA0;
                     <xsl:value-of select="Identification/RegisteredOffice/Postcode"/>
             </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">company type</div>
+            <div class="dataLabel" style="clear:both">company type</div>
             <div class="dataValue">
             <xsl:value-of select="LtdCompanyCAISDetails/CompanyType"/></div>
-            <br style="clear:both"/>
-            <div class="dataLabel">account type</div>
+            <div class="dataLabel" style="clear:both">account type</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/AccountType"/>
             </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">balance</div>
+            <div class="dataLabel" style="clear:both">balance</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/CurrentBalance"/></div>
-            <br style="clear:both"/>
-            <div class="dataLabel">status</div>
+            <div class="dataLabel" style="clear:both">status</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/AccountStatus12"/></div>
-            <br style="clear:both"/>
-            <div class="dataLabel">total status 1 - 2</div>
+            <div class="dataLabel" style="clear:both">total status 1 - 2</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/Status1To2"/></div>
-            <br style="clear:both"/>
-            <div class="dataLabel">total status 3+</div>
+            <div class="dataLabel" style="clear:both">total status 3+</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/Status3To9"/></div>
-            <br style="clear:both"/>
-            <div class="dataLabel">CAIS file last update</div>
+            <div class="dataLabel" style="clear:both">CAIS file last update</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/CaisLastUpdate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LtdCompanyCAISDetails/CaisLastUpdate/MM"/></span>&#xA0;<xsl:value-of select="LtdCompanyCAISDetails/CaisLastUpdate/YYYY"/>
                 </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">default date</div>
+            <div class="dataLabel" style="clear:both">default date</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/DefaultDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LtdCompanyCAISDetails/DefaultDate/MM"/></span>&#xA0;<xsl:value-of select="LtdCompanyCAISDetails/DefaultDate/YYYY"/>
             </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">Default balance</div>
+            <div class="dataLabel" style="clear:both">Default balance</div>
             <div class="dataValue">
                 <xsl:value-of select="LtdCompanyCAISDetails/DefaultBalance"/>
             </div>

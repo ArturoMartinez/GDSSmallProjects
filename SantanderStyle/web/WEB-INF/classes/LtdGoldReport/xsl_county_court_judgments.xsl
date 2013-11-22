@@ -11,27 +11,20 @@
                     <xsl:value-of select="JudgmentAgainst"/>&#xA0;&#xA0;
                     <xsl:value-of select="TradingLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine3"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine4"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine5"/>,&#xA0;<xsl:value-of select="TradingLocation/Postcode"/>
                 </div>
-                <br style="clear:both"/>
-                
-                <div class="dataLabel">amount</div>
+                <div class="dataLabel" style="clear:both">amount</div>
                 <div class="dataValue num devise">
                     <xsl:value-of select="JudgmentAmount"/>
                 </div>
-                <br style="clear:both"/>
-                
-                <div class="dataLabel">judgement date</div>
+                <div class="dataLabel" style="clear:both">judgement date</div>
                 <div class="dataValue">
                     <span class="toMonthName"><xsl:value-of select="JudgmentDate/MM"/></span>&#xA0;<xsl:value-of select="JudgmentDate/CCYY"/>
 
                 </div>
-                <br style="clear:both"/>
-                
-                <div class="dataLabel">case number</div>
+                <div class="dataLabel" style="clear:both">case number</div>
                 <div class="dataValue">
                     <xsl:value-of select="CaseNumber"/>
                 </div>
-                <br style="clear:both"/>
-                <div class="dataLabel">court</div>
+                <div class="dataLabel" style="clear:both">court</div>
                 <div class="dataValue">
                     <xsl:value-of select="CourtName"/>
                 </div>

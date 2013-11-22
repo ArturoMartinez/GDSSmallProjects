@@ -1,3 +1,5 @@
+_imagesPath='./rsc/images/';
+
 function intToMonthName(pMonthNum){
    arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
    return arrayMonthName[pMonthNum];
@@ -5,7 +7,7 @@ function intToMonthName(pMonthNum){
 
 if (jQuery){
    $(document).ready(function () {
-
+      document.getElementById("currentXSLSourceVersion").innerHTML="v 1.8.3";
       document.devise = "&pound;";
       document.debugmode = false;
 
@@ -28,8 +30,10 @@ if (jQuery){
       $("span.num").digits();
       $("td.num span").digits();
       $("td.num div").digits();
-      //$("td.num").digits();
+      $("td.num").digits();
 
+
+    $(".ratingStarDiv").css("backgroundImage","url("+_imagesPath+"ratingStars-mid.png)");
 
       $("div.devise").deviseSign();
       $("span.devise").deviseSign();
@@ -52,8 +56,13 @@ if (jQuery){
 
       $(".stringDateToReadable").dateStringToReadableDate();
       var sectionsOptionsArray = $(".section");
+      var sectionsOptionsArrayStringKeys = new Array();
       for (s = 0; s < sectionsOptionsArray.length; s++) {
-         var id = sectionsOptionsArray[s].id;
+        sectionsOptionsArrayStringKeys.push(sectionsOptionsArray[s].id);
+      }
+      sectionsOptionsArrayStringKeys.sort();
+      for (s = 0; s < sectionsOptionsArrayStringKeys.length; s++) {
+         var id = sectionsOptionsArrayStringKeys[s];
          var text = id.replace(/_/g, " ");
 
          var newOption=document.createElement('OPTION');
@@ -70,7 +79,7 @@ if (jQuery){
          var collapseImg = document.createElement('img');
          collapseImg.collapsedStatus = false;
 
-         collapseImg.src = "./rsc/images/collapse.png";
+         collapseImg.src = _imagesPath+"collapse.png";
          collapseImg.style.margin="1px 15px 0px 0px";
          collapseImg.style.float="right";
          collapseImg.style.cssFloat="right";
@@ -79,12 +88,12 @@ if (jQuery){
          collapseImg.onclick = function () {
             if (! this.collapsedStatus) {
                this.originalDivParentHeight = this.parentNode.parentNode.clientHeight;
-               this.src = "./rsc/images/expand.png";
+               this.src = _imagesPath+"expand.png";
                this.parentNode.parentNode.style.height = "20px";
                this.parentNode.parentNode.style.overflow = "hidden";
                this.collapsedStatus = true;
             } else {
-               this.src = "./rsc/images/collapse.png";
+               this.src = _imagesPath+"collapse.png"
                this.parentNode.parentNode.style.height = this.originalDivParentHeight-10 + "px";
                this.collapsedStatus = false;
             }
@@ -94,7 +103,6 @@ if (jQuery){
       }
 
    });
-
 
    $.fn.hideEmptyTable=function(){
       return this.each(function () {

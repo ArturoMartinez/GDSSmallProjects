@@ -21,37 +21,63 @@
       <% List<BureauData> listData = (List<BureauData>)request.getAttribute("data"); %>
       
       <script src="./rsc/js/jquery-1.10.2.min.js"></script>
-      <script src="./rsc/js/jquery-ui-1.10.3.custom.min.js"></script>      
-      <script type="text/javascript">
-         if (jQuery){
+      <script src="./rsc/js/jquery-ui-1.10.3.custom.min.js"></script>
+      <script>
+         if ($){
             
             function iframeLoaded(fr, num)
             {
                if(fr.contentWindow && fr.contentWindow.document && fr.contentWindow.document.title && fr.contentWindow.document.title !== "")
                   $('#tab' + num).text(fr.contentWindow.document.title);
-            }
-          
-            function adjustHeight(){
-               var whole = $(document).find('.whole');
-               if (whole){
-                  whole.height(0).height(Number($(document).height()));
+            }    
+            
+            function adjustHeight(isIE, init){
+               
+               var adjust = false;
+               var currWidth = $(window).width();
+               var currHeight = $(window).height();
+               
+               adjust = ((!isIE)||((isIE)&&((document.previousWidth !== currWidth) || (document.previousHeight !== currHeight))));
+               
+               if (adjust || init){
+                  var whole = $(document).find('.whole');
+                  if (whole){
+                     whole.height(0).height(currHeight);
+
+                     var tabNav = whole.find('.tabnav');
+                     var content = whole.find('#content');               
+                     if (tabNav && content){
+                        content.height(0).height(Number(whole.height()-tabNav.outerHeight(true)));
+                        content.find('.contentpage').each(function(){
+                           var iframe = $(this).find('iframe');
+                           var regDate = $(this).find('.datelabel:eq(0)');
+                           iframe.height(0).height(Number(content.height()-regDate.outerHeight(true)-4));
+                        });
+                     }//fi:tabNav&&content
+                  }//fi:whole
                   
-                  var tabNav = whole.find('.tabnav');
-                  var content = whole.find('#content');               
-                  if (tabNav && content){
-                     content.height(0).height(Number(whole.height()-tabNav.outerHeight(true)));
-                     content.find('.contentpage').each(function(){
-                        var iframe = $(this).find('iframe');
-                        var regDate = $(this).find('.datelabel:eq(0)');
-                        iframe.height(0).height(Number(content.height()-regDate.outerHeight(true)-4));
-                     });
-                  }//fi:tabNav&&content
-               }//fi:whole
+                  if (isIE || init){
+                     document.previousWidth = currWidth;
+                     document.previousHeight = currHeight;
+                  }//fi:isIE
+                  
+               }//fi:adjust
             }
             
             $(document).ready(function () {
             
-               adjustHeight();
+               var motor = navigator.userAgent.toString();
+               if (motor.match(/(.+)MSIE 8\.0(.+)/)){
+                  document.previousWidth = 0;
+                  document.previousHeight = 0;
+                  document.body.onresize = function(){
+                     adjustHeight(true, false);
+                  };
+               }else{
+                  $(window).resize(function(){
+                     adjustHeight(false, false);
+                  });
+               }//else
             
                $('ul.tabnav').each(function(){
                   var $active, $content, $links = $(this).find('a');
@@ -88,10 +114,13 @@
                      // Prevent the anchor's default click action
                      e.preventDefault();
                   });
+                  
+                  adjustHeight(false, true);
                });
             });
          }
       </script>
+      
    </head>
     <body>
         <div class='whole'>

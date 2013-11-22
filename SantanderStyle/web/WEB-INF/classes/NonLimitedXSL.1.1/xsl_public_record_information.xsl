@@ -84,43 +84,90 @@
 
             <h3>bankruptcies</h3>
 
+             <div class="dataLabel" style="clear:both;width:300px">Bankruptcies Data in ownership period</div>
+                <div class="dataValue">
+                    <xsl:value-of select="Bankruptcies/MDataOutOwnshpRange"/>
+                </div>
+            <div class="dataLabel" style="clear:both;width:300px">Bankruptcies in the ownership period</div>
+                <div class="dataValue">
+                    <xsl:value-of select="Bankruptcies/MBankruptcyCount"/>
+                </div>
+            <div class="dataLabel" style="clear:both;width:300px">Most recent Bankruptcies (months)</div>
+                <div class="dataValue">
+                    <xsl:value-of select="Bankruptcies/MAgeMostRecentBankruptcy"/>
+                </div>
+            <div class="dataLabel" style="clear:both;width:300px">Bankruptcies NOC Flag</div>
+                <div class="dataValue">
+                    <xsl:if test="Bankruptcies/MNOCFlag = 'Y'">
+                        1 or more NOC
+                    </xsl:if><xsl:if test="Bankruptcies/MNOCFlag = 'N'">
+                        no NOC
+                    </xsl:if>
+                </div>
+<br style="clear:both"/><br style="clear:both"/>
+             <div class="dataLabel" style="clear:both;width:300px">Associated Bankruptcies Data in ownership period</div>
+                <div class="dataValue">
+                    <xsl:value-of select="Bankruptcies/ADataOutOwnshpRange"/>
+                </div>
+
+            <div class="dataLabel" style="clear:both;width:300px">Associated Bankruptcies in the ownership period</div>
+                <div class="dataValue">
+                    <xsl:value-of select="Bankruptcies/ABankruptcyCount"/>
+                </div>
+
+            <div class="dataLabel" style="clear:both;width:300px">Most recent associated Bankruptcies (months)</div>
+                <div class="dataValue">
+                    <xsl:value-of select="Bankruptcies/AAgeMostRecentBankruptcy"/>
+                </div>
+
+            <div class="dataLabel" style="clear:both;width:300px">Associated Bankruptcies NOC Flag</div>
+                <div class="dataValue">
+                    <xsl:if test="Bankruptcies/ANOCFlag = 'Y'">
+                        1 or more NOC
+                    </xsl:if><xsl:if test="Bankruptcies/ANOCFlag = 'N'">
+                        no NOC
+                    </xsl:if>
+                </div>
+            
+            <br style="clear:both"/>
+            <br style="clear:both"/>
             <xsl:choose>
                 <xsl:when test="count(Bankruptcies/BankruptcyDetail)>0">
-                    <xsl:for-each select="Bankruptcies">
+                    <xsl:for-each select="Bankruptcies/BankruptcyDetail">
                         <div class="dataLabel">Publication Date</div>
                         <div class="dataValue">
-                            <xsl:value-of select="Bankruptcies/BankruptcyDetail/GazetteDate/DD"
+                            <xsl:value-of select="GazetteDate/DD"
                             />&#xA0; <span class="toMonthName">
-                                <xsl:value-of select="Bankruptcies/BankruptcyDetail/GazetteDate/MM"
+                                <xsl:value-of select="GazetteDate/MM"
                                 /></span>&#xA0; <xsl:value-of
-                                select="Bankruptcies/BankruptcyDetail/GazetteDate/CCYY"/>
+                                select="GazetteDate/CCYY"/>
                         </div>
                         <br style="clear:both"/>
 
                         <div class="dataLabel">Name</div>
                         <div class="dataValue">
-                            <xsl:value-of select="Bankruptcies/BankruptcyDetail/Name"/>
+                            <xsl:value-of select="Name"/>
                         </div>
                         <br style="clear:both"/>
 
                         <div class="dataLabel">Adresse</div>
                         <div class="dataValue">
                             <xsl:value-of
-                                select="Bankruptcies/BankruptcyDetail/BankruptcyLocation/LocationLine1"/>
+                                select="BBankruptcyLocation/LocationLine1"/>
                             <xsl:value-of
-                                select="Bankruptcies/BankruptcyDetail/BankruptcyLocation/LocationLine2"/>
+                                select="BankruptcyLocation/LocationLine2"/>
                             <xsl:value-of
-                                select="Bankruptcies/BankruptcyDetail/BankruptcyLocation/LocationLine3"/>
+                                select="BankruptcyLocation/LocationLine3"/>
                             <xsl:value-of
-                                select="Bankruptcies/BankruptcyDetail/BankruptcyLocation/LocationLine4"/>
+                                select="BankruptcyLocation/LocationLine4"/>
                             <xsl:value-of
-                                select="Bankruptcies/BankruptcyDetail/BankruptcyLocation/Postcode"/>
+                                select="BankruptcyLocation/Postcode"/>
                         </div>
                         <br style="clear:both"/>
 
                         <div class="dataLabel">Details</div>
-                        <div class="dataValue">
-                            <xsl:value-of select="Bankruptcies/BankruptcyDetail/BankruptcyText"/>
+                        <div class="dataValue" style="width:600px">
+                            <xsl:value-of select="BankruptcyText"/>
                         </div>
                         <br style="clear:both"/>
                         <br style="clear:both"/>

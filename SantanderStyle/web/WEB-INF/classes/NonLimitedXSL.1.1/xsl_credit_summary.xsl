@@ -17,6 +17,10 @@
             <div class="dataLabel">opinion</div>
             <div class="dataValue">
                 <xsl:value-of select="CommercialDelphi/CreditText"/>
+                
+            <br style="clear:both"/>
+                <xsl:value-of select="CommercialDelphi/ConcludingText"/>
+                
             </div>
             <br style="clear:both"/>
             <h3>financial stability assessment</h3>

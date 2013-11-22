@@ -44,8 +44,8 @@
 						onchange="document.location.href='#'+this.options[this.selectedIndex].value"
 						style="text-transform:capitalize"> </select>
 				</div>
-					<div style="padding-top:5px;text-align:right">
-						v 1.8.21
+					<div style="padding-top:5px;text-align:right" id="currentXSLSourceVersion">
+						
 						</div>
 				</div>
 				
@@ -58,13 +58,11 @@
 					<div class="dataValue">
 						<xsl:value-of select="CommercialName"/>
 					</div>
-					<br style="clear:both"/>
-					<div class="dataLabel">registered number</div>
+					<div class="dataLabel" style="clear:both">registered number</div>
 					<div class="dataValue">
 						<xsl:value-of select="RegNumber"/>
 					</div>
-					<br style="clear:both"/>
-					<div class="dataLabel">registered office</div>
+					<div class="dataLabel" style="clear:both">registered office</div>
 					<div class="dataValue">
 						<xsl:if test="Identification/RegisteredOffice/LocationLine1!=''"><xsl:value-of select="Identification/RegisteredOffice/LocationLine1"/>&#xA0;</xsl:if>
 						<xsl:if test="Identification/RegisteredOffice/LocationLine2!=''"><xsl:value-of select="Identification/RegisteredOffice/LocationLine2"/>&#xA0;</xsl:if>
@@ -73,8 +71,7 @@
 						<xsl:if test="Identification/RegisteredOffice/LocationLine5!=''"><xsl:value-of select="Identification/RegisteredOffice/LocationLine5"/>&#xA0;</xsl:if>
 						<xsl:if test="Identification/RegisteredOffice/Postcode!=''"><xsl:value-of select="Identification/RegisteredOffice/Postcode"/></xsl:if>
 					</div>
-					<br style="clear:both"/>
-					<div class="dataLabel">date incorporated</div>
+					<div class="dataLabel" style="clear:both">date incorporated</div>
 					<div class="dataValue">
 						<xsl:value-of
 							select="Identification/IncorporationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/IncorporationDate/MM"/></span>&#xA0;<xsl:value-of
@@ -91,18 +88,14 @@
 							
 						</span>
 					</div>
-					<br style="clear:both"/>
-
-					<div class="dataLabel">credit limit</div>
+					<div class="dataLabel" style="clear:both">credit limit</div>
 					<div class="dataValue">
 						<span class="devise num">
 							<xsl:value-of select="CommercialDelphi/CreditLimit"/>
 							
 						</span>
 					</div>
-					<br style="clear:both"/>
-
-					<div class="dataLabel">credit opinion</div>
+					<div class="dataLabel" style="clear:both">credit opinion</div>
 
 									
 					<div class="dataValue">
@@ -111,8 +104,7 @@
 							
 						</span>
 					</div>
-					<br style="clear:both"/>
-					<div class="dataLabel">risk analysis</div>
+					<div class="dataLabel" style="clear:both">risk analysis</div>
 					<div class="dataValue">
 							<xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
 							<xsl:if test="CommercialDelphi/CreditTextLine1!=''"><xsl:value-of select="CommercialDelphi/CreditTextLine1"/><br style="clear:both"/></xsl:if>
@@ -132,8 +124,7 @@
 									<xsl:value-of select="CommercialDelphi/CommDelphiScore"/>
 									out of 100 </span>
 							</div>
-							<br style="clear:both"/>
-							<div class="dataLabel">commercial delphi band</div>
+							<div class="dataLabel" style="clear:both">commercial delphi band</div>
 							<div class="dataValue">
 								<span>
 									<xsl:value-of select="CommercialDelphi/CommDelphiBand"/><br/>
@@ -141,8 +132,7 @@
 									
 								</span>
 							</div>
-							<br style="clear:both"/>
-							<div class="dataLabel">failure odds</div>
+							<div class="dataLabel" style="clear:both">failure odds</div>
 							<div class="dataValue">
 								<span>
 									<xsl:value-of
@@ -165,7 +155,7 @@
 									select="CommercialDelphiHistory/CompanyHistory/CommDelphiScore"
 								/> out of 100 </div>
 							<div
-								style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL('./rsc/images/ratingStars-mid.png') 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
+								 class="ratingStarDiv" style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(./rsc/images/ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
 							/>
 
 									<xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
@@ -201,6 +191,10 @@
 				<xsl:call-template name="xsl_county_court_judgments"/>
 				<xsl:call-template name="xsl_previous_searches"/>
 				<xsl:call-template name="xsl_cifas"/>
+
+				<div class="section">
+					<div class="dataLabel" style="clear:both">Report update flag</div><xsl:value-of select="ReportUpdateFlag" />
+				</div>
 			</body>
 		</html>
 	</xsl:template>

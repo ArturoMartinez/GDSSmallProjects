@@ -36,6 +36,17 @@
         </xsl:choose>
     </xsl:template>
     
+    <xsl:template name="treePositionsList">
+        <xsl:param name="curValue"/>
+        <xsl:choose>
+            <xsl:when test="$curValue ='1'">Independent company</xsl:when>
+            <xsl:when test="$curValue ='2'">Subsidiary</xsl:when>
+            <xsl:when test="$curValue ='3'">Parent</xsl:when>
+            <xsl:when test="$curValue ='4'">Intermediate parent</xsl:when>
+            <xsl:when test="$curValue ='5'">Top of tree</xsl:when>
+        </xsl:choose>
+    </xsl:template>
+    
     <xsl:template name="xsl_corporate_structure">
         <div class="section" id="corporate_structure">
 
@@ -45,9 +56,7 @@
             <div class="dataValue">
                 <xsl:value-of select="CorporateStructure/CompanyOwnership/ParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/ParRegNumber"/>)
             </div>
-            <br style="clear:both"/>
-
-            <div class="dataLabel">ultimate parent company</div>
+            <div class="dataLabel" style="clear:both">ultimate parent company</div>
             <div class="dataValue">
                 <xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/UltParRegNumber"/>)
             </div>
@@ -94,9 +103,69 @@
             <br style="clear:both"/>
 
             <br/>
-            <div class="dataLabel">corporate tree report shareholders</div>
-            <div class="dataValue" id="notFound">??? Need to know where to get data and how to
-                layout it</div>
+            <div class="dataLabel">Tree position</div>
+            <div class="dataValue" >
+                <xsl:call-template name="treePositionsList">
+                    <xsl:with-param name="curValue" select="CorporateStructure/Subsidiaries/TreePosition">
+                     </xsl:with-param> 
+                </xsl:call-template>
+            </div>
+            
+            <br style="clear:both"/>
+            <br style="clear:both"/>
+            <div class="dataLabel" style="clear:both;width:450px">Total number of elements in tree (including ultimate parent)</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalElements"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px">Total number of subsidiaries in tree (for ultimate parent)</div>
+            <div class="dataValue" >
+                <xsl:value-of select="CorporateStructure/Subsidiaries/TotalSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px">Total number of immediate subsidiaries (for target company)</div>
+            <div class="dataValue" >
+                <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumImmediateSubs"/>
+            </div>
+            
+            <div class="dataLabel" style="clear:both;width:450px"> number of live immediate subsidiaries (for target company)</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumLiveImmediateSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px"> number of dormant immediate subsidiaries (for target company)</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumDormantImmediateSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px"> number of dissolved liquidated immediate subsidiaries (for target company)</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumDissolvedLiquidatedImmediateSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px"> number of nested subsidiaries (for target company)</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumNestedSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px"> number of subsidiaries for target company</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px"> number of UK only subsidiaries for target company</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumUKSubs"/>
+            </div>
+
+            <div class="dataLabel" style="clear:both;width:450px"> number of overseas only subsidiaries for target company</div>
+            <div class="dataValue" >
+                    <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumOverseasSubs"/>
+            </div>
+
+
+
+
             <br/>
 
         </div>

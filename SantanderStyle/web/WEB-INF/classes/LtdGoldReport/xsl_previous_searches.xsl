@@ -270,7 +270,143 @@
 </tr>
 
 </table>
+
 </div>
+
+<br style="clear:both"/>
+<div class="dataLabel" style="clear:both;width:550px">Number of found directors</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorsFound"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directors not found</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorsNotFound"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">NOC flag</div>
+<div class="dataValue">
+    <xsl:if test="DirectorExpandedSummary/NocFlag = 'Y'">
+        Notice of corrections exist
+    </xsl:if>
+    <xsl:if test="DirectorExpandedSummary/NocFlag = 'N'">
+        No notice of corrections
+    </xsl:if>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directors disqualified</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDisqualifications"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of convictions</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumConvictions"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of CIFAS records</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumCIFAS"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorships"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of current directorships</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumCurrrentDirships"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of current dissolved directorships</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumCurrentDissolvedDirships"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of previous directorships</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumPreviousDirectorships"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of failed directorships</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectoirshipsFailed"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships not failed</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsNotFailed"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a compulsory liquidator appointed</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsCompulsoryLiquidator"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a liquidator appointed by creditors</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsCreditorLiquidator"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a liquidator appointed by members</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsMemberLiqidator"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a liquidator appointed by persons unknown</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsUnknownLiquidator"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a winding up order</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsWindUpOrder"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have an appointment of an administrator</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministraitorAppointed"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a discharge of an administrator</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministraitorDischarge"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have an appointment of an administrative receiver</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAppointmentAdministrativeReceiver"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a receiver appointed</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsReceiverAppointed"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have had a cessation of an administrative receiver</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministrativeReceiverCessation"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have had a cessation of a receiver</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsReceiverCessation"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have had an approval of voluntary arrangements</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsApprovalVoluntaryArrangements"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have had a completion of voluntary arrangements</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsCompletionVoluntaryArrangements"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have had a revocation of voluntary arrangements</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsRevocationVoluntaryArrangements"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have has a suspension of voluntary arrangements</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsSuspensionVoluntaryArrangements"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have been reinstated</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsReinstated"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have been dissolved</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsDissolved"/>
+</div>
+<div class="dataLabel" style="clear:both;width:550px">Director number for directors found</div>
+<div class="dataValue">
+    <xsl:value-of select="DirectorExpandedSummary/DirectorNumbers"/>
+</div>
+<br style="clear:both"/><br style="clear:both"/>
+<div class="dataLabel" style="clear:both;width:550px">Number of Notices of Correction</div>
+<div class="dataValue">
+    <xsl:value-of select="NoticeOfCorrection/NumCorrections"/>
+</div>
+
+
+
 
 <br/>
 </div>

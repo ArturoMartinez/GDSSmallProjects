@@ -25,18 +25,15 @@
                 <div class="dataValue">
                     <xsl:value-of select="LicenceNumber"/>
                 </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">dated</div>
+            <div class="dataLabel" style="clear:both">dated</div>
                 <div class="dataValue">
                     <xsl:value-of select="LicenceDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LicenceDate/MM"/></span>&#xA0;<xsl:value-of select="LicenceDate/CCYY"/>
                 </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">Licensee</div>
+            <div class="dataLabel" style="clear:both">Licensee</div>
                 <div class="dataValue">
                     <xsl:value-of select="LicenseeDetail"/>
                 </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">licensee address</div>
+            <div class="dataLabel" style="clear:both">licensee address</div>
                 <div class="dataValue">
                     <xsl:value-of select="LicenseeLocation/LocationLine1"/>&#xA0;
                     
@@ -46,8 +43,7 @@
                     
                     <xsl:value-of select="LicenseeLocation/Postcode"/>
                 </div>
-            <br style="clear:both"/>
-            <div class="dataLabel">categories</div>
+            <div class="dataLabel" style="clear:both">categories</div>
                 <div class="dataValue">
                     <xsl:call-template name="CCLCategoriesList"></xsl:call-template>
                 </div>

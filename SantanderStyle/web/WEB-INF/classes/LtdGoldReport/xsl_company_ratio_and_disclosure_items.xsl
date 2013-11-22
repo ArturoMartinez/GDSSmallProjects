@@ -10,15 +10,13 @@
             <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestAccounts/MM"/></span>&#160;
             <xsl:value-of select="Identification/FilingDetails/LatestAccounts/CCYY"/>
 
-        </div><br style="clear:both"/>
-        <div class="dataLabel">date latest returns</div>	<div class="dataValue">
+        </div><div class="dataLabel" style="clear:both">date latest returns</div>	<div class="dataValue">
 
         <xsl:value-of select="Identification/FilingDetails/LatestReturns/DD"/>&#160;
         <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/LatestReturns/MM"/></span>&#160;
         <xsl:value-of select="Identification/FilingDetails/LatestReturns/CCYY"/>
     </div>
-    <br style="clear:both"/>
-    <div class="dataLabel">account ref. date</div>		<div class="dataValue">
+    <div class="dataLabel" style="clear:both">account ref. date</div>		<div class="dataValue">
 
     <xsl:value-of select="Identification/FilingDetails/AccountsRefDate/DD"/>&#160;
     <span class="toMonthName"><xsl:value-of select="Identification/FilingDetails/AccountsRefDate/MM"/></span>

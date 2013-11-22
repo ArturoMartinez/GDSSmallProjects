@@ -13,7 +13,7 @@
 
     <xsl:template name="xsl_mortages_charges_satisfactions">
         <div class="section" id="mortages_charges_and_satisfactions">
-            <h2>mortages, charges and satisfactions</h2>
+            <h2>mortgages, charges and satisfactions</h2>
             
             <xsl:for-each select="Mortgages/MortgageDetail">
                 
@@ -21,21 +21,15 @@
                 <div class="dataValue">
                     <xsl:value-of select="NumberPartialSatisfactionDataItems"/>
                 </div>
-                <br style="clear:both"/>
-                
-                 <div class="dataLabel">Partial Satisfaction Details</div>
+                <div class="dataLabel" style="clear:both">Partial Satisfaction Details</div>
                 <div class="dataValue">
                     <xsl:call-template name="partialSatisfactionDetails"></xsl:call-template>
                 </div>
-                <br style="clear:both"/>
-
-            <div class="dataLabel">date charge registred</div>
+                <div class="dataLabel" style="clear:both">date charge registred</div>
                 <div class="dataValue">
                     <xsl:value-of select="RegistrationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="RegistrationDate/MM"/></span>&#xA0;<xsl:value-of select="RegistrationDate/CCYY"/>
                 </div>
-                <br style="clear:both"/>
-                
-                <div class="dataLabel">charge type</div>
+                <div class="dataLabel" style="clear:both">charge type</div>
                 <div class="dataValue">
                     <xsl:value-of select="ChargeType"/>
                 </div>
@@ -47,31 +41,20 @@
                      <xsl:call-template name="mortgageFormTypes"><xsl:with-param name="curValue" select="FormType"/></xsl:call-template>
                    
                 </div>
-                <br style="clear:both"/>
-                
-                <div class="dataLabel">date charge created</div>
+                <div class="dataLabel" style="clear:both">date charge created</div>
                 <div class="dataValue">
                     <xsl:value-of select="CreationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="CreationDate/MM"/></span>&#xA0;<xsl:value-of select="CreationDate/CCYY"/>
                 </div>
-                <br style="clear:both"/>
-
-
-            <div class="dataLabel">lender</div>
+                <div class="dataLabel" style="clear:both">lender</div>
                 <div class="dataValue"> 
                     <xsl:value-of select="LenderDetails/LenderName"/>
                 </div>
                 
-                <br style="clear:both"/>
-
-
-                <div class="dataLabel">date fully satisfied</div>
+                <div class="dataLabel" style="clear:both">date fully satisfied</div>
                 <div class="dataValue">
                     <xsl:value-of select="DateFullySatisfied/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateFullySatisfied/MM"/></span>&#xA0;<xsl:value-of select="DateFullySatisfied/CCYY"/>
                 </div>
-                <br style="clear:both"/>
-                
-
-                <div class="dataLabel">satisfactions</div>
+                <div class="dataLabel" style="clear:both">satisfactions</div>
                 <div class="dataValue">
                     <xsl:value-of select="NumberPartialSatisfactionDates"/>&#xA0;
                 </div>
@@ -82,8 +65,7 @@
                     <xsl:value-of select="AmountSecured"/>
                 </div>
                 
-                <br style="clear:both"/>
-            <div class="dataLabel">details</div>
+                <div class="dataLabel" style="clear:both">details</div>
                 <div class="dataValue" style="width:600px;font-size:10px"> 
                     <xsl:value-of select="PropertyDetails"/>
                 </div>

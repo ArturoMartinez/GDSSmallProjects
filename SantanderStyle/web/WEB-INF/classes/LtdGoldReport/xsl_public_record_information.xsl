@@ -6,7 +6,7 @@
         <div class="section" id="public_record_information">
             <h2>public record information</h2>
             
-            <div class="dataLabel">mortage/charges</div>
+            <div class="dataLabel">mortgage/charges</div>
             <div class="dataValue">
                 <xsl:value-of select="Mortgages/NumMortgages"/> (of which <xsl:value-of select="Mortgages/NumSatMortgages"/> are fully satisfied)
             </div>
@@ -49,6 +49,14 @@
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Age of most recent : </div><div style="float:left">
                         <xsl:value-of select="CCJs/AgeMostRecentCCJ"/> Month<xsl:if test="CCJs/AgeMostRecentCCJ>1">s</xsl:if>
+                    </div>
+                    <br style="clear:both"/>
+                    <div style="float:left;width:100px">Last 12 months Number : </div><div style="float:left">
+                        <xsl:value-of select="CCJs/NumberCCJsLast12Months"/>
+                    </div>
+                    <br style="clear:both"/>
+                    <div style="float:left;width:100px">Last 12 months Value : </div><div style="float:left">
+                         <span class="num devise"><xsl:value-of select="CCJs/ValueCCJsLast12Months"/></span>
                     </div>
                 </div>
             </div>
