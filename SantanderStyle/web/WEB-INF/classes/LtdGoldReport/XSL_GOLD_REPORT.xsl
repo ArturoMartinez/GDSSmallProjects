@@ -33,8 +33,8 @@
 			<head>
 				<title><xsl:value-of select="CommercialName"/></title>
 				<link rel="stylesheet" href="./rsc/css/styles_production.css"/>
-            <script src="./rsc/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-				<script src="./rsc/js/mainJS.js" type="text/javascript"></script>
+            <script src="./rsc/js/jquery-1.10.2.min.js"></script>
+				<script src="./rsc/js/mainJS.js"></script>
 			</head>
 			<body>
 				<div id="sectionNavigator" style="">
@@ -155,7 +155,7 @@
 									select="CommercialDelphiHistory/CompanyHistory/CommDelphiScore"
 								/> out of 100 </div>
 							<div
-								 class="ratingStarDiv" style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(./rsc/images/ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
+								 class="ratingStarDiv" style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL('./rsc/images/ratingStars-mid.png') 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
 							/>
 
 									<xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
@@ -196,8 +196,6 @@
 					<div class="dataLabel" style="clear:both">Report update flag</div><xsl:value-of select="ReportUpdateFlag" />
 				</div>-->
 
-				<script src="../jquery-1.4.2.min.js" type="text/javascript"><xsl:comment/></script>
-				<script src="../mainJS.js" type="text/javascript"><xsl:comment/></script>
 			</body>
 		</html>
 	</xsl:template>
