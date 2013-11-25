@@ -102,7 +102,7 @@
             </div>
             <br style="clear:both"/>
 
-            <br/>
+            <!--br/>
             <div class="dataLabel">Tree position</div>
             <div class="dataValue" >
                 <xsl:call-template name="treePositionsList">
@@ -112,7 +112,7 @@
             </div>
             
             <br style="clear:both"/>
-            <!--<br style="clear:both"/>
+            <br style="clear:both"/>
             <div class="dataLabel" style="clear:both;width:450px">Total number of elements in tree (including ultimate parent)</div>
             <div class="dataValue" >
                     <xsl:value-of select="CorporateStructure/Subsidiaries/TotalElements"/>

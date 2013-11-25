@@ -72,7 +72,7 @@
                 
             </xsl:for-each>
 
-                <div class="dataLabel" style="clear:both">Number of disqualified current directors</div>
+                <!--div class="dataLabel" style="clear:both">Number of disqualified current directors</div>
                 <div class="dataValue">
                     <xsl:value-of select="ScoringData/NumDisqCurrDirs"/>
                 </div>
@@ -82,14 +82,12 @@
                     <xsl:value-of select="ScoringData/PercentageDirsResidentUK"/>
                 </div>
 
-                 <!--<div class="dataLabel" style="clear:both">Directors CIFAS flag</div>
+                <div class="dataLabel" style="clear:both">Directors CIFAS flag</div>
                 <div class="dataValue">
                   <xsl:variable name="curCifasFlag" select="ScoringData/DirectorsCIFASFlag"/>
                   <xsl:if test="$curCifasFlag = Y">Information detected</xsl:if>
                   <xsl:if test="$curCifasFlag = N">No information detected</xsl:if>
                   <xsl:if test="not(string($curCifasFlag))">No entitlement to CIFAS</xsl:if>
-
-
                 </div>-->
             
                 <br style="clear:both"/>
