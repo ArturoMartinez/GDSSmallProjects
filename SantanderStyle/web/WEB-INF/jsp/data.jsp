@@ -29,7 +29,7 @@
             {
                if(fr.contentWindow && fr.contentWindow.document && fr.contentWindow.document.title && fr.contentWindow.document.title !== "")
                   $('#tab' + num).text(fr.contentWindow.document.title);
-            }    
+            }
             
             function adjustHeight(isIE, init){
                
@@ -78,7 +78,7 @@
                      adjustHeight(false, false);
                   });
                }//else
-            
+      
                $('ul.tabnav').each(function(){
                   var $active, $content, $links = $(this).find('a');
 
@@ -116,8 +116,10 @@
                   });
                   
                   adjustHeight(false, true);
+                  
                });
             });
+            
          }
       </script>
       

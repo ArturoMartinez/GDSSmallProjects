@@ -1,4 +1,4 @@
-document._version='1.8.3';
+document._version='1.8.29';
 document._ressourcesPath='./rsc/images/';
 
 function intToMonthName(pMonthNum){
@@ -6,9 +6,9 @@ function intToMonthName(pMonthNum){
    return arrayMonthName[pMonthNum];
 }
 
-if (jQuery){
+if ($){
    $(document).ready(function () {
-        document.getElementById("currentXSLSourceVersion").innerHTML="v"+document._version;
+      document.getElementById("currentXSLSourceVersion").innerHTML="v"+document._version;
       document.devise = "&pound;";
       document.debugmode = false;
 
