@@ -155,7 +155,7 @@
 </div>
 <div class="dataLabel" style="clear:both;width:550px">Number of failed directorships</div>
 <div class="dataValue">
-    <xsl:value-of select="DirectorExpandedSummary/NumDirectoirshipsFailed"/>
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsFailed"/>
 </div>
 <div class="dataLabel" style="clear:both;width:550px">Number of directorships not failed</div>
 <div class="dataValue">
@@ -183,11 +183,11 @@
 </div>
 <div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have an appointment of an administrator</div>
 <div class="dataValue">
-    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministraitorAppointed"/>
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministratorAppointed"/>
 </div>
 <div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have a discharge of an administrator</div>
 <div class="dataValue">
-    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministraitorDischarge"/>
+    <xsl:value-of select="DirectorExpandedSummary/NumDirectorshipsAdministratorDischarge"/>
 </div>
 <div class="dataLabel" style="clear:both;width:550px">Number of directorships for companies that have an appointment of an administrative receiver</div>
 <div class="dataValue">

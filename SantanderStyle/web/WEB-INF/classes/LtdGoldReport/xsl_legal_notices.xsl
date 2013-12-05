@@ -91,12 +91,10 @@
                 <br style="clear:both"/>
                 <xsl:value-of select="FirmName"/>
                 <br style="clear:both"/>
-                <xsl:value-of select="AdministratorLocation/LocationLine1"/>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine2"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine3"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine4"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine5"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/Postcode"/></xsl:call-template>
+
+                 <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/*"/></xsl:call-template>
+
+            
 
                 <br style="clear:both"/>
             </xsl:for-each>
@@ -120,12 +118,8 @@
                 <br style="clear:both"/>
                 <xsl:value-of select="FirmName"/>
                 <br style="clear:both"/>
-                <xsl:value-of select="AdministratorLocation/LocationLine1"/>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine2"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine3"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine4"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine5"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/Postcode"/></xsl:call-template>
+
+               <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/*"/></xsl:call-template>
 
 
                 <br style="clear:both"/>
@@ -161,12 +155,9 @@
                     <xsl:for-each select="Petitioners">
                         <div style="border-bottom:1px dotted #DDD;font-size:10px">
                             <xsl:value-of select="Name"/><br/>
-                            <xsl:value-of select="PetitionerLocation/LocationLine1"/>&#xA0;
-                            <xsl:value-of select="PetitionerLocation/LocationLine2"/>&#xA0;
-                            <xsl:value-of select="PetitionerLocation/LocationLine3"/>&#xA0;
-                            <xsl:value-of select="PetitionerLocation/LocationLine4"/>&#xA0;
-                            <xsl:value-of select="PetitionerLocation/LocationLine5"/>&#xA0;
-                            <xsl:value-of select="PetitionerLocation/Postcode"/>
+
+                        <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="PetitionerLocation/*"/></xsl:call-template>
+
                         </div>
                         
                     </xsl:for-each>
@@ -176,12 +167,9 @@
                     <xsl:for-each select="Solicitors">
                         <div style="border-bottom:1px dotted #DDD;font-size:10px">
                         <xsl:value-of select="FirmName"/>&#xA0;<xsl:value-of select="Name"/><br/>
-                            <xsl:value-of select="SolicitorLocation/LocationLine1"/>&#xA0;
-                            <xsl:value-of select="SolicitorLocation/LocationLine2"/>&#xA0;
-                            <xsl:value-of select="SolicitorLocation/LocationLine3"/>&#xA0;
-                            <xsl:value-of select="SolicitorLocation/LocationLine4"/>&#xA0;
-                            <xsl:value-of select="SolicitorLocation/LocationLine5"/>&#xA0;
-                            <xsl:value-of select="SolicitorLocation/Postcode"/>
+
+                        <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SolicitorLocation/*"/></xsl:call-template>
+
                         </div>
                         
                     </xsl:for-each>

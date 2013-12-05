@@ -3,10 +3,14 @@
 
      <xsl:template name="commaSeparatedValue">
         <xsl:param name="curValue"/>
+
+		<xsl:for-each select="$curValue">
         <xsl:choose>
-            <xsl:when test="$curValue!=''">,&#xA0;<xsl:value-of select="$curValue"/></xsl:when>
-            <xsl:otherwise></xsl:otherwise>
+				<xsl:when test="position() &gt; 1">,&#xA0;<xsl:value-of select="."/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
         </xsl:choose>
+		</xsl:for-each>
+
     </xsl:template>
 
     

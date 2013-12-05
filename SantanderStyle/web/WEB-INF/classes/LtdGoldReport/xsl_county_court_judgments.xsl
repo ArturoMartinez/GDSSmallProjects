@@ -14,12 +14,10 @@
                 <div class="dataLabel">registered against</div>
                 <div class="dataValue" style="overflow:auto">
                     <xsl:value-of select="JudgmentAgainst"/>&#xA0;&#xA0;
-                    <xsl:value-of select="TradingLocation/LocationLine1"/>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine2"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine3"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine4"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine5"/></xsl:call-template>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/Postcode"/></xsl:call-template>
+
+                     <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/*"/></xsl:call-template>
+
+                    
 
                 </div>
                 <div class="dataLabel" style="clear:both">amount</div>
