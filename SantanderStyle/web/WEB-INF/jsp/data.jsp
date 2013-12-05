@@ -14,15 +14,16 @@
       <meta http-equiv="X-UA-Compatible" content="IE=8" />
       <meta name="author" content="GDS Modellica" />
       <meta name="robots" content="noindex, nofollow" />
-      <title>SantanderStyle</title>
-      <link href='./rsc/css/ui-lightness/jquery-ui-1.10.3.custom.min.css' rel='stylesheet' />
-      <link href='./rsc/css/styles_jsp.css' rel='stylesheet' />
+      <title>Dataviewer</title>
+      <link href='./rsc/css/ui-lightness/jquery-ui-1.10.3.custom.min.css' type="text/css" rel='stylesheet' />
+      <link href='./rsc/css/styles_jsp.css' type="text/css" rel='stylesheet' />
       
       <% List<BureauData> listData = (List<BureauData>)request.getAttribute("data"); %>
       
       <script src="./rsc/js/jquery-1.10.2.min.js"></script>
       <script src="./rsc/js/jquery-ui-1.10.3.custom.min.js"></script>
-      <script>
+      <script src="./rsc/js/resizeme.js"></script>
+      <script type="text/javascript">
          if ($){
             
             function iframeLoaded(fr, num)
@@ -31,54 +32,8 @@
                   $('#tab' + num).text(fr.contentWindow.document.title);
             }
             
-            function adjustHeight(isIE, init){
-               
-               var adjust = false;
-               var currWidth = $(window).width();
-               var currHeight = $(window).height();
-               
-               adjust = ((!isIE)||((isIE)&&((document.previousWidth !== currWidth) || (document.previousHeight !== currHeight))));
-               
-               if (adjust || init){
-                  var whole = $(document).find('.whole');
-                  if (whole){
-                     whole.height(0).height(currHeight);
-
-                     var tabNav = whole.find('.tabnav');
-                     var content = whole.find('#content');               
-                     if (tabNav && content){
-                        content.height(0).height(Number(whole.height()-tabNav.outerHeight(true)));
-                        content.find('.contentpage').each(function(){
-                           var iframe = $(this).find('iframe');
-                           var regDate = $(this).find('.datelabel:eq(0)');
-                           iframe.height(0).height(Number(content.height()-regDate.outerHeight(true)-4));
-                        });
-                     }//fi:tabNav&&content
-                  }//fi:whole
-                  
-                  if (isIE || init){
-                     document.previousWidth = currWidth;
-                     document.previousHeight = currHeight;
-                  }//fi:isIE
-                  
-               }//fi:adjust
-            }
-            
             $(document).ready(function () {
-            
-               var motor = navigator.userAgent.toString();
-               if (motor.match(/(.+)MSIE 8\.0(.+)/)){
-                  document.previousWidth = 0;
-                  document.previousHeight = 0;
-                  document.body.onresize = function(){
-                     adjustHeight(true, false);
-                  };
-               }else{
-                  $(window).resize(function(){
-                     adjustHeight(false, false);
-                  });
-               }//else
-      
+                  
                $('ul.tabnav').each(function(){
                   var $active, $content, $links = $(this).find('a');
 
@@ -99,6 +54,10 @@
                   // Bind the click event handler
                   $(this).on('click', 'a', function(e){
 
+                     // Prevent the anchor's default click action
+                     e.preventDefault();
+                     e.stopPropagation();
+                     
                      // Make the old tab inactive.
                      $active.removeClass('active');
                      $content.hide();
@@ -110,14 +69,16 @@
                      // Make the tab active.
                      $active.addClass('active');
                      $content.show();
-
-                     // Prevent the anchor's default click action
-                     e.preventDefault();
+                     
+                     var wrapper = $($active.attr('href').toString().substr($active.attr('href').toString().lastIndexOf('#'), $active.attr('href').toString().length));
+                     var iframe = wrapper.find('iframe:eq(0)');
+                     var sibblings = [wrapper.find('.datelabel:eq(0)')];
+                     setMaxHeight(iframe, wrapper, sibblings);
                   });
-                  
-                  adjustHeight(false, true);
-                  
                });
+               
+               //Set document height
+               $(document).resizeme();
             });
             
          }
@@ -143,7 +104,7 @@
                     </form>
                     <div id="contentpage<%=i%>" class="contentpage">
                         <div class="datelabel">Report Date: <%=listData.get(i).getDate()%></div>
-                        <iframe onload="javascript:iframeLoaded(this, <%=i%>);" class="framedata" name="framedata<%=i%>">&nbsp;</iframe>
+                        <iframe onload="javascript:iframeLoaded(this, <%=i%>);" class="framedata" name="framedata<%=i%>"></iframe>
                     </div>
                 <% } %>
             </div>

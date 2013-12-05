@@ -49,8 +49,8 @@
                 </div>
             <br style="clear:both"/>
                 <xsl:variable name="tNameNum"><xsl:value-of select="count(TradingNames/TradingName)"/></xsl:variable>
-            <div class="dataLabel" style="height:{$tNameNum * 11}px">trading names</div>
-                <div class="dataValue">
+            <div class="dataLabel" >trading names</div>
+                <div class="dataValue listing">
                     <xsl:for-each select="TradingNames/TradingName">
                         <div style="float:left;width:300px;overflow:auto">
                             <xsl:value-of select="."/>

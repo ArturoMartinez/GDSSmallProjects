@@ -460,7 +460,7 @@
 
 
 
-                <!--<tr>
+                <tr>
                     <th>total current liabilities
                         <div class="inCellSubTitle" style="margin-top:5px">trade creditors</div>
                         <div >group liabilities</div>
@@ -527,7 +527,7 @@
                             
                         </td>
                     </xsl:for-each>
-                </tr>-->
+                </tr>
 
                 <tr>
                     <th>other current liabilities

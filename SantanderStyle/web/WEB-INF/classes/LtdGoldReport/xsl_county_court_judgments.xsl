@@ -6,10 +6,21 @@
            
             <xsl:for-each select="CCJs/CCJDetail">
                 
+                 <xsl:choose>
+           <xsl:when test="SatisfactionDate/MM !=''"><h3>satisfied judgment (<span class="toMonthName"><xsl:value-of select="SatisfactionDate/MM"/></span>&#xA0;<xsl:value-of select="SatisfactionDate/CCYY"/>)</h3></xsl:when>
+            <xsl:otherwise ><h3>judgment</h3></xsl:otherwise>
+            
+        </xsl:choose>
                 <div class="dataLabel">registered against</div>
-                <div class="dataValue">
+                <div class="dataValue" style="overflow:auto">
                     <xsl:value-of select="JudgmentAgainst"/>&#xA0;&#xA0;
-                    <xsl:value-of select="TradingLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine3"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine4"/>,&#xA0;<xsl:value-of select="TradingLocation/LocationLine5"/>,&#xA0;<xsl:value-of select="TradingLocation/Postcode"/>
+                    <xsl:value-of select="TradingLocation/LocationLine1"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine2"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine3"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine4"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/LocationLine5"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="TradingLocation/Postcode"/></xsl:call-template>
+
                 </div>
                 <div class="dataLabel" style="clear:both">amount</div>
                 <div class="dataValue num devise">
@@ -28,8 +39,6 @@
                 <div class="dataValue">
                     <xsl:value-of select="CourtName"/>
                 </div>
-                <br style="clear:both"/>
-                <div style="border-bottom:1px solid #EEE;width:100%;margin:5px 0px 10px 0px"></div>
                 
             </xsl:for-each>
            

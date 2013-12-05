@@ -18,6 +18,8 @@
 
 	<xsl:include href="xsl_county_court_judgments.xsl"/>
 	<xsl:include href="xsl_previous_searches.xsl"/>
+	<xsl:include href="xsl_commaSeparatedValue.xsl"/>
+	<xsl:include href="xsl_lineSeparatedValue.xsl"/>
 
 	<xsl:include href="xsl_list_payment_patterns.xsl"/>
 	<xsl:include href="xsl_list_payment_terms.xsl"/>
@@ -31,8 +33,12 @@
 	<xsl:template match="/RawBureauData/LtdCompanyData">
 		<html>
 			<head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=8" />
+            <meta name="author" content="GDS Modellica" />
+            <meta name="robots" content="noindex, nofollow" />
 				<title><xsl:value-of select="CommercialName"/></title>
-				<link rel="stylesheet" href="./rsc/css/styles_production.css"/>
+				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
             <script src="./rsc/js/jquery-1.10.2.min.js"></script>
 				<script src="./rsc/js/mainJS.js"></script>
 			</head>
@@ -192,9 +198,9 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				<xsl:call-template name="xsl_cifas"/>
 
-				<!--<div class="section">
+				<div class="section">
 					<div class="dataLabel" style="clear:both">Report update flag</div><xsl:value-of select="ReportUpdateFlag" />
-				</div>-->
+				</div>
 
 			</body>
 		</html>

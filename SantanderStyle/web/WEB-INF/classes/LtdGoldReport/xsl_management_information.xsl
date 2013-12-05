@@ -6,7 +6,7 @@
 
             <h2>management information</h2>
 
-<!--
+
             <div class="dataLabel" style="clear:both;width:400px">Number of convictions held by current board</div>
             <div class="dataValue">
                 <xsl:value-of select="NumConvictions"/>
@@ -20,7 +20,7 @@
             <div class="dataLabel" style="clear:both;width:400px">Number of Creditor Wind Downs of Directorships held by current board</div>
             <div class="dataValue">
                 <xsl:value-of select="DirectorhsipsCreditorWindDown"/>
-            </div>-->
+            </div>
             
                 <br style="clear:both"/>
 
@@ -35,13 +35,16 @@
                 &#xA0;<xsl:value-of select="DirectorDetails/Name/SurName"/>
                 </div>
                 <div class="dataLabel" style="clear:both">address</div>
-                <div class="dataValue" style="width:400px;font-size:10px">
-                    <xsl:value-of select="DirectorDetails/Location/HouseName"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/Street"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/PostTown"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/County"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/Postcode"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/RMC"/>
+                <div class="dataValue" style="width:auto;overflow:auto;font-size:10px">
+                    <xsl:value-of select="DirectorDetails/Location/HouseNumber"/>
+
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/HouseName"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/Street"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/PostTown"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/County"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/Postcode"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/RMC"/></xsl:call-template>
+
                 </div>
                 <div class="dataLabel" style="clear:both">date of birth</div>
                 <div class="dataValue">
@@ -72,7 +75,7 @@
                 
             </xsl:for-each>
 
-                <!--div class="dataLabel" style="clear:both">Number of disqualified current directors</div>
+                <div class="dataLabel" style="clear:both">Number of disqualified current directors</div>
                 <div class="dataValue">
                     <xsl:value-of select="ScoringData/NumDisqCurrDirs"/>
                 </div>
@@ -88,7 +91,9 @@
                   <xsl:if test="$curCifasFlag = Y">Information detected</xsl:if>
                   <xsl:if test="$curCifasFlag = N">No information detected</xsl:if>
                   <xsl:if test="not(string($curCifasFlag))">No entitlement to CIFAS</xsl:if>
-                </div>-->
+
+
+                </div>
             
                 <br style="clear:both"/>
 
@@ -103,14 +108,16 @@
                 &#xA0;<xsl:value-of select="DirectorDetails/Name/SurName"/>
                 
                 </div>
-                <div class="dataLabel" style="clear:both">adddress</div>
-                <div class="dataValue" style="width:400px;font-size:10px">
-                    <xsl:value-of select="DirectorDetails/Location/HouseName"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/Street"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/PostTown"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/County"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/Postcode"/>&#xA0; <xsl:value-of
-                        select="DirectorDetails/Location/RMC"/>
+                <div class="dataLabel" style="clear:both">address</div>
+                <div class="dataValue" style="width:auto;overflow:auto;font-size:10px">
+                    <xsl:value-of select="DirectorDetails/Location/HouseNumber"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/HouseName"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/Street"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/PostTown"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/County"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/Postcode"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="DirectorDetails/Location/RMC"/></xsl:call-template>
+
                 </div>
                 <div class="dataLabel" style="clear:both">date of birth</div>
                 <div class="dataValue">
@@ -121,6 +128,10 @@
                 <div class="dataLabel" style="clear:both">position</div>
                 <div class="dataValue">
                     <xsl:value-of select="DirectorDetails/Position"/>
+                </div>
+                <div class="dataLabel" style="clear:both">occupation</div>
+                <div class="dataValue">
+                    <xsl:value-of select="DirectorDetails/Occupation"/>
                 </div>
                 
                 <div class="dataLabel" style="clear:both"><xsl:if test="AppointmentIndicator='E'">date appointed</xsl:if><xsl:if test="AppointmentIndicator='P'">appointed prior to</xsl:if></div>
@@ -149,14 +160,15 @@
                 &#xA0;<xsl:value-of select="SecretaryDetails/Name/SurName"/>
                 </div>
                 <div class="dataLabel" style="clear:both">address</div>
-                <div class="dataValue" style="width:400px;font-size:10px">
-                     <xsl:value-of select="SecretaryDetails/Location/HouseNumber"/>&#xA0;
-                    <xsl:value-of select="SecretaryDetails/Location/HouseName"/>&#xA0; <xsl:value-of
-                        select="SecretaryDetails/Location/Street"/>&#xA0; <xsl:value-of
-                            select="SecretaryDetails/Location/PostTown"/>&#xA0; <xsl:value-of
-                                select="SecretaryDetails/Location/County"/>&#xA0; <xsl:value-of
-                                    select="SecretaryDetails/Location/Postcode"/>&#xA0; <xsl:value-of
-                                        select="SecretaryDetails/Location/RMC"/>
+                <div class="dataValue" style="width:auto;overflow:auto;font-size:10px">
+                     <xsl:value-of select="SecretaryDetails/Location/HouseNumber"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/HouseName"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/Street"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/PostTown"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/County"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/Postcode"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/RMC"/></xsl:call-template>
+
                 </div>
                 <div class="dataLabel" style="clear:both">date appointed</div>
                 <div class="dataValue">
@@ -176,14 +188,14 @@
                 &#xA0;<xsl:value-of select="SecretaryDetails/Name/SurName"/>
                 </div>
                 <div class="dataLabel" style="clear:both">address</div>
-                <div class="dataValue" style="width:400px;font-size:10px">
-                     <xsl:value-of select="SecretaryDetails/Location/HouseNumber"/>&#xA0;
-                    <xsl:value-of select="SecretaryDetails/Location/HouseName"/>&#xA0; <xsl:value-of
-                        select="SecretaryDetails/Location/Street"/>&#xA0; <xsl:value-of
-                            select="SecretaryDetails/Location/PostTown"/>&#xA0; <xsl:value-of
-                                select="SecretaryDetails/Location/County"/>&#xA0; <xsl:value-of
-                                    select="SecretaryDetails/Location/Postcode"/>&#xA0; <xsl:value-of
-                                        select="SecretaryDetails/Location/RMC"/>
+                <div class="dataValue" style="width:auto;overflow:auto;font-size:10px">
+                    <xsl:value-of select="SecretaryDetails/Location/HouseNumber"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/HouseName"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/Street"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/PostTown"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/County"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/Postcode"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="SecretaryDetails/Location/RMC"/></xsl:call-template>
                 </div>
                 <div class="dataLabel" style="clear:both">date appointed</div>
                 <div class="dataValue">

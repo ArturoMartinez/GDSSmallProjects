@@ -129,7 +129,7 @@
 
                
                 
-               <!-- <tr>
+                <tr>
                     <th><span>exceptionnal items pre OP</span></th>
                     <xsl:for-each select="Financials/Accounts/ProfitLoss"><td class="num"><span><xsl:value-of select="ExceptionalItemsPreOP"/></span></td></xsl:for-each>
                 </tr>
@@ -147,7 +147,7 @@
                 <tr>
                     <th><span>operating income</span></th>
                     <xsl:for-each select="Financials/Accounts/ProfitLoss"><td class="num"><span><xsl:value-of select="OperatingIncome"/></span></td></xsl:for-each>
-                </tr>-->
+                </tr>
                 
                 
                 <tr>

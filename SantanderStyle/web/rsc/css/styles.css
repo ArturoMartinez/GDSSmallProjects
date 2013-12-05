@@ -3,12 +3,19 @@
    body{
       font:normal normal normal 11px Arial;
    }
-   div .dataLabel, div .dataValue{
-      float:left;
+   div .dataValue{
+      border-bottom:1px dotted #EEE;
+      margin-bottom:1px
+   }
+   div .listing{
+      display: inline-block;
+   }
+   div .dataLabel{
       border-bottom:1px dotted #EEE;
       margin-bottom:1px
    }
 
+					
    div .dataLabel, div .matrixLabel{
       font-weight:bold;
       width:200px;
@@ -144,7 +151,7 @@
 
    div .matrix table th div.inCellSubTitle,
    div .matrix table td div.inCellSubValue{
-
+						clear:both;
       text-transform:capitalize;
       background:#dedede;
       margin:0px;
@@ -160,6 +167,7 @@
    div .matrix table td div.inCellSubValue{
       border-bottom:1px solid #ddd;
       background:#eee;
+					clear:both;
    }
    div .matrix.thcenter table th{
       text-align:center

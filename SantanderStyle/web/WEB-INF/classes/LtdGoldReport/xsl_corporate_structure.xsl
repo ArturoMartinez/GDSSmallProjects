@@ -66,13 +66,14 @@
 
             <div class="dataLabel">principal shareholders</div>
 
-            <div class="dataValue">
+            <div class="dataValue listing">
                 <xsl:for-each select="CorporateStructure/CompanyOwnership/CorporateShareholder">
                     Reg. Number : <xsl:value-of select="RegNumber"/>
                     <br/>
                     <xsl:value-of select="Name"/>
                     <br/>
-                    <xsl:value-of select="Country"/>
+                    <xsl:value-of select="Country"/><br/>
+                    <xsl:value-of select="Holding"/>
                     <br style="clear:both"/>
                     <br style="clear:both"/>
                 </xsl:for-each>
@@ -82,11 +83,11 @@
 
             <br/>
             <div class="dataLabel">UK direct subsidiaries</div>
-            <div class="dataValue">
+            <div class="dataValue listing">
                 <xsl:for-each select="CorporateStructure/Subsidiaries/UKSubsidiaries"> Reg. number:
                         <xsl:value-of select="SubRegNumber"/>
                     <br style="clear:both"/>
-                    Status : <xsl:call-template name="UKSUbStatus"></xsl:call-template><br style="clear:both"/>
+                    Status : <xsl:call-template name="UKSUbStatus"></xsl:call-template>
                   
                     <br style="clear:both"/>
                     <xsl:value-of select="SubName"/>
@@ -102,7 +103,7 @@
             </div>
             <br style="clear:both"/>
 
-            <!--br/>
+            <br/>
             <div class="dataLabel">Tree position</div>
             <div class="dataValue" >
                 <xsl:call-template name="treePositionsList">
@@ -161,7 +162,7 @@
             <div class="dataLabel" style="clear:both;width:450px"> number of overseas only subsidiaries for target company</div>
             <div class="dataValue" >
                     <xsl:value-of select="CorporateStructure/Subsidiaries/TotalNumOverseasSubs"/>
-            </div>-->
+            </div>
 
 
 

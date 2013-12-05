@@ -27,7 +27,7 @@
                     <xsl:value-of select="Name"/>
                 </div>
                 <div class="dataLabel" style="clear:both">Address Of Subject</div>
-                <div class="dataValue">
+                <div class="dataValue" style="overflow:auto">
                    <xsl:if test="Address1!=''"><xsl:value-of select="Address1"/>&#xA0;</xsl:if>
                    <xsl:if test="Address2!=''"><xsl:value-of select="Address2"/>&#xA0;</xsl:if>
                    <xsl:if test="Address3!=''"><xsl:value-of select="Address3"/>&#xA0;</xsl:if>

@@ -3,7 +3,18 @@
    body{
       font:normal normal normal 11px Arial;
    }
-   div .dataLabel, div .dataValue{
+   div .dataValue{
+      border-bottom:1px dotted #EEE;
+      margin-bottom:1px;
+   }
+   div .listing{
+      display: inline-block;
+   }
+   div .listing ul,div .listing li{
+      margin:0 !important;
+      padding:0 !important;
+   }
+   div .dataLabel{   
       float:left;
       border-bottom:1px dotted #EEE;
       margin-bottom:1px
@@ -15,6 +26,7 @@
       text-transform:capitalize;
       margin-left:15px;
    }
+
    div .matrixLabel{
       margin-top:10px;
       width:100%;

@@ -47,7 +47,7 @@
                         <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
                             <xsl:sort select="CompanyExpMonth/CCYY" data-type="number" order="descending"/>
                             <xsl:sort select="CompanyExpMonth/MM" data-type="number" order="descending"/>
-                            <xsl:if test="position()=1">
+                            <xsl:if test="position()=2">
                                 <tr>
                                     <th style="background:#fff;border:none;text-align:right">
                                         <span>days beyond terms (DBT) for </span>
@@ -73,7 +73,11 @@
                                 
                                 
                             </xsl:if>
-                            <xsl:if test="position()=2">
+                        </xsl:for-each>
+                        <xsl:for-each select="PaymentPerformance/PaymentFull/CompanyDBTMonthly">
+                            <xsl:sort select="CompanyExpMonth/CCYY" data-type="number" order="descending"/>
+                            <xsl:sort select="CompanyExpMonth/MM" data-type="number" order="descending"/>
+                            <xsl:if test="position()=1">
                                 <xsl:variable name="curDbtCompanyMonthToDate" select="CompanyDBT"/>
                                 <xsl:variable name="curDbtNumAccountMonthToDate" select="CompanyNumExp"/>
                                 <tr>

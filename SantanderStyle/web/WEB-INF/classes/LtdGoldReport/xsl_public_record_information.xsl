@@ -16,8 +16,8 @@
 
                 
             </xsl:variable>
-            <div class="dataLabel" style="height:{$noticeCount*11}px">legal notices</div>
-            <div class="dataValue" style="overflow:hidden;width:300px">
+            <div class="dataLabel">legal notices</div>
+            <div class="dataValue listing" style="overflow:auto;width:auto">
                 <xsl:if test="LegalNotices/SummaryCount = 0">None Recorded</xsl:if>
             <xsl:for-each select="LegalNotices/SummaryLine">
                 <div style="float:left;width:100px">
@@ -25,7 +25,7 @@
                 <xsl:value-of select="EventDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="EventDate/MM"/></span>&#xA0;<xsl:value-of select="EventDate/CCYY"/>
                     
                 </div>
-                  <div style="float:left;width:200px">
+                    <div style="float:left;width:auto">
                    <xsl:call-template name="creditEventType">
                     <xsl:with-param name="curValue" select="EventType"/>
                     </xsl:call-template>
@@ -35,9 +35,8 @@
                 
             </div>
             <br style="clear:both"/><br/>   
-            <div class="dataLabel" style="height:30spx">county court judgments</div>
-            <div class="dataValue">
-                <div class="dataValue" style="overflow:hidden;width:300px">
+            <div class="dataLabel" >county court judgments</div>
+            <div class="dataValue listing" style="overflow:auto;width:auto">
                     <div style="float:left;width:100px">Total Number : </div><div style="float:left;">
                         <xsl:value-of select="CCJs/NumberCCJs0To72"/>
                     </div>
@@ -51,14 +50,14 @@
                         <xsl:value-of select="CCJs/AgeMostRecentCCJ"/> Month<xsl:if test="CCJs/AgeMostRecentCCJ>1">s</xsl:if>
                     </div>
                     <br style="clear:both"/>
-                    <!--<div style="float:left;width:100px">Last 12 months Number : </div><div style="float:left">
+                    <div style="float:left;width:100px">Last 12 months Number : </div><div style="float:left">
                         <xsl:value-of select="CCJs/NumberCCJsLast12Months"/>
                     </div>
                     <br style="clear:both"/>
                     <div style="float:left;width:100px">Last 12 months Value : </div><div style="float:left">
                          <span class="num devise"><xsl:value-of select="CCJs/ValueCCJsLast12Months"/></span>
-                    </div>-->
                 </div>
+                
             </div>
             <br style="clear:both"/>
         

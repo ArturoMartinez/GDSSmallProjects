@@ -1,4 +1,4 @@
-document._version='1.8.29';
+document._version='1.8.31';
 document._ressourcesPath='./rsc/images/';
 
 function intToMonthName(pMonthNum){
@@ -8,7 +8,7 @@ function intToMonthName(pMonthNum){
 
 if ($){
    $(document).ready(function () {
-      document.getElementById("currentXSLSourceVersion").innerHTML="v"+document._version;
+      $("#currentXSLSourceVersion").html("v"+document._version);
       document.devise = "&pound;";
       document.debugmode = false;
 
@@ -34,7 +34,7 @@ if ($){
       //$("td.num").digits();
 
 
-    $(".ratingStarDiv").css("backgroundImage","url("+document._ressourcesPath+"ratingStars-mid.png)");
+      $(".ratingStarDiv").css("backgroundImage","url("+document._ressourcesPath+"ratingStars-mid.png)");
 
       $("div.devise").deviseSign();
       $("span.devise").deviseSign();
@@ -80,7 +80,7 @@ if ($){
          var collapseImg = document.createElement('img');
          collapseImg.collapsedStatus = false;
 
-        collapseImg.src = document._ressourcesPath+"collapse.png";
+         collapseImg.src = document._ressourcesPath+"collapse.png";
          collapseImg.style.margin="1px 15px 0px 0px";
          collapseImg.style.float="right";
          collapseImg.style.cssFloat="right";
@@ -89,12 +89,12 @@ if ($){
          collapseImg.onclick = function () {
             if (! this.collapsedStatus) {
                this.originalDivParentHeight = this.parentNode.parentNode.clientHeight;
-                this.src = document._ressourcesPath+"expand.png";
+               this.src = document._ressourcesPath+"expand.png";
                this.parentNode.parentNode.style.height = "20px";
                this.parentNode.parentNode.style.overflow = "hidden";
                this.collapsedStatus = true;
             } else {
-                this.src = document._ressourcesPath+"collapse.png"
+               this.src = document._ressourcesPath+"collapse.png";
                this.parentNode.parentNode.style.height = this.originalDivParentHeight-10 + "px";
                this.collapsedStatus = false;
             }
@@ -174,7 +174,10 @@ if ($){
 
    $.fn.digits = function () {
        return this.each(function () {
-            if ($(this).text() === '0')
+            if(parseFloat($(this).text()) === 0)
+               $(this).text('0');
+            
+            if($(this).text() === '0')
                $(this).text('0');
             else
                $(this).text($(this).text().replace(/^0+/, '').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));

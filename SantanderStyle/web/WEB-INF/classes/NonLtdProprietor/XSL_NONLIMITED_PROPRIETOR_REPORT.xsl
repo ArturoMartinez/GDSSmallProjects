@@ -23,10 +23,14 @@
 	<xsl:template match="/RawBureauData">
 		<html>
 			<head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=8" />
+            <meta name="author" content="GDS Modellica" />
+            <meta name="robots" content="noindex, nofollow" />
 				<title><xsl:value-of select="ConsumerOutput/Applicant/FormattedName"/></title>
-				<link rel="stylesheet" href="./rsc/css/styles_production.css"/>
-            <script src="./rsc/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-				<script src="./rsc/js/mainJS.js" type="text/javascript"></script>
+				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
+            <script src="./rsc/js/jquery-1.10.2.min.js"></script>
+				<script src="./rsc/js/mainJS.js"></script>
 			</head>
 			<body>
 				

@@ -83,7 +83,7 @@
             <xsl:value-of select="LegalNotices/Administrators/Appointment/AdminOrderDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LegalNotices/Administrators/Appointment/AdminOrderDate/MM"/></span>&#xA0;<xsl:value-of select="LegalNotices/Administrators/Appointment/AdminOrderDate/CCYY"/>
         </div>
         <div class="dataLabel" style="clear:both">Administrator Appointed</div>
-        <div class="dataValue">
+        <div class="dataValue listing">
             <xsl:value-of select="PresentationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PresentationDate/MM"/></span>&#xA0;<xsl:value-of select="PresentationDate/CCYY"/>
 
             <xsl:for-each select="LegalNotices/Administrators/Appointment/Administrator">
@@ -91,8 +91,12 @@
                 <br style="clear:both"/>
                 <xsl:value-of select="FirmName"/>
                 <br style="clear:both"/>
-                <xsl:value-of select="AdministratorLocation"/>
-
+                <xsl:value-of select="AdministratorLocation/LocationLine1"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine2"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine3"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine4"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine5"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/Postcode"/></xsl:call-template>
 
                 <br style="clear:both"/>
             </xsl:for-each>
@@ -110,13 +114,18 @@
         </div>
         <div class="dataLabel" style="clear:both">Administrator Discharged</div>
 
-        <div class="dataValue">
+        <div class="dataValue listing">
             <xsl:for-each select="LegalNotices/Administrators/Discharge/Administrator">
                 <xsl:value-of select="Name"/>
                 <br style="clear:both"/>
                 <xsl:value-of select="FirmName"/>
                 <br style="clear:both"/>
-                <xsl:value-of select="AdministratorLocation"/>
+                <xsl:value-of select="AdministratorLocation/LocationLine1"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine2"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine3"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine4"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/LocationLine5"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AdministratorLocation/Postcode"/></xsl:call-template>
 
 
                 <br style="clear:both"/>
@@ -138,7 +147,7 @@
                 <div class="dataValue">
                     <xsl:value-of select="PublicationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="PublicationDate/MM"/></span>&#xA0;<xsl:value-of select="PublicationDate/CCYY"/>
                 </div>
-            <div class="dataLabel" style="clear:both">date of hearingn</div>
+            <div class="dataLabel" style="clear:both">date of hearing</div>
                 <div class="dataValue">
                     <xsl:value-of select="HearingDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="HearingDate/MM"/></span>&#xA0;<xsl:value-of select="HearingDate/CCYY"/>
              
@@ -148,7 +157,7 @@
                     <xsl:value-of select="CourtName"/>
                 </div>
             <div class="dataLabel" style="clear:both">petitioners</div>
-                <div class="dataValue" style="width:600px">
+            <div class="dataValue" style="width:auto;overflow:auto">
                     <xsl:for-each select="Petitioners">
                         <div style="border-bottom:1px dotted #DDD;font-size:10px">
                             <xsl:value-of select="Name"/><br/>
@@ -163,7 +172,7 @@
                     </xsl:for-each>
                 </div>
             <div class="dataLabel" style="clear:both">solicitors</div>
-                <div class="dataValue" style="width:600px">
+            <div class="dataValue" style="width:auto;overflow:auto">
                     <xsl:for-each select="Solicitors">
                         <div style="border-bottom:1px dotted #DDD;font-size:10px">
                         <xsl:value-of select="FirmName"/>&#xA0;<xsl:value-of select="Name"/><br/>
@@ -271,7 +280,7 @@
 
          </div>
          <div class="dataLabel" style="clear:both">Administrative Receiver</div>
-         <div class="dataValue"  style="padding-bottom:3px">
+         <div class="dataValue"  style="padding-bottom:3px;width:auto;overflow:auto">
              <xsl:value-of select="FirmName"/><xsl:if test="FirmName != ''"><br/></xsl:if><xsl:value-of select="ReceiverName"/>
              <br/><xsl:value-of select="ReceiverLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="ReceiverLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="ReceiverLocation/LocationLine3"/>
          </div>
@@ -283,7 +292,7 @@
         <xsl:value-of select="LegalNotices/Receiver/Appointment/InstrumentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LegalNotices/Receiver/Appointment/InstrumentDate/MM"/></span>&#xA0;<xsl:value-of select="LegalNotices/Receiver/Appointment/InstrumentDate/CCYY"/>
     </div>
     <div class="dataLabel" style="clear:both">Instrument Holder</div>
-    <div class="dataValue">
+    <div class="dataValue"   style="padding-bottom:3px;width:auto;overflow:auto">
         <xsl:value-of select="LegalNotices/Receiver/Appointment/InstrumentHolder/Name"/>
 
     </div>
@@ -304,7 +313,7 @@
 
      </div>
      <div class="dataLabel" style="clear:both">Receiver Ceasing To Act</div>
-     <div class="dataValue"  style="padding-bottom:3px">
+     <div class="dataValue"  style="padding-bottom:3px;overflow:auto">
          <xsl:value-of select="FirmName"/><xsl:if test="FirmName != ''"><br/></xsl:if><xsl:value-of select="ReceiverName"/>
          <br/><xsl:value-of select="ReceiverLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="ReceiverLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="ReceiverLocation/LocationLine3"/>
      </div>
@@ -339,33 +348,64 @@
  </xsl:for-each>
 
  <h3>Appointment Of Liquidators</h3>
- <h4>Compulsory Liquidator</h4>
+
+
+<xsl:choose>
+    <xsl:when test="LegalNotices/Liquidators/LiquidationType='C'">
+        <h4>Compulsory Liquidators</h4>
+    </xsl:when>
+     <xsl:when test="LegalNotices/Liquidators/LiquidationType='V'">
+        <h4>Voluntary Liquidators</h4>
+    </xsl:when>
+</xsl:choose>
+
 <div class="dataLabel" style="clear:both">Date Of Publication</div>
  <div class="dataValue">
     <xsl:value-of select="LegalNotices/Liquidators/PublicationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LegalNotices/Liquidators/PublicationDate/MM"/></span>&#xA0;<xsl:value-of select="LegalNotices/Liquidators/PublicationDate/CCYY"/>
 
 </div>
+
 <div class="dataLabel" style="clear:both">Date Of Appointment</div>
 <div class="dataValue">
  <xsl:value-of select="LegalNotices/Liquidators/AppointmentDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LegalNotices/Liquidators/AppointmentDate/MM"/></span>&#xA0;<xsl:value-of select="LegalNotices/Liquidators/AppointmentDate/CCYY"/>
 </div>
+
+<div class="dataLabel" style="clear:both">Appointed by</div>
+<div class="dataValue">
+    <xsl:choose>
+    <xsl:when test="LegalNotices/Liquidators/AppointedBy='MC'">Members and Creditors</xsl:when>
+    <xsl:when test="LegalNotices/Liquidators/AppointedBy='M'">Members</xsl:when>
+    <xsl:when test="LegalNotices/Liquidators/AppointedBy='C'">Creditors</xsl:when>
+    <xsl:when test="LegalNotices/Liquidators/AppointedBy='U'">Unknown</xsl:when>
+</xsl:choose>
+
+</div>
+
+<div class="dataLabel" style="clear:both">Business</div>
+<div class="dataValue">
+ <xsl:value-of select="LegalNotices/Liquidators/NatureOfBusiness"/>
+</div>
+
+
 <br style="clear:both"/>
 <br style="clear:both"/>
+ <div class="dataLabel" style="clear:both">Liquidator</div>
+ <div class="dataValue listing" style="padding-bottom:3px;width:auto;overflow:auto">
 <xsl:for-each select="LegalNotices/Liquidators/Liquidator">
 
-    <div class="dataLabel" style="clear:both">Liquidator</div>
-    <div class="dataValue"  style="padding-bottom:3px">
      <xsl:value-of select="Name"/>
+     <xsl:call-template name="lineSeparatedValue"><xsl:with-param name="curValue" select="FirmName"/></xsl:call-template>
+    
      <br/><xsl:value-of select="LiquidatorLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="LiquidatorLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="LiquidatorLocation/LocationLine3"/>,&#xA0;<xsl:value-of select="LiquidatorLocation/Postcode"/>
+  <br />
+ <br />
+</xsl:for-each>
  </div>
  <br style="clear:both"/>
-</xsl:for-each>
-
-<br style="clear:both"/>
 
 
-<h3>Volontary Arrangements</h3>
-<h4>Completion of Volontary Arrangements</h4>
+<h3>Voluntary Arrangements</h3>
+<h4>Completion of Voluntary Arrangements</h4>
 <div class="dataLabel" style="clear:both">Document Lodged At</div>
 <div class="dataValue">
     <xsl:call-template name="PublicationTowns"><xsl:with-param name="curValue" select="LegalNotices/VolArrangement/PublicationTown"/></xsl:call-template> On <xsl:value-of select="LegalNotices/VolArrangement/LodgedDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="LegalNotices/VolArrangement/LodgedDate/MM"/></span>&#xA0;<xsl:value-of select="LegalNotices/VolArrangement/LodgedDate/CCYY"/>
@@ -387,14 +427,14 @@
 <xsl:for-each select="LegalNotices/VolArrangement/Supervisor">
 
     <div class="dataLabel" style="clear:both">Liquidator</div>
-    <div class="dataValue"  style="padding-bottom:3px">
+    <div class="dataValue"  style="padding-bottom:3px;overflow:auto">
      <xsl:value-of select="Name"/>
      <br/><xsl:value-of select="SupervisorLocation/LocationLine1"/>,&#xA0;<xsl:value-of select="SupervisorLocation/LocationLine2"/>,&#xA0;<xsl:value-of select="SupervisorLocation/LocationLine3"/>,&#xA0;<xsl:value-of select="SupervisorLocation/Postcode"/>
  </div>
  <br style="clear:both"/>
 </xsl:for-each>
 <br style="clear:both"/>
-<!--
+
 <h3>Insolvency Data</h3>
 
 
@@ -589,7 +629,7 @@
 <div class="dataLabel" style="clear:both;width:400px">Time since last winding up hearing date</div>
 <div class="dataValue">
     <xsl:value-of select="ScoringData/TimeSinceLastWindUpHearing"/>
-</div>-->
+</div>
 <br style="clear:both"/>
 
 

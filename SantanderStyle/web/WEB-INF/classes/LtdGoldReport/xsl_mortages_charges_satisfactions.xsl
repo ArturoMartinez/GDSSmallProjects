@@ -25,7 +25,7 @@
                 <div class="dataValue">
                     <xsl:call-template name="partialSatisfactionDetails"></xsl:call-template>
                 </div>
-                <div class="dataLabel" style="clear:both">date charge registred</div>
+                <div class="dataLabel" style="clear:both">date charge registered</div>
                 <div class="dataValue">
                     <xsl:value-of select="RegistrationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="RegistrationDate/MM"/></span>&#xA0;<xsl:value-of select="RegistrationDate/CCYY"/>
                 </div>
@@ -61,12 +61,12 @@
                 <br style="clear:both"/>
                 
             <div class="dataLabel">secured on</div>
-                <div class="dataValue" style="width:600px;font-size:10px"> 
+                <div class="dataValue" style="width:auto;overflow:auto;font-size:10px"> 
                     <xsl:value-of select="AmountSecured"/>
                 </div>
                 
                 <div class="dataLabel" style="clear:both">details</div>
-                <div class="dataValue" style="width:600px;font-size:10px"> 
+                <div class="dataValue" style="width:auto;overflow:auto;font-size:10px"> 
                     <xsl:value-of select="PropertyDetails"/>
                 </div>
                 
