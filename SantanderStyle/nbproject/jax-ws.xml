@@ -4,7 +4,7 @@
   </services>
   <clients>
     <client name="MTXUDVWS_v1">
-      <wsdl-url>file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/MTXUDVWS_v1.wsdl</wsdl-url>
+      <wsdl-url>file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/MTXUDVWS_v1.wsdl</wsdl-url>
       <local-wsdl-file>MTXUDVWS_v1.wsdl</local-wsdl-file>
       <package-name forceReplace="true">com.gdslink.santanderuk.soap</package-name>
       <catalog-file>catalog.xml</catalog-file>
@@ -19,7 +19,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/MTXUDVWS_v1.wsdl</wsimport-option-value>
+          <wsimport-option-value>file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/MTXUDVWS_v1.wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

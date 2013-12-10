@@ -31,6 +31,7 @@ public class Application
     public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*$";
     public static final String REGEX_LTD = "^.*\\<LtdCompanyData\\>.*$";
     public static final String REGEX_NONLTD = "^.*\\<NonLtdBusinessData\\>.*$";
+    //public static final String REGEX_DIRECTOR = "^.*\\<DirectorData\\>.*$";
 
 
     //singleton
@@ -87,7 +88,7 @@ public class Application
 
             InputStream streamIn = Application.class.getResourceAsStream("/LtdGoldReport/XSL_GOLD_REPORT.xsl");
             if(streamIn == null)
-                throw new Exception("Stylesheet not found");
+                throw new Exception("Stylesheet \"XML_GOLD_REPORT\" not found");
 
             TransformerFactory factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/LtdGoldReport/"));
@@ -98,7 +99,7 @@ public class Application
 
             streamIn = Application.class.getResourceAsStream("/NonLimitedXSL.1.1/XSL_NONLIMITED_REPORT.xsl");
             if(streamIn == null)
-                throw new Exception("Stylesheet not found");
+                throw new Exception("Stylesheet \"XSL_NONLIMITED_REPORT\" not found");
 
             factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/NonLimitedXSL.1.1/"));
@@ -109,12 +110,24 @@ public class Application
 
             streamIn = Application.class.getResourceAsStream("/NonLtdProprietor/XSL_NONLIMITED_PROPRIETOR_REPORT.xsl");
             if(streamIn == null)
-                throw new Exception("Stylesheet not found");
+                throw new Exception("Stylesheet \"XSL_NONLIMITED_PROPIETOR_REPORT\" not found");
 
             factoryTransformer = TransformerFactory.newInstance();
             factoryTransformer.setURIResolver(new CPURIResolver("/NonLtdProprietor/"));
             _mapTemplates.put(REGEX_CONSUMER, factoryTransformer.newTemplates(new StreamSource(streamIn)));
             _mapNames.put(REGEX_CONSUMER, "Non-Ltd Proprietor");
+            
+            //director
+            /*
+            streamIn = Application.class.getResourceAsStream("/DirectorReport/XSL_DIRECTOR_REPORT.xsl");
+            if(streamIn == null)
+               throw new Exception("Stylesheet \"XSL_DIRECTOR_REPORT\" not found");
+            
+            factoryTransformer = TransformerFactory.newInstance();
+            factoryTransformer.setURIResolver(new CPURIResolver("/DirectorReport/"));
+            _mapTemplates.put(REGEX_DIRECTOR, factoryTransformer.newTemplates(new StreamSource(streamIn)));
+            _mapNames.put(REGEX_DIRECTOR, "Director");
+            */ 
         }
         catch(Exception e)
         {

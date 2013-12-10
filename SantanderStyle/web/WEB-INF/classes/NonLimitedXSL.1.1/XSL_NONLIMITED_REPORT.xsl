@@ -18,7 +18,6 @@
 	<xsl:template match="/RawBureauData/NonLtdBusinessData">
 		<html>
 			<head>
-            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=8" />
             <meta name="author" content="GDS Modellica" />
             <meta name="robots" content="noindex, nofollow" />

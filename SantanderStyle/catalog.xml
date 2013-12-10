@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/MTXUDVWS_v1.wsdl" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/MTXUDVWS_v1.wsdl"/>
-    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/fault.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/fault.xsd"/>
-    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/MTXUDVWS_functionalFaults_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/MTXUDVWS_functionalFaults_v1.xsd"/>
-    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/MTXUDVWS_cb_types_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/MTXUDVWS_cb_types_v1.xsd"/>
-    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/ws_TDCs.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/ws_TDCs.xsd"/>
-    <system systemId="file:/C:/Code/svn.general_projects/SantanderStyle/wsdl/schemas/ws_TDCc.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/ws_TDCc.xsd"/>
+    <system systemId="file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/MTXUDVWS_v1.wsdl" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/MTXUDVWS_v1.wsdl"/>
+    <system systemId="file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/schemas/fault.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/fault.xsd"/>
+    <system systemId="file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/schemas/MTXUDVWS_functionalFaults_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/MTXUDVWS_functionalFaults_v1.xsd"/>
+    <system systemId="file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/schemas/MTXUDVWS_cb_types_v1.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/MTXUDVWS_cb_types_v1.xsd"/>
+    <system systemId="file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/schemas/ws_TDCs.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/ws_TDCs.xsd"/>
+    <system systemId="file:/C:/Users/Arturo/Documents/GDS_SOFTWARE/Stylesheets/WDSL/schemas/ws_TDCc.xsd" uri="src/conf/xml-resources/web-service-references/MTXUDVWS_v1/wsdl/schemas/ws_TDCc.xsd"/>
 </catalog>
