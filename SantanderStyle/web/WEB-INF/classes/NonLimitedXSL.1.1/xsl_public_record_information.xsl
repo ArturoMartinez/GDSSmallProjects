@@ -134,6 +134,7 @@
             <xsl:choose>
                 <xsl:when test="count(Bankruptcies/BankruptcyDetail)>0">
                     <xsl:for-each select="Bankruptcies/BankruptcyDetail">
+                        <h4>(<xsl:value-of select="position()"/> of <xsl:value-of select="../MBankruptcyCount"/>)</h4>
                         <div class="dataLabel">Publication Date</div>
                         <div class="dataValue">
                             <xsl:value-of select="GazetteDate/DD"
@@ -142,34 +143,21 @@
                                 /></span>&#xA0; <xsl:value-of
                                 select="GazetteDate/CCYY"/>
                         </div>
-                        <br style="clear:both"/>
-
                         <div class="dataLabel">Name</div>
                         <div class="dataValue">
                             <xsl:value-of select="Name"/>
                         </div>
-                        <br style="clear:both"/>
-
-                        <div class="dataLabel">Adresse</div>
+                        <div class="dataLabel">Address</div>
                         <div class="dataValue">
-                            <xsl:value-of
-                                select="BBankruptcyLocation/LocationLine1"/>
-                            <xsl:value-of
-                                select="BankruptcyLocation/LocationLine2"/>
-                            <xsl:value-of
-                                select="BankruptcyLocation/LocationLine3"/>
-                            <xsl:value-of
-                                select="BankruptcyLocation/LocationLine4"/>
-                            <xsl:value-of
-                                select="BankruptcyLocation/Postcode"/>
-                        </div>
-                        <br style="clear:both"/>
 
+                            <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="BankruptcyLocation/*"/></xsl:call-template>
+
+
+                        </div>
                         <div class="dataLabel">Details</div>
-                        <div class="dataValue" style="width:600px">
+                        <div class="dataValue" style="width:auto;overflow:auto">
                             <xsl:value-of select="BankruptcyText"/>
                         </div>
-                        <br style="clear:both"/>
                         <br style="clear:both"/>
                     </xsl:for-each>
                 </xsl:when>
@@ -183,32 +171,29 @@
                 <div class="dataLabel">registered against</div>
                 <div class="dataValue">
                     <xsl:value-of select="JudgmentDetailsArea/JudgmentAgainst/Name"/>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="JudgmentDetailsArea/*"/></xsl:call-template>
+
+                   
                 </div>
                 <br style="clear:both"/>
 
                 <div class="dataLabel">amount</div>
                 <div class="dataValue num devise">
-                    <xsl:value-of select="JudgementAmount"/>
+                    <xsl:value-of select="JudgmentAmount"/>
                 </div>
-                <br style="clear:both"/>
-
-                <div class="dataLabel">judgement date</div>
+                <div class="dataLabel">judgment date</div>
                 <div class="dataValue">
-                    <span class="toMonthName"><xsl:value-of select="JudgementDate/MM"/></span>&#xA0;
-                        <xsl:value-of select="JudgementDate/CCYY"/>
+                    <span class="toMonthName"><xsl:value-of select="JudgmentDate/MM"/></span>&#xA0;
+                        <xsl:value-of select="JudgmentDate/CCYY"/>
                 </div>
-                <br style="clear:both"/>
-
                 <div class="dataLabel">case number</div>
                 <div class="dataValue">
                     <xsl:value-of select="CaseNumber"/>
                 </div>
-                <br style="clear:both"/>
                 <div class="dataLabel">court</div>
                 <div class="dataValue">
                     <xsl:value-of select="CourtName"/>
                 </div>
-                <br style="clear:both"/>
                 <div style="border-bottom:1px solid #EEE;width:100%;margin:5px 0px 10px 0px"/>
 
             </xsl:for-each>

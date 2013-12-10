@@ -6,7 +6,10 @@
 	<xsl:include href="xsl_payment_performance.xsl"/>
 	<xsl:include href="xsl_payment_analysis.xsl"/>
 	<xsl:include href="xsl_public_record_information.xsl"/>
+	<xsl:include href="xsl_cifas.xsl"/>
 	
+	<xsl:include href="xsl_commaSeparatedValue.xsl"/>
+	<xsl:include href="xsl_lineSeparatedValue.xsl"/>
 
 	<xsl:include href="xsl_list_payment_terms.xsl"/>
 	<xsl:include href="xsl_list_payment_patterns.xsl"/>
@@ -40,7 +43,7 @@
 				<xsl:call-template name="xsl_summary_details"/>
 				<xsl:call-template name="xsl_credit_summary"/>
 				<xsl:call-template name="xsl_payment_performance"/>
-				<xsl:call-template name="xsl_payment_analysis"/>
+				<!--<xsl:call-template name="xsl_payment_analysis"/>-->
 
 				<xsl:call-template name="xsl_public_record_information"/>
 				<xsl:call-template name="xsl_consumer_credit_licences"/>
@@ -48,6 +51,9 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				
 				<xsl:call-template name="xsl_directorship_and_secretaryship_informaion_of_proprietors"/>
+
+				<xsl:call-template name="xsl_cifas"/>
+
 			</body>
 		</html>
 	</xsl:template>

@@ -70,21 +70,61 @@
             </div>
            
             <h3 style="margin-bottom:5px">Additional informations</h3>
+                 <div class="dataLabel"> Date Ownership Terminated</div>
+                <div class="dataValue">
+                    <span  class="toMonthName">
+                    <xsl:value-of select="Identification/ConsumerCreditLicenceSummary/DateOwnershipCommenced-Mm"/></span>&#xA0;
+                    <xsl:value-of select="Identification/ConsumerCreditLicenceSummary/DateOwnershipCommenced-Yyyy"/>
+                    
+                </div>
+
+                <div class="dataLabel"> Date Ownership Commenced</div>
+                <div class="dataValue">
+                    <span  class="toMonthName">
+                    <xsl:value-of select="Identification/ConsumerCreditLicenceSummary/DateOwnershipTerminated-Mm"/></span>&#xA0;
+                    <xsl:value-of select="Identification/ConsumerCreditLicenceSummary/DateOwnershipTerminated-Yyyy"/>
+                </div>
+
+                <div class="dataLabel">Main Data Outside Ownership Range</div>
+                <div class="dataValue">
+                    <xsl:choose>
+                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/MainDataOutsideOwnership='Y'">
+                            Data outside range
+                        </xsl:when>
+                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/MainDataOutsideOwnership='N'">
+                            No data outside range
+                        </xsl:when>
+                    </xsl:choose>
+                </div>
+                
+                <div class="dataLabel"> Associated Data Outside Ownership Range</div>
+                <div class="dataValue">
+                    <xsl:choose>
+                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/MainDataOutsideOwnership='Y'">
+                            Data outside range
+                        </xsl:when>
+                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/MainDataOutsideOwnership='N'">
+                            No data outside range
+                        </xsl:when>
+                    </xsl:choose>
+                </div>
+                
+
           
                 <div class="dataLabel" style="width:400px">Number of accounts on cash / pro forma terms during the last year</div>
                 <div class="dataValue"><xsl:value-of select="PaymentPerformance/PaymentAbbrev/NumberCashFirst"/>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </div>
-            <br style="clear:both"/>
+           
             <div class="dataLabel" style="width:400px"> Number of accounts placed for collection last month</div>
                 <div class="dataValue"><xsl:value-of select="PaymentPerformance/PaymentAbbrev/NumberCollection"/>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </div>
-            <br style="clear:both"/>
+            
             <div class="dataLabel" style="width:400px">Value of accounts placed for collection last month</div>
             <div class="dataValue"><xsl:value-of select="PaymentPerformance/PaymentFull/ValCollection"/>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</div>
-            <br style="clear:both"/>
+           
             <div class="dataLabel" style="width:400px">Number of accounts placed for collection in last 2 years</div>
         <div class="dataValue "><xsl:value-of select="PaymentPerformance/PaymentFull/NumberCollectionLast2Years"/>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</div>
+         
             <br style="clear:both"/>
-            <br style="clear:both"/>
-            <div class="dataLabel" style="width:400px"> Unpaid account</div><div class="dataValue">
+            <div class="dataLabel"> Unpaid account</div><div class="dataValue" style="overflow:auto">
                 <xsl:value-of select="PaymentPerformance/PaymentAbbrev/AcctsUnpaid1Month"/>
                 have received no payment for 1 month
                 <br style="clear:both"/>

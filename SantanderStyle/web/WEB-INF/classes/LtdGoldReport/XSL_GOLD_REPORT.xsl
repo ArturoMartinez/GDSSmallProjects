@@ -127,7 +127,7 @@
 							<div class="dataValue">
 								<span>
 									<xsl:value-of select="CommercialDelphi/CommDelphiScore"/>
-									out of 100 </span>
+									<span class="notValue">out of 100</span> </span>
 							</div>
 							<div class="dataLabel" style="clear:both">commercial delphi band</div>
 							<div class="dataValue">
@@ -197,7 +197,7 @@
 				<xsl:call-template name="xsl_previous_searches"/>
 				<xsl:call-template name="xsl_cifas"/>
 
-				<div class="section">
+				<div class="section"><h2>Report update flag</h2>
 					<div class="dataLabel" style="clear:both">Report update flag</div><xsl:value-of select="ReportUpdateFlag" />
 				</div>
 

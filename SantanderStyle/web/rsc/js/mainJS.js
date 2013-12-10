@@ -1,9 +1,9 @@
-document._version='1.8.31';
+document._version='1.8.4';
 document._ressourcesPath='./rsc/images/';
-
-function intToMonthName(pMonthNum){
-   arrayMonthName=new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
-   return arrayMonthName[pMonthNum];
+document._NoDataMessage="No Data Registered";
+if(typeof(console) === 'undefined'){
+    console={};
+    console.log=function(){};
 }
 
 if ($){
@@ -81,8 +81,8 @@ if ($){
          collapseImg.collapsedStatus = false;
 
          collapseImg.src = document._ressourcesPath+"collapse.png";
-         collapseImg.style.margin="1px 15px 0px 0px";
-         collapseImg.style.float="right";
+         collapseImg.style.margin = "1px 15px 0px 0px";
+         collapseImg.style.float = "right";
          collapseImg.style.cssFloat="right";
          collapseImg.style.border = "none";
          collapseImg.style.cursor = "pointer";
@@ -103,19 +103,117 @@ if ($){
          sectionsH2Array[s].appendChild(collapseImg);
       }
 
-   });
+      if(document.debugmode === false){
+          $(".section").checkEmptyDataSection();
+          $(".section").checkEmptySubSectionNodes();
+      }
+    
+   });//document.ready()
+
 
    $.fn.hideEmptyTable=function(){
       return this.each(function () {
-         rows = $("tr",this).length;
+         var rows = $("tr",this).length;
          if ((rows <= 1) && (document.debugmode === false))
-            $(this).css("display","none");
+           $(this).css("display","none");
       });
    };
 
+   $.fn.checkEmptyDataSection = function(){
+       return this.each(function () {
+
+           var dataFields = $(".dataValue",this);
+           var cellDatafields = $(".matrix td",this);
+           dataFields = $.merge(dataFields, cellDatafields);
+
+           if(areFieldsDisplayingData(dataFields) === false)
+              displayNoDataSectionMessage($(this));
+
+       });
+   };
+   
+   function areFieldsDisplayingData(pFields){
+       var bRet = false;
+       var curValue = "";
+       for(i=0; ((i < pFields.length) && (!bRet)); i++){
+
+           curValue=concatenedRecursiveVisibleHtml(pFields[i],"");
+           curValue=$.trim(curValue);
+           curValue=curValue.replace("&nbsp;","");
+           curValue=curValue.replace("&#160;","");
+           bRet = (curValue !== "");
+      }
+      return bRet;
+   }
+
+   $.fn.checkEmptySubSectionNodes=function(){
+       return this.each(function () {
+
+          //var firstSubSection = $(this).children().first();
+          var startSubNodes = $("h2,h3",this);
+
+          for(var i = 0; i < startSubNodes.length; i++){
+
+            var subSectionNodes=$(startSubNodes[i]).nextUntil("h3").find('.dataValue,.matrix td');
+            if(subSectionNodes.length === 0)
+                subSectionNodes=$(startSubNodes[i]).nextAll().find('.dataValue,.matrix td');
+
+            if(!areFieldsDisplayingData(subSectionNodes)){
+                var messDiv=messageDiv();
+
+                if(subSectionNodes[0])
+                   subSectionNodes[0].parentNode.insertBefore(messDiv, subSectionNodes[0]);
+
+                for (var p = 0; p < subSectionNodes.length; p++) {
+                        subSectionNodes[p].parentNode.removeChild(subSectionNodes[p]);
+                }//for
+             }//fi
+           }//for
+       });
+   };
+   
+   function displayNoDataSubSectionMessage(){}
+
+   function displayNoDataSectionMessage(pSectionElement){
+
+       var sectionElements = pSectionElement.find("h2");
+       var h2Element = sectionElements[0];
+       pSectionElement.empty();
+       pSectionElement.append(h2Element);
+
+       pSectionElement.append(messageDiv());
+   }
+
+   function messageDiv(){
+       var messageDiv = document.createElement("div");
+       messageDiv.className = "emptyMessageDiv";
+       messageDiv.innerHTML = document._NoDataMessage;
+       return messageDiv;
+   }
+
+   function concatenedRecursiveVisibleHtml(pElement,pValue){
+
+       var childNodesArray=pElement.childNodes;
+
+       for(var n=0;n<childNodesArray.length;n++){
+           var curNode = childNodesArray[n];
+
+           if(curNode.childNodes.length === 0){
+               if(curNode.nodeValue !== null)
+                   pValue+=curNode.nodeValue;
+           }
+           if(curNode.childNodes.length>0)
+           {
+               if(!$(curNode).hasClass("notValue"))
+                   pValue+=concatenedRecursiveVisibleHtml(curNode,pValue);
+           }
+      }
+      return pValue;
+   }
+
    $.fn.hideEmptyValue = function () {
        return this.each(function () {
-           correspondingValue = $(this).next(".dataValue");
+           var correspondingValue = $(this).next(".dataValue");
            if ($.trim(correspondingValue.text()) === ''){
                if (document.debugmode === true){
                    $(this).css("background","#aac397");
@@ -202,4 +300,9 @@ if ($){
         });
     };
 
+    function intToMonthName(pMonthNum){
+        pMonthNum=parseInt(pMonthNum,10);
+        arrayMonthName=new Array("?","January","February","March","April","May","June","July","August","September","October","November","December");
+        return arrayMonthName[pMonthNum];
+    }
 }

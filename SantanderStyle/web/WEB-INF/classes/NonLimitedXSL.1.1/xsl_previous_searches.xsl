@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:template name="previousSearchesEnquiryTypes">
+        <xsl:choose>
+            <xsl:when test="EnquiryType='1'">Registered Office / Company Profile</xsl:when>
+            <xsl:when test="EnquiryType='2'">Profile &amp; Credit</xsl:when>
+            <xsl:when test="EnquiryType='3'">Financial Analysis</xsl:when>
+            <xsl:when test="EnquiryType='4'">On-line Report</xsl:when>
+            <xsl:when test="EnquiryType='6'">Written Report</xsl:when>
+            <xsl:when test="EnquiryType='7'">Microfiche / Document Copy Request</xsl:when>
+            <xsl:when test="EnquiryType='8'">Director Information</xsl:when>
+            <xsl:when test="EnquiryType='C'">CPU Link Enquiry</xsl:when>
+            <xsl:when test="EnquiryType='D'">e-series Gold Report</xsl:when>
+            <xsl:when test="EnquiryType='E'">e-series Silver Report</xsl:when>
+            <xsl:when test="EnquiryType='F'">e-series Bronze Report</xsl:when>
+            <xsl:when test="EnquiryType='G'">e-series Basic</xsl:when>
+            <xsl:when test="EnquiryType='H'">Document Image</xsl:when>
+            <xsl:when test="EnquiryType='I'">Corporate Tree</xsl:when>
+            <xsl:when test="EnquiryType='J'">Enhanced Corporate Tree</xsl:when>
+            <xsl:when test="EnquiryType='L'">BIGNet Report</xsl:when>
+            <xsl:when test="EnquiryType='M'">Report Builder</xsl:when>
+            <xsl:when test="EnquiryType='N'">Commercial Autoscore Application</xsl:when>
+            <xsl:when test="EnquiryType='O'">Commercial Autoscore Reprocess Decision</xsl:when>
+            <xsl:when test="EnquiryType='P'">Mortgages &amp; Charges</xsl:when>
+            <xsl:when test="EnquiryType='Q'">Credit Card Report</xsl:when>
+            <xsl:when test="EnquiryType='X'">XML Bespoke Delivery</xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
     <xsl:template name="xsl_previous_searches">
         <div class="section" id="previous_searches">
             <h2>previous searches</h2>
@@ -68,7 +95,7 @@
                             <span>date</span>
                         </th>
 
-                        <th>
+                        <th style="width:200px">
                             <span>search type</span>
                         </th>
 
@@ -89,8 +116,12 @@
                         <td style="text-align:left;padding-left:5px">
                             <xsl:value-of select="SearchDate/DD"/>&#160;<span class="toMonthName" style="margin:0px:padding:0px"><xsl:value-of select="SearchDate/MM"/></span>&#160;<xsl:value-of select="SearchDate/CCYY"/>
                         </td>
-                        <td>
-                            <xsl:value-of select="EnquiryType"/>
+                        <td style="width:200px">
+                            <xsl:call-template name="previousSearchesEnquiryTypes" >
+                                <xsl:with-param name="curvalue" select="EnquiryType">
+                                
+                            </xsl:with-param>
+                        </xsl:call-template>
                         </td>
                         <td>
                             <xsl:value-of select="SICInformation/Type"/>

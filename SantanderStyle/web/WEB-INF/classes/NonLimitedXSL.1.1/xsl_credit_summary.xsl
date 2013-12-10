@@ -7,6 +7,10 @@
             <div class="dataValue num devise">
                 <xsl:value-of select="CommercialDelphi/CreditRating"/>
             </div>
+            <div class="dataLabel">credit limit</div>
+            <div class="dataValue num devise">
+               <xsl:value-of select="CommercialDelphi/CreditLimit"/>
+            </div>
             <br style="clear:both"/>
             <div class="dataLabel">risk band</div>
             <div class="dataValue">
@@ -15,11 +19,11 @@
             </div>
             <br style="clear:both"/>
             <div class="dataLabel">opinion</div>
-            <div class="dataValue">
+            <div class="dataValue" style="overflow:auto">
                 <xsl:value-of select="CommercialDelphi/CreditText"/>
+                <xsl:call-template name="lineSeparatedValue"> <xsl:with-param name="curValue" select="CommercialDelphi/ConcludingText"></xsl:with-param></xsl:call-template>
+                <xsl:call-template name="lineSeparatedValue"> <xsl:with-param name="curValue" select="CommercialDelphi/NOCText"></xsl:with-param></xsl:call-template>
                 
-            <br style="clear:both"/>
-                <xsl:value-of select="CommercialDelphi/ConcludingText"/>
                 
             </div>
             <br style="clear:both"/>
@@ -43,11 +47,23 @@
                         </span>
                     </div>
                     <br style="clear:both"/>
+                    <div class="dataLabel"></div>
+                    <br style="clear:both"/>
+                     <div class="dataValue alwaysVisible">
+                            <xsl:value-of select="CommercialDelphi/CreditText"/>
+                        
+                    </div>
+                    <div class="dataValue alwaysVisible">
+                            <xsl:value-of select="CommercialDelphi/ConcludingText"/>
+                        
+                    </div>
+
+                    <br style="clear:both"/>
                     <div class="dataLabel">failure odds</div>
                     <div class="dataValue">
                         <span>
                             <xsl:value-of
-                                select="CommercialDelphiHistory/StabilityOdds"
+                                select="CommercialDelphi/StabilityOdds"
                             />
                         </span>
                     </div>
@@ -61,10 +77,10 @@
                 <div class="subSectionInsert" style="width:300px;float:left">
                     <h3>commercial delphi rating</h3>
                     <div style="margin:auto;padding-top:10px;width:300px;font:italic normal 18px MS Serif"
-                        ><xsl:value-of
+                        ><span class="num"><xsl:value-of
                             select="CommercialDelphiHistory/CommDelphiScore"
-                        /> out of 100 </div>
-                    <div
+                        /></span> out of 100 </div>
+                    <div class="ratingStarDiv"
                         style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(./rsc/images/ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
                     />
                     <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>

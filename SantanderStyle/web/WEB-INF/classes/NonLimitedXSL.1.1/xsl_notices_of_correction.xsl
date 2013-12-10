@@ -26,7 +26,7 @@
                 </div>
                 <br style="clear:both"/>
                 <div class="dataLabel" style="border:none">
-                    
+                    Text
                 </div>
                 <div class="dataValue">
                     <xsl:value-of select="Text"/>

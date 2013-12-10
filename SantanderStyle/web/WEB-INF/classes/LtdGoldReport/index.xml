@@ -7222,6 +7222,7 @@
         <NumDirectorshipsMemberLiqidator>0</NumDirectorshipsMemberLiqidator>
         <NumDirectorshipsUnknownLiquidator>0</NumDirectorshipsUnknownLiquidator>
         <NumDirectorshipsWindUpOrder>0</NumDirectorshipsWindUpOrder>
+        <NumDirectoirshipsFailed>0</NumDirectoirshipsFailed>
         <NumDirectorshipsAdministratorAppointed>0</NumDirectorshipsAdministratorAppointed>
         <NumDirectorshipsAppointmentAdministrativeReceiver>0</NumDirectorshipsAppointmentAdministrativeReceiver>
         <NumDirectorshipsReceiverAppointed>0</NumDirectorshipsReceiverAppointed>

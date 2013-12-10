@@ -7,57 +7,46 @@
             <div class="dataValue" id="company_name">
                 <xsl:value-of select="BusinessName"/>
             </div>
-            <br style="clear:both"/>
             <div class="dataLabel">business ref number</div>
             <div class="dataValue">
                 <xsl:value-of select="NonLimitedKey"/></div>
-            <br style="clear:both"/>
             <div class="dataLabel">address</div>
             <div class="dataValue">
-                <xsl:apply-templates select="Identification/BusinessLocation/LocationLine1"/><br
-                    style="clear:both"/>
-                <xsl:if test="Identification/BusinessLocation/LocationLine2 != '' "
-                        ><xsl:apply-templates select="Identification/BusinessLocation/LocationLine2"
-                        /><br style="clear:both"/></xsl:if>
-                <xsl:if test="Identification/BusinessLocation/LocationLine2 != '' "
-                        ><xsl:apply-templates select="Identification/BusinessLocation/LocationLine3"
-                        /><br style="clear:both"/></xsl:if>
-                <xsl:if test="Identification/BusinessLocation/LocationLine2 != '' "
-                        ><xsl:apply-templates select="Identification/BusinessLocation/LocationLine4"
-                        /><br style="clear:both"/></xsl:if>
-                <xsl:if test="Identification/BusinessLocation/LocationLine2 != '' "
-                        ><xsl:apply-templates select="Identification/BusinessLocation/LocationLine5"
-                        /><br style="clear:both"/></xsl:if>
-                <xsl:apply-templates select="Identification/BusinessLocation/Postcode"/><br
-                    style="clear:both"/>
+
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="Identification/BusinessLocation/*"/></xsl:call-template>
+               
+<br style="clear:both"/>
             </div>
-            <br style="clear:both"/>
             <div class="dataLabel">Telephone</div>
             <div class="dataValue">
                 <xsl:value-of select="Identification/TelephoneNumber"/>
             </div>
-            <br style="clear:both"/>
             <div class="dataLabel">SIC codes (1992)</div>
             <div class="dataValue">
                 <xsl:for-each select="Identification/SICInformation1992">
                     <xsl:value-of select="Code"/> : <xsl:value-of select="Description"/>
                 </xsl:for-each>
             </div>
-            <br style="clear:both"/>
             <div class="dataLabel">business activity</div>
             <div class="dataValue">
                 <xsl:value-of select="Identification/PrincipalActivities"/>
             </div>
-            <br style="clear:both"/>
             <div class="dataLabel">earliest date Known To Experian </div>
             <div class="dataValue">
                 <xsl:value-of select="Identification/EarliestKnownDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Identification/EarliestKnownDate/MM"/></span>&#xA0;<xsl:value-of select="Identification/EarliestKnownDate/CCYY"/>
             </div>
-            <br style="clear:both"/>
             <div class="dataLabel">notice of correction count</div>
             <div class="dataValue">
                 <xsl:value-of select="NoticeOfCorrection/NumCorrections"/>
             </div>
+
+            
+            <div class="dataLabel">Average Number Of Employees</div>
+            <div class="dataValue">
+                <xsl:value-of select="Identification/AvgNumEmployees"/>
+            </div>
+
+
             <br/>
         </div>
     </xsl:template>
