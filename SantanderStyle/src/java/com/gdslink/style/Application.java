@@ -97,12 +97,12 @@ public class Application
 
             //non ltd
 
-            streamIn = Application.class.getResourceAsStream("/NonLimitedXSL.1.1/XSL_NONLIMITED_REPORT.xsl");
+            streamIn = Application.class.getResourceAsStream("/NonLimited/XSL_NONLIMITED_REPORT.xsl");
             if(streamIn == null)
                 throw new Exception("Stylesheet \"XSL_NONLIMITED_REPORT\" not found");
 
             factoryTransformer = TransformerFactory.newInstance();
-            factoryTransformer.setURIResolver(new CPURIResolver("/NonLimitedXSL.1.1/"));
+            factoryTransformer.setURIResolver(new CPURIResolver("/NonLimited/"));
             _mapTemplates.put(REGEX_NONLTD, factoryTransformer.newTemplates(new StreamSource(streamIn)));
             _mapNames.put(REGEX_NONLTD, "Non-Ltd Company");
 

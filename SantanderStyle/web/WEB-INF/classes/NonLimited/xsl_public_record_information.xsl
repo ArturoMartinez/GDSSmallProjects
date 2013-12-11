@@ -5,7 +5,7 @@
             <h2>public record information</h2>
 
 
-            <h3>country court judgments</h3>
+            <h3>country court judgments - summary</h3>
 
             <div class="dataLabel"> Total Number : </div>
             <div class="dataValue">
@@ -164,18 +164,32 @@
                 <xsl:otherwise> &#xA0;&#xA0;&#xA0;No Bankruptcies Registered </xsl:otherwise>
             </xsl:choose>
 
-            <h3>county court judgments</h3>
+            <h3>county court judgments - detail</h3>
 
             <xsl:for-each select="CCJs/CCJDetail">
+                <xsl:choose>
+                    <xsl:when test="SatisfactionFlag='N'">
+                        <div class="dataLabel">satisfaction status</div>
+                        <div class="dataValue">Not Satisfied</div>
+                    </xsl:when>
+                    <xsl:when test="SatisfactionFlag='Y'">
+                         <div class="dataLabel">satisfaction status</div>
+                        <div class="dataValue">Satisfied</div>
+
+                        <div class="dataLabel">satisfaction date</div>
+                        <div class="dataValue">
+                            <span class="toMonthName"><xsl:value-of select="SatisfactionDate/MM"/></span>&#xA0;
+                        <xsl:value-of select="SatisfactionDate/CCYY"/>
+                        </div>
+                    </xsl:when>
+                </xsl:choose>
 
                 <div class="dataLabel">registered against</div>
                 <div class="dataValue">
                     <xsl:value-of select="JudgmentDetailsArea/JudgmentAgainst/Name"/>
                     <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="JudgmentDetailsArea/*"/></xsl:call-template>
 
-                   
                 </div>
-                <br style="clear:both"/>
 
                 <div class="dataLabel">amount</div>
                 <div class="dataValue num devise">
@@ -190,11 +204,16 @@
                 <div class="dataValue">
                     <xsl:value-of select="CaseNumber"/>
                 </div>
+
                 <div class="dataLabel">court</div>
                 <div class="dataValue">
                     <xsl:value-of select="CourtName"/>
                 </div>
-                <div style="border-bottom:1px solid #EEE;width:100%;margin:5px 0px 10px 0px"/>
+
+
+                <br style="clear:both"/>
+
+
 
             </xsl:for-each>
         </div>

@@ -1,4 +1,4 @@
-document._version='1.8.4';
+document._version='1.8.41';
 document._ressourcesPath='./rsc/images/';
 document._NoDataMessage="No Data Registered";
 if(typeof(console) === 'undefined'){

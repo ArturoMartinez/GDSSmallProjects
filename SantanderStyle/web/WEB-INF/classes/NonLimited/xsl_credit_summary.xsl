@@ -42,7 +42,7 @@
                     <div class="dataValue">
                         <span>
                             <xsl:value-of
-                                select="CommercialDelphiHistory/CommDelphiBand"
+                                select="CommercialDelphi/RiskText"
                             />
                         </span>
                     </div>

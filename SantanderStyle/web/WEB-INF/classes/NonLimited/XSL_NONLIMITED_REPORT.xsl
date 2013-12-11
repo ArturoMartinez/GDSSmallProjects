@@ -1,6 +1,10 @@
 <?xml version="1.0" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
 	<xsl:output method="html" encoding="utf-8" indent="yes" doctype-system="http://www.w3.org/TR/html4/strict.dtd"/>
+
+	
+
 	<xsl:include href="xsl_summary_details.xsl"/>
 	<xsl:include href="xsl_credit_summary.xsl"/>
 	<xsl:include href="xsl_payment_performance.xsl"/>
@@ -21,12 +25,12 @@
 	<xsl:template match="/RawBureauData/NonLtdBusinessData">
 		<html>
 			<head>
-            <meta http-equiv="X-UA-Compatible" content="IE=8" />
-            <meta name="author" content="GDS Modellica" />
-            <meta name="robots" content="noindex, nofollow" />
+				<meta http-equiv="X-UA-Compatible" content="IE=8" />
+				<meta name="author" content="GDS Modellica" />
+				<meta name="robots" content="noindex, nofollow" />
 				<title><xsl:value-of select="BusinessName"/></title>
 				<link rel="stylesheet" type="text/css" href="./rsc/css/styles_production.css"/>
-            <script src="./rsc/js/jquery-1.10.2.min.js"></script>
+				<script src="./rsc/js/jquery-1.10.2.min.js"></script>
 				<script src="./rsc/js/mainJS.js"></script>
 			</head>
 			<body>

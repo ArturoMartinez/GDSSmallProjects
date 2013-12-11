@@ -25,6 +25,7 @@
             <div class="dataValue">
                 <xsl:for-each select="Identification/SICInformation1992">
                     <xsl:value-of select="Code"/> : <xsl:value-of select="Description"/>
+                        <br/>
                 </xsl:for-each>
             </div>
             <div class="dataLabel">business activity</div>

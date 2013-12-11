@@ -5,16 +5,19 @@
         <div class="section" id="payment_performance" style="overflow:hidden">
         <h2>payment performance</h2>
            
-            <div class="subSectionInsert" style="width:45%">
+            <div class="subSectionInsert" style="width:50%;margin:auto">
                 <h3  >Summary Based On The Information Supplied From Our Sources</h3>
                 <div>
 
-                    This company pays its accounts on average <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/DBTMonthly[last()]/DBT"/> days beyond terms. (<span class="toMonthName"><xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/DBTMonthly[last()]/ExpMonth/MM"/></span>&#xA0;<xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/DBTMonthly[last()]/ExpMonth/CCYY"/>)
+
+                    This company pays its accounts on average <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentAbbrev/DBTMonthly[last()]/DBT"/> days beyond terms. (<span class="toMonthName"><xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentAbbrev/DBTMonthly[last()]/ExpMonth/MM"/></span>&#xA0;<xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentAbbrev/DBTMonthly[last()]/ExpMonth/CCYY"/>)
                     
                     <br/>
                         There is <xsl:call-template name="PaymentPatternValues"/> payment pattern.
                     <br/>
                         This company pays <xsl:call-template name="PaymentTermValues"/>.
+                    <br/>
+                        This Company pays its accounts on average <xsl:value-of select="PaymentPerformance/PaymentAbbrev/DBTMonthly/DBT"/>
                 </div>
                
             </div>
@@ -97,13 +100,13 @@
                     </xsl:choose>
                 </div>
                 
-                <div class="dataLabel"> Associated Data Outside Ownership Range</div>
+                <div class="dataLabel" style="width:400px"> Associated Data Outside Ownership Range</div>
                 <div class="dataValue">
                     <xsl:choose>
-                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/MainDataOutsideOwnership='Y'">
+                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/AssociatedDataOutsideOwnership='Y'">
                             Data outside range
                         </xsl:when>
-                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/MainDataOutsideOwnership='N'">
+                        <xsl:when test="Identification/ConsumerCreditLicenceSummary/AssociatedDataOutsideOwnership='N'">
                             No data outside range
                         </xsl:when>
                     </xsl:choose>
@@ -133,6 +136,15 @@
                 <br style="clear:both"/>
                 <xsl:value-of select="PaymentPerformance/PaymentAbbrev/AcctsUnpaid3Months"/>
                 have received no payment for 3 months
+                <br style="clear:both"/>
+                Notice of correction : <xsl:choose>
+                    <xsl:when test="NoticeOfCorrection/NOCDetail/Reference!=''">
+                        <xsl:value-of select="NoticeOfCorrection/NOCDetail/Reference"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        no data registred
+                    </xsl:otherwise>
+                </xsl:choose>
             </div>
             <br style="clear:both"/>
     </div>
