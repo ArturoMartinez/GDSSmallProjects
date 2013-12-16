@@ -31,7 +31,7 @@ public class Application
     public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*$";
     public static final String REGEX_LTD = "^.*\\<LtdCompanyData\\>.*$";
     public static final String REGEX_NONLTD = "^.*\\<NonLtdBusinessData\\>.*$";
-    //public static final String REGEX_DIRECTOR = "^.*\\<DirectorData\\>.*$";
+    public static final String REGEX_DIRECTOR = "^.*\\<DirectorData\\>.*$";
 
 
     //singleton
@@ -118,7 +118,7 @@ public class Application
             _mapNames.put(REGEX_CONSUMER, "Non-Ltd Proprietor");
             
             //director
-            /*
+            
             streamIn = Application.class.getResourceAsStream("/DirectorReport/XSL_DIRECTOR_REPORT.xsl");
             if(streamIn == null)
                throw new Exception("Stylesheet \"XSL_DIRECTOR_REPORT\" not found");
@@ -127,7 +127,7 @@ public class Application
             factoryTransformer.setURIResolver(new CPURIResolver("/DirectorReport/"));
             _mapTemplates.put(REGEX_DIRECTOR, factoryTransformer.newTemplates(new StreamSource(streamIn)));
             _mapNames.put(REGEX_DIRECTOR, "Director");
-            */ 
+             
         }
         catch(Exception e)
         {

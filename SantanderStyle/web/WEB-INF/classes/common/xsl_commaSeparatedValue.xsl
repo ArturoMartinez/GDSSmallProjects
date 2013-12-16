@@ -3,27 +3,17 @@
 
 	<xsl:template name="commaSeparatedValue">
 		<xsl:param name="curValue"/>
-		<xsl:param name="separator"/>
+		<xsl:param name="separator" select="',&#xA0;'"/>
 		<xsl:for-each select="$curValue">
 			<xsl:choose>
 				<xsl:when test="position() &gt; 1">
-					<xsl:choose>
-						<xsl:when test="$separator!=''">
-							<xsl:value-of select="$separator"/>
-
-						</xsl:when>
-						<xsl:otherwise>,&#xA0;</xsl:otherwise>
-					</xsl:choose>
-					<xsl:value-of select="."/>
+					<xsl:value-of select="$separator"/><xsl:value-of select="."/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="."/></xsl:otherwise>
-			</xsl:choose>
-		</xsl:for-each>
-
+				</xsl:choose>
+			</xsl:for-each>
 		</xsl:template>
-
-
 	</xsl:stylesheet>
 
 

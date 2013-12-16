@@ -1,4 +1,4 @@
-document._version='1.8.41';
+document._version='1.8.51';
 document._ressourcesPath='./rsc/images/';
 document._NoDataMessage="No Data Registered";
 if(typeof(console) === 'undefined'){
@@ -45,6 +45,7 @@ if ($){
       $(".toMonthName").toMonthName();
 
       $(".dataLabel").hideEmptyValue();
+      $("label").hideEmptyValue();
 
       $("table").hideEmptyTable();
 
@@ -123,6 +124,7 @@ if ($){
        return this.each(function () {
 
            var dataFields = $(".dataValue",this);
+
            var cellDatafields = $(".matrix td",this);
            dataFields = $.merge(dataFields, cellDatafields);
 
@@ -222,6 +224,8 @@ if ($){
                   if(!$(this).hasClass("alwaysVisible")){
                      $(this).css("display","none");
                      $(correspondingValue).css("display","none");
+                     if($(this.parentNode).attr("tagName") === 'LI')
+                        this.parentNode.style.display = "none";
                   }
                }
            }

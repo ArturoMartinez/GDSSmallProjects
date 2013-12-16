@@ -2677,298 +2677,293 @@
         <CreditTextOverrideIndicator>N</CreditTextOverrideIndicator>
     </CommercialDelphi>
     <PaymentPerformance>
-        <PaymentFull><NumberDBT1K>13</NumberDBT1K>
-               <NumberDBT10K>17</NumberDBT10K>
-               <NumberDBT100K>17</NumberDBT100K>
-               <NumberDBT100KPlus>13</NumberDBT100KPlus>
-            <AvgDBT3Mnths>12</AvgDBT3Mnths>
-            <AvgDBT6Mnths>13</AvgDBT6Mnths>
-            <AvgDBT12Mnths>22</AvgDBT12Mnths>
+        <PaymentAbbrev>
+            <AllDataInRange>G</AllDataInRange>
             <NumberCashFirst>0</NumberCashFirst>
             <NumberCollection>0</NumberCollection>
             <ValCollection>0</ValCollection>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>3</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>1</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>1</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails>
-            <UnpaidAccountsDetails>
-                <UnpaidAccounts>0</UnpaidAccounts>
-            </UnpaidAccountsDetails> 
-            <IndAvgDBT3Mnths>21</IndAvgDBT3Mnths>
-               <IndAvgDBT6Mnths>22</IndAvgDBT6Mnths>
-               <IndAvgDBT12Mnths>21</IndAvgDBT12Mnths>
-               <IndNumberDBT1K>19</IndNumberDBT1K>
-               <IndNumberDBT10K>27</IndNumberDBT10K>
-               <IndNumberDBT100K>23</IndNumberDBT100K>
-               <IndNumberDBT100KPlus>15</IndNumberDBT100KPlus>
-            <PaymentPattern>C</PaymentPattern>
-            <IndPaymentPattern>C</IndPaymentPattern>
-            <SuppPaymentPattern>N</SuppPaymentPattern>
+            <NumberCollectionLast2Years>1</NumberCollectionLast2Years>
+            <AcctsUnpaid1Month>1</AcctsUnpaid1Month>
+            <AcctsUnpaid2Months>0</AcctsUnpaid2Months>
+            <AcctsUnpaid3Months>5</AcctsUnpaid3Months>
+            <NumMnths>13</NumMnths>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2012</CCYY>
+                    <MM>09</MM>
+                </ExpMonth>
+                <DBT>79</DBT>
+                <NumExp>34</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2012</CCYY>
+                    <MM>10</MM>
+                </ExpMonth>
+                <DBT>78</DBT>
+                <NumExp>50</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2012</CCYY>
+                    <MM>11</MM>
+                </ExpMonth>
+                <DBT>67</DBT>
+                <NumExp>54</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2012</CCYY>
+                    <MM>12</MM>
+                </ExpMonth>
+                <DBT>70</DBT>
+                <NumExp>49</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>01</MM>
+                </ExpMonth>
+                <DBT>68</DBT>
+                <NumExp>50</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>02</MM>
+                </ExpMonth>
+                <DBT>76</DBT>
+                <NumExp>43</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>03</MM>
+                </ExpMonth>
+                <DBT>68</DBT>
+                <NumExp>42</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>04</MM>
+                </ExpMonth>
+                <DBT>70</DBT>
+                <NumExp>34</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>05</MM>
+                </ExpMonth>
+                <DBT>57</DBT>
+                <NumExp>34</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>06</MM>
+                </ExpMonth>
+                <DBT>42</DBT>
+                <NumExp>39</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>07</MM>
+                </ExpMonth>
+                <DBT>34</DBT>
+                <NumExp>44</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>08</MM>
+                </ExpMonth>
+                <DBT>41</DBT>
+                <NumExp>48</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
+                    <CCYY>2013</CCYY>
+                    <MM>09</MM>
+                </ExpMonth>
+                <DBT>53</DBT>
+                <NumExp>51</NumExp>
+            </DBTMonthly>
+        </PaymentAbbrev>
+        <PaymentFull>
+            <AllDataInRange>G</AllDataInRange>
+            <NumberCashFirst>0</NumberCashFirst>
+            <NumberCollection>0</NumberCollection>
+            <ValCollection>0</ValCollection>
+            <NumberCollectionLast2Years>1</NumberCollectionLast2Years>
+            <AcctsUnpaid1Month>1</AcctsUnpaid1Month>
+            <AcctsUnpaid2Months>0</AcctsUnpaid2Months>
+            <AcctsUnpaid3Months>5</AcctsUnpaid3Months>
+            <NumberDBT0-100>11</NumberDBT0-100>
+            <NumberDBT101-1000>0</NumberDBT101-1000>
+            <NumberDBT1001-10000>51</NumberDBT1001-10000>
+            <NumberDBT10kPlus>3</NumberDBT10kPlus>
+            <AvgDBT3Mnths>39</AvgDBT3Mnths>
+            <AvgDBT6Mnths>52</AvgDBT6Mnths>
+            <AvgDBT12Mnths>63</AvgDBT12Mnths>
+            <AvgCurrDebt>11125</AvgCurrDebt>
+            <AvgDebt3Months>11963</AvgDebt3Months>
+            <AvgDebt12Months>8459</AvgDebt12Months>
+            <PaymentPattern>I</PaymentPattern>
             <PaymentToTerms>B</PaymentToTerms>
-            <FastestPayment>11</FastestPayment>
+            <FastestPayment>34</FastestPayment>
             <FastestMonth>
                 <CCYY>2013</CCYY>
-                <MM>05</MM>
+                <MM>07</MM>
             </FastestMonth>
-            <SlowestPayment>33</SlowestPayment>
+            <SlowestPayment>79</SlowestPayment>
             <SlowestMonth>
                 <CCYY>2012</CCYY>
-                <MM>12</MM>
+                <MM>09</MM>
             </SlowestMonth>
+            <NumMnths>13</NumMnths>
             <NumCommonTerms>5</NumCommonTerms>
-            <CompanyNumMnths>13</CompanyNumMnths>
-            <IndustryNumMnths>12</IndustryNumMnths>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2012</CCYY>
                     <MM>09</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>32</CompanyDBT>
-                <CompanyNumExp>199</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>79</DBT>
+                <NumExp>34</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2012</CCYY>
                     <MM>10</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>32</CompanyDBT>
-                <CompanyNumExp>204</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>78</DBT>
+                <NumExp>50</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2012</CCYY>
                     <MM>11</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>32</CompanyDBT>
-                <CompanyNumExp>214</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>67</DBT>
+                <NumExp>54</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2012</CCYY>
                     <MM>12</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>33</CompanyDBT>
-                <CompanyNumExp>216</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>70</DBT>
+                <NumExp>49</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>01</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>32</CompanyDBT>
-                <CompanyNumExp>210</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>68</DBT>
+                <NumExp>50</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>02</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>25</CompanyDBT>
-                <CompanyNumExp>200</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>76</DBT>
+                <NumExp>43</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>03</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>19</CompanyDBT>
-                <CompanyNumExp>202</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>68</DBT>
+                <NumExp>42</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>04</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>15</CompanyDBT>
-                <CompanyNumExp>204</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>70</DBT>
+                <NumExp>34</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>05</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>11</CompanyDBT>
-                <CompanyNumExp>268</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>57</DBT>
+                <NumExp>34</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>06</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>11</CompanyDBT>
-                <CompanyNumExp>247</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>42</DBT>
+                <NumExp>39</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>07</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>11</CompanyDBT>
-                <CompanyNumExp>251</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>34</DBT>
+                <NumExp>44</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>08</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>15</CompanyDBT>
-                <CompanyNumExp>180</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <CompanyDBTMonthly>
-                <CompanyExpMonth>
+                </ExpMonth>
+                <DBT>41</DBT>
+                <NumExp>48</NumExp>
+            </DBTMonthly>
+            <DBTMonthly>
+                <ExpMonth>
                     <CCYY>2013</CCYY>
                     <MM>09</MM>
-                </CompanyExpMonth>
-                <CompanyDBT>13</CompanyDBT>
-                <CompanyNumExp>129</CompanyNumExp>
-            </CompanyDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2012</CCYY>
-                    <MM>09</MM>
-                </IndExpMonth>
-                <IndustryDBT>25</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2012</CCYY>
-                    <MM>10</MM>
-                </IndExpMonth>
-                <IndustryDBT>25</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2012</CCYY>
-                    <MM>11</MM>
-                </IndExpMonth>
-                <IndustryDBT>25</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2012</CCYY>
-                    <MM>12</MM>
-                </IndExpMonth>
-                <IndustryDBT>24</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>01</MM>
-                </IndExpMonth>
-                <IndustryDBT>24</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>02</MM>
-                </IndExpMonth>
-                <IndustryDBT>24</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>03</MM>
-                </IndExpMonth>
-                <IndustryDBT>24</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>04</MM>
-                </IndExpMonth>
-                <IndustryDBT>23</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>05</MM>
-                </IndExpMonth>
-                <IndustryDBT>23</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>06</MM>
-                </IndExpMonth>
-                <IndustryDBT>23</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>07</MM>
-                </IndExpMonth>
-                <IndustryDBT>24</IndustryDBT>
-            </IndDBTMonthly>
-            <IndDBTMonthly>
-                <IndExpMonth>
-                    <CCYY>2013</CCYY>
-                    <MM>08</MM>
-                </IndExpMonth>
-                <IndustryDBT>24</IndustryDBT>
-            </IndDBTMonthly>
+                </ExpMonth>
+                <DBT>53</DBT>
+                <NumExp>51</NumExp>
+            </DBTMonthly>
             <CommonTerms>
-                <CommonTermsDBT>13</CommonTermsDBT>
-                <CommonTermsNumExp>72</CommonTermsNumExp>
-                <CommonTermsCode>D 030</CommonTermsCode>
-                <CommonTermsText>Net 30 days</CommonTermsText>
+                <CommonTermsCode>0</CommonTermsCode>
+                <CommonTermsDBT>0</CommonTermsDBT>
+                <CommonTermsText>Net 50 days</CommonTermsText>
             </CommonTerms>
             <CommonTerms>
-                <CommonTermsDBT>37</CommonTermsDBT>
-                <CommonTermsNumExp>28</CommonTermsNumExp>
-                <CommonTermsCode>D 060</CommonTermsCode>
-                <CommonTermsText>Net 60 days</CommonTermsText>
+                <CommonTermsCode>1</CommonTermsCode>
+                <CommonTermsDBT>0</CommonTermsDBT>
+                <CommonTermsText>30 days from month end of invoice date</CommonTermsText>
             </CommonTerms>
             <CommonTerms>
-                <CommonTermsDBT>3</CommonTermsDBT>
-                <CommonTermsNumExp>28</CommonTermsNumExp>
-                <CommonTermsCode>D 015</CommonTermsCode>
-                <CommonTermsText>Net 15 days</CommonTermsText>
+                <CommonTermsCode>0</CommonTermsCode>
+                <CommonTermsDBT>0</CommonTermsDBT>
+                <CommonTermsText>Net 55 days</CommonTermsText>
             </CommonTerms>
             <CommonTerms>
-                <CommonTermsDBT>16</CommonTermsDBT>
-                <CommonTermsNumExp>9</CommonTermsNumExp>
-                <CommonTermsCode>1 060</CommonTermsCode>
-                <CommonTermsText>60 days from month end of invo</CommonTermsText>
+                <CommonTermsCode>0</CommonTermsCode>
+                <CommonTermsDBT>0</CommonTermsDBT>
+                <CommonTermsText>Net 30 EOM</CommonTermsText>
             </CommonTerms>
             <CommonTerms>
-                <CommonTermsDBT>9</CommonTermsDBT>
-                <CommonTermsNumExp>43</CommonTermsNumExp>
-                <CommonTermsCode>OTHER</CommonTermsCode>
+                <CommonTermsCode>0</CommonTermsCode>
+                <CommonTermsDBT>42</CommonTermsDBT>
                 <CommonTermsText>Others/Unknown</CommonTermsText>
             </CommonTerms>
-            <IndustrySICDesc>Retail distribution</IndustrySICDesc>
+            <PaymentSummary>
+                <DateOwnershipTerminated-Yyyy>2013</DateOwnershipTerminated-Yyyy>
+                <DateOwnershipTerminated-Mm>09</DateOwnershipTerminated-Mm>
+                <NumMonthsPaymentPreformance>13</NumMonthsPaymentPreformance>
+                <NumOccuranceCommon>13</NumOccuranceCommon>
+                <MnocFlag>N</MnocFlag>
+                <AnocFlag>N</AnocFlag>
+                <MainDataOutsideOwnership>N</MainDataOutsideOwnership>
+                <AssociatedDataOutsideOwnership>N</AssociatedDataOutsideOwnership>
+            </PaymentSummary>
         </PaymentFull>
     </PaymentPerformance>
     <Financials>
