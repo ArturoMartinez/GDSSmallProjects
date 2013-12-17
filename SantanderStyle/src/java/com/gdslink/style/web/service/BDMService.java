@@ -66,8 +66,29 @@ public class BDMService
                             log.debug("Report = " + bureauData.getRaw());
                             log.debug("Bureau = " + bureauData.getBureau());
 
-                            if(bureauData.isRecognized())
+                           /*
+                           * Arturo Martínez <arturo.martinez@gdsmodellica.com>
+                           * 2013/12/17
+                           * Added support for DirectorData.
+                           * Both director and consumer RAW reports could have
+                           *    [] Single DirectorData data
+                           *    [] Single ConsumerOutput data
+                           *    [] Mixed DirectorData+ConsumerOutput data
+                           */
+                            
+                            /*if(bureauData.isRecognized())
+                                listBureauData.add(bureauData);*/
+                            if(bureauData.isRecognized() && !bureauData.isMixed())
                                 listBureauData.add(bureauData);
+                            
+                            if (bureauData.isMixed()){
+                               BureauData director = bureauData.extractDirector();
+                               if (director.isRecognized())
+                                  listBureauData.add(director);
+                               BureauData consumer = bureauData.extractConsumer();
+                               if (consumer.isRecognized())
+                                  listBureauData.add(consumer);
+                            }
                         }
                     }
                 
@@ -174,8 +195,32 @@ public class BDMService
                                     log.debug("Report = " + bureauData.getRaw());
                                     log.debug("Bureau = " + bureauData.getBureau());
 
+                                    /*
+                                     * Arturo Martínez <arturo.martinez@gdsmodellica.com>
+                                     * 2013/12/17
+                                     * Added support for DirectorData.
+                                     * Both director and consumer RAW reports could have
+                                     *    [] Single DirectorData data
+                                     *    [] Single ConsumerOutput data
+                                     *    [] Mixed DirectorData+ConsumerOutput data
+                                     */
+                                    
+                                    /*
                                     if(bureauData.isRecognized())
                                         listBureauData.add(bureauData);
+                                    */ 
+                                    
+                                    if(bureauData.isRecognized() && !bureauData.isMixed())
+                                          listBureauData.add(bureauData);
+
+                                    if (bureauData.isMixed()){
+                                       BureauData director = bureauData.extractDirector();
+                                       if (director.isRecognized())
+                                          listBureauData.add(director);
+                                       BureauData consumer = bureauData.extractConsumer();
+                                       if (consumer.isRecognized())
+                                          listBureauData.add(consumer);
+                                    }
                                 }
                             }
                         }

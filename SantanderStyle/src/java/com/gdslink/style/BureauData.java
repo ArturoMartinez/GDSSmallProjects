@@ -2,7 +2,10 @@ package com.gdslink.style;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.zip.GZIPOutputStream;
 import javax.xml.bind.DatatypeConverter;
 import org.apache.commons.codec.binary.Base64;
@@ -22,6 +25,7 @@ public class BureauData
     private String _strRaw;
     private boolean _bRecognized;
 
+    private boolean _bMixed;
 
     public BureauData(String strDate, String strRaw)
     {
@@ -38,15 +42,28 @@ public class BureauData
     {
         _strBureauName = "Unknown Data";
         _bRecognized = false;
-
-        for(String strRegexp : Application.instance().regularExpressions())
-        {
-            if(_strRaw.matches(strRegexp))
+        
+        /*
+         * Arturo Martínez <arturo.martinez@gdsmodellica.com>
+         * Added support for DirectorData
+         * 2013/12/17
+         * 
+         * KEY POOINT: If RAW (decoded) from server (BDM) is MIXED type
+         * (DirectorData+ConsumerOutput) bureau info must be separated.
+         * If not, template must be searched and applied.
+         */
+        _bMixed = (_strRaw.matches(Application.REGEX_MIXED));
+        if (!_bMixed){
+           
+            for(String strRegexp : Application.instance().regularExpressions())
             {
-                _bRecognized = true;
-                _strBureauName = Application.instance().getNameFor(strRegexp);
-                break;
-            }
+                if(_strRaw.matches(strRegexp))
+                {
+                   _bRecognized = true;               
+                   _strBureauName = Application.instance().getNameFor(strRegexp);
+                   break;                
+                }
+            } 
         }
     }
 
@@ -75,6 +92,10 @@ public class BureauData
         return _bRecognized;
     }
 
+    public boolean isMixed(){
+       return _bMixed;
+    }
+    
     public String getCompressedBase64Raw() throws IOException
     {
         try
@@ -107,5 +128,49 @@ public class BureauData
             log.debug("Exception = " + e.getMessage());
             return strData;
         }
+    }
+    
+    
+   /*
+   * Arturo Martínez <arturo.martinez@gdsmodellica.com>
+   * 2013/12/17
+   * Added support for DirectorData.
+   * Both director and consumer RAW reports could have
+   *    [] Single DirectorData data
+   *    [] Single ConsumerOutput data
+   *    [] Mixed DirectorData+ConsumerOutput data
+   * 
+   * Following functions:
+   *     - extractDirector()
+   *     - extractConsumer()
+   * 
+   * Extract from MIXED RAW just the part of DirectorData or ConsumerOutput
+   * based on a pattern.
+   */
+    
+    public BureauData extractDirector() throws UnsupportedEncodingException{
+       
+       BureauData rBureau = null;
+       
+       Pattern pattern = Pattern.compile("\\<DirectorData\\>.*\\</DirectorData\\>");
+       Matcher matcher = pattern.matcher(_strRaw);
+       if (matcher.find()){
+         rBureau = new BureauData(_strDate, Base64.encodeBase64String(matcher.group(0).getBytes()));
+       }
+       
+       return rBureau;
+    }
+    
+    public BureauData extractConsumer() throws UnsupportedEncodingException{
+       
+       BureauData rBureau = null;
+       
+       Pattern pattern = Pattern.compile("\\<ConsumerOutput\\>.*\\</ConsumerOutput\\>");
+       Matcher matcher = pattern.matcher(_strRaw);
+       if (matcher.find()){
+         rBureau = new BureauData(_strDate, Base64.encodeBase64String(matcher.group(0).getBytes()));
+       }
+       
+       return rBureau;
     }
 }

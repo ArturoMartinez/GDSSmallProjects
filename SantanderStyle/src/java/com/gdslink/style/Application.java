@@ -28,10 +28,13 @@ import org.apache.log4j.xml.DOMConfigurator;
  */
 public class Application 
 {
-    public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*$";
-    public static final String REGEX_LTD = "^.*\\<LtdCompanyData\\>.*$";
-    public static final String REGEX_NONLTD = "^.*\\<NonLtdBusinessData\\>.*$";
-    public static final String REGEX_DIRECTOR = "^.*\\<DirectorData\\>.*$";
+    //public static final String REGEX_CONSUMER = "^.*(?!\\<DirectorData\\>.*\\</DirectorData\\>)?.*\\<ConsumerOutput\\>.*\\</ConsumerOutput\\>.*$";
+    public static final String REGEX_CONSUMER = "^.*\\<ConsumerOutput\\>.*\\</ConsumerOutput\\>.*$";
+    public static final String REGEX_LTD = "^.*\\<LtdCompanyData\\>.*\\</LtdCompanyData\\>.*$";
+    public static final String REGEX_NONLTD = "^.*\\<NonLtdBusinessData\\>.*\\</NonLtdBusinessData\\>.*$";
+    //public static final String REGEX_DIRECTOR = "^.*\\<DirectorData\\>.*\\</DirectorData\\>.*(?=\\<ConsumerOutput\\>.*\\</ConsumerOutput\\>)?.*$";
+    public static final String REGEX_DIRECTOR = "^.*\\<DirectorData\\>.*\\</DirectorData\\>.*$";
+    public static final String REGEX_MIXED = "^.*(?=\\<DirectorData\\>.*\\</DirectorData\\>){1}.*(?=\\<ConsumerOutput\\>.*\\</ConsumerOutput\\>){1}.*$";
 
 
     //singleton
