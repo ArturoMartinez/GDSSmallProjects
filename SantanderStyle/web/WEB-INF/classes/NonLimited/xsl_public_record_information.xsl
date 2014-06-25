@@ -56,25 +56,23 @@
                     </tr>
                     <tr>
                         <th>
-                            <span>value</span>
+                            <span>value (£)</span>
                         </th>
-                        <td class="num devise">
-                            <xsl:value-of select="CCJs/MValueCCJsLast12"/>
+                        <td class="num">
+                            <span><xsl:value-of select="CCJs/MValueCCJsLast12"/></span></td>
+                        <td class="num">
+                            <span><xsl:value-of select="CCJs/MValueCCJs13To24"/></span>
                         </td>
-                        <td class="num devise">
-                            <xsl:value-of select="CCJs/MValueCCJs13To24"/>
+                        <td class="num">
+                            <span><xsl:value-of select="CCJs/MValueCCJs25To36"/></span></td>
+                        <td class="num">
+                            <span><xsl:value-of select="CCJs/MValueCCJs37To48"/></span>
                         </td>
-                        <td class="num devise">
-                            <xsl:value-of select="CCJs/MValueCCJs25To36"/>
+                        <td class="num">
+                            <span><xsl:value-of select="CCJs/MValueCCJs49To60"/></span>
                         </td>
-                        <td class="num devise">
-                            <xsl:value-of select="CCJs/MValueCCJs37To48"/>
-                        </td>
-                        <td class="num devise">
-                            <xsl:value-of select="CCJs/MValueCCJs49To60"/>
-                        </td>
-                        <td class="num devise">
-                            <xsl:value-of select="CCJs/MValueCCJs61To72"/>
+                        <td class="num">
+                            <span><xsl:value-of select="CCJs/MValueCCJs61To72"/></span>
                         </td>
 
                     </tr>
@@ -147,12 +145,12 @@
                         <div class="dataValue">
                             <xsl:value-of select="Name"/>
                         </div>
-                        <div class="dataLabel">Address</div>
+                        <div class="dataLabel">Addresse</div>
                         <div class="dataValue">
 
                             <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="BankruptcyLocation/*"/></xsl:call-template>
 
-
+                                                       
                         </div>
                         <div class="dataLabel">Details</div>
                         <div class="dataValue" style="width:auto;overflow:auto">
@@ -186,8 +184,8 @@
 
                 <div class="dataLabel">registered against</div>
                 <div class="dataValue">
-                    <xsl:value-of select="JudgmentDetailsArea/JudgmentAgainst/Name"/>
-                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="JudgmentDetailsArea/*"/></xsl:call-template>
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="JudgmentDetailsArea/JudgmentAgainst/*"/></xsl:call-template>,
+                    <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="JudgmentDetailsArea/TradingLocation/*"/></xsl:call-template>
 
                 </div>
 

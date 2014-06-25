@@ -43,6 +43,7 @@
 			<xsl:when test="$curValue = '84'">33SC</xsl:when>
 			<xsl:when test="$curValue = '88'">466</xsl:when>
 			<xsl:when test="$curValue = '89'">MG10S</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="$curValue" /></xsl:when>
 		</xsl:choose>
 	</xsl:template>
 

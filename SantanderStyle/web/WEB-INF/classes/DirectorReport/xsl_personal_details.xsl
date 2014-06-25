@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="xsl_personal_details">
         <div class="section" id="personal_details">
-            <h2>personnal details</h2>
+            <h2>personal details</h2>
             
             <ul>
                 <li>
@@ -45,13 +45,14 @@
                 </li>
 
                 <li>
-                    <label>Previous Names</label>
+                    <label style="margin-bottom:{count(PreviousNames)*6}px">Previous Names</label>
                     <div class="dataValue">
                         <xsl:for-each select="PreviousNames">
                          <xsl:call-template name="commaSeparatedValue">
                             <xsl:with-param name="curValue" select="Name/*">
                             </xsl:with-param>
                         </xsl:call-template>
+                        <br/>
                     </xsl:for-each>
 
                 </div>

@@ -5,10 +5,7 @@
         <xsl:choose>
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentToTerms = 'B'">beyond its terms</xsl:when>
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentToTerms = 'W'">within its terms</xsl:when>
-            <xsl:otherwise>
-                  
-                    unknown value(<xsl:value-of select="PaymentPerformance/PaymentFull/PaymentToTerms"/>)
-            </xsl:otherwise>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="PaymentPerformance/PaymentFull/PaymentToTerms" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

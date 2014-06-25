@@ -7,14 +7,11 @@
             <xsl:when test="InformationSource='T'">telephone</xsl:when>
             <xsl:when test="InformationSource='O'">other</xsl:when>
             <xsl:when test="InformationSource='C'">CAIS data</xsl:when>
-            <xsl:when test="InformationSource='A'">joint application
-                data</xsl:when>
-            <xsl:when test="InformationSource='J'">joint judgement
-                data</xsl:when>
-            <xsl:when test="InformationSource='D'">directorsalias /
-                association</xsl:when>
-            <xsl:when test="InformationSource=' '">no source
-                information</xsl:when>
+            <xsl:when test="InformationSource='A'">joint application data</xsl:when>
+            <xsl:when test="InformationSource='J'">joint judgement data</xsl:when>
+            <xsl:when test="InformationSource='D'">directorsalias / association</xsl:when>
+            <xsl:when test="InformationSource=' '">no source information</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="InformationSource" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 
@@ -23,30 +20,21 @@
         <xsl:param name="sourceString"/>
         <div style="margin:20px"> 
             <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/Association/AssociationDetails">
-                <xsl:if test="Source=$sourceString">
-                    <div class="dataValue"><xsl:value-of select="Name/Title"
-                        />&#xA0; <xsl:value-of select="Name/Surname"/>&#xA0;
-                            <xsl:value-of select="Name/Forename"/>&#xA0;
-                            <xsl:value-of select="Name/MiddleName"
-                        />&#xA0;</div><br style="clear:both"/>
-                    <div class="dataLabel"><xsl:value-of select="$linkSentence"/></div>&#xA0; <div class="dataValue"><xsl:value-of
-                            select="AssociateName/Title"/>&#xA0; <xsl:value-of
-                            select="AssociateName/Surname"/>&#xA0; <xsl:value-of
-                            select="AssociateName/MiddleName"/>&#xA0;</div><br
-                        style="clear:both"/>
+                <xsl:if test="Source=$sourceString or /RawBureauData/IsPATHSViewReport=1">
+                    <div class="dataValue"><xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="Name/*"/><xsl:with-param name="separator" select="' '"/></xsl:call-template></div><br style="clear:both"/>
+                    <div class="dataLabel"><xsl:value-of select="$linkSentence"/></div>&#xA0;
+                    <div class="dataValue"><xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="AssociateName/*"/><xsl:with-param name="separator" select="' '"/></xsl:call-template></div>
                     <div class="dataLabel">at</div>
                     <div class="dataValue">
-                        <xsl:value-of select="Location/HouseNumber"/>&#xA0;
-                            <xsl:value-of select="Location/Street"/>&#xA0;
-                            <xsl:value-of select="Location/PostTown"/>&#xA0;
-                            <xsl:value-of select="Location/Postcode"/>
-                    </div><br style="clear:both"/>
+                        <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="Location/*"/></xsl:call-template>
+                        
+                    </div>
                     <div class="dataLabel">on</div>
                     <div class="dataValue">
                         <xsl:value-of select="InformationDate/DD"/>&#160;            
                         <span class="toMonthName"><xsl:value-of select="InformationDate/MM"/></span>&#160; 
                         <xsl:value-of select="InformationDate/CCYY"/>
-                    </div><br style="clear:both"/>
+                    </div>
                     <div class="dataLabel">source</div>
                     <div class="dataValue">
                         <xsl:call-template name="associationSourceName"/>

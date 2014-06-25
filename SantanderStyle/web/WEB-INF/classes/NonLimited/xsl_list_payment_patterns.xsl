@@ -3,16 +3,14 @@
 
      <xsl:template name="PaymentPatternValues">
         <xsl:choose>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'C'">a consistent</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'W'">a worsening</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'N'">a noticeable worsening</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'S'">a significant worsening</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'I'">an improvement</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'O'">a noticeable improvement</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern = 'T'">a significant improvement</xsl:when>
-            <xsl:otherwise>
-                    <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentPattern"/>
-            </xsl:otherwise>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'C'">a consistent</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'W'">a worsening</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'N'">a noticeable worsening</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'S'">a significant worsening</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'I'">an improvement</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'O'">a noticeable improvement</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'T'">a significant improvement</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="PaymentPerformance/PaymentFull/PaymentPattern" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

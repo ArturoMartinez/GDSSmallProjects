@@ -16,10 +16,19 @@
 	
 	<xsl:include href="xsl_CAIS.xsl"/>
 
+	<xsl:include href="xsl_cifas.xsl"/>
+
 	<xsl:include href="xsl_list_company_types.xsl"/>
 	<xsl:include href="xsl_list_account_types.xsl"/>
+	<xsl:include href="../common/xsl_list_fraud_categories.xsl"/>
+
+	<xsl:include href="../common/xsl_commaSeparatedValue.xsl"/>
+	<xsl:include href="../common/xsl_lineSeparatedValue.xsl"/>
+	<xsl:include href="../common/xsl_one_row_date.xsl"/>
 	
 	<xsl:include href="xsl_address_links.xsl"/>
+	<xsl:include href="xsl_director.xsl"/>
+	
 	<xsl:template match="/RawBureauData">
 		<html>
 			<head>
@@ -54,9 +63,33 @@
 				<xsl:call-template name="xsl_public_informations"/>
 				
 				<xsl:call-template name="xsl_previous_searches"/>
-				<xsl:call-template name="xsl_CAIS"/>
-			
+
+				 <div class="section" id="CAIS">
+            		<h2>CAIS</h2>
+					<xsl:call-template name="xsl_CAIS">
+						<xsl:with-param name="acctStatus" select="'F'"/>
+					</xsl:call-template>
+
+					<xsl:call-template name="xsl_CAIS">
+						<xsl:with-param name="acctStatus" select="'A'"/>
+					</xsl:call-template>
+
+					<xsl:call-template name="xsl_CAIS">
+						<xsl:with-param name="acctStatus" select="'S'"/>
+					</xsl:call-template>
+
+					<xsl:call-template name="xsl_CAIS">
+						<xsl:with-param name="acctStatus" select="'D'"/>
+					</xsl:call-template>
+				</div>
+
+				<xsl:call-template name="xsl_cifas"/>
+				
+                    
 				<xsl:call-template name="xsl_address_links"/>
+				<xsl:if test="ConsumerOutput/ConsumerSummary/PremiumValueData/Director/NDDIRSP = 'Y'">
+					<xsl:call-template name="xsl_director"/>
+				</xsl:if>
 			</body>
 		</html>
 	</xsl:template>

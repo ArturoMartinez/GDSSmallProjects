@@ -73,6 +73,7 @@
  <xsl:when test="$curValue = '68'"> Asset</xsl:when>
  <xsl:when test="$curValue = '69'"> Mortgage and Unsecured Loan</xsl:when>
  <xsl:when test="$curValue = '70'"> Gambling</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="$curValue" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

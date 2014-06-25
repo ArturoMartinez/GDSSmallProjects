@@ -17,6 +17,8 @@
             <xsl:when test="$curValue = '9'">Private Unlimited Company Without Share Capital</xsl:when>
             <xsl:when test="$curValue = '0'">Other</xsl:when>
             <xsl:when test="$curValue = 'A'">Private Company Limited by Shares (Exempt from using word Limited)</xsl:when>
+            
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="$curValue" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

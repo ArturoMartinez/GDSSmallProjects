@@ -22,6 +22,7 @@
             <xsl:when test="$curValue = 'U'">Compulsory appointments of liquidators</xsl:when>
             <xsl:when test="$curValue = 'V'">Revocations of Voluntary arrangements</xsl:when>
             <xsl:when test="$curValue = 'W'">Suspensions of Voluntary arrangements</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="$curValue" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

@@ -4,10 +4,13 @@
         <div class="section" id="notices_of_correction">
             <h2>notices of correction</h2>
             
-            <div class="dataLabel">number</div><div class="dataValue numeric">
-                <xsl:value-of select="DirectorData/NoticeOfCorrection/NumCorrections"/>
-            </div><br style="clear:both"/>
+            <xsl:if test="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/NoCCount != 0">
+                
             
+            <div class="dataLabel">number</div><div class="dataValue numeric">
+                <xsl:value-of select="ConsumerOutput/FullConsumerData/ConsumerDataSummary/SummaryDetails/NoCCount"/>
+            </div><br style="clear:both"/>
+            </xsl:if>
             <div class="matrixLabel" id="notices_of_correction_details">notices of correction details</div>
             <div class="matrix" id="notices_of_correction_details_matrix">
                 
@@ -16,15 +19,21 @@
                         <th><span>reference</span></th>
                         <th><span>text</span></th>
                     </tr>
-                    <xsl:for-each select="DirectorData/NoticeOfCorrection/NOCDetail">
-                        <tr>
+                    <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/NOC">
+                        <xsl:for-each select="NoCDetails">
+                            <tr>
                             <td>
                                 <span ><xsl:value-of select="Reference"/></span>
                             </td>
                             <td>
-                                <span><xsl:value-of select="Text"/></span>
+                                <xsl:for-each select="TextLine">
+                                    <div><xsl:value-of select="."/></div>
+                                </xsl:for-each>
+                                
                             </td>
                         </tr>
+                        </xsl:for-each>
+                        
                         
                         
                     </xsl:for-each>

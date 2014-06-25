@@ -14,7 +14,7 @@
             <br style="clear:both"/>
             <div class="dataLabel">risk band</div>
             <div class="dataValue">
-               <xsl:value-of select="CommercialDelphi/CommDelphiBand"/> - <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
+               <xsl:value-of select="CommercialDelphi/CommDelphiBand"/> - <xsl:value-of select="CommercialDelphiHistory/CommDelphiBandText"/>
                 
             </div>
             <br style="clear:both"/>
@@ -23,20 +23,23 @@
                 <xsl:value-of select="CommercialDelphi/CreditText"/>
                 <xsl:call-template name="lineSeparatedValue"> <xsl:with-param name="curValue" select="CommercialDelphi/ConcludingText"></xsl:with-param></xsl:call-template>
                 <xsl:call-template name="lineSeparatedValue"> <xsl:with-param name="curValue" select="CommercialDelphi/NOCText"></xsl:with-param></xsl:call-template>
-                
+
                 
             </div>
             <br style="clear:both"/>
             <h3>financial stability assessment</h3>
             <div style="width:850px;margin:auto;overflow:hidden">
                 <div style="width:400px;float:left" class="font14">
+                    <xsl:if test="CommercialDelphiHistory/CommDelphiScore!=''">
                     <div class="dataLabel">commercial delphi score</div>
                     <div class="dataValue">
                         <span>
                             <xsl:value-of
-                                select="CommercialDelphiHistory/CommDelphiScore"
+                                select="number(CommercialDelphiHistory/CommDelphiScore)"
                             /> out of 100 </span>
                     </div>
+                    </xsl:if>
+
                     <br style="clear:both"/>
                     <div class="dataLabel">commercial delphi band</div>
                     <div class="dataValue">
@@ -72,19 +75,23 @@
                 <xsl:variable name="ratingStarsImgSectionHeight">58</xsl:variable>
                 <xsl:variable name="score">
                     <xsl:value-of
-                        select="CommercialDelphiHistory/CommDelphiScore"/>
+                        select="number(CommercialDelphiHistory/CommDelphiScore)"/>
                 </xsl:variable>
-                <div class="subSectionInsert" style="width:300px;float:left">
-                    <h3>commercial delphi rating</h3>
-                    <div style="margin:auto;padding-top:10px;width:300px;font:italic normal 18px MS Serif"
-                        ><span class="num"><xsl:value-of
-                            select="CommercialDelphiHistory/CommDelphiScore"
-                        /></span> out of 100 </div>
-                    <div class="ratingStarDiv"
-                        style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(./rsc/images/ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
-                    />
-                    <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
-                </div>
+
+                <xsl:if test="CommercialDelphiHistory/CommDelphiScore!=''">
+                    <div class="subSectionInsert" style="width:300px;float:left">
+                        <h3>commercial delphi rating</h3>
+                        <div style="margin:auto;padding-top:10px;width:300px;font:italic normal 18px MS Serif"
+                            ><span class="num"><xsl:value-of
+                                select="CommercialDelphiHistory/CommDelphiScore"
+                            /></span> out of 100 </div>
+                        <div class="ratingStarDiv"
+                            style="margin:auto;width:150px;height:{$ratingStarsImgSectionHeight}px;background:URL(ratingStars-mid.png) 0px -{(floor($score div 10)) * $ratingStarsImgSectionHeight}px no-repeat"
+                        />
+                        <xsl:value-of select="CommercialDelphi/CommDelphiBandText"/>
+                    </div>
+                </xsl:if>
+
             </div>
         </div>
     </xsl:template>

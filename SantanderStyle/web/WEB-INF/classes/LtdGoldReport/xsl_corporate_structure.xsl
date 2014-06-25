@@ -5,7 +5,8 @@
         <xsl:choose>
             <xsl:when test="SubStatus='L'">LIVE</xsl:when>
             <xsl:when test="SubStatus='D'">DORMANT</xsl:when>
-            <xsl:when test="SubStatus='S'">DISSOLVED</xsl:when>
+            <xsl:when test="SubStatus='S'">DISSOLVED</xsl:when>            
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="SubStatus" /></xsl:when>
         </xsl:choose>
     </xsl:template>
     
@@ -33,9 +34,11 @@
             <xsl:when test="SubLegalStatus='P'">Mortgages and Charges</xsl:when>
             <xsl:when test="SubLegalStatus='Q'">Credit Card Report</xsl:when>
             <xsl:when test="SubLegalStatus='X'">XML Bespoke Delivery</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="SubLegalStatus" /></xsl:when>
+            
         </xsl:choose>
     </xsl:template>
-    
+
     <xsl:template name="treePositionsList">
         <xsl:param name="curValue"/>
         <xsl:choose>
@@ -44,6 +47,7 @@
             <xsl:when test="$curValue ='3'">Parent</xsl:when>
             <xsl:when test="$curValue ='4'">Intermediate parent</xsl:when>
             <xsl:when test="$curValue ='5'">Top of tree</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="$curValue" /></xsl:when>
         </xsl:choose>
     </xsl:template>
     
@@ -54,11 +58,18 @@
             <h2>corporate structure</h2>
             <div class="dataLabel">parent company</div>
             <div class="dataValue">
-                <xsl:value-of select="CorporateStructure/CompanyOwnership/ParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/ParRegNumber"/>)
+                <xsl:if test="CorporateStructure/CompanyOwnership/ParentDetail/CommercialName!=''">
+                    
+                <xsl:value-of select="CorporateStructure/CompanyOwnership/ParentDetail/CommercialName"/> <xsl:if test="CorporateStructure/CompanyOwnership/ParRegNumber != '' ">(<xsl:value-of select="CorporateStructure/CompanyOwnership/ParRegNumber"/>)</xsl:if>
+            </xsl:if>
             </div>
             <div class="dataLabel" style="clear:both">ultimate parent company</div>
-            <div class="dataValue">
-                <xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName"/> (<xsl:value-of select="CorporateStructure/CompanyOwnership/UltParRegNumber"/>)
+            <div class="dataValue">                
+                <xsl:if test="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName!=''">
+                <xsl:value-of select="CorporateStructure/CompanyOwnership/UltParentDetail/CommercialName"/> <xsl:if test="CorporateStructure/CompanyOwnership/UltParRegNumber != '' ">
+                    
+                (<xsl:value-of select="CorporateStructure/CompanyOwnership/UltParRegNumber"/>)</xsl:if>
+            </xsl:if>
             </div>
             <br style="clear:both"/>
 
@@ -68,14 +79,8 @@
 
             <div class="dataValue listing">
                 <xsl:for-each select="CorporateStructure/CompanyOwnership/CorporateShareholder">
-                    Reg. Number : <xsl:value-of select="RegNumber"/>
-                    <br/>
-                    <xsl:value-of select="Name"/>
-                    <br/>
-                    <xsl:value-of select="Country"/><br/>
-                    <xsl:value-of select="Holding"/>
-                    <br style="clear:both"/>
-                    <br style="clear:both"/>
+                    <xsl:value-of select="Name"/>&#xA0;<xsl:value-of select="RegNumber"/>&#xA0;
+                    <xsl:value-of select="Holding"/>&#xA0;
                 </xsl:for-each>
             </div>
 
@@ -84,13 +89,15 @@
             <br/>
             <div class="dataLabel">UK direct subsidiaries</div>
             <div class="dataValue listing">
-                <xsl:for-each select="CorporateStructure/Subsidiaries/UKSubsidiaries"> Reg. number:
+                <xsl:for-each select="CorporateStructure/Subsidiaries/UKSubsidiaries">
+
+                    <xsl:value-of select="SubName"/>
+                    <br style="clear:both"/>
+                   
                         <xsl:value-of select="SubRegNumber"/>
                     <br style="clear:both"/>
                     Status : <xsl:call-template name="UKSUbStatus"></xsl:call-template>
                   
-                    <br style="clear:both"/>
-                    <xsl:value-of select="SubName"/>
                     <br style="clear:both"/>
                     <br style="clear:both"/>
                 </xsl:for-each>
@@ -98,12 +105,14 @@
             <br style="clear:both"/>
             
              <div class="dataLabel">Overseas Subsidiaries</div>
-            <div class="dataValue">
+            <div class="dataValue">                
+                <xsl:if test="CorporateStructure/Subsidiaries/ForeignSubsidiaries/Name!=''">
                 <xsl:value-of select="CorporateStructure/Subsidiaries/ForeignSubsidiaries/Name"/> (<xsl:value-of select="CorporateStructure/Subsidiaries/ForeignSubsidiaries/Country"/>)
+                </xsl:if>
             </div>
             <br style="clear:both"/>
-
-            <br/>
+                
+            <!--<br/>
             <div class="dataLabel">Tree position</div>
             <div class="dataValue" >
                 <xsl:call-template name="treePositionsList">
@@ -167,7 +176,7 @@
 
 
 
-            <br/>
+            <br/>-->
 
         </div>
     </xsl:template>

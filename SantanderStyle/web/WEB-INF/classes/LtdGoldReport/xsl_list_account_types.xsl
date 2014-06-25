@@ -5,7 +5,7 @@
         <xsl:choose>
             <xsl:when test="LatestAccountsType='I'">IFRS</xsl:when>
             <xsl:when test="LatestAccountsType='G'">GAAP</xsl:when>
-            
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="LatestAccountsType" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

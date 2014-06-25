@@ -8,13 +8,14 @@
             <xsl:when test="NaturePartialSatisfaction/PartialSatisfactionDetails='X'">Partial satisfaction</xsl:when>
             <xsl:when test="NaturePartialSatisfaction/PartialSatisfactionDetails='R'">Partial property release</xsl:when>
             <xsl:when test="NaturePartialSatisfaction/PartialSatisfactionDetails='B'">Property ceasing to belong</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="NaturePartialSatisfaction/PartialSatisfactionDetails" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 
     <xsl:template name="xsl_mortages_charges_satisfactions">
         <div class="section" id="mortages_charges_and_satisfactions">
             <h2>mortgages, charges and satisfactions</h2>
-            
+            <h3>charges</h3>
             <xsl:for-each select="Mortgages/MortgageDetail">
                 
                 <div class="dataLabel">Number of Partial Satisfactions</div>
@@ -25,15 +26,20 @@
                 <div class="dataValue">
                     <xsl:call-template name="partialSatisfactionDetails"></xsl:call-template>
                 </div>
+                <div class="dataLabel" style="clear:both">Date Partially Satisfied</div>
+                <div class="dataValue">
+
+                    <xsl:call-template name="oneRowDate"><xsl:with-param name="curValue" select="PartialSatisfactionDate"/></xsl:call-template>
+                </div>
                 <div class="dataLabel" style="clear:both">date charge registered</div>
                 <div class="dataValue">
-                    <xsl:value-of select="RegistrationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="RegistrationDate/MM"/></span>&#xA0;<xsl:value-of select="RegistrationDate/CCYY"/>
-                </div>
+                    <xsl:call-template name="oneRowDate"><xsl:with-param name="curValue" select="RegistrationDate"/></xsl:call-template>
+                       </div>
                 <div class="dataLabel" style="clear:both">charge type</div>
                 <div class="dataValue">
                     <xsl:value-of select="ChargeType"/>
                 </div>
-            <br style="clear:both"/>
+                <br style="clear:both"/>
            
             <div class="dataLabel">latest form type</div>
                     
@@ -43,8 +49,8 @@
                 </div>
                 <div class="dataLabel" style="clear:both">date charge created</div>
                 <div class="dataValue">
-                    <xsl:value-of select="CreationDate/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="CreationDate/MM"/></span>&#xA0;<xsl:value-of select="CreationDate/CCYY"/>
-                </div>
+                    <xsl:call-template name="oneRowDate"><xsl:with-param name="curValue" select="CreationDate"/></xsl:call-template>
+                 </div>
                 <div class="dataLabel" style="clear:both">lender</div>
                 <div class="dataValue"> 
                     <xsl:value-of select="LenderDetails/LenderName"/>
@@ -52,12 +58,13 @@
                 
                 <div class="dataLabel" style="clear:both">date fully satisfied</div>
                 <div class="dataValue">
-                    <xsl:value-of select="DateFullySatisfied/DD"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateFullySatisfied/MM"/></span>&#xA0;<xsl:value-of select="DateFullySatisfied/CCYY"/>
+                    <xsl:call-template name="oneRowDate"><xsl:with-param name="curValue" select="DateFullySatisfied"/></xsl:call-template>
                 </div>
-                <div class="dataLabel" style="clear:both">satisfactions</div>
+               <!-- <div class="dataLabel" style="clear:both">Date Partially Satisfied</div>
                 <div class="dataValue">
                     <xsl:value-of select="NumberPartialSatisfactionDates"/>&#xA0;
                 </div>
+                -->
                 <br style="clear:both"/>
                 
             <div class="dataLabel">secured on</div>

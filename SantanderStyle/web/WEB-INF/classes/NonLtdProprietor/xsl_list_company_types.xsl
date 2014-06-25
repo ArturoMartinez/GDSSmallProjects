@@ -63,6 +63,7 @@
  <xsl:when test="$curValue = '59'"> DEFRA</xsl:when>
  <xsl:when test="$curValue = '60'"> Experian International</xsl:when>
  <xsl:when test="$curValue = '61'"> Home Shopping</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="$curValue" /></xsl:when>
 
         </xsl:choose>
     </xsl:template>

@@ -29,7 +29,7 @@
                 <tr>
                     <th><span>date of account</span></th>
                     <xsl:for-each select="Financials/Accounts">
-                        <td>
+                        <td class="canHideTableIfValue">
                             <xsl:value-of select="DateOfAccounts/DD"/>&#160;<span class="toMonthName"><xsl:value-of select="DateOfAccounts/MM"/></span>&#160;<xsl:value-of select="DateOfAccounts/CCYY"/>
 
                     </td>
@@ -38,15 +38,15 @@
                 <tr>
                     <th><span>accounting standard</span></th>
                     <xsl:for-each select="Financials/Accounts">
-                        <td><xsl:call-template name="accountTypes"/></td>
+                        <td class="canHideTableIfValue"><xsl:call-template name="accountTypes"/></td>
                     </xsl:for-each>
                 </tr>
                 <tr>
                     <th><span>number of weeks</span></th>
-                    <xsl:for-each select="Financials/Accounts"><td><xsl:value-of select="AccountingPeriod"/></td></xsl:for-each>
+                    <xsl:for-each select="Financials/Accounts"><td class="canHideTableIfValue"><xsl:value-of select="AccountingPeriod"/></td></xsl:for-each>
                 </tr>
                 <tr>
-                    <th><span>currency</span></th><xsl:for-each select="Financials/Accounts"><td><xsl:value-of select="Currency"/></td></xsl:for-each>
+                    <th><span>currency</span></th><xsl:for-each select="Financials/Accounts"><td class="canHideTableIfValue"><xsl:value-of select="Currency"/><xsl:if test="CurrencyMultiplier = 'T'">&#xA0;000</xsl:if></td></xsl:for-each>
                 </tr>
                  <tr>
                     <th><span>turnover/sales</span>
@@ -148,9 +148,9 @@
                     <th><span>operating income</span></th>
                     <xsl:for-each select="Financials/Accounts/ProfitLoss"><td class="num"><span><xsl:value-of select="OperatingIncome"/></span></td></xsl:for-each>
                 </tr>
-                
-                
-                <tr>
+
+
+                 <tr>
                     <th><span>operating profit</span>
                         <div class="inCellSubTitle" style="margin-top:5px">Share Of Profits</div>
                         <div class="inCellSubTitle">Other Income</div>
@@ -202,10 +202,10 @@
                         </td>
                     </xsl:for-each>
                 </tr>
-                
+
                
-                
-                <tr>
+
+                 <tr>
                     <th><span>pre tax profit loss</span>
                         <div class="inCellSubTitle" style="margin-top:5px">taxation</div>
                         <div class="inCellSubTitle">extraordinary items</div>

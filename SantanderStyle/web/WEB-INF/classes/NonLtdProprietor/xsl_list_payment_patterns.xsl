@@ -10,6 +10,7 @@
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'I'">an improvement</xsl:when>
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'O'">a noticeable improvement</xsl:when>
             <xsl:when test="PaymentPerformance/PaymentFull/PaymentPattern = 'T'">a noticeable improvement</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="PaymentPerformance/PaymentFull/PaymentPattern" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

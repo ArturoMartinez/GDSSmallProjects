@@ -14,9 +14,7 @@
             <xsl:when test="Identification/FilingDetails/LatestAccountType = '8'">Total Exemption Full</xsl:when>
             <xsl:when test="Identification/FilingDetails/LatestAccountType = '9'">Total Exemption small</xsl:when>
             <xsl:when test="Identification/FilingDetails/LatestAccountType = 'A'">Partial Exemption</xsl:when>
-            <xsl:otherwise>
-                    unknown value (<xsl:value-of select="Identification/FilingDetails/LatestAccountType"/>)
-            </xsl:otherwise>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="Identification/FilingDetails/LatestAccountType" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 

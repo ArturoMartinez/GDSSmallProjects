@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:template name="previousSearchesEnquiryTypes">
         <xsl:choose>
+            <xsl:when test="EnquiryType='0'">Risk Report</xsl:when>
             <xsl:when test="EnquiryType='1'">Registered Office / Company Profile</xsl:when>
             <xsl:when test="EnquiryType='2'">Profile &amp; Credit</xsl:when>
             <xsl:when test="EnquiryType='3'">Financial Analysis</xsl:when>
@@ -24,6 +25,7 @@
             <xsl:when test="EnquiryType='P'">Mortgages &amp; Charges</xsl:when>
             <xsl:when test="EnquiryType='Q'">Credit Card Report</xsl:when>
             <xsl:when test="EnquiryType='X'">XML Bespoke Delivery</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="EnquiryType" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 
@@ -104,7 +106,7 @@
 
 
 
-
+<!--
 
 
 <br style="clear:both"/>
@@ -233,12 +235,7 @@
 <div class="dataValue">
     <xsl:value-of select="DirectorExpandedSummary/DirectorNumbers"/>
 </div>
-<br style="clear:both"/><br style="clear:both"/>
-<div class="dataLabel" style="clear:both;width:550px">Number of Notices of Correction</div>
-<div class="dataValue">
-    <xsl:value-of select="NoticeOfCorrection/NumCorrections"/>
-</div>
-
+-->
 
 
 

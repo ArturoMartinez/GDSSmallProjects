@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:template name="fraudCategories">
-        <xsl:choose>
-            <xsl:when test="FraudCategory='01'">Providing a false name and a true address.</xsl:when>
-            <xsl:when test="FraudCategory='02'">Providing or using the name and particulars of another person.</xsl:when>
-            <xsl:when test="FraudCategory='03'">Providing or using a genuine name and address, but one or more material falsehoods in personal details followed by a serious misuse of the credit or other facility and/or non-payment.</xsl:when>
-            <xsl:when test="FraudCategory='04'">Providing or using a genuine name and address, but one or more material falsehoods in personal details.</xsl:when>
-            <xsl:when test="FraudCategory='05'">Disposal/selling on of goods obtained on credit and failing to settle the finance agreement.</xsl:when>
-            <xsl:when test="FraudCategory='06'">Opening an account for the purpose of fraud.</xsl:when>
+  
+    <xsl:template name="xsl_cifas"><xsl:variable name="additionalClass">
+         <xsl:choose>
+            <xsl:when test="count(DetailDirectorCIFAS) &lt; 1"></xsl:when>
+            <xsl:when test="count(DetailDirectorCIFAS) &gt;= 1"> highlightedSection</xsl:when>
         </xsl:choose>
-    </xsl:template>
-    <xsl:template name="xsl_cifas">
-        <div class="section" id="cifas">
+        </xsl:variable>
+        <div class="section{$additionalClass}" id="cifas">
             <h2>cifas</h2>
             
             <ul>
@@ -42,7 +38,7 @@
                 <label>Address Of Subject</label>
                 <div class="dataValue">
                    <xsl:call-template name="commaSeparatedValue">
-                    <xsl:with-param name="curValue" select="Supplier/*">
+                    <xsl:with-param name="curValue" select="Address/*">
                     </xsl:with-param>
                 </xsl:call-template>
             </div>
@@ -65,23 +61,23 @@
         <li>
         <label>Category description</label>
         <div class="dataValue">
-            <xsl:call-template name="fraudCategories">
-                
-            </xsl:call-template>
+             <xsl:call-template name="fraudCategories">
+                    <xsl:with-param name="pValue" select="FraudCategory"/>
+                </xsl:call-template>
         </div>
         </li>
 
         <li>
         <label>Date Supplied</label>
         <div class="dataValue">
-            <xsl:value-of select="DateSupplied-Dd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="DateSupplied-Mm"/></span>&#xA0;<xsl:value-of select="DateSupplied-Yyyy"/>
+            <xsl:value-of select="Supplier/DateSuppliedDd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Supplier/DateSuppliedMm"/></span>&#xA0;<xsl:value-of select="Supplier/DateSuppliedYyyy"/>
         </div>
         </li>
 
         <li>
         <label>CIFAS Member</label>
         <div class="dataValue">
-            <xsl:value-of select="SupplierName"/>
+            <xsl:value-of select="Supplier/SupplierName"/>
         </div>
         </li>
 
@@ -89,10 +85,14 @@
         <label>Expiry Date</label>
         <div class="dataValue">
             <xsl:call-template name="oneRowDate">
-                    <xsl:with-param name="curValue" select="SupplierName/ExpiryDate">
+                    <xsl:with-param name="curValue" select="Supplier/ExpiryDate">
                     </xsl:with-param>
                     </xsl:call-template>
         </div>
+
+        <!--<div class="dataValue">
+            <xsl:value-of select="Supplier/ExpiryDateDd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Supplier/ExpiryDateMm"/></span>&#xA0;<xsl:value-of select="Supplier/ExpiryDateYyyy"/>
+        </div>-->
         </li>
 </ul>
 </xsl:for-each>

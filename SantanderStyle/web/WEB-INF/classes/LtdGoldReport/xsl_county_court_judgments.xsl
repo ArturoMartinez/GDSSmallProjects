@@ -7,7 +7,7 @@
             <xsl:for-each select="CCJs/CCJDetail">
                 
                  <xsl:choose>
-           <xsl:when test="SatisfactionDate/MM !=''"><h3>satisfied judgment (<span class="toMonthName"><xsl:value-of select="SatisfactionDate/MM"/></span>&#xA0;<xsl:value-of select="SatisfactionDate/CCYY"/>)</h3></xsl:when>
+                     <xsl:when test="SatisfactionDate/MM !=''"><h3>satisfied judgment (<span class="toMonthName"><xsl:value-of select="SatisfactionDate/MM"/></span>&#xA0;<xsl:value-of select="SatisfactionDate/CCYY"/>)</h3></xsl:when>
             <xsl:otherwise ><h3>judgment</h3></xsl:otherwise>
             
         </xsl:choose>

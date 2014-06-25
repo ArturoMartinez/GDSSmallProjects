@@ -3,11 +3,11 @@
 
      <xsl:template name="PaymentTermValues">
         <xsl:choose>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentToTerms = 'B'">beyond its terms</xsl:when>
-            <xsl:when test="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentToTerms = 'W'">within its terms</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentToTerms = 'B'">beyond its terms</xsl:when>
+            <xsl:when test="PaymentPerformance/PaymentFull/PaymentToTerms = 'W'">within its terms</xsl:when>
             <xsl:otherwise>
                   
-                    <xsl:value-of select="/NonLtdBusinessData/PaymentPerformance/PaymentFull/PaymentToTerms"/>
+                    <xsl:value-of select="PaymentPerformance/PaymentFull/PaymentToTerms"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

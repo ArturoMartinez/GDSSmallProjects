@@ -50,7 +50,7 @@
                                 <span>default balance (£)</span>
                             </th>
                         </tr>
-                        <xsl:for-each select="LtdCompanyCAISSummary/MonthlyData">
+                        <xsl:for-each select="LtdCompanyCAIS/LtdCompanyCAISSummary/MonthlyData">
                             <tr>
                                 <td>
                                     <span class="toMonthName">

@@ -3,26 +3,36 @@
 
 <xsl:template name="fraudCategories">
         <xsl:choose>
-            <xsl:when test="FraudCategory='01'">Providing a false name and a true address.</xsl:when>
- <xsl:when test="FraudCategory='02'">Providing or using the name and particulars of another person.</xsl:when>
- <xsl:when test="FraudCategory='03'">Providing or using a genuine name and address, but one or more material falsehoods in personal details followed by a serious misuse of the credit or other facility and/or non-payment.</xsl:when>
- <xsl:when test="FraudCategory='04'">Providing or using a genuine name and address, but one or more material falsehoods in personal details.</xsl:when>
- <xsl:when test="FraudCategory='05'">Disposal/selling on of goods obtained on credit and failing to settle the finance agreement.</xsl:when>
- <xsl:when test="FraudCategory='06'">Opening an account for the purpose of fraud.</xsl:when>
+            <xsl:when test="FraudCategory=0">Protective Registration</xsl:when>
+            <xsl:when test="FraudCategory=1">False Identify Fraud</xsl:when>
+ <xsl:when test="FraudCategory=2">Victim of Impersonation</xsl:when>
+ <xsl:when test="FraudCategory=3">Application Fraud (Facility Granted)</xsl:when>
+ <xsl:when test="FraudCategory=4">Application Fraud (Facility Refused)</xsl:when>
+ <xsl:when test="FraudCategory=5">Conversion</xsl:when>
+ <xsl:when test="FraudCategory=6">First Party Fraud</xsl:when>
+ <xsl:when test="FraudCategory=7">Aiding &amp; Abetting</xsl:when>
+ <xsl:when test="FraudCategory=8">Insurance Claims Fraud</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="FraudCategory" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 
 
 
 
-
     <xsl:template name="xsl_cifas">
-        <div class="section" id="cifas">
+        <xsl:variable name="additionalClass">
+        <xsl:choose>
+            <xsl:when test="count(LimitedCompanyCIFAS/LimitedCompanyCIFASDetails) &lt; 1"></xsl:when>
+            <xsl:when test="count(LimitedCompanyCIFAS/LimitedCompanyCIFASDetails) &gt;= 1"> highlightedSection</xsl:when>
+        </xsl:choose>
+        </xsl:variable>
+        <div class="section{$additionalClass}" id="cifas">
             <h2>cifas details</h2>
-
+            <h4>Number of CIFAS records : <xsl:value-of select="LimitedCompanyCIFAS/LimitedCompanyCIFASSummary/NumCIFASRecords"/></h4>
+            <br/>
             <xsl:for-each select="LimitedCompanyCIFAS/LimitedCompanyCIFASDetails">
                 
-                <div class="dataLabel">Name of Subject </div>
+                <div style="float:left;position:absolute;margin-left:5px">&#8226;</div><div class="dataLabel"> Name of Subject </div>
                 <div class="dataValue">
                     <xsl:value-of select="Name"/>
                 </div>
@@ -50,7 +60,7 @@
 
                 <div class="dataLabel alwaysVisible">Date Supplied  </div>
                 <div class="dataValue">
-                    <xsl:value-of select="Date/DateSupplied-Dd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/DateSupplied-Mm"/></span>&#xA0;<xsl:value-of select="Date/DateSupplied-Yyyy"/>
+                    <xsl:value-of select="Date/DateSuppliedDd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/DateSuppliedMm"/></span>&#xA0;<xsl:value-of select="Date/DateSuppliedYyyy"/>
           
                 </div>
                 <div class="dataLabel" style="clear:both">CIFAS Member </div>
@@ -61,7 +71,7 @@
 
                 <div class="dataLabel alwaysVisible">Expiry Date</div>
                 <div class="dataValue">
-                    <xsl:value-of select="Date/ExpiryDate-Dd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/ExpiryDate-Mm"/></span>&#xA0;<xsl:value-of select="Date/ExpiryDate-Yyyy"/>
+                    <xsl:value-of select="Date/ExpiryDateDd"/>&#xA0;<span class="toMonthName"><xsl:value-of select="Date/ExpirydateMm"/></span>&#xA0;<xsl:value-of select="Date/ExpiryDateYyyy"/>
           </div>
                 <br style="clear:both"/>
                 <br style="clear:both"/>

@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="previousSearchesEnquiryTypes">
         <xsl:choose>
+            <xsl:when test="EnquiryType='0'">Risk Report</xsl:when>
             <xsl:when test="EnquiryType='1'">Registered Office / Company Profile</xsl:when>
             <xsl:when test="EnquiryType='2'">Profile &amp; Credit</xsl:when>
             <xsl:when test="EnquiryType='3'">Financial Analysis</xsl:when>
@@ -23,7 +24,12 @@
             <xsl:when test="EnquiryType='O'">Commercial Autoscore Reprocess Decision</xsl:when>
             <xsl:when test="EnquiryType='P'">Mortgages &amp; Charges</xsl:when>
             <xsl:when test="EnquiryType='Q'">Credit Card Report</xsl:when>
-            <xsl:when test="EnquiryType='X'">XML Bespoke Delivery</xsl:when>
+            <xsl:when test="EnquiryType='X'">Credit Profile</xsl:when>
+            <xsl:when test="EnquiryType='W'">Full Profile</xsl:when>
+            <xsl:when test="EnquiryType='Y'">Business Profile</xsl:when>
+            <xsl:when test="EnquiryType='Z'">Business Confirmation</xsl:when>
+            <xsl:when test="EnquiryType=''">Miscellaneous</xsl:when>
+            <xsl:when test="/RawBureauData/IsPATHSViewReport = 1"><xsl:value-of select="EnquiryType" /></xsl:when>
         </xsl:choose>
     </xsl:template>
 
@@ -61,17 +67,17 @@
                         </th>
                         <td>
                             <xsl:value-of
-                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch3Mth"
+                                select="Identification/PrevSearches/NumPrevSearch3Mth"
                             />
                         </td>
                         <td>
                             <xsl:value-of
-                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch6Mth"
+                                select="Identification/PrevSearches/NumPrevSearch6Mth"
                             />
                         </td>
                         <td>
                             <xsl:value-of
-                                select="/NonLtdBusinessData/Identification/PrevSearches/NumPrevSearch12Mth"
+                                select="Identification/PrevSearches/NumPrevSearch12Mth"
                             />
                         </td>
 
@@ -105,33 +111,31 @@
                         <th>
                             <span>SIC description</span>
                         </th>
-                        <th>
+                        <!--<th>
                             <span>NOC</span>
-                        </th>
+                        </th>-->
 
                     </tr>
                     <xsl:for-each select="Identification/PrevSearches/PrevSearchDetail">
                         
                     <tr>
                         <td style="text-align:left;padding-left:5px">
-                            <xsl:value-of select="SearchDate/DD"/>&#160;<span class="toMonthName" style="margin:0px:padding:0px"><xsl:value-of select="SearchDate/MM"/></span>&#160;<xsl:value-of select="SearchDate/CCYY"/>
+                            <xsl:value-of select="SearchDate/DD"/>/<xsl:value-of select="SearchDate/MM"/>/<xsl:value-of select="SearchDate/CCYY"/>
                         </td>
-                        <td style="width:200px">
-                            <xsl:call-template name="previousSearchesEnquiryTypes" >
-                                <xsl:with-param name="curvalue" select="EnquiryType">
-                                
-                            </xsl:with-param>
-                        </xsl:call-template>
+                        <td style="width:200px;text-align:left;text-indent:5px;">
+                           <xsl:call-template name="previousSearchesEnquiryTypes" >
+                                <xsl:with-param name="curvalue" select="EnquiryType"></xsl:with-param>
+                           </xsl:call-template>
                         </td>
-                        <td>
+                        <td style="text-align">
                             <xsl:value-of select="SICInformation/Type"/>
                         </td>
-                        <td>
+                        <td style="white-space:nowrap">
                             <xsl:value-of select="SICInformation/Description"/>
                         </td>
-                        <td id="notFound">
+                        <!--<td id="notFound">
                             ???
-                        </td>
+                        </td>-->
 
 
                     </tr>

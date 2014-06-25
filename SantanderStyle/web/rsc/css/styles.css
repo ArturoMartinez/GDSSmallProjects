@@ -1,5 +1,14 @@
 @charset "UTF-8";
 @media all{
+   .CAISAccountStatus{
+      float:left;
+      width:100px;
+      height:14px;
+      margin:-2px 10px 0px 5px;
+      text-align:center;
+      border-radius: 2px;
+      padding:2px 0px 0px 0px;
+   }
    body{
       font:normal normal normal 11px Arial;
    }
@@ -14,8 +23,16 @@
       border-bottom:1px dotted #EEE;
       margin-bottom:1px
    }
+   .adressLinkHeader, .adressLinkRow{
+      float:left;overflow:hidden
+   }
+   .adressLinkHeader{
+      font-weight:bold
+   }
+   .highlightedSection{
+      background:#ff9999
+   }
 
-					
    div .dataLabel, div .matrixLabel{
       font-weight:bold;
       width:200px;
@@ -81,7 +98,7 @@
       color:#f00;
    }
 
-					
+
    .doubt{
       color:#e90;
    }
@@ -151,7 +168,7 @@
 
    div .matrix table th div.inCellSubTitle,
    div .matrix table td div.inCellSubValue{
-						clear:both;
+      clear:both;
       text-transform:capitalize;
       background:#dedede;
       margin:0px;
@@ -167,7 +184,7 @@
    div .matrix table td div.inCellSubValue{
       border-bottom:1px solid #ddd;
       background:#eee;
-					clear:both;
+      clear:both;
    }
    div .matrix.thcenter table th{
       text-align:center
@@ -191,10 +208,10 @@
       margin:0px 0px 5px 0px;
       padding:5px
    }
-					div.subSectionInsert h4{
-					margin:0px 0px 5px 0px;
-					padding:5px
-					}
+   div.subSectionInsert h4{
+      margin:0px 0px 5px 0px;
+      padding:5px
+   }
    div.subSectionInsert div{
       font:italic normal normal 13px MS Serif
    }

@@ -28,7 +28,7 @@
         <tr>
             <th><span>date of account</span></th>
             <xsl:for-each select="Financials/Ratios">
-                <td>
+                <td class="canHideTableIfValue">
                    <xsl:value-of select="DateOfAccounts/DD"/>&#160;
                    <span class="toMonthName"><xsl:value-of select="DateOfAccounts/MM"/></span>&#160;
                    <xsl:value-of select="DateOfAccounts/CCYY"/>
@@ -181,7 +181,7 @@
             <span><xsl:value-of select="DiscontinuedOperations/PreTaxProfits"/></span>
         </td></xsl:for-each>
     </tr>
-
+    
 
     <tr>
         <th style="background:#fff;padding-top:5px;border:none">&#xA0;</th>
@@ -237,7 +237,7 @@
 
 
 
-           <th style="text-align:center">
+          <th style="text-align:center">
             % change
         </th>
 
@@ -255,7 +255,7 @@
         </td></xsl:for-each>
 
 
-        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeReturnOnCapital"/></td>
+      <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeReturnOnCapital"/></td>
 
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/ReturnOnCapitalMedian"/></span>
@@ -280,7 +280,7 @@
             <xsl:value-of select="CreditPeriod"/>
         </td></xsl:for-each>
         
-        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeCreditPeriod"/></td>
+       <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeCreditPeriod"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/CreditPeriodMedian"/></span>
         </td>
@@ -317,7 +317,7 @@
         <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
             <xsl:value-of select="EquityGearing"/>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeEquityGearing"/></td>
+       <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeEquityGearing"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/EquityGearingMedian"/></span>
         </td>
@@ -328,7 +328,7 @@
         <xsl:for-each select="Financials/Ratios[position() &lt; 3]"><td>
             <xsl:value-of select="DebtGearing"/>
         </td></xsl:for-each>
-        <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeDebtGearing"/></td>
+       <td> <xsl:value-of select="Financials/PercentageChange/PercentChangeDebtGearing"/></td>
         <td>
             <span><xsl:value-of select="Financials/Quartiles/MedianQuartiles/DebtGearingMedian"/></span>
         </td>

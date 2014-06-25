@@ -14,6 +14,7 @@
 	<xsl:include href="../common/xsl_commaSeparatedValue.xsl"/>
 	<xsl:include href="../common/xsl_lineSeparatedValue.xsl"/>
 	<xsl:include href="../common/xsl_one_row_date.xsl"/>
+	<xsl:include href="../common/xsl_list_fraud_categories.xsl"/>
 
 
 
