@@ -81,6 +81,7 @@
                 <xsl:for-each select="CorporateStructure/CompanyOwnership/CorporateShareholder">
                     <xsl:value-of select="Name"/>&#xA0;<xsl:value-of select="RegNumber"/>&#xA0;
                     <xsl:value-of select="Holding"/>&#xA0;
+            <br style="clear:both"/>
                 </xsl:for-each>
             </div>
 

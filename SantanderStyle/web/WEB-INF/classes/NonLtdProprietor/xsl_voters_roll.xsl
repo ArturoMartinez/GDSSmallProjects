@@ -2,21 +2,29 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="vRollsDetails">
         <xsl:param name="vIndicator"/>
+            
         <xsl:param name="vIndicatorExclude" select="''"/>
         <xsl:param name="occurenceLimit" select="1"/>
         <xsl:param name="occurenceVal" select="1"/>
         <xsl:param name="locationLabel" select="Location"/>
+
         <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollLocation">
             <xsl:if test="(LocationIndicator=$vIndicator and LocationIndicator!=$vIndicatorExclude) or /RawBureauData/IsPATHSViewReport = 1">
                  <div class="dataLabel"><xsl:value-of select="$locationLabel" disable-output-escaping="no"/></div>
                  <div class="dataValue" style="font-weight:bold">
                      <xsl:variable name="currentPosition" select="position()"/>
 
+                    <xsl:for-each select="../VotersRollPerson">
+                        <xsl:if test="LocationIndicator=$vIndicator ">
+                            <xsl:value-of select="VRollPersonDetails/HouseNumber" disable-output-escaping="no"/>,
+                        </xsl:if>
+                     </xsl:for-each>
                      <xsl:call-template name="commaSeparatedValue"><xsl:with-param name="curValue" select="VRollStreetDetails/Location/*"/></xsl:call-template>
 
                  </div>
                 </xsl:if>
         </xsl:for-each>
+
         <xsl:for-each select="ConsumerOutput/FullConsumerData/ConsumerData/VotersRollPerson">
         <xsl:if test="(LocationIndicator=$vIndicator and LocationIndicator!=$vIndicatorExclude)or /RawBureauData/IsPATHSViewReport = 1">
              <div class="dataLabel" style="display:none"></div>
@@ -35,7 +43,9 @@
                         </div>
                         <div style="width:150px;float:left">
                             <xsl:value-of select="Name/Forename"/>
-
+                            <xsl:if test="Name/MiddleName != ''">
+                                &#xA0;<xsl:value-of select="Name/MiddleName"/>
+                            </xsl:if>
                         </div>
                     </div>
                     <div style="float:left;margin-left:10px">
@@ -75,6 +85,8 @@
             <xsl:with-param name="vIndicatorExclude" select="'C'"/>
             <xsl:with-param name="occurenceLimit" select="$occurenceLimit"/>
             <xsl:with-param name="occurenceVal" select="$occurenceVal+1"/>
+
+            <!--xsl:with-param name="houseNum" select="$houseNum"/--> 
         </xsl:call-template>
     </xsl:if>
 </xsl:template>

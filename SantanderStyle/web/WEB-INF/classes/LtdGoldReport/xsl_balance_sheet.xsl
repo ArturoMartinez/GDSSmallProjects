@@ -441,26 +441,7 @@
 </tr>
 
 
-<tr>
-    <th><span>working capital</span></th>
-    <xsl:for-each select="Financials/Accounts">
-        <td class="num">
-            <span>
-                <xsl:value-of select="BalanceSheet/WorkingCapital"/>
-            </span>
-        </td>
-    </xsl:for-each>
-</tr>
-<tr>
-    <th><span>capital employed</span></th>
-    <xsl:for-each select="Financials/Accounts">
-        <td class="num">
-            <span>
-                <xsl:value-of select="BalanceSheet/CapitalEmployed"/>
-            </span>
-        </td>
-    </xsl:for-each>
-</tr>
+
 
 <tr>
     <th>other current liabilities
@@ -569,7 +550,26 @@
         </td>
     </xsl:for-each>
 </tr>
-
+<tr>
+    <th><span>working capital</span></th>
+    <xsl:for-each select="Financials/Accounts">
+        <td class="num">
+            <span>
+                <xsl:value-of select="BalanceSheet/WorkingCapital"/>
+            </span>
+        </td>
+    </xsl:for-each>
+</tr>
+<tr>
+    <th><span>capital employed</span></th>
+    <xsl:for-each select="Financials/Accounts">
+        <td class="num">
+            <span>
+                <xsl:value-of select="BalanceSheet/CapitalEmployed"/>
+            </span>
+        </td>
+    </xsl:for-each>
+</tr>
 <tr>
     <th>
         Long Term Financial Liabilities
