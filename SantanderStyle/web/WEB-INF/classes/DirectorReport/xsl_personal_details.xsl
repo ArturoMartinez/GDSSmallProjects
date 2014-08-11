@@ -76,8 +76,8 @@
                     <label>Address</label>
                     <div class="dataValue">
                         <xsl:call-template name="commaSeparatedValue">
-                            <xsl:with-param name="curValue" select="Location/*">
-                            </xsl:with-param>
+                            <xsl:with-param name="curValue" select="Location/*"></xsl:with-param>
+                            <xsl:with-param name="ignoredNode" select="'RMC'"></xsl:with-param>                            
                         </xsl:call-template>
 
                     </div>

@@ -280,8 +280,8 @@ if ($) {
 
    $.fn.removeUselessCommas = function() {
       return this.each(function() {
-    var data=$(this).html().replace(/[\n\r\t]/g,'').replace(/(,&nbsp;){1,}/g,',&nbsp;').replace(/(,){1,}/g,',')
-    $(this).html(data)
+        var data = $(this).html().replace(/[\n\r\t]/g,'').replace(/(,&nbsp;){1,}/g,',&nbsp;').replace(/(,){1,}/g,',');
+        $(this).html(data);
       });
    };
 

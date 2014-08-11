@@ -47,7 +47,7 @@
             <div class="dataLabel" style="clear:both">registered office</div>
             <div class="dataValue" style="overflow:auto">
 
-                     <xsl:value-of select="Identification/RegisteredOffice/LocationLine1"/>&#xA0;
+                    <xsl:value-of select="Identification/RegisteredOffice/LocationLine1"/>&#xA0;
                     <xsl:if test="Identification/RegisteredOffice/LocationLine2!=''"><xsl:value-of select="Identification/RegisteredOffice/LocationLine2"/>&#xA0;</xsl:if>
                     <xsl:if test="Identification/RegisteredOffice/LocationLine3!=''"><xsl:value-of select="Identification/RegisteredOffice/LocationLine3"/>&#xA0;</xsl:if>
                     <xsl:if test="Identification/RegisteredOffice/LocationLine4!=''"><xsl:value-of select="Identification/RegisteredOffice/LocationLine4"/>&#xA0;</xsl:if>
